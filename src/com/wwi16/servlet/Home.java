@@ -22,7 +22,7 @@ import com.wwi16.service.CarService;
 /**
  * Servlet implementation class Home
  */
-@WebServlet("/home")
+
 public class Home extends HttpServlet {
 	private static final long serialVersionUID = 112333L;
        
@@ -41,10 +41,10 @@ public class Home extends HttpServlet {
 		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/home.jsp");
 		
 		
-		CarService carService = new CarService();
-		Car car = carService.getCarByUserId("1");
-		System.out.println(car.getModel());
-		request.setAttribute("model", car.getModel());
+//		CarService carService = new CarService();
+//		Car car = carService.getCarByUserId("1");
+//		System.out.println(car.getModel());
+//		request.setAttribute("model", car.getModel());
 		
 		dispatcher.forward(request, response);
 //		Connection con = (Connection) getServletContext().getAttribute("DBConnection");
