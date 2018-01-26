@@ -1,21 +1,15 @@
 package com.wwi16.servlet;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.wwi16.model.Car;
-import com.wwi16.service.CarService;
+import com.wwi16.model.Ausstattung;
+import com.wwi16.service.AusstattungService;
 
 
 
@@ -40,7 +34,10 @@ public class Home extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/home.jsp");
 		
-		
+		AusstattungService ausstattungsServie = new AusstattungService();
+		Ausstattung ausstattungById = ausstattungsServie.getAusstattungById("1");
+		System.out.println(ausstattungById.getName());
+		request.setAttribute("ausstattung", ausstattungById.getName());
 //		CarService carService = new CarService();
 //		Car car = carService.getCarByUserId("1");
 //		System.out.println(car.getModel());

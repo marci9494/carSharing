@@ -6,6 +6,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
-<body>${model} marcel richtig
+<body>${ausstattung} marcel richtig
 </body>
 </html>
