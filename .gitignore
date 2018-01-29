@@ -1,0 +1,11 @@
+.project
+.classpath
+.project
+.settings/.jsdtscope
+.settings/org.eclipse.wst.common.component
+*.component
+*.war
+.classpath
+.settings/org.eclipse.wst.common.project.facet.core.xml
+.classpath
+WebContent/WEB-INF/views/home.jsp

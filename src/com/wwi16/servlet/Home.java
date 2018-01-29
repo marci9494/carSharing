@@ -37,29 +37,12 @@ public class Home extends HttpServlet {
 		AusstattungService ausstattungsServie = new AusstattungService();
 		Ausstattung ausstattungById = ausstattungsServie.getAusstattungById("1");
 		System.out.println(ausstattungById.getName());
-		request.setAttribute("ausstattung", ausstattungById.getName());
-//		CarService carService = new CarService();
-//		Car car = carService.getCarByUserId("1");
-//		System.out.println(car.getModel());
-//		request.setAttribute("model", car.getModel());
+		request.setAttribute("ausstattung", ausstattungById);
+
 		
 		dispatcher.forward(request, response);
-//		Connection con = (Connection) getServletContext().getAttribute("DBConnection");
-//		PreparedStatement ps = null;
-//		ResultSet rs = null;
-//		try {
-//			ps = con.prepareStatement("select id, model, marke from car");
-//			rs = ps.executeQuery();
-//			
-//			if(rs != null){
-//				rs.next();
-//				System.out.println(rs.getString("model"));
-//				System.out.println(rs.getString("marke"));
-//			}
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+
+		
 		
 	}
 

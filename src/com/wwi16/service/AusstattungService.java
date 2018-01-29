@@ -11,7 +11,6 @@ public class AusstattungService {
 	
     public Ausstattung getAusstattungById(String publicId) {
         Session session = HibernateUtil.openSession();
-        System.err.println("Session geöffnet");
         Transaction tx = null;
         Ausstattung ausstattung = null;
         try {

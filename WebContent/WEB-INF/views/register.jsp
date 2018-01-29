@@ -9,11 +9,7 @@
 
 
 <body>
-<<<<<<< HEAD
-	${ausstattung} enver richtig
-=======
-	${ausstattung.id} 	${ausstattung.name} 
->>>>>>> 8c75d6552286616405d7409203998b454a8388a9
+	Cooler text 
 </body>
 <jsp:include page="/theme/html/footer.html" />
 
