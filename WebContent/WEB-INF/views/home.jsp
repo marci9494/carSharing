@@ -6,11 +6,7 @@
 	<jsp:include page="/theme/css/main.css" />
 </style>
 <jsp:include page="/theme/html/header.html" />
-<head>
-		<meta charset="utf-8"/> 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
-		<title>CarNow</title> 
-</head> 
+
 
 <body>
 	${ausstattung} marcel richtig
