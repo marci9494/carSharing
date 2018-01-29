@@ -9,3 +9,6 @@
 .settings/org.eclipse.wst.common.project.facet.core.xml
 .classpath
 WebContent/WEB-INF/views/home.jsp
+.settings/org.eclipse.jdt.core.prefs
+.settings/org.eclipse.wst.jsdt.ui.superType.container
+.settings/org.eclipse.wst.jsdt.ui.superType.name
