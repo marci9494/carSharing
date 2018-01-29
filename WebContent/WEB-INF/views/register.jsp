@@ -9,7 +9,7 @@
 
 
 <body>
-	${ausstattung.id} 	${ausstattung.name} 
+	Cooler text 
 </body>
 <jsp:include page="/theme/html/footer.html" />
 
