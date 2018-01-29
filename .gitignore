@@ -6,3 +6,6 @@
 *.component
 *.war
 .classpath
+.settings/org.eclipse.wst.common.project.facet.core.xml
+.classpath
+WebContent/WEB-INF/views/home.jsp
