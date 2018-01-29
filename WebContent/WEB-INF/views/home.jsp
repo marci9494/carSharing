@@ -9,7 +9,7 @@
 
 
 <body>
-	${ausstattung} marcel richtig
+	${ausstattung} enver richtig
 </body>
 <jsp:include page="/theme/html/footer.html" />
 
