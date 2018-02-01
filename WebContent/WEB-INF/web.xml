@@ -17,6 +17,10 @@
     <servlet-name>renting_out</servlet-name>
     <servlet-class>com.wwi16.servlet.Renting_out</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>profil</servlet-name>
+    <servlet-class>com.wwi16.servlet.Profil</servlet-class>
+  </servlet>
   <servlet-mapping>
     <servlet-name>home</servlet-name>
     <url-pattern>/home</url-pattern>
@@ -32,5 +36,9 @@
   <servlet-mapping>
     <servlet-name>renting_out</servlet-name>
     <url-pattern>/renting_out</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>profil</servlet-name>
+    <url-pattern>/profil</url-pattern>
   </servlet-mapping>
 </web-app>

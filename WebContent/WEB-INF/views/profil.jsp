@@ -2,19 +2,41 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<style>
-	<jsp:include page="/theme/css/main.css" />
-</style>
+ <link rel="stylesheet" type="text/css" href="/carSharing/html/css/home.css" media="screen" />
 <jsp:include page="/theme/html/header.html" />
 
 
 <body>
-<<<<<<< HEAD
-	${ausstattung} enver richtig
-=======
-	${ausstattung.id} 	${ausstattung.name} 
->>>>>>> 8c75d6552286616405d7409203998b454a8388a9
+	<div class="banner-wrapper">
+		<img class="banner" alt="Banner"
+		src="/carSharing/html/img/car-banner.jpg">
+
+	</div>
+
+<main> 
+
+<br>
+
+				
+				<h1 > Meine CarNow Accountdetails </h1>
+			
+			
+			
+			<p> Hier findest du alle wichtigen Infos rund um deinen Account. Stell sicher, dass deine Angaben immer auf dem neusten Stand sind, damit deiner Nutzung von carNow nichts im Wege steht. 
+			Solltest du Fragen haben, melde dich gern bei uns.</p>
+			
+			<h2> Persönliche Daten</h2>
+
+
+		</main> 
+
+
 </body>
 <jsp:include page="/theme/html/footer.html" />
+
+<script src="/carSharing/html/js/profil.js"></script>
+
+
+
 
 </html>
