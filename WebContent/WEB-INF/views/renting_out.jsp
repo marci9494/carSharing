@@ -9,7 +9,15 @@
 
 
 <body>
-	Hier müssen zwei Felder hin
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>Vermietungszeitraum<br>
+<br>
+<label><input type="date" value="von" /></label> -
+<label><input type="date" value="bis" /></label>
 </body>
 <jsp:include page="/theme/html/footer.html" />
 
