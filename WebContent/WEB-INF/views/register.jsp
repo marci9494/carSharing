@@ -5,22 +5,23 @@
 <style>
 
 	<jsp:include page="/theme/css/main.css" />
-	input	{	padding-left: 1em;
-				height:	15px;	
+	input	{	height:	15px;	
 				border-bottom: 1px dotted #666666;
 				border-top: 0px;
 				border-left: 0px;
 				border-right: 0px;}	
-	label	{	padding-left: 5em;
-				margin: 0 auto;
-  			  	margin-top: 1em;
-				margin-bottom:.5em;	}
+	label	{	margin: 0 auto;
+
 	  
 	hr { 		width: 50%; 
     			height: 1px; 
     			margin: 0 auto;
     			color: grey;
     			background: #1f7cdf;	} 
+    			
+    div.1 	{		background:	#ff3fb8;
+    				border-color:        grey;	}	
+    
 </style>
 <jsp:include page="/theme/html/header.html" />
 
@@ -29,10 +30,13 @@
 
 <p>Registrierung</p>
 
-<form action="" id="user">
+
+
+<form method="post" enctype="multipart/form-data" id="user">
 
     <label for="email">Email</label>
-    <input type="email" name="email" id="email" size="30" maxlength="30" style="height:40px"> 
+    <input type="text" name="email" id="email" size="30" maxlength="30" style="height:40px"> 
+
     
     <br> <br>
  
@@ -43,7 +47,13 @@
     <input type="password" name="passwort" id="passwort" size="30" maxlength="30" style="height:40px"> 
     
     <br> <br>
-    <hr>
+    
+    <label>Anrede:
+    <select name="anrede" size="1">
+      <option>Frau</option>
+      <option>Mann</option>
+    </select>
+    
     <br>
   
     <label for="vorname">Vorname</label>
@@ -68,10 +78,24 @@
   	<label for="stadt">Stadt</label>
     <input type="text" name="stadt" id="stadt" size="30" maxlength="8" style="height:40px">
   	
+  	<br><br>
+  	
   	<label for="geburtsdatum">Geburtsdatum</label>
     <input type="date" name="geburtsdatum" id="geburtsdatum" size="30" style="height:40px">
   	
-  
+  	<br><br>
+  	
+  	<label>Wählen Sie ein Bild oder Scan Ihres Personalausweis von Ihrem Rechner aus.
+    <input name="datei" type="file" size="50" accept="text/*"> 
+  	</label>  
+  	
+  	<br>
+  	
+  	 <label>Wählen Sie ein Bild oder Scan Ihres Führerscheins von Ihrem Rechner aus.
+    <input name="datei" type="file" size="50" accept="text/*"> 
+  	</label> 
+  	
+ </form> 	
 </body>
 <jsp:include page="/theme/html/footer.html" />
 
