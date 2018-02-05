@@ -192,6 +192,39 @@ input[type=checkbox]:checked ~ nav{
     display: block;
     animation: hover 1s;
 }
+.name-address {
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 20px;
+    background: #fff;
+}
+.form-field-label {
+    position: absolute;
+
+
+    left: 190px;
+
+    font-size: 15px;
+
+    color: #888;
+
+}
+#button--primary{
+	position: absolute;
+	left: 190px;
+    background: #00a0e1;
+    color: #fff;
+    border-radius: 20px;
+    width: 10em;
+    height: 4em;
+}
+#button--primary:hover {
+    color: #00a0e1;
+    background: transparent;
+    box-shadow: 0 0 2px rgba(0,158,227,0.5);
+    outline: 0;
+}
+}
 /*---------------Smartphones--------------------*/
 @media only screen and (max-width: 360px){
 .show-menu {
@@ -318,6 +351,7 @@ header{
 #header-content{
 	margin-top: -5px;
 }
+
 }
 /*------------------kleine Bildschirme------------*/
 @media only screen and (min-width : 768px) and (max-width : 1084px){
@@ -375,6 +409,7 @@ nav ul li a:hover{
 #header-content{
 	margin-top: -5px;
 }
+
 }
 /*----------------normale Bildschirme-------------------*/
 @media only screen and (min-width : 1085px){
@@ -637,4 +672,11 @@ small {
 	text-transform:uppercase;
 	margin-bottom: 0.8em;
 }
+.name-address {
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 20px;
+    background: #fff;
+}
+
 }
