@@ -9,7 +9,14 @@
 <jsp:include page="/theme/html/header.html" />
 
 <body>
-	<br><br><br><br><br>
+	<div class="banner-wrapper">
+		<img class="banner" alt="Banner"
+		src="/carSharing/html/img/header.jpg">
+	</div>
+<main>
+	<div id="header-content" >
+		<h1 id="header-content-text">Autovermietung</h1>
+	</div>
 	<div>
 		<h5>Vermietungszeitraum</h5>
 		<p>Gib hier den Zeitraum an, in dem du dein Auto anderen Nutzern zur Verfügung stellen willst.
@@ -21,6 +28,7 @@
 			<br><br>
 		</p>
 	</div>
+</main>
 </body>
 
 <jsp:include page="/theme/html/footer.html" />
