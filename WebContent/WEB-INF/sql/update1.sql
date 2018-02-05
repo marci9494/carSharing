@@ -1,0 +1,1 @@
+ALTER TABLE FAHRZEUG CHANGE sitzplätze sitzplaetze int(11);
