@@ -8,9 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.wwi16.model.Ausstattung;
-import com.wwi16.service.AusstattungService;
-
 
 
 /**
@@ -33,11 +30,7 @@ public class Profil extends HttpServlet {
 	 */
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/profil.jsp");
-		
-		AusstattungService ausstattungsServie = new AusstattungService();
-		Ausstattung ausstattungById = ausstattungsServie.getAusstattungById("1");
-		System.out.println(ausstattungById.getName());
-		request.setAttribute("ausstattung", ausstattungById);
+
 
 		
 		dispatcher.forward(request, response);

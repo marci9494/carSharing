@@ -26,6 +26,10 @@
     <servlet-name>return</servlet-name>
     <servlet-class>com.wwi16.servlet.Return</servlet-class>
   </servlet>
+    <servlet>
+    <servlet-name>bewerten</servlet-name>
+    <servlet-class>com.wwi16.servlet.Bewerten</servlet-class>
+  </servlet>
   <servlet-mapping>
     <servlet-name>home</servlet-name>
     <url-pattern>/home</url-pattern>
@@ -49,6 +53,10 @@
   <servlet-mapping>
     <servlet-name>return</servlet-name>
     <url-pattern>/return</url-pattern>
+    </servlet-mapping>
+      <servlet-mapping>
+    <servlet-name>bewerten</servlet-name>
+    <url-pattern>/bewerten</url-pattern>
   </servlet-mapping>
     <resource-ref>
 		<description>
