@@ -7,11 +7,20 @@
 
 
 <body>
+
 	<div class="banner-wrapper">
 		<img class="banner" alt="Banner"
-			src="/carSharing/html/img/car-banner.jpg">
+			src="/carSharing/html/img/header.jpg">
 
 	</div>
+	
+	
+	<div class="search-overlay">
+	Jetzt Autos in der nähe finden<br>
+		<input type="text" class="plzInput"/>
+		<input type="button" value="Suchen" onclick="searchCar()"/>
+	</div>
+
 
 
 	${ausstattung.id} ${ausstattung.name} df fda
@@ -23,9 +32,8 @@
 	<br>
 	<br>
 	<br>
-	<br> faf fd fd
-	<br> afd
-	<br> f afd
+	<br> 	<br> 
+	<br> 
 
 
 
@@ -34,7 +42,22 @@
 
 <script src="/carSharing/html/js/home.js"></script>
 
-
+<script>
+function searchCar(){
+	console.log("blub");
+	
+	var plz = jQuery('.plzInput').val();
+	console.log(plz);
+	
+    jQuery.post("home",
+    	    {
+    	        plz:plz
+    	    },
+    	    function(data, status){
+    	        alert("Data: " + data + "\nStatus: " + status);
+    	    });
+}
+</script>
 
 
 </html>

@@ -21,12 +21,9 @@ public class Bewerten extends HttpServlet{
 		 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 		 */
 		public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+			
 			RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/bewerten.jsp");
-			
-
-	
-
-			
+			System.out.println("Bewerten!!");
 			dispatcher.forward(request, response);
 
 			
