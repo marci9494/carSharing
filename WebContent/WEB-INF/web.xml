@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
   <display-name>carSharing</display-name>
+
   <servlet>
     <servlet-name>home</servlet-name>
     <servlet-class>com.wwi16.servlet.Home</servlet-class>
@@ -13,13 +14,17 @@
     <servlet-name>register</servlet-name>
     <servlet-class>com.wwi16.servlet.Register</servlet-class>
   </servlet>
-   <servlet>
+  <servlet>
     <servlet-name>renting_out</servlet-name>
     <servlet-class>com.wwi16.servlet.Renting_out</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>profil</servlet-name>
     <servlet-class>com.wwi16.servlet.Profil</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>return</servlet-name>
+    <servlet-class>com.wwi16.servlet.Return</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>home</servlet-name>
@@ -41,4 +46,22 @@
     <servlet-name>profil</servlet-name>
     <url-pattern>/profil</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>return</servlet-name>
+    <url-pattern>/return</url-pattern>
+  </servlet-mapping>
+    <resource-ref>
+		<description>
+		This is a reference to the global Resource for MySQL database connetion.
+		</description>
+		<res-ref-name>
+		jdbc/carSharingDB
+		</res-ref-name>
+		<res-type>
+		javax.sql.DataSource
+		</res-type>
+		<res-auth>
+		Container
+		</res-auth>
+	</resource-ref>
 </web-app>
