@@ -2,10 +2,10 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
- <link rel="stylesheet" type="text/css" href="/carSharing/html/css/home.css" media="screen" />
+ <link rel="stylesheet" type="text/css" href="/carSharing/html/css/profil.css" media="screen" />
 <jsp:include page="/theme/html/header.html" />
 <style>
-	<jsp:include page="/theme/css/main.css" />
+	<jsp:include page="/html/css/profil.css" />
 </style>
 
 
@@ -25,7 +25,7 @@
 				<h1> Meine CarNow Accountdetails </h1>
 			
 			
-			<img src='/carSharing/theme/img/head.png' alt="head">
+				
 			<p> Hier findest du alle wichtigen Infos rund um deinen Account. Stell sicher, dass deine Angaben immer auf dem neusten Stand sind, damit deiner Nutzung von carNow nichts im Wege steht. 
 			Solltest du Fragen haben, melde dich gern bei uns.</p>
 			<div id="name-adress" class="name-adress">
@@ -51,6 +51,7 @@
 			 <p> Lade hier ein Foto von deinem Führerschein hoch, damit eine Nutzung von carNow möglich ist. </p>
 			 <br>
 			 <button type="button" id="button--primary">Hochladen</button>
+			 <input name="datei" type="file" size="50" accept="text/*"> 
 			 <br><br><br><br>
 			 <h2> Kreditkarteninformationen</h2>
 			 <span class="form-field-label">Anbieter</span>
