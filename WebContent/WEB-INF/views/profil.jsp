@@ -4,6 +4,10 @@
 <html>
  <link rel="stylesheet" type="text/css" href="/carSharing/html/css/home.css" media="screen" />
 <jsp:include page="/theme/html/header.html" />
+<style>
+	<jsp:include page="/theme/css/main.css" />
+</style>
+
 
 
 <body>
@@ -18,16 +22,47 @@
 <br>
 
 				
-				<h1 > Meine CarNow Accountdetails </h1>
+				<h1> Meine CarNow Accountdetails </h1>
 			
 			
-			
+			<img src='/carSharing/theme/img/head.png' alt="head">
 			<p> Hier findest du alle wichtigen Infos rund um deinen Account. Stell sicher, dass deine Angaben immer auf dem neusten Stand sind, damit deiner Nutzung von carNow nichts im Wege steht. 
 			Solltest du Fragen haben, melde dich gern bei uns.</p>
-			
+			<div id="name-adress" class="name-adress">
 			<h2> Persönliche Daten</h2>
-
-
+			<span class="form-field-label">Anrede</span>
+			<br><br><br><br>
+			<span class="form-field-label">Vorname</span>
+			<br><br><br><br>
+			<span class="form-field-label">Nachname</span>
+			<br><br><br><br>
+			<span class="form-field-label">Adresse</span>
+			<br><br><br><br>
+			<span class="form-field-label">E-Mail-Adresse</span>
+			<br><br><br><br>
+			<span class="form-field-label">Mobilfunknummer</span>
+			<br><br><br><br>
+			<span class="form-field-label">Dein Passwort</span>
+			<br><br><br><br>
+			</div>
+			 <button type="button" id="button--primary">Daten ändern</button>
+			 <br><br><br><br>
+			 <h2> Führerscheindaten</h2>
+			 <p> Lade hier ein Foto von deinem Führerschein hoch, damit eine Nutzung von carNow möglich ist. </p>
+			 <br>
+			 <button type="button" id="button--primary">Hochladen</button>
+			 <br><br><br><br>
+			 <h2> Kreditkarteninformationen</h2>
+			 <span class="form-field-label">Anbieter</span>
+			<br><br><br><br>
+			<span class="form-field-label">Kartenummer</span>
+			<br><br><br><br>
+			<span class="form-field-label">Gültigkeit</span>
+			<br><br><br><br>
+			<span class="form-field-label">Prüfziffer</span>
+			 <br><br><br><br>
+			 <button type="button" id="button--primary">Daten ändern</button>
+			 <br><br><br><br>
 		</main> 
 
 
