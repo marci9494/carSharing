@@ -36,10 +36,10 @@ public class Home extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/home.jsp");
 		
-		AusstattungService ausstattungsServie = new AusstattungService();
-		Ausstattung ausstattungById = ausstattungsServie.getAusstattungById("1");
-		System.out.println(ausstattungById.getName());
-		request.setAttribute("ausstattung", ausstattungById);
+//		AusstattungService ausstattungsServie = new AusstattungService();
+//		Ausstattung ausstattungById = ausstattungsServie.getAusstattungById("1");
+//		System.out.println(ausstattungById.getName());
+//		request.setAttribute("ausstattung", ausstattungById);
 
 		
 		dispatcher.forward(request, response);
@@ -53,14 +53,16 @@ public class Home extends HttpServlet {
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-//		String plz = request.getParameter("plz");
-//		System.out.println("doPost!!");
-//		response.setContentType("application/json");
-//		PrintWriter out = response.getWriter();
-//		Ausstattung ausstattung = new Ausstattung();
-//		String json = new Gson().toJson(ausstattung);
-//		out.print(json);
-//		out.flush();
+		String plz = request.getParameter("plz");
+		System.out.println("doPost!!");
+		response.setContentType("application/json");
+		PrintWriter out = response.getWriter();
+		AusstattungService ausstattungsServie = new AusstattungService();
+		Ausstattung ausstattungById = ausstattungsServie.getAusstattungById("1");
+		String json = new Gson().toJson(ausstattungById);
+		System.out.println(json);
+		out.print(json);
+		out.flush();
 	}
 	
 

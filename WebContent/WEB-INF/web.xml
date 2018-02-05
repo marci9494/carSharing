@@ -59,14 +59,9 @@
     <url-pattern>/bewerten</url-pattern>
   </servlet-mapping>
     <resource-ref>
-		<description>
-		This is a reference to the global Resource for MySQL database connetion.
-		</description>
-		<res-ref-name>
-		jdbc/carSharingDB
-		</res-ref-name>
-		<res-type>
-		javax.sql.DataSource
-		</res-type>
+		<description>This is a reference to the global Resource for MySQL database connetion.</description>
+		<res-ref-name>jdbc/carSharingDB</res-ref-name>
+		<res-type>javax.sql.DataSource</res-type>
+
 	</resource-ref>
 </web-app>
