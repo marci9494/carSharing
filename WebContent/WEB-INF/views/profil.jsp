@@ -13,7 +13,7 @@
 <body>
 	<div class="banner-wrapper">
 		<img class="banner" alt="Banner"
-		src="/carSharing/html/img/car-banner.jpg">
+		src="/carSharing/html/img/header.jpg">
 
 	</div>
 
@@ -22,8 +22,10 @@
 <br>
 
 				
-				<h1> Meine CarNow Accountdetails </h1>
-			
+				
+			<div id="header-content" >
+				<h1 id="header-content-text">Meine CarNow Accountdetails</h1>
+			</div>
 			
 				
 			<p> Hier findest du alle wichtigen Infos rund um deinen Account. Stell sicher, dass deine Angaben immer auf dem neusten Stand sind, damit deiner Nutzung von carNow nichts im Wege steht. 
