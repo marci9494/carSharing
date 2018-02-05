@@ -54,7 +54,8 @@ function searchCar(){
     	        plz:plz
     	    },
     	    function(data, status){
-    	        alert("Data: " + data + "\nStatus: " + status);
+    	    	console.log(data.id)
+    	        
     	    });
 }
 </script>
