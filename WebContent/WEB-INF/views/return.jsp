@@ -14,11 +14,17 @@
 <br>
 <br>
 <br>
-<br>Vermietungszeitraum<br>
 <br>
-<label><input type="date" value="von" /></label> -
-<label><input type="date" value="bis" /></label>
-<button type="button" id="vermieten">vermieten</button>
+<form action="textarea.html" method="post"> 
+   <div>  
+      <label for="text">Mängel</label>
+   <br>
+   <br>
+         <textarea id="text" name="text" cols="35" rows="4"></textarea> 
+   <br>	
+      <input type="submit" value="zurückgeben" />
+   </div> 
+</form> 
 </body>
 <jsp:include page="/theme/html/footer.html" />
 
