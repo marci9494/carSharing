@@ -3,10 +3,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <link rel="stylesheet" type="text/css" href="/carSharing/html/css/renting_out.css" media="screen" />
-<style>
-	<jsp:include page="/theme/css/main.css" />
-</style>
 <jsp:include page="/theme/html/header.html" />
+<style>
+<jsp:include page="/html/css/renting_out.css" />
+</style>
 
 <body>
 	<div class="banner-wrapper">

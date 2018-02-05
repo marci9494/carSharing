@@ -88,7 +88,7 @@ h5{
 	position: relative;
 	font-size: 1.4em;
 	font-weight: 100;
-	padding-left: 7.2em;
+	padding-left: 8.5em;
 }
 a {
 	color: #262626;
@@ -184,9 +184,7 @@ nav ul li a:hover{
 	color: #fff;
 	text-decoration: underline;
 }
-h2 {
-	text-align: center;
-}
+
 #search {
 	margin-bottom: 1em;
 	background: #fff;
@@ -248,9 +246,7 @@ nav ul li a:hover{
 	color: #fff;
 	text-decoration: underline;
 }
-h2 {
-	text-align: center;
-}
+
 #search {
 	margin-bottom: 1em;
 }
@@ -477,7 +473,7 @@ h5{
 	position: relative;
 	font-size: 1.4em;
 	font-weight: 100;
-	padding-left: 7.2em;
+	padding-left: 8.5em;
 }
 #logo {
 	float:left;

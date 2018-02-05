@@ -75,7 +75,7 @@ p {
 	text-align:justify;
 }
 h1 {
-	color: #FFFFFF;
+	color: white;
 	font-weight: 100;
 	font-size: 3.2em;
 	z-index: 10;
@@ -88,7 +88,7 @@ h5{
 	position: relative;
 	font-size: 1.4em;
 	font-weight: 100;
-	padding-left: 7.2em;
+	padding-left: 8.5em;
 }
 
 a {
@@ -186,9 +186,7 @@ nav ul li a:hover{
 	color: #fff;
 	text-decoration: underline;
 }
-h2 {
-	text-align: center;
-}
+
 #search {
 	margin-bottom: 1em;
 	background: #fff;
@@ -250,9 +248,7 @@ nav ul li a:hover{
 	color: #fff;
 	text-decoration: underline;
 }
-h2 {
-	text-align: center;
-}
+
 #search {
 	margin-bottom: 1em;
 }
@@ -465,7 +461,7 @@ footer {
 	line-height: 1.7em;
 }
 h1 {
-	color: #FFFFFF;
+	color: white;
 	font-weight: 100;
 	font-size: 3.2em;
 	z-index: 10;
@@ -479,7 +475,7 @@ h5{
 	position: relative;
 	font-size: 1.4em;
 	font-weight: 100;
-	padding-left: 7.2em;
+	padding-left: 8.5em;
 }
 #logo {
 	float:left;
