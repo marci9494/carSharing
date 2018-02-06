@@ -52,8 +52,11 @@
 			 <h2> Führerscheindaten</h2>
 			 <p> Lade hier ein Foto von deinem Führerschein hoch, damit eine Nutzung von carNow möglich ist. </p>
 			 <br>
-			 <button type="button" id="button--primary">Hochladen</button>
-			 <input name="datei" type="file" size="50" accept="text/*"> 
+			 <!--<button type="file" id="button--primary">Hochladen</button>
+			 <input name="datei" type="file" size="50" accept="text/*">  -->
+			 <div class="file-upload btn btn-primary">	
+			 <span>Hochladen</span>  
+			<input class="upload" type="file"></div>
 			 <br><br><br><br>
 			 <h2> Kreditkarteninformationen</h2>
 			 <span class="form-field-label">Anbieter</span>

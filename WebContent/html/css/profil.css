@@ -215,13 +215,10 @@ input[type=checkbox]:checked ~ nav{
 
 }
 #button--primary{
-	position: marging-left;
-	left: 190px;
+    border: 1px solid #00a0e1;
     background: #00a0e1;
     color: #fff;
-    border-radius: 20px;
-    width: 10em;
-    height: 4em;
+	height: 50px;
 }
 #button--primary:hover {
     color: #00a0e1;
@@ -239,6 +236,48 @@ input[type=checkbox]:checked ~ nav{
 
 .search-overlay{
 	
+}
+.file-upload {
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #00a0e1;
+    border-color: #00a0e1;
+}	
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 8px solid transparent;
+    border-radius: 15px;
+}
+.file-upload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
 }
 }
 /*---------------Smartphones--------------------*/
