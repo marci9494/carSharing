@@ -5,11 +5,18 @@
 <link rel="stylesheet" type="text/css" href="/carSharing/html/css/return_car.css" media="screen" />
 <jsp:include page="/theme/html/header.html" />
 <style>
-	<jsp:include page="/theme/css/main.css" />
+	<jsp:include page="/html/css/return_car.css" />
 </style>
 
 <body>
-	<br><br><br><br><br><br>
+	<div class="banner-wrapper">
+		<img class="banner" alt="Banner"
+		src="/carSharing/html/img/header.jpg">
+	</div>
+<main>
+	<div id="header-content" >
+		<h1 id="header-content-text">Auto zurückgeben</h1>
+	</div>
 <form action="textarea.html" method="post"> 
 	<div>
 		<h5>Mängel</h5>
@@ -30,6 +37,7 @@
 		</p>
 	</div>  
 </form> 
+</main>
 </body>
 
 <jsp:include page="/theme/html/footer.html" />

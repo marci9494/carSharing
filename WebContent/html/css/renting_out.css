@@ -75,40 +75,22 @@ p {
 	text-align:justify;
 }
 h1 {
-	color: #4472C4;
+	color: white;
 	font-weight: 100;
-	font-size: 2.2em;
+	font-size: 3.2em;
 	z-index: 10;
 	margin: 0;
 	text-align: center;
-}
-h2 {
-    color: #4472C4;
-    position: relativ;
-    margin-bottom: 1.5em;
-    font-size: 1.4em;
-    font-weight: 100;
-    padding-left: 1em;
-    padding-right: 1em;
-	text-align: center;
-}
-h3 {
-    color: #81BEF7;
-    position: relative;
-    margin-bottom: 1.5em;
-    font-size: 1.8em;
-    font-weight: 100;
-    padding-left: 1em;
-	
+	text-shadow: 0 0 5px black;
 }
 h5{
 	color: #4472C4;	
 	position: relative;
 	font-size: 1.4em;
 	font-weight: 100;
-	padding-left: 7.2em;
+	padding-left: 8.5em;
 }
-}
+
 a {
 	color: #262626;
 	text-decoration: underline;
@@ -126,12 +108,13 @@ a:hover{
     background-repeat:no-repeat;
     background-size: cover;
     background-position:center;
-	background-image: url("../img/header.jpg");
+	background-image: url("../bilder/header.jpg");
 	padding-top: 10%;
 	padding-bottom: 10%;
 	text-align: center;
 	color: #fff;
 	margin-bottom: 2em;
+	margin-top: -19em;
 }
 
 .show-menu {
@@ -160,6 +143,13 @@ a:hover{
     background: transparent;
     box-shadow: 0 0 2px rgba(0,158,227,0.5);
     outline: 0;
+}
+.banner-wrapper{
+	width: 100%;
+	margin-top:60px;
+}
+.banner{
+	width:100%;
 }
 }
 /*---------------Smartphones--------------------*/
@@ -196,9 +186,7 @@ nav ul li a:hover{
 	color: #fff;
 	text-decoration: underline;
 }
-h2 {
-	text-align: center;
-}
+
 #search {
 	margin-bottom: 1em;
 	background: #fff;
@@ -260,9 +248,7 @@ nav ul li a:hover{
 	color: #fff;
 	text-decoration: underline;
 }
-h2 {
-	text-align: center;
-}
+
 #search {
 	margin-bottom: 1em;
 }
@@ -475,39 +461,13 @@ footer {
 	line-height: 1.7em;
 }
 h1 {
-	color: #4472C4;
+	color: white;
 	font-weight: 100;
-	font-size: 1.6em;
+	font-size: 3.2em;
 	z-index: 10;
 	margin: 0;
 	text-align: center;
-}
-h2 {
-    color: #4472C4;
-    position: relativ;
-    margin-bottom: 1.5em;
-    font-size: 1.4em;
-    font-weight: 100;
-    padding-left: 1em;
-
-}
-h3 {
-    color: #81BEF7;
-    position: relative;
-    margin-bottom: 1.5em;
-    font-size: 1.8em;
-    font-weight: 100;
-    padding-left: 1em;
-	
-}
-
-h4 {
-    color: #81BEF7;
-    position: relative;
-    margin-bottom: 1.5em;
-    font-size: 1.8em;
-    font-weight: 100;
-    padding-left: 1em;
+	text-shadow: 0 0 5px black;
 }
 
 h5{
@@ -515,7 +475,7 @@ h5{
 	position: relative;
 	font-size: 1.4em;
 	font-weight: 100;
-	padding-left: 7.2em;
+	padding-left: 8.5em;
 }
 #logo {
 	float:left;
