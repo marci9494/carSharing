@@ -8,6 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.wwi16.model.Nutzer;
+import com.wwi16.service.NutzerService;
+
 
 
 /**
@@ -31,7 +34,9 @@ public class Profil extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/profil.jsp");
 
-
+		NutzerService nutzerService = new NutzerService();
+		Nutzer nutzer = nutzerService.getNutzer("marcel_ament@web.de");
+		request.setAttribute("nutzer",nutzer);
 		
 		dispatcher.forward(request, response);
 

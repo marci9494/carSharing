@@ -26,10 +26,10 @@ public class Login extends HttpServlet {
 		NutzerService nutzerService = new NutzerService();
 		boolean erfolgreich = nutzerService.checkLogin(user, pass);
 		if (erfolgreich == true) {
-			  out.println("Correct login credentials");
+			  System.out.println("Correct login credentials");
         } 
         else {
-            out.println("Incorrect login credentials");
+        	System.out.println("Incorrect login credentials");
         }	
 			
 	}
