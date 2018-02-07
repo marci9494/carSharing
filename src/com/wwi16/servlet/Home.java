@@ -2,6 +2,7 @@ package com.wwi16.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,7 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 import com.wwi16.model.Ausstattung;
+import com.wwi16.model.Fahrzeug;
 import com.wwi16.service.AusstattungService;
+import com.wwi16.service.FahrzeugService;
 
 
 
@@ -57,9 +60,12 @@ public class Home extends HttpServlet {
 		System.out.println("doPost!!");
 		response.setContentType("application/json");
 		PrintWriter out = response.getWriter();
-		AusstattungService ausstattungsServie = new AusstattungService();
-		Ausstattung ausstattungById = ausstattungsServie.getAusstattungById("1");
-		String json = new Gson().toJson(ausstattungById);
+
+		FahrzeugService fahrzeugService = new FahrzeugService();
+		//TODO search for plz
+		List<Fahrzeug> searchFahrzeug = fahrzeugService.searchFahrzeug("12345");
+		
+		String json = new Gson().toJson(searchFahrzeug);
 		System.out.println(json);
 		out.print(json);
 		out.flush();

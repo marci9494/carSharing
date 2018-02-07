@@ -14,5 +14,11 @@
 
 		<property name="connection.datasource">java:comp/env/jdbc/carSharingDB</property>
 		<mapping class="com.wwi16.model.Ausstattung" />
+		<mapping class="com.wwi16.model.Bewertung" />
+		<mapping class="com.wwi16.model.Fahrzeug" />
+		<mapping class="com.wwi16.model.FahrzeugFarbe" />
+		<mapping class="com.wwi16.model.FahrzeugHersteller" />
+		<mapping class="com.wwi16.model.FahrzeugKategorie" />
+		<mapping class="com.wwi16.model.Nutzer" />
 	</session-factory>
 </hibernate-configuration>
