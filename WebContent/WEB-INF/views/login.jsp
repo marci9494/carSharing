@@ -41,10 +41,10 @@
                                                 <input type="text" name="username" placeholder="Username" id="username">
                                             </label>
                                             <label class="mail">
-                                                <input type="email" name="pass" placeholder="Passwort" id="mail">
+                                                <input type="password" name="pass" placeholder="Passwort" id="pass">
                                             </label>
                                         </div>
-                                        <button type="submit" class="form-btn" onsubmit="">Anmelden</button>
+                                        <button type="submit" value="login" onsubmit="">Anmelden</button>
                                     </form>
                                 </div>
                             </div>

@@ -19,6 +19,19 @@ public class Login extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/login.jsp");
 		dispatcher.forward(request, response);
+		
+		String user = request.getParameter("user");
+        String pass = request.getParameter("pass");
+        
+		NutzerService nutzerService = new NutzerService();
+		boolean erfolgreich = nutzerService.checkLogin(user, pass);
+		if (erfolgreich == true) {
+			  out.println("Correct login credentials");
+        } 
+        else {
+            out.println("Incorrect login credentials");
+        }	
+			
 	}
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -27,3 +40,4 @@ public class Login extends HttpServlet {
 		doGet(request, response);
 	}
 }
+
