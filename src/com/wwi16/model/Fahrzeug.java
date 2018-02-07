@@ -5,6 +5,8 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -17,12 +19,16 @@ public class Fahrzeug implements Serializable{
 	
 	@Id @GeneratedValue
 	    private Long id;
-		private String leistung;
-		private String sitzplaetze;
+		private int leistung;
+		private int sitzplaetze;
 		private String modell;
-		private String km_stand;
+		private int km_stand;
+		
+		@OneToOne
 		private FahrzeugFarbe farbe;
+		@OneToOne
 		private FahrzeugHersteller hersteller;
+		@OneToOne
 		private FahrzeugKategorie kategorie;
 		
 		
@@ -32,16 +38,16 @@ public class Fahrzeug implements Serializable{
 		public void setId(Long id) {
 			this.id = id;
 		}
-		public String getLeistung() {
+		public int getLeistung() {
 			return leistung;
 		}
-		public void setLeistung(String leistung) {
+		public void setLeistung(int leistung) {
 			this.leistung = leistung;
 		}
-		public String getSitzplaetze() {
+		public int getSitzplaetze() {
 			return sitzplaetze;
 		}
-		public void setSitzplaetze(String sitzplaetze) {
+		public void setSitzplaetze(int sitzplaetze) {
 			this.sitzplaetze = sitzplaetze;
 		}
 		public String getModell() {
@@ -50,10 +56,10 @@ public class Fahrzeug implements Serializable{
 		public void setModell(String modell) {
 			this.modell = modell;
 		}
-		public String getKm_stand() {
+		public int getKm_stand() {
 			return km_stand;
 		}
-		public void setKm_stand(String km_stand) {
+		public void setKm_stand(int km_stand) {
 			this.km_stand = km_stand;
 		}
 		public FahrzeugFarbe getFarbe() {

@@ -21,20 +21,7 @@
 		<input type="button" value="Suchen" onclick="searchCar()"/>
 	</div>
 
-
-
-	${ausstattung.id} ${ausstattung.name} df fda
-	<br> fd
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br> 	<br> 
-	<br> 
-
+	<div class="foundCars"></div>
 
 
 </body>
@@ -43,9 +30,7 @@
 <script src="/carSharing/html/js/home.js"></script>
 
 <script>
-function searchCar(){
-	console.log("blub");
-	
+function searchCar(){	
 	var plz = jQuery('.plzInput').val();
 	console.log(plz);
 	
@@ -54,7 +39,12 @@ function searchCar(){
     	        plz:plz
     	    },
     	    function(data, status){
-    	    	console.log(data.id)
+    	    	console.log(data[0].id)
+    	    	for (var i = 0; i < data.length; i++) {
+    	    		var carDiv = jQuery('<div></div>');
+    	    		carDiv.append("<span>" +data[i].modell + "</span>");
+					jQuery('.foundCars').append(carDiv);
+				}
     	        
     	    });
 }

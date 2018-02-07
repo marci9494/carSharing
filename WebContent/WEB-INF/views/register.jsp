@@ -25,16 +25,17 @@
     <input type="email" name="email" id="email"
    		placeholder="Geben Sie bitte Ihre Email an" size="30" maxlength="30" required> 
 	</div>
-   
+
  	<div class="wrapper">
     <label for="passwort">Passwort</label>  
     <input type="password" name="passwort" id="passwort" 
     	placeholder="Bitte geben Sie ein Passwort ein" size="30" maxlength="30" required>
 	
 	<label for="passwort">Passwort bestätigen</label>  
-    <input type="password" name="passwort" id="passwort" 
+    <input type="password" name="passwort" id="confirm_passwort" 
     	placeholder="Bitte bestätigen Sie Ihr Passwort" size="30" maxlength="30" required> 
     </div>
+
 	
 	<br>
 	<div class="wrapper">
@@ -101,6 +102,22 @@
     <input name="datei" type="file" size="50" accept="text/*" required> 
   	</label> 
   	</div>
+  	
+  	<script>
+  	var password = document.getElementById("passwort")
+    , confirm_password = document.getElementById("confirm_passwort");
+
+  	function validatePassword(){
+    if(password.value != confirm_password.value) {
+      confirm_password.setCustomValidity("Die Passwörter stimmen nicht überein");
+    } else {
+      confirm_password.setCustomValidity('');
+    }
+ 	}
+
+ 	password.onchange = validatePassword;
+  	confirm_password.onkeyup = validatePassword;
+  	</script>
   
    	<div class="submit">
   	<button type="submit" class="send_reg" name="submit" id="send_reg">Weiter</button>	

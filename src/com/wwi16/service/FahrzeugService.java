@@ -21,7 +21,7 @@ public class FahrzeugService {
         try {
             tx = session.getTransaction();
             tx.begin();
-            Query query = session.createQuery("from Fahrzeug");
+            Query query = session.createQuery("from Fahrzeug ");
             fahrzeuge = (List<Fahrzeug>)query.list();
             tx.commit();
         } catch (Exception e) {
