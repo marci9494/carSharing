@@ -43,7 +43,7 @@ public class Home extends HttpServlet {
 //		AusstattungService ausstattungsServie = new AusstattungService();
 //		Ausstattung ausstattungById = ausstattungsServie.getAusstattungById("1");
 //		System.out.println(ausstattungById.getName());
-//		request.setAttribute("ausstattung", ausstattungById);
+//		request.setAttribute("fahrzeug", ausstattungById);
 
 		
 		dispatcher.forward(request, response);

@@ -73,6 +73,28 @@ public class NutzerService {
 		return nutzer;
 	}
 	
+	public Nutzer getNutzer(String email){
+        Session session = HibernateUtil.openSession();
+        Transaction tx = null;
+        Nutzer nutzer = null;
+        try {
+            tx = session.getTransaction();
+            tx.begin();
+            Query query = session.createQuery("from Nutzer where email='"+email+"'");
+            nutzer = (Nutzer)query.uniqueResult();
+            tx.commit();
+        } catch (Exception e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return nutzer;
+	}
+	
+	
 	private String hashPassword(String password){
 		String generatedPassword = null;
         try {
