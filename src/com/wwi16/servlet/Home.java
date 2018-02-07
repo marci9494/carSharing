@@ -15,6 +15,7 @@ import com.wwi16.model.Ausstattung;
 import com.wwi16.model.Fahrzeug;
 import com.wwi16.service.AusstattungService;
 import com.wwi16.service.FahrzeugService;
+import com.wwi16.service.NutzerService;
 
 
 
@@ -55,7 +56,7 @@ public class Home extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		String plz = request.getParameter("plz");
 		System.out.println("doPost!!");
 		response.setContentType("application/json");
