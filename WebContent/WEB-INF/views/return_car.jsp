@@ -15,7 +15,7 @@
 	</div>
 <main>
 	<div id="header-content" >
-		<h1 id="header-content-text">Auto zurückgeben</h1>
+		<h1 id="header-content-text">Auto&shyrückgabe</h1>
 	</div>
 <form action="textarea.html" method="post"> 
 	<div>
