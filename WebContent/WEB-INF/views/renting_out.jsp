@@ -15,10 +15,10 @@
 	</div>
 <main>
 	<div id="header-content" >
-		<h1 id="header-content-text">Autovermietung</h1>
+		<h1 id="header-content-text">Auto&shyvermietung</h1>
 	</div>
 	<div>
-		<h5>Vermietungszeitraum</h5>
+		<h5>Vermietungs&shyzeitraum</h5>
 		<p>Gib hier den Zeitraum an, in dem du dein Auto anderen Nutzern zur Verfügung stellen willst.
 			<br><br>
 			<label><input type="date" value="von" /></label> -
