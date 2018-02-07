@@ -30,9 +30,7 @@
 <script src="/carSharing/html/js/home.js"></script>
 
 <script>
-function searchCar(){
-	console.log("blub");
-	
+function searchCar(){	
 	var plz = jQuery('.plzInput').val();
 	console.log(plz);
 	
