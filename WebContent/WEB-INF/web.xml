@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
   <display-name>carSharing</display-name>
-
   <servlet>
     <servlet-name>home</servlet-name>
     <servlet-class>com.wwi16.servlet.Home</servlet-class>
@@ -26,7 +25,7 @@
     <servlet-name>return_car</servlet-name>
     <servlet-class>com.wwi16.servlet.Return_car</servlet-class>
   </servlet>
-    <servlet>
+  <servlet>
     <servlet-name>bewerten</servlet-name>
     <servlet-class>com.wwi16.servlet.Bewerten</servlet-class>
   </servlet>
@@ -53,15 +52,14 @@
   <servlet-mapping>
     <servlet-name>return_car</servlet-name>
     <url-pattern>/return_car</url-pattern>
-    </servlet-mapping>
-      <servlet-mapping>
+  </servlet-mapping>
+  <servlet-mapping>
     <servlet-name>bewerten</servlet-name>
     <url-pattern>/bewerten</url-pattern>
   </servlet-mapping>
-    <resource-ref>
-		<description>This is a reference to the global Resource for MySQL database connetion.</description>
-		<res-ref-name>jdbc/carSharingDB</res-ref-name>
-		<res-type>javax.sql.DataSource</res-type>
-
-	</resource-ref>
+  <resource-ref>
+    <description>This is a reference to the global Resource for MySQL database connetion.</description>
+    <res-ref-name>jdbc/carSharingDB</res-ref-name>
+    <res-type>javax.sql.DataSource</res-type>
+  </resource-ref>
 </web-app>

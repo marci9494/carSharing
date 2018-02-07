@@ -35,7 +35,7 @@
                                     <h1>Willkommen <span>zurück!</span></h1>
                                 </div>
                                 <div class="login-form">
-                                    <form>
+                                    <form method="post" action="login">
                                         <div class="form-details">
                                             <label class="user">
                                                 <input type="text" name="username" placeholder="Username" id="username">
