@@ -208,6 +208,9 @@ header{
 #header-content{
 	margin-top: -5px;
 }
+h5 {
+	text-align: center;
+}
 }
 /*---------------------Tablets------------------*/
 @media only screen and (min-width: 361px) and (max-width: 767px){
@@ -268,7 +271,9 @@ header{
 #header-content{
 	margin-top: -5px;
 }
-
+h5 {
+	text-align: center;
+}
 }
 /*------------------kleine Bildschirme------------*/
 @media only screen and (min-width : 768px) and (max-width : 1084px){
@@ -326,7 +331,9 @@ nav ul li a:hover{
 #header-content{
 	margin-top: -5px;
 }
-
+h5 {
+	text-align: center;
+}
 }
 /*----------------normale Bildschirme-------------------*/
 @media only screen and (min-width : 1085px){
