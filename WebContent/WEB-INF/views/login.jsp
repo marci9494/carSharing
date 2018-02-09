@@ -4,42 +4,32 @@
 <html>
 <link rel="stylesheet" type="text/css" href="/carSharing/html/css/login.css" media="screen" />
 <jsp:include page="/theme/html/header.html" />
+<style>
+<jsp:include page="/html/css/login.css" />
+</style>
 
 <body>
 <div class="banner-wrapper">
 		<img class="banner" alt="Banner"
 			src="/carSharing/html/img/header.jpg">
 </div>
+<main>
+	<div id="header-content" >
+		<h1 id="header-content-text">Login</h1>
+	</div>
 	<div class="login-area">
-        <div class="bg-image">
-            <div class="login-signup">
-                <div class="container">
-                    <div class="tab-content">
-                        <div id="login" class="tab-pane">
-                           <div class="login-inner">
-                                <div class="title">
-                                    <h1>Willkommen <span>zurück!</span></h1>
-                                </div>
-                                <div class="login-form">
-                                    <form method="post" action="login">
-                                        <div class="form-details">
-                                            <label class="user">
-                                                <input type="text" name="username" placeholder="Username" id="username">
-                                            </label>
-                                            <label class="mail">
-                                                <input type="password" name="pass" placeholder="Passwort" id="pass">
-                                            </label>
-                                        </div>
-                                        <button type="submit" value="login" onsubmit="">Anmelden</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+       <h5>Willkommen <span>zurück!</span></h5>
+          <form method="post" action="login">
+          	<label class="user">
+          		<p><input type="text" name="username" placeholder="Username" id="username">
+            </label>
+            <label class="mail">
+            	<input type="password" name="pass" placeholder="Passwort" id="pass"></p>
+          	</label>
+            	<p><button type="submit" value="login" onsubmit="">Anmelden</button></p>
+          </form>
     </div>
+  </main>
 </body>
 <jsp:include page="/theme/html/footer.html" />
 
