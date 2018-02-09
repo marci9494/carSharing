@@ -35,7 +35,7 @@ public class Profil extends HttpServlet {
 		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/profil.jsp");
 
 		NutzerService nutzerService = new NutzerService();
-		Nutzer nutzer = nutzerService.getNutzer("marcel_ament@web.de");
+		Nutzer nutzer = nutzerService.getNutzer("max.mustermann@muster.de");
 		request.setAttribute("nutzer",nutzer);
 		
 		dispatcher.forward(request, response);
