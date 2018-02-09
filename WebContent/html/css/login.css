@@ -1,0 +1,236 @@
+html,
+body {
+font-family: 'Roboto', sans-serif;
+font-size: 20px;
+height: 100%;
+}
+
+a,
+a:hover,
+a:focus,
+focus {
+outline: none !important;
+text-decoration: none;
+color: #fff;
+}
+
+.container{
+max-width:800px;
+width: 100%;
+
+.login-signup {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+}
+
+.login-inner h1 {
+    color: #8492af;
+    font-size: 35px;
+    font-weight: 300;
+    text-align: center;
+    margin-top: 0;
+}
+
+.login-inner h1 span {
+    color: #5584ff;
+}
+
+.login-form {
+    text-align: center;
+}
+
+.login-form input {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border-color: -moz-use-text-color -moz-use-text-color #d4d9e3;
+    border-image: none;
+    border-style: none none solid;
+    border-width: medium medium 1px;
+    font-size: 13px;
+    font-weight: 300;
+    width: 100%;
+    color: #8492af;
+    padding: 15px 50px;
+    font-size: 17px;
+    max-width: 550px;
+}
+
+.login-form label {
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.user input {
+    background: rgba(0, 0, 0, 0) url("http://jskrishna.com/work/merkury/images/user.png") no-repeat scroll 7px 12px;
+}
+
+.pass input {
+    background: rgba(0, 0, 0, 0) url("http://jskrishna.com/work/merkury/images/password.png") no-repeat scroll 7px 12px;
+}
+
+.login-signup .tab-content {
+    background: #ffffff none repeat scroll 0 0;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.176);
+    display: inline-block;
+    margin-top: -8px;
+    width: 100%;
+}
+
+.form-btn {
+    background: #5584ff none repeat scroll 0 0;
+    border: medium none;
+    border-radius: 100px;
+    color: #ffffff;
+    font-weight: 400;
+    max-width: 250px;
+    padding: 10px 0;
+    position: relative;
+    width: 100%;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 8px #d2d2d2;
+    -moz-box-shadow: 0 2px 8px #d2d2d2;
+    -webkit-box-shadow: 0 2px 8px #d2d2d2;
+}
+
+.form-btn::before {
+    content: "";
+    font-family: FontAwesome;
+    position: absolute;
+    right: 17px;
+    top: 9px;
+}
+
+.form-details {
+    padding: 35px 0;
+}
+
+@media only screen and (max-device-width: 767px) {
+    .login-details .nav-tabs > li {
+        text-align: center;
+        width: 50%;
+    }
+    .login-signup .login-inner h1 {
+        font-size: 26px;
+        margin-bottom: 0;
+        margin-top: 10px;
+    }
+    .login-inner .login-form input {
+        font-size: 15px;
+        max-width: 100%;
+        padding: 15px 45px;
+    }
+    .login-inner .form-details {
+        padding: 25px;
+    }
+    .login-inner .login-form label {
+        margin-bottom: 20px;
+        width: 100%;
+    }
+    .login-inner .form-btn {
+        margin: 0;
+        max-width: 180px;
+  
+    button,
+        html [type="button"],
+        [type="reset"],
+        [type="submit"] {
+            outline: medium none;
+    }
+    .user-dashboard .sales h2 {
+        color: #8492af;
+        float: left;
+        font-size: 14px;
+        font-weight: 600;
+        margin: 0;
+        padding: 13px 0 0;
+}
+    .user-dashboard .btn.btn-secondary.btn-lg.dropdown-toggle > span {
+        font-size: 11px;
+}
+    .user-dashboard .sales button {
+        font-size: 11px;
+        padding-right: 23px;
+}  
+    .user-dashboard .sales h2 {
+    font-size: 12px;
+}
+.gutter{
+    padding: 0;
+}
+.banner-wrapper{
+	width: 100%;
+	margin-top:60px;
+}
+.banner{
+	width:100%;
+}
+
+.search-overlay{
+	
+}
+
+}
+
+@media only screen and (max-device-width: 992px) {
+    header .header-top li {
+        padding-left: 20px !important;
+        padding-right: 0;
+}
+
+@media only screen and (min-device-width: 767px) and (max-device-width: 998px){
+      .user-dashboard .header-top {
+        padding-top: 5px;
+}
+    .user-dashboard .header-rightside {
+        display: inline-block;
+        float: left;
+        width: 100%;
+}
+    .user-dashboard .header-rightside .header-top img {
+        max-width: 41px !important;
+} 
+    .user-dashboard .sales button {
+    font-size: 10px;
+}
+    .user-dashboard .btn.btn-secondary.btn-lg.dropdown-toggle > span {
+    font-size: 12px;
+}
+    .user-dashboard .sales h2 {
+    font-size: 15px;
+}
+.banner-wrapper{
+	width: 100%;
+	margin-top:60px;
+}
+.banner{
+	width:100%;
+}
+
+.search-overlay{
+	
+}
+
+}
+@media only screen and (min-device-width:998px) and (max-device-width: 1350px){
+        #navigation .logo img {
+    max-width: 130px;
+    padding: 16px 0 17px;
+    width: 100%;
+}
+.banner-wrapper{
+	width: 100%;
+	margin-top:60px;
+}
+.banner{
+	width:100%;
+}
+
+.search-overlay{
+	
+}
+
+}
