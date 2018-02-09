@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.wwi16.service.NutzerService;
+
 /*import com.wwi16.service.NutzerService;*/
 
 public class Login extends HttpServlet {
@@ -36,26 +38,12 @@ public class Login extends HttpServlet {
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	        response.setContentType("text/html");
-	        PrintWriter out = response.getWriter();
 	        String user = request.getParameter("username");
 	        String pass = request.getParameter("pass");
-	        try {
-	            Class.forName("com.mysql.jdbc.Driver");
-	            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/carSharing", "root", "123456");
-	            PreparedStatement pst = conn.prepareStatement("Select user,password from nutzer where user=? and password=?");
-	            pst.setString(1, user);
-	            pst.setString(2, pass);
-	            ResultSet rs = pst.executeQuery();
-	            if (rs.next()) {
-	                out.println("Correct login credentials");
-	            } 
-	            else {
-	                out.println("Incorrect login credentials");
-	            }
-	        } 
-	        catch (ClassNotFoundException | SQLException e) {
-	            e.printStackTrace();
-	        }
+	        NutzerService nutzerService = new NutzerService();
+	        boolean checkLogin = nutzerService.checkLogin(user, pass);
+	        System.out.println("Login = " + checkLogin);
+	        	
 	}
 }
 
