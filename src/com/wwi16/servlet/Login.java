@@ -13,6 +13,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.wwi16.service.NutzerService;
 
@@ -43,6 +44,17 @@ public class Login extends HttpServlet {
 	        NutzerService nutzerService = new NutzerService();
 	        boolean checkLogin = nutzerService.checkLogin(user, pass);
 	        System.out.println("Login = " + checkLogin);
+	        
+	        if(checkLogin){
+	        	System.out.println("Nutzer " + user + " angemeldet");
+	        	HttpSession session=request.getSession();  
+	            session.setAttribute("userEmail",user);  
+	            RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/home.jsp");
+	            dispatcher.forward(request, response);
+	        }else{
+	        	System.out.println("Falsches PW von User  " + user);
+	        	//TODO Fehlermeldung anzeigen
+	        }
 	        	
 	}
 }
