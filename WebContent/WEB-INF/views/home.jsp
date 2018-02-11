@@ -4,6 +4,9 @@
 <html>
  <link rel="stylesheet" type="text/css" href="/carSharing/html/css/home.css" media="screen" />
 <jsp:include page="/theme/html/header.html" />
+<style>
+	<jsp:include page="/theme/css/main.css" />
+</style>
 
 
 <body>
