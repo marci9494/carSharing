@@ -67,7 +67,7 @@
 			 <button type="button" id="button--primary">Daten ändern</button>
 			 <br><br><br><br>
 			 <h2> Führerscheindaten</h2>
-			 <p> Lade hier ein Foto von deinem Führerschein hoch, damit eine Nutzung von carNow möglich ist. </p>
+			 <p> Lade hier ein Foto mit Vorder- und Rückseite von deinem Führerschein hoch, damit eine Nutzung von carNow möglich ist. </p>
 			 <br>
 			 <div class="file-upload btn btn-primary">	
 			 <span>Hochladen</span>  

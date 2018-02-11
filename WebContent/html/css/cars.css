@@ -368,6 +368,11 @@ margin-left:190px;
         text-align: left;
     }
 }
+#box{
+	border-color: #00a0e1;
+border-width: 2px;
+border-style: inset;
+}
 }
 /*---------------Smartphones--------------------*/
 @media only screen and (max-width: 360px){
