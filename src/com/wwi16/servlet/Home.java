@@ -16,8 +16,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.jasper.tagplugins.jstl.core.ForEach;
+
 import com.google.gson.Gson;
 import com.wwi16.model.Ausstattung;
+import com.wwi16.model.Distance;
 import com.wwi16.model.Fahrzeug;
 import com.wwi16.service.AusstattungService;
 import com.wwi16.service.FahrzeugService;
@@ -71,10 +74,28 @@ public class Home extends HttpServlet {
 		 PrintWriter out = response.getWriter();
 		 String plz = request.getParameter("plz");
 		 //Immer null, nicht gesetzt
-		 String distance = request.getParameter("distance");
+		 double distance = 10;
 		 System.out.println("plz = " + plz);
 		 
 		 RadiusSearchUtil radiusSearchUtil = new RadiusSearchUtil();
+		 List<Distance> radiusCalculation = radiusSearchUtil.radiusCalculation(request, plz, distance);
+		 FahrzeugService fahrzeugService = new FahrzeugService();
+		 
+		 List<Distance> carDistanceList = new ArrayList();
+		 
+		 for (Distance distance2 : radiusCalculation) {
+			 List<Fahrzeug> fahrzeugeByPlz = fahrzeugService.searchFahrzeugByPlz(distance2.getPlz());
+			 System.out.println(fahrzeugeByPlz.size());
+			 if(fahrzeugeByPlz.size() > 0){
+				Distance distanceToAdd = new Distance(distance2.getPlz(), distance2.getDistance(),distance2.getOrt());
+				distanceToAdd.setFahrzeug(fahrzeugeByPlz);
+				carDistanceList.add(distanceToAdd);
+			 }
+			
+		}
+		 
+		 String json = new Gson().toJson(carDistanceList);
+		 System.out.println(json);
 		 
 		//
 		// FahrzeugService fahrzeugService = new FahrzeugService();
@@ -88,6 +109,7 @@ public class Home extends HttpServlet {
 //		 System.out.println(json);
 //		 out.print(json);
 //		 out.flush();
+		 
 	}
 
 

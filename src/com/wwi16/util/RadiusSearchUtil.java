@@ -9,11 +9,13 @@ import java.util.Scanner;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
+import com.wwi16.model.Distance;
+
 public class RadiusSearchUtil {
-	public List<String> radiusCalculation(HttpServletRequest request,String plz,double distance) {
+	public List<Distance> radiusCalculation(HttpServletRequest request,String plz,double distance) {
 		
 		//TODO Improvements: File nicht 2 mal auslesen und nicht aus file sondern aus db auslesen
-		List<String> orte = new ArrayList<>();
+		List<Distance> distanceList = new ArrayList<>();
 
 
 		double origin_lon = 0.0;
@@ -40,7 +42,7 @@ public class RadiusSearchUtil {
 				double destination_lat = deg2rad(fileRow2[3]);
 				double distanceOrgDest =  Math.acos(Math.sin(destination_lat)*Math.sin(origin_lat)+Math.cos(destination_lat)*Math.cos(origin_lat)*Math.cos(destination_lon - origin_lon))*6375;
 				if(distanceOrgDest <= distance){
-					System.out.println(fileRow2[4] + " - " + distanceOrgDest);
+					distanceList.add(new Distance(fileRow2[1], distanceOrgDest,fileRow2[4]));
 				}
 			
 			}
@@ -50,7 +52,7 @@ public class RadiusSearchUtil {
 			e.printStackTrace();
 		}
 		
-		return orte;
+		return distanceList;
 
 	}
 
