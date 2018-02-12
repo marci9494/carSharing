@@ -31,6 +31,9 @@ public class Fahrzeug implements Serializable{
 		@OneToOne
 		private FahrzeugKategorie kategorie;
 		
+		private float latitude;
+		private float longitude;
+		
 		
 		public Long getId() {
 			return id;
@@ -79,5 +82,17 @@ public class Fahrzeug implements Serializable{
 		}
 		public void setKategorie(FahrzeugKategorie kategorie) {
 			this.kategorie = kategorie;
+		}
+		public float getLatitude() {
+			return latitude;
+		}
+		public void setLatitude(float latitude) {
+			this.latitude = latitude;
+		}
+		public float getLongitude() {
+			return longitude;
+		}
+		public void setLongitude(float longitude) {
+			this.longitude = longitude;
 		}
 }

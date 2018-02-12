@@ -4,9 +4,7 @@
 <html>
  <link rel="stylesheet" type="text/css" href="/carSharing/html/css/home.css" media="screen" />
 <jsp:include page="/theme/html/header.html" />
-<style>
-	<jsp:include page="/theme/css/main.css" />
-</style>
+
 
 
 <body>
@@ -21,11 +19,24 @@
 	<div class="search-overlay">
 	Jetzt Autos in der nähe finden<br>
 		<input type="text" class="plzInput"/>
+		<select>
+			<option value="10">
+				10Km
+			</option>
+		</select>
 		<input type="button" value="Suchen" onclick="searchCar()"/>
 	</div>
 
-	<div class="foundCars"></div>
+	<div class="foundCars">
+	</div>
 
+
+<div id="dummyCarWrapper" class="carWrapper" style="display:none">
+	<div class="carPicture"></div>
+	<div class="carDetails"></div>
+	<div><input type="button" value="Mieten" /></div>
+
+</div>
 
 </body>
 <jsp:include page="/theme/html/footer.html" />
@@ -42,13 +53,25 @@ function searchCar(){
     	        plz:plz
     	    },
     	    function(data, status){
+    	    	
+    	    	for (var i = 0; i < data.length; i++) {
+    	    		jQuery('.foundCars').append(jQuery('<span>').text(data[i]));
+    	    	}
+    	    	
+    	    
+    	    	<%--
+    	    	Wird wieder benötigt
     	    	console.log(data[0].id)
     	    	for (var i = 0; i < data.length; i++) {
-    	    		var carDiv = jQuery('<div></div>');
-    	    		carDiv.append("<span>" +data[i].modell + "</span>");
-					jQuery('.foundCars').append(carDiv);
+					var carWrapper = jQuery('#dummyCarWrapper').clone();
+					carWrapper.removeAttr('id');
+					
+					
+					carWrapper.show();
+					jQuery('.foundCars').append(carWrapper);
 				}
-    	        
+    	    	jQuery('.foundCars').append(jQuery('<div>').css('clear','both'));
+    	    	--%>
     	    });
 }
 </script>
