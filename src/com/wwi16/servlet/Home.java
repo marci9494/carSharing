@@ -22,6 +22,7 @@ import com.wwi16.model.Fahrzeug;
 import com.wwi16.service.AusstattungService;
 import com.wwi16.service.FahrzeugService;
 import com.wwi16.service.NutzerService;
+import com.wwi16.util.RadiusSearchUtil;
 
 /**
  * Servlet implementation class Home
@@ -69,7 +70,12 @@ public class Home extends HttpServlet {
 		 response.setContentType("application/json");
 		 PrintWriter out = response.getWriter();
 		 String plz = request.getParameter("plz");
+		 //Immer null, nicht gesetzt
+		 String distance = request.getParameter("distance");
 		 System.out.println("plz = " + plz);
+		 
+		 RadiusSearchUtil radiusSearchUtil = new RadiusSearchUtil();
+		 
 		//
 		// FahrzeugService fahrzeugService = new FahrzeugService();
 		// // TODO search for plz
@@ -78,63 +84,13 @@ public class Home extends HttpServlet {
 		//
 //		 String json = new Gson().toJson(searchFahrzeug);
 		// System.out.println(json);
-		 String json = new Gson().toJson(radiusCalculation(request,plz));
-		 System.out.println(json);
-		 out.print(json);
-		 out.flush();
+//		 String json = new Gson().toJson(.radiusSearchUtil.radiusCalculation(request,plz,Double.parseDouble(distance));
+//		 System.out.println(json);
+//		 out.print(json);
+//		 out.flush();
 	}
 
-	public List<String> radiusCalculation(HttpServletRequest request,String plz) {
-		List<String> orte = new ArrayList<>();
-		double distance = 10;
-		// Erdradius
-		distance = distance / 6378;
-		double maxCoord_lon = 0.0;
-		double maxCoord_lat = 0.0;
-		double minCoord_lon = 0.0;
-		double minCoord_lat = 0.0;
-
-		double origin_lon = 0.0;
-		double origin_lat = 0.0;
-		try {
-			ServletContext context = request.getServletContext();
-			String fullPath = context.getRealPath("/WEB-INF/PLZ.txt");
-			Scanner sc2 = new Scanner(new File(fullPath));
-			while (sc2.hasNextLine()) {
-				String[] fileRow = sc2.nextLine().split("\t");
-				if (fileRow[1].equals(plz)) {
-					origin_lon = deg2rad(fileRow[2]);
-					origin_lat = deg2rad(fileRow[3]);
-
-					maxCoord_lon = origin_lon + distance;
-					maxCoord_lat = origin_lat + distance;
-					minCoord_lon = origin_lon - distance;
-					minCoord_lat = origin_lat - distance;
-				}
-			}
 
 
-			Scanner sc = new Scanner(new File(fullPath));
-			while (sc.hasNextLine()) {
-				String[] fileRow2 = sc.nextLine().split("\t");
-				if (maxCoord_lon >= deg2rad(fileRow2[2]) && minCoord_lon <= deg2rad(fileRow2[2])
-						&& maxCoord_lat >= deg2rad(fileRow2[3]) && minCoord_lat <= deg2rad(fileRow2[3])) {
-					orte.add(fileRow2[4]);
-				}
-			}
-
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		return orte;
-
-	}
-
-	private static double deg2rad(String degString) {
-		double deg = Double.parseDouble(degString);
-		return (deg * Math.PI / 180.0);
-	}
 
 }
