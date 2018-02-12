@@ -31,7 +31,7 @@
 		<p>Willst du dem Vermieter noch etwas mitteilen? Hier hast du die Gelegenheit dazu.
 			<br><br>
 			<textarea id="text" name="text" cols="35" rows="4"></textarea> 
-			<br>
+			<br><br>
 			<button type="button" id="button--primary">Auto zurückgeben</button>
 			<br>
 		</p>

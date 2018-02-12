@@ -128,13 +128,10 @@ a:hover{
 }
 
 #button--primary{
-	position: marging-left;
-	left: 190px;
+    border: 1px solid #00a0e1;
     background: #00a0e1;
     color: #fff;
-    border-radius: 20px;
-    width: 10em;
-    height: 4em;
+	height: 50px;
 }
 #button--primary:hover {
     color: #00a0e1;
