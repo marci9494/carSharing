@@ -8,10 +8,12 @@
 
 .carPicture{
 	background-image: url("/carSharing/html/img/focus.png");
-	height: 100px;
-	width: 100px;
+	width: 100%;
+	height:150px;
+	background-size:100%;
 }
 .carWrapper{
-	width:400px;
+	width:30%;
 	float:left;
+	margin-left:2%;
 }

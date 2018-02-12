@@ -95,8 +95,8 @@ public class Home extends HttpServlet {
 		}
 		 
 		 String json = new Gson().toJson(carDistanceList);
-		 System.out.println(json);
-		 
+		 out.print(json);
+		 out.flush();
 		//
 		// FahrzeugService fahrzeugService = new FahrzeugService();
 		// // TODO search for plz
