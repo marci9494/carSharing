@@ -93,7 +93,7 @@ h2 {
 	text-align: center;
 }
 h3 {
-    color: #81BEF7;
+    color: #00a0e1;
     position: relative;
     margin-bottom: 1.5em;
     font-size: 1.8em;
@@ -116,7 +116,7 @@ a {
 	height: auto;
 }
 a:hover{
-	color:#e2001a;
+	color:#00a0e1;
 }
 
 #prozess_bilder {
@@ -170,7 +170,7 @@ a:hover{
 	width: 70%;
 }
 #send_message{
-	background-color:#E2001A;
+	background-color:#00a0e1;
 	border: 0;
 	color: #fff;
 	
@@ -186,7 +186,7 @@ a:hover{
 	position: relative;
 	text-decoration: none;
 	color: #fff;
-	background: #E2001A;
+	background: #00a0e1;
 	text-align: center;
 	display: none;
 	width: 10%;
@@ -380,7 +380,7 @@ margin-left:190px;
 nav {
 	margin-top: -5px;
 	display: none;
-	background: #81BEF7;
+	background: #00a0e1;
 	color: #fff;
 	clear: both;
 }
@@ -445,7 +445,7 @@ header{
 nav {
 	margin-top: -5px;
 	display: none;
-	background: #81BEF7;
+	background: #00a0e1;
 	color: #fff;
 	clear: both;
 }
@@ -508,7 +508,7 @@ header{
 }
 nav {
 	display: none;
-	background: #81BEF7;
+	background: #00a0e1;
 	color: #fff;
 	clear: both;
 }
@@ -616,7 +616,7 @@ nav ul li:hover > ul {
     animation: hover .5s;
 }
 nav ul li:hover {
-	background: #81BEF7;
+	background: #00a0e1;
 }
 nav ul li a:hover {
 	color: #fff;
@@ -700,7 +700,7 @@ h2 {
 
 }
 h3 {
-    color: #81BEF7;
+    color: #00a0e1;
     position: relative;
     margin-bottom: 1.5em;
     font-size: 1.8em;
@@ -710,7 +710,7 @@ h3 {
 }
 
 h4 {
-    color: #81BEF7;
+    color: #00a0e1;
     position: relative;
     margin-bottom: 1.5em;
     font-size: 1.8em;

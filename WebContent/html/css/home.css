@@ -6,6 +6,14 @@
 	width:100%;
 }
 
-.search-overlay{
-	
+.carPicture{
+	background-image: url("/carSharing/html/img/focus.png");
+	width: 100%;
+	height:150px;
+	background-size:100%;
+}
+.carWrapper{
+	width:30%;
+	float:left;
+	margin-left:2%;
 }

@@ -12,8 +12,8 @@ import com.wwi16.util.HibernateUtil;
 
 public class FahrzeugService {
 
-	public List<Fahrzeug> searchFahrzeug(String plz){
-		
+	public List<Fahrzeug> searchFahrzeugByPlz(String plz){
+
 		
         Session session = HibernateUtil.openSession();
         Transaction tx = null;
@@ -21,7 +21,7 @@ public class FahrzeugService {
         try {
             tx = session.getTransaction();
             tx.begin();
-            Query query = session.createQuery("from Fahrzeug ");
+            Query query = session.createQuery("from Fahrzeug where plz = '" + plz+ "'" );
             fahrzeuge = (List<Fahrzeug>)query.list();
             tx.commit();
         } catch (Exception e) {
