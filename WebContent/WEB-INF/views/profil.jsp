@@ -22,7 +22,6 @@
 <br>
 
 				
-				
 			<div id="header-content" >
 				<h1 id="header-content-text">Meine CarNow Accountdetails</h1>
 			</div>

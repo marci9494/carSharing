@@ -14,6 +14,10 @@
     <servlet-class>com.wwi16.servlet.Register</servlet-class>
   </servlet>
   <servlet>
+    <servlet-name>register_car</servlet-name>
+    <servlet-class>com.wwi16.servlet.Register_car</servlet-class>
+  </servlet>  
+  <servlet>
     <servlet-name>renting_out</servlet-name>
     <servlet-class>com.wwi16.servlet.Renting_out</servlet-class>
   </servlet>
@@ -45,6 +49,10 @@
     <servlet-name>register</servlet-name>
     <url-pattern>/register</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>register_car</servlet-name>
+    <url-pattern>/register_car</url-pattern>
+  </servlet-mapping>  
   <servlet-mapping>
     <servlet-name>renting_out</servlet-name>
     <url-pattern>/renting_out</url-pattern>

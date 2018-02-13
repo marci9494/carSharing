@@ -10,8 +10,17 @@
 
 <body>
 
-	<p>Registrierung</p>
-		<h1>Logindaten</h1>
+	<div class="banner-wrapper">
+		<img class="banner" alt="Banner"
+		src="/carSharing/html/img/header.jpg">
+
+	</div>
+	
+			<div id="header-content" >
+				<h1 id="header-content-text">Registrierung</h1>
+			</div>
+
+		<h2>Logindaten</h2>
 
 		<div class="wrapper">
 			<label for="email">Email</label> <input type="email" name="email"
@@ -33,7 +42,7 @@
 
 		<br>
 		<div class="wrapper">
-			<h1>Persönliche Daten</h1>
+			<h2>Persönliche Daten</h2>
 		</div>
 
 		<div class="wrapper">

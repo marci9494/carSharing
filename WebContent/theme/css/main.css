@@ -215,19 +215,158 @@ input[type=checkbox]:checked ~ nav{
 
 }
 #button--primary{
-	position: marging-left;
-	left: 190px;
+    border: 1px solid #00a0e1;
     background: #00a0e1;
     color: #fff;
-    border-radius: 20px;
-    width: 10em;
-    height: 4em;
+	height: 50px;
+	margin-left: 185px;
 }
 #button--primary:hover {
     color: #00a0e1;
     background: transparent;
     box-shadow: 0 0 2px rgba(0,158,227,0.5);
     outline: 0;
+}
+.banner-wrapper{
+	width: 100%;
+	margin-top:60px;
+}
+.banner{
+	width:100%;
+}
+
+.search-overlay{
+	
+}
+.file-upload {
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #00a0e1;
+    border-color: #00a0e1;
+    margin-left: 185px;
+}	
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 8px solid transparent;
+    border-radius: 15px;
+}
+.file-upload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+.daten {
+margin-left:190px;
+}
+.creditCardForm {
+    max-width: 700px;
+    background-color: #fff;
+    margin: 100px auto;
+    overflow: hidden;
+    padding: 25px;
+    color: #4c4e56;
+    margin-top: -50px;
+}
+.creditCardForm label {
+    width: 100%;
+    margin-bottom: 10px;
+}
+.creditCardForm .heading h1 {
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    color: #4c4e56;
+}
+.creditCardForm .payment {
+    float: left;
+    font-size: 18px;
+    padding: 10px 25px;
+    margin-top: 20px;
+    position: relative;
+}
+.creditCardForm .payment .form-group {
+    float: left;
+    margin-bottom: 15px;
+}
+.creditCardForm .payment .form-control {
+    line-height: 40px;
+    height: auto;
+    padding: 0 16px;
+    width: 25%;
+}
+.creditCardForm .owner {
+    width: 63%;
+}
+.creditCardForm .CVV {
+    width: 35%;
+
+}
+.creditCardForm #card-number-field {
+    width: 200%;
+	margin-left: 18px;
+    
+}
+.creditCardForm #expiration-date {
+    width: 49%;
+}
+.creditCardForm #credit_cards {
+    width: 50%;
+    margin-top: 25px;
+    text-align: right;
+}
+.creditCardForm #pay-now {
+    width: 100%;
+    margin-top: 25px;
+}
+.creditCardForm .payment .btn {
+    width: 100%;
+    margin-top: 3px;
+    font-size: 24px;
+    background-color: #00a0e1;
+    color: white;
+}
+.creditCardForm .payment select {
+    padding: 10px;
+    margin-right: 15px;
+}
+.transparent {
+    opacity: 0.2;
+}
+@media(max-width: 650px) {
+    .creditCardForm .owner,
+    .creditCardForm .CVV,
+    .creditCardForm #expiration-date,
+    .creditCardForm #credit_cards {
+        width: 100%;
+    }
+    .creditCardForm #credit_cards {
+        text-align: left;
+    }
 }
 }
 /*---------------Smartphones--------------------*/
@@ -543,12 +682,13 @@ footer {
 	line-height: 1.7em;
 }
 h1 {
-	color: #4472C4;
+	color: white;
 	font-weight: 100;
-	font-size: 1.6em;
+	font-size: 3.2em;
 	z-index: 10;
 	margin: 0;
 	text-align: center;
+	text-shadow: 0 0 5px black;
 }
 h2 {
     color: #4472C4;
