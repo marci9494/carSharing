@@ -88,14 +88,14 @@
 		<br> <br>
 
 		<div class="wrapper">
-			<label>Bild oder Scan Ihres Personalausweis <input
-				name="datei" type="file" size="50" accept="text/*">
+			<label>Bild oder Scan Ihres Personalausweis (Bild- oder PDF-Datei)<input
+				name="datei" type="file" size="50" accept="image/*,application/pdf">
 			</label>
 		</div>
 		<br>
 		<div class="wrapper">
-			<label>Bild oder Scan Ihres Führerscheins <input name="datei"
-				type="file" size="50" accept="text/*">
+			<label>Bild oder Scan Ihres Führerscheins (Bild- oder PDF-Datei)<input name="datei"
+				type="file" size="50" accept="image/*,application/pdf">
 			</label>
 		</div>
 
