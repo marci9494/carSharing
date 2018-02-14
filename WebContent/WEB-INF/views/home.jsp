@@ -14,34 +14,40 @@
 		<img class="banner" alt="Banner" src="/carSharing/html/img/header.jpg">
 
 	</div>
+	<div class="content-wrapper">
 
-
-	<div class="search-overlay">
-		Jetzt Autos in der nähe finden<br> <input type="text"
-			class="plzInput" /> <select>
-			<option value="10">10Km</option>
-		</select> <input type="button" value="Suchen" onclick="searchCar()" />
-	</div>
-
-	<div class="foundCars"></div>
-
-
-	<div id="dummyCarWrapper" class="carWrapper" style="display: none">
-		<div class="carPicture"></div>
-		<div class="carDetails">
-			<div class="bezeichnung">
-				<span class="herstellerBezeichnung"></span><span
-					class="modellBezeichnung"></span>
-			</div>
-			<div class="distanceWrapper">
-				<span class="standort"></span> - <span
-					class="entfernung"></span>
-			</div>
-		</div>
-		<div>
-			<input type="button" value="Mieten" />
+		<div class="search-overlay">
+			Jetzt Autos in der nähe finden<br> <input type="text"
+				class="plzInput" /> <select>
+				<option value="10">10Km</option>
+			</select>
+			<button type="button" onclick="searchCar()">Suchen</button>
 		</div>
 
+		<div class="filter-wrapper">
+			<div class="filters"></div>
+		
+		</div>
+		<div class="foundCars"></div>
+		<div style="clear:both;"></div>
+
+
+		<div id="dummyCarWrapper" class="carWrapper" style="display: none">
+			<div class="carPicture"></div>
+			<div class="carDetails">
+				<div class="bezeichnung">
+					<span class="herstellerBezeichnung"></span><span
+						class="modellBezeichnung"></span>
+				</div>
+				<div class="distanceWrapper">
+					<span class="standort"></span> - <span class="entfernung"></span>
+				</div>
+			</div>
+			<div>
+				<button type="button">Mieten</button>
+			</div>
+
+		</div>
 	</div>
 
 </body>
@@ -64,15 +70,14 @@
 					carWrapper.removeAttr('id');
 					carWrapper.find('.modellBezeichnung').text(
 							data[i].fahrzeug[r].modell);
-					carWrapper.find('.standort').text(
-							data[i].ort);
-					carWrapper.find('.entfernung').text(
-							data[i].distance);
+					carWrapper.find('.standort').text(data[i].ort);
+					carWrapper.find('.entfernung').text(data[i].distance);
 
 					carWrapper.show();
 					jQuery('.foundCars').append(carWrapper);
 				}
 			}
+			jQuery('.filters').show();
 			jQuery('.foundCars').append(jQuery('<div>').css('clear', 'both'));
 
 		});
