@@ -25,10 +25,20 @@
 		</div>
 
 		<div class="filter-wrapper">
-			<div class="filters"></div>
+			<div class="filters">
+				<div class="fahrzeugkategorie">
+					<span><b>Fahrzeugkategorie</b></span><br>
+					<a>Kombi</a><br>
+					<a>Kleinwagen</a><br>
+					<a>Bus</a>
+				</div>
+			
+			</div>
 		
 		</div>
-		<div class="foundCars"></div>
+		<div class="foundCars">
+		
+		</div>
 		<div style="clear:both;"></div>
 
 
