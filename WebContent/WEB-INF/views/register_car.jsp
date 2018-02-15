@@ -116,20 +116,22 @@
 		<option value="Wiesmann“>Wiesmann</option>
 	</select>
 	
+	</div>
+	<div class="wrapper">	
 	<label for="modell">Modell</label> <input type="text"
 			name="modell" id="modell" placeholder="z.B. Astra" size="30"
 			maxlength="30">
-	
 	</div>
 	
 	<div class="wrapper">
 	<label for="baujahr">Baujahr</label> <input type="int"
-			name="baujahr" id="baujahr" placeholder="z.B. 2012" size="30"
+			name="baujahr" id="baujahr" placeholder="z.B. 2012" size="10"
 			maxlength="4">	
 			
 	<label for="laufleistung">Laufleistung in km</label> <input type="int"
-			name="laufleistung" id="laufleistung" placeholder="z.B. 148000" size="30"
+			name="laufleistung" id="laufleistung" placeholder="z.B. 148000" size="20"
 			maxlength="6">
+	</div>
 			
 	<br><br>		
 			
@@ -139,7 +141,7 @@
 
 	<div class="wrapper">
 		<label for="ps">PS</label> <input type="int"
-			name="ps" id="ps" placeholder="z.B. 122" size="30"
+			name="ps" id="ps" placeholder="z.B. 122" size="10"
 			maxlength="3">
 			
 		<label>Kraftstoff</label>		
@@ -155,8 +157,10 @@
 	<br>
 	
 	<div class="wrapper">
-	<label for="ausstattung">Geben Sie die Ausstattung des Fahrzeugs an (Trennunng von mehreren Elementen mit Semikolon ; )</label>
-	 <textarea name=ausstattung id="ausstattung" rows="5" cols="50" placeholder="Klimatronik;elektronische Fensterheber;Frontscheibenheizung"></textarea> 	
+	<label for="ausstattung">Geben Sie die Ausstattung des Fahrzeugs an (Trennunng von mehreren Elementen mit einem Strichpunkt)</label>
+	<br>
+	 <textarea name=ausstattung id="ausstattung" rows="5" cols="1000" placeholder="Klimatronik;elektronische Fensterheber;Frontscheibenheizung"></textarea> 	
+	</div>
 	
 	<div class="wrapper">
 		<h2>Fotos</h2>
@@ -173,13 +177,18 @@
 	</div>	
 
 	<div class="wrapper">
-	<label>Laden Sie bitte ein Bild Ihres Fahrzeugscheins (Zulassungsbescheinigung Teil I) hoch<input name="datei"
+	<label>Laden Sie bitte ein Bild Ihres Fahrzeugscheins (Zulassungsbescheinigung Teil I) hoch
+	</div>
+	<div class="wrapper">
+	<input name="datei"
 		type="file" size="50" accept="image/*">
 	</label>		
 	</div>
 	
-	<div class="submit">
-		<button class="send_reg"  onclick="register()">Weiter</button>
+	<div class="wrapper">
+		<button class="send_reg" id="button--primary"  onclick="register()">Weiter</button>
 	</div>
+
 </body>
+<jsp:include page="/theme/html/footer.html" />
 </html>

@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+
 <link rel="stylesheet" type="text/css"
 	href="/carSharing/html/css/register.css" media="screen" />
 
@@ -62,8 +63,7 @@
 
 		<div class="wrapper">
 			<label class="strass" for="strasse">Straße</label> <input type="text"
-				name="strasse" id="strasse" placeholder="Ihre Straße" size="40"
-				maxlength="30"> <label for="hausnummer">Hausnummer</label> <input
+				name="strasse" id="strasse" placeholder="Ihre Straße" size="40"> <label for="hausnummer">Hausnummer</label> <input
 				type="text" name="hausnummer" id="hausnummer"
 				placeholder="Ihre Hausnummer" size="6" maxlength="8">
 		</div>
@@ -73,12 +73,12 @@
 				name="postleitzahl" id="postleitzahl"
 				placeholder="Ihre Postleitzahl" size="5" maxlength="30"> <label
 				for="stadt">Stadt</label> <input type="text" name="stadt" id="stadt"
-				placeholder="Ihr Wohnort" size="30" maxlength="8">
+				placeholder="Ihr Wohnort" size="30">
 		</div>
 
 		<div class="wrapper">
 			<label for="land">Land</label> <input type="text" name="land"
-				id="land" value="Deutschland" size="30" maxlength="8">
+				id="land" value="Deutschland" size="30">
 		</div>
 
 		<div class="wrapper">
@@ -142,8 +142,8 @@
 			}
 		</script>
 
-		<div class="submit">
-			<button class="send_reg"  onclick="register()">Weiter</button>
+		<div class="wrapper">
+			<button class="send_reg" id="button--primary"  onclick="register()">Weiter</button>
 		</div>
 </body>
 <jsp:include page="/theme/html/footer.html" />
