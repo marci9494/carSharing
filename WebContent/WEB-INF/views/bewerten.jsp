@@ -62,9 +62,10 @@ span{margin:0 5px 0 15px}
   
   -webkit-box-reflect: below -8px -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(250, 250, 250, 0.3)));
   float: left;
-  padding: 0 2px;
+  
   color: #FFF;
   cursor: pointer;
+  padding-top: 6px;
 }
 .review span:after {
   font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
