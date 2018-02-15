@@ -7,6 +7,8 @@
 <style>
 	<jsp:include page="/html/css/profil.css" />
 </style>
+<link rel="shortcut icon" href="/carSharing/theme/img/tablogo.png" >
+<link rel="icon" href='/carSharing/theme/img/tablogo.png' >
 
 
 
