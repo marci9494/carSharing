@@ -163,6 +163,8 @@
 				}, function(data, status) {
 					if(data){
 						window.location.href = "home";
+					}else{
+						//POPUP anzeigen, email bereits vergeben
 					}
 				});
 			}

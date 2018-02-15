@@ -14,6 +14,10 @@
 		src="/carSharing/html/img/header.jpg">
 	</div>
 <main>
+
+${userEmail }
+
+
 	<div id="header-content" >
 		<h1 id="header-content-text">Auto&shyrückgabe</h1>
 	</div>

@@ -39,14 +39,18 @@ public class Register extends HttpServlet{
 		
 		NutzerService nutzerService = new NutzerService();
 		Nutzer nutzer = nutzerService.createNutzer(vorname, nachname, strasse, plz, ort, email, vermieter, passwort);
-		
+		PrintWriter out = response.getWriter();
 		if(nutzer != null){
 			System.out.println("User " + email + " registriert");
 			HttpSession session=request.getSession();  
             session.setAttribute("userEmail",email);  
-            PrintWriter out = response.getWriter();
+            
             out.print(Boolean.TRUE);
     		out.flush();
+		}else{
+			//TODO fehlerbehandlung
+			out.print(Boolean.TRUE);
+	    	out.flush();
 		}
 		
 	}
