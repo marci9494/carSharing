@@ -24,20 +24,27 @@
 		<h2>Logindaten</h2>
 
 		<div class="wrapper">
-			<label for="email">Email</label> <input type="email" name="email"
+			<label for="email">Email</label> <br> <input type="email" name="email"
 				id="email" placeholder="Geben Sie bitte Ihre Email an" size="30"
 				maxlength="30" required>
 		</div>
 
 		<div class="wrapper">
-			<label for="passwort">Passwort</label> <input type="password"
+		<ul class="formular_ul"> 
+		<li class="formular_li">
+			<label for="passwort">Passwort</label> <br> <input type="password"
 				name="passwort" id="passwort"
 				placeholder="Bitte geben Sie ein Passwort ein" size="30"
-				maxlength="30" required> <label for="passwort">Passwort
-				bestätigen</label> <input type="password" name="passwort"
+				maxlength="30" required> 
+		</li>
+		<li class="formular_li">		
+				<label for="passwort">Passwort
+				bestätigen</label> <br> <input type="password" name="passwort"
 				id="confirm_passwort"
 				placeholder="Bitte bestätigen Sie Ihr Passwort" size="30"
 				maxlength="30" required>
+		</li>
+		</ul>
 		</div>
 
 
@@ -47,54 +54,74 @@
 		</div>
 
 		<div class="wrapper">
-			<label>Anrede: <select name="anrede">
+			<label>Anrede: </label> <br> <select name="anrede">
 					<option>Frau</option>
 					<option>Herr</option>
 			</select>
 		</div>
 
 		<div class="wrapper">
-			<label for="vorname">Vorname</label> <input type="text"
+		<ul class="formular_ul"> 
+		<li class="formular_li">
+			<label for="vorname">Vorname</label> <br> <input type="text"
 				name="vorname" id="vorname" placeholder="Ihr Vorname" size="30"
-				maxlength="30"> <label for="nachname">Nachname</label> <input
+				maxlength="30"> 
+		</li>
+		<li class="formular_li">
+			<label for="nachname">Nachname</label> <br> <input
 				type="text" name="nachname" id="nachname" placeholder="Ihr Nachname"
 				size="30" maxlength="30">
+		</li>
+		</ul>
 		</div>
 
 		<div class="wrapper">
-			<label class="strass" for="strasse">Straße</label> <input type="text"
-				name="strasse" id="strasse" placeholder="Ihre Straße" size="40"> <label for="hausnummer">Hausnummer</label> <input
+		<ul class="formular_ul"> 
+		<li class="formular_li">
+			<label class="strass" for="strasse">Straße</label> <br> <input type="text"
+				name="strasse" id="strasse" placeholder="Ihre Straße" size="40"> 
+		</li>
+				<li class="formular_li">
+		<label for="hausnummer">Hausnummer</label> <br> <input
 				type="text" name="hausnummer" id="hausnummer"
 				placeholder="Ihre Hausnummer" size="6" maxlength="8">
+		</li>
+		</ul>
 		</div>
 
 		<div class="wrapper">
-			<label for="postleitzahl">Postleitzahl</label> <input type="text"
+		<ul class="formular_ul"> 
+		<li class="formular_li">
+			<label for="postleitzahl">Postleitzahl</label> <br> <input type="text"
 				name="postleitzahl" id="postleitzahl"
-				placeholder="Ihre Postleitzahl" size="5" maxlength="30"> <label
-				for="stadt">Stadt</label> <input type="text" name="stadt" id="stadt"
+				placeholder="Ihre Postleitzahl" size="5" maxlength="30"> 
+		</li>
+		<li class="formular_li">
+			<label for="stadt">Stadt</label> <br> <input type="text" name="stadt" id="stadt"
 				placeholder="Ihr Wohnort" size="30">
+		</li>
+		</ul>
 		</div>
 
 		<div class="wrapper">
-			<label for="land">Land</label> <input type="text" name="land"
+			<label for="land">Land</label> <br> <input type="text" name="land"
 				id="land" value="Deutschland" size="30">
 		</div>
 
 		<div class="wrapper">
-			<label for="geburtsdatum">Geburtsdatum</label> <input type="date"
+			<label for="geburtsdatum">Geburtsdatum</label> <br> <input type="date"
 				name="geburtsdatum" id="geburtsdatum" size="30">
 		</div>
 		<br> <br>
 
 		<div class="wrapper">
-			<label>Bild oder Scan Ihres Personalausweis (Bild- oder PDF-Datei)<input
+			<label>Bild oder Scan Ihres Personalausweis (Bild- oder PDF-Datei)</label> <br> <input
 				name="datei" type="file" size="50" accept="image/*,application/pdf">
 			</label>
 		</div>
 		<br>
 		<div class="wrapper">
-			<label>Bild oder Scan Ihres Führerscheins (Bild- oder PDF-Datei)<input name="datei"
+			<label>Bild oder Scan Ihres Führerscheins (Bild- oder PDF-Datei)</label> <br> <input name="datei"
 				type="file" size="50" accept="image/*,application/pdf">
 			</label>
 		</div>
