@@ -84,22 +84,8 @@
     color: #888;
 
 }
-#button--primary{
-	margin-left: 185px;
-}
-#button--primary:hover {
-    color: #00a0e1;
-    background: transparent;
-    box-shadow: 0 0 2px rgba(0,158,227,0.5);
-    outline: 0;
-}
-.banner-wrapper{
-	width: 100%;
-	margin-top:60px;
-}
-.banner{
-	width:100%;
-}
+
+
 
 
 .file-upload {

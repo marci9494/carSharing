@@ -172,19 +172,7 @@ a:hover{
 #search {
 	width: 70%;
 }
-#send_message{
-	background-color:#00a0e1;
-	border: 0;
-	color: #fff;
-	
-	-webkit-box-shadow: -1px 0px 7px 1px rgba(0,0,0,0.46);
-	-moz-box-shadow: -1px 0px 7px 1px rgba(0,0,0,0.46);
-	box-shadow: -1px 0px 7px 1px rgba(0,0,0,0.46);
-}
-#kontaktformular {
-	margin: 0 auto;
-	border: 0;
-}
+
 .show-menu {
 	position: relative;
 	text-decoration: none;
@@ -240,125 +228,7 @@ button:hover {
 	width:100%;
 }
 
-.file-upload {
-    position: relative;
-    overflow: hidden;
-    margin: 10px;
-}
-.btn-primary {
-    color: #fff;
-    background-color: #00a0e1;
-    border-color: #00a0e1;
-    margin-left: 185px;
-}	
-.btn {
-    display: inline-block;
-    padding: 6px 12px;
-    margin-bottom: 0;
-    font-size: 14px;
-    font-weight: normal;
-    line-height: 1.42857143;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    -ms-touch-action: manipulation;
-    touch-action: manipulation;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    background-image: none;
-    border: 8px solid transparent;
-    border-radius: 15px;
-}
-.file-upload input.upload {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: 0;
-    padding: 0;
-    font-size: 20px;
-    cursor: pointer;
-    opacity: 0;
-    filter: alpha(opacity=0);
-}
-.daten {
-margin-left:190px;
-}
-.creditCardForm {
-    max-width: 700px;
-    background-color: #fff;
-    margin: 100px auto;
-    overflow: hidden;
-    padding: 25px;
-    color: #4c4e56;
-    margin-top: -50px;
-}
-.creditCardForm label {
-    width: 100%;
-    margin-bottom: 10px;
-}
-.creditCardForm .heading h1 {
-    text-align: center;
-    font-family: 'Open Sans', sans-serif;
-    color: #4c4e56;
-}
-.creditCardForm .payment {
-    float: left;
-    font-size: 18px;
-    padding: 10px 25px;
-    margin-top: 20px;
-    position: relative;
-}
-.creditCardForm .payment .form-group {
-    float: left;
-    margin-bottom: 15px;
-}
-.creditCardForm .payment .form-control {
-    line-height: 40px;
-    height: auto;
-    padding: 0 16px;
-    width: 25%;
-}
-.creditCardForm .owner {
-    width: 63%;
-}
-.creditCardForm .CVV {
-    width: 35%;
 
-}
-.creditCardForm #card-number-field {
-    width: 200%;
-	margin-left: 18px;
-    
-}
-.creditCardForm #expiration-date {
-    width: 49%;
-}
-.creditCardForm #credit_cards {
-    width: 50%;
-    margin-top: 25px;
-    text-align: right;
-}
-.creditCardForm #pay-now {
-    width: 100%;
-    margin-top: 25px;
-}
-.creditCardForm .payment .btn {
-    width: 100%;
-    margin-top: 3px;
-    font-size: 24px;
-    background-color: #00a0e1;
-    color: white;
-}
-.creditCardForm .payment select {
-    padding: 10px;
-    margin-right: 15px;
-}
-.transparent {
-    opacity: 0.2;
-}
 @media(max-width: 650px) {
     .creditCardForm .owner,
     .creditCardForm .CVV,
@@ -372,7 +242,7 @@ margin-left:190px;
 }
 }
 /*---------------Smartphones--------------------*/
-@media only screen and (max-width: 360px){
+@media only screen and (max-width: 414px){
 .show-menu {
 	display: block;
 	float: right;
