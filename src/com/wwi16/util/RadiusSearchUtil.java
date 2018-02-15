@@ -2,6 +2,7 @@ package com.wwi16.util;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -42,7 +43,7 @@ public class RadiusSearchUtil {
 				double destination_lat = deg2rad(fileRow2[3]);
 				double distanceOrgDest =  Math.acos(Math.sin(destination_lat)*Math.sin(origin_lat)+Math.cos(destination_lat)*Math.cos(origin_lat)*Math.cos(destination_lon - origin_lon))*6375;
 				if(distanceOrgDest <= distance){
-					distanceList.add(new Distance(fileRow2[1], distanceOrgDest,fileRow2[4]));
+					distanceList.add(new Distance(fileRow2[1], roundTo2Decimals(distanceOrgDest),fileRow2[4]));
 				}
 			
 			}
@@ -60,6 +61,10 @@ public class RadiusSearchUtil {
 		double deg = Double.parseDouble(degString);
 		return (deg * Math.PI / 180.0);
 	}
+	
+	double roundTo2Decimals(double val) {
+		return Math.round(val*100.0)/100.0;
+}
 //	public List<String> radiusCalculation(HttpServletRequest request,String plz) {
 //	List<String> orte = new ArrayList<>();
 //	double distance = 10;

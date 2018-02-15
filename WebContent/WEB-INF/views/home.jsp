@@ -50,7 +50,7 @@
 						class="modellBezeichnung"></span>
 				</div>
 				<div class="distanceWrapper">
-					<span class="standort"></span> - <span class="entfernung"></span>
+					<span class="standort"></span> - <span class="entfernung"></span><span>Km</span>
 				</div>
 			</div>
 			<div style="float:right;margin-right:10px;">
