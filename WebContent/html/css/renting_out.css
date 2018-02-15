@@ -207,6 +207,7 @@ header{
 }
 h5 {
 	text-align: center;
+	padding-left: 0;
 }
 }
 /*---------------------Tablets------------------*/
@@ -270,6 +271,7 @@ header{
 }
 h5 {
 	text-align: center;
+	padding-left: 0;
 }
 }
 /*------------------kleine Bildschirme------------*/
@@ -330,6 +332,7 @@ nav ul li a:hover{
 }
 h5 {
 	text-align: center;
+	padding-left: 0;
 }
 }
 /*----------------normale Bildschirme-------------------*/
