@@ -1,11 +1,61 @@
-.banner-wrapper{
+.banner-wrapper {
 	width: 100%;
-	margin-top:60px;
-}
-.banner{
-	width:100%;
+	margin-top: 60px;
 }
 
-.search-overlay{
-	
+.banner {
+	width: 100%;
+}
+
+.carPicture {
+	background-image: url("/carSharing/html/img/focus.png");
+	width: 100%;
+	height: 200px;
+	background-size: 100%;
+	border-radius: 10% 10% 0px 0px; 
+}
+
+.carWrapper {
+	width: 45%;
+	float: left;
+	margin-left: 2%;
+	border: 1px solid gray;
+	margin-top:2%;
+	box-shadow: 2px 2px #DCDCDC;
+	border-radius: 10px;
+}
+
+.content-wrapper {
+	max-width: 1200px;
+}
+
+@media ( min-width : 1200px) {
+	.content-wrapper {
+		width: 1170px;
+	}
+}
+
+.content-wrapper {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.filter-wrapper{
+	float:left;
+	width:30%;
+	margin-top:16px;
+}
+.foundCars{
+	float:left;
+	width: 70%;
+}
+.filters{
+	display:none;
+	border: 1px solid black;
+	width: 100%;
+	height: 200px;
+	border-radius: 10px;
+}
+.fahrzeugkategorie{
+	margin-left:10px;
 }

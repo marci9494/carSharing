@@ -21,9 +21,10 @@ public class Nutzer implements Serializable {
 	private String ort;
 	private String email;
 	private boolean vermieter;
+	private String password;
 
 	public Nutzer(Long id, String vorname, String nachname, String strasse, String plz, String ort, String email,
-			boolean vermieter) {
+			boolean vermieter,String password) {
 		this.id = id;
 		this.vorname = vorname;
 		this.nachname = nachname;
@@ -32,6 +33,7 @@ public class Nutzer implements Serializable {
 		this.ort = ort;
 		this.email = email;
 		this.vermieter = vermieter;
+		this.password = password;
 
 	}
 
@@ -101,5 +103,13 @@ public class Nutzer implements Serializable {
 
 	public void setVermieter(boolean vermieter) {
 		this.vermieter = vermieter;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 }

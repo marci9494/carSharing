@@ -15,16 +15,16 @@ import com.wwi16.service.NutzerService;
 
 
 /**
- * Servlet implementation class Profil
+ * Servlet implementation class Impressum
  */
 
-public class Profil extends HttpServlet {
+public class Impressum extends HttpServlet {
 	private static final long serialVersionUID = 112333L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Profil() {
+    public Impressum() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,7 +33,7 @@ public class Profil extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/profil.jsp");
+		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/impressum.jsp");
 
 		HttpSession session = request.getSession(false);
 		if (session != null) {
