@@ -77,7 +77,7 @@
     <servlet-name>bewerten</servlet-name>
     <url-pattern>/bewerten</url-pattern>
   </servlet-mapping>
-    <servlet-mapping>
+   <servlet-mapping>
     <servlet-name>impressum</servlet-name>
     <url-pattern>/impressum</url-pattern>
   </servlet-mapping>
