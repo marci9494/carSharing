@@ -14,9 +14,8 @@
 	<div class="banner-wrapper">
 		<img class="banner" alt="Banner"
 		src="/carSharing/html/img/header.jpg">
-
 	</div>
-	
+<div class="content-wrapper">
 			<div id="header-content" >
 				<h1 id="header-content-text">Registrierung</h1>
 			</div>
@@ -94,7 +93,7 @@
 		<li class="formular_li">
 			<label for="postleitzahl">Postleitzahl</label> <br> <input type="text"
 				name="postleitzahl" id="postleitzahl"
-				placeholder="Ihre Postleitzahl" size="5" maxlength="30"> 
+				placeholder="Ihre PLZ" size="5" maxlength="30"> 
 		</li>
 		<li class="formular_li">
 			<label for="stadt">Stadt</label> <br> <input type="text" name="stadt" id="stadt"
@@ -172,6 +171,7 @@
 		<div class="wrapper">
 			<button class="send_reg" id="button--primary"  onclick="register()">Weiter</button>
 		</div>
+</div>	
 </body>
 <jsp:include page="/theme/html/footer.html" />
 
