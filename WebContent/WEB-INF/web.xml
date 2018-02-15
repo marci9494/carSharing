@@ -37,6 +37,10 @@
     <servlet-name>bewerten</servlet-name>
     <servlet-class>com.wwi16.servlet.Bewerten</servlet-class>
   </servlet>
+    <servlet>
+    <servlet-name>impressum</servlet-name>
+    <servlet-class>com.wwi16.servlet.Impressum</servlet-class>
+  </servlet>
   <servlet-mapping>
     <servlet-name>home</servlet-name>
     <url-pattern>/home</url-pattern>
@@ -72,6 +76,10 @@
   <servlet-mapping>
     <servlet-name>bewerten</servlet-name>
     <url-pattern>/bewerten</url-pattern>
+  </servlet-mapping>
+   <servlet-mapping>
+    <servlet-name>impressum</servlet-name>
+    <url-pattern>/impressum</url-pattern>
   </servlet-mapping>
   <resource-ref>
     <description>This is a reference to the global Resource for MySQL database connetion.</description>
