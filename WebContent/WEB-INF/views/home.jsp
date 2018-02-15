@@ -53,9 +53,10 @@
 					<span class="standort"></span> - <span class="entfernung"></span>
 				</div>
 			</div>
-			<div>
+			<div style="float:right;margin-right:10px;">
 				<button type="button">Mieten</button>
 			</div>
+			<div style="clear:both"></div>
 
 		</div>
 	</div>
