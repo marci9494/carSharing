@@ -1,6 +1,6 @@
 html,body{
 	font-family:sans-serif;
-	font-size: 18px;
+	font-size: 12px;
 	margin: 0;
 	padding: 0;
 	width: 100%;
@@ -12,6 +12,9 @@ html,body{
 	margin: 0 auto;
 }
 
+header{
+	font-size: 18px;
+}
 
 html {
 	animation: einblenden 1s;		
@@ -214,14 +217,16 @@ input[type=checkbox]:checked ~ nav{
     color: #888;
 
 }
-#button--primary{
+button{
     border: 1px solid #00a0e1;
     background: #00a0e1;
     color: #fff;
 	height: 50px;
-	margin-left: 185px;
+	border-radius: 20px;
+	
 }
-#button--primary:hover {
+
+button:hover {
     color: #00a0e1;
     background: transparent;
     box-shadow: 0 0 2px rgba(0,158,227,0.5);
@@ -235,9 +240,6 @@ input[type=checkbox]:checked ~ nav{
 	width:100%;
 }
 
-.search-overlay{
-	
-}
 .file-upload {
     position: relative;
     overflow: hidden;
