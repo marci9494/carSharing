@@ -29,7 +29,7 @@
     
     
     body{background:#59ABE3;margin:0}
-.form{width:340px;height:500px;background:#5a5a6e;border-radius:8px;box-shadow:0 0 40px -10px #000;margin:calc(50vh - 220px) auto;padding:20px 30px;max-width:calc(100vw - 40px);box-sizing:border-box;font-family:'Montserrat',sans-serif;position:relative}
+.form{width:340px;height:480px;background:#5a5a6e;border-radius:8px;box-shadow:0 0 40px -10px #000;margin:calc(50vh - 220px) auto;padding:20px 30px;max-width:calc(100vw - 40px);box-sizing:border-box;font-family:'Montserrat',sans-serif;position:relative}
 h2{margin:10px 0;padding-bottom:10px;width:180px;color:white;border-bottom:3px solid #78788c}
 input{width:100%;padding:10px;box-sizing:border-box;background:none;outline:none;resize:none;border:0;font-family:'Montserrat',sans-serif;transition:all .3s;border-bottom:2px solid #bebed2}
 input:focus{border-bottom:2px solid #78788c}
@@ -41,13 +41,15 @@ span{margin:0 5px 0 15px}
     
     
           body {
-  background: #59ABE3;
+  background: #fff;
 }
 
 .review-holder {
   position: relative;
   clear: both;
   display: inline-block;
+  text-align: center; 
+  
 }
 
 .review:hover span {
@@ -140,7 +142,6 @@ span{margin:0 5px 0 15px}
 <form class="form">
   <h2>Deine Bewertung</h2>
   <p type="Zustand des Fahrzeuges:">
-      <p></p>
        <span class='review-holder'>
            <span class='review'>
     <span data-description=' sehr schlecht'></span>
@@ -153,8 +154,6 @@ span{margin:0 5px 0 15px}
     
  </p>
   <p type="Freundlichkeit:">
-      <p></p>
-      
       <span class='review-holder'>
            <span class='review'>
     <span data-description=' sehr schlecht'></span>
@@ -164,16 +163,7 @@ span{margin:0 5px 0 15px}
     <span data-description="sehr gut"></span>
   </span>
 </span>
-    
-    
-    
-    
-    
-    </p>
-  <p type="Bezahlvorgang:">
-      
-      <p></p>
-      
+    <p type="Bezahlvorgang:">
       <span class='review-holder'>
            <span class='review'>
     <span data-description=' sehr schlecht'></span>
@@ -186,7 +176,7 @@ span{margin:0 5px 0 15px}
     
     
     </p>
-  <button>Send Message</button>
+  <button>Bewertung senden</button>
   <div>
     <span class="fa fa-phone"></span>Car2Go
     <span class="fa fa-envelope-o"></span> 
