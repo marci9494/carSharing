@@ -1,0 +1,10 @@
+h5{
+	padding-left: 15%;
+}
+/*---------------Smartphones--------------------*/
+@media only screen and (max-width: 400px){
+h5 {
+	text-align: center;
+	padding-left: 0;
+}
+}
