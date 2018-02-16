@@ -305,6 +305,9 @@ header{
 #header-content{
 	margin-top: -5px;
 }
+#logout{
+	margin: right;		
+}
 }
 /*---------------------Tablets------------------*/
 @media only screen and (min-width: 361px) and (max-width: 767px){
@@ -683,6 +686,9 @@ textarea{
 	width: auto;
 	display: block;
 }
+#logout{
+	position: right;		
+}
 }
 /*Druckanzeige*/
 @media print {
@@ -703,4 +709,5 @@ small {
     margin-bottom: 20px;
     background: #fff;
 }
+
 }
