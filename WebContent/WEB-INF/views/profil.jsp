@@ -23,13 +23,13 @@
 
 	</div>
 
-	<main> <br>
+ <br>
 
 
 	<div id="header-content">
 		<h1 id="header-content-text">Meine CarNow Accountdetails</h1>
 	</div>
-
+<div class="content-wrapper">
 
 	<p>Hier findest du alle wichtigen Infos rund um deinen Account.
 		Stell sicher, dass deine Angaben immer auf dem neusten Stand sind,
@@ -70,13 +70,13 @@
 		<br>
 		<br>
 	</div>
-	<button id="button--primary" ">Speichern</button>
+	<button onclick="update()"> Speichern</button>
 	<br>
 	<br>
 	<br>
 	<br>
 
-	</div>
+
 	<br>
 	<br>
 	<br>
@@ -100,8 +100,7 @@
 			 
 	
 		</div>
-	</div>
-	</main>
+
 
 
 </body>
@@ -141,6 +140,34 @@ $(function () {
         });
     });
 });
+
+function update() {
+
+	var email = jQuery('#email').val();
+	var vorname = jQuery('#vorname').val();
+	var nachname = jQuery('#nachname').val();
+	var strasse = jQuery('#strasse').val();
+	var postleitzahl = jQuery('#postleitzahl').val();
+	var stadt = jQuery('#stadt').val();
+	var passwort = jQuery('#passwort').val();
+
+	console.log(passwort);
+	jQuery.post("update", {
+		email : email,
+		vorname : vorname,
+		nachname : nachname,
+		strasse : strasse,
+		postleitzahl : postleitzahl,
+		stadt : stadt,
+		passwort : passwort
+	}, function(data, status) {
+		if(data){
+			window.location.href = "'/carSharing/profil';";
+		}else{
+			//POPUP anzeigen, email bereits vergeben
+		}
+	});
+}
 </script>
 
 
