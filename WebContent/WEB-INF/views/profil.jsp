@@ -48,10 +48,16 @@
 		<br>
 		<p class="editable">${nutzer.nachname}</p>
 		<br>
-		<br> <span class="form-field-label">Adresse</span> <br>
+		<br> <span class="form-field-label">Ort</span> <br>
 		<br>
 		<p class="editable">
-			${nutzer.strasse} ${nutzer.plz} ${nutzer.ort}
+			${nutzer.plz} ${nutzer.ort}
+		</p>
+		<br>
+		<br> <span class="form-field-label">Strasse</span> <br>
+		<br>
+		<p class="editable">
+			${nutzer.strasse} 
 		</p>
 		<br>
 		<br> <span class="form-field-label">E-Mail-Adresse</span> <br>
