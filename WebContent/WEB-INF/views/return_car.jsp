@@ -15,8 +15,8 @@
 	</div>
 <main>
 
-${userEmail }
-
+//nur anzeigen wenn angemeldet
+	<div id="logout">Herzlich Willkommen ${userEmail } <a href="/carsharing/Logout">(Logout)</a></div>
 
 	<div id="header-content" >
 		<h1 id="header-content-text">Auto&shyrückgabe</h1>

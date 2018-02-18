@@ -222,6 +222,89 @@ input[type=checkbox]:checked ~ nav {
 	margin-bottom: 20px;
 	background: #fff;
 }
+<<<<<<< HEAD
+=======
+#logo{
+	position: relative;
+	max-width: 90%;
+	max-height: 40px;
+	margin: 0 auto;
+}
+#impressum {
+	color: #fff;	
+	text-decoration: none;
+	display: block;
+}
+#social {
+	text-align:center; 
+	margin: 0 auto;
+    	z-index:8;
+    	display: block;
+}
+header{
+	min-height: 40px;	
+}
+#header-content{
+	margin-top: -5px;
+}
+#logout{
+	margin: right;		
+}
+}
+/*---------------------Tablets------------------*/
+@media only screen and (min-width: 361px) and (max-width: 767px){
+.show-menu {
+	display: block;
+	float: right;
+	height: 70px;
+	line-height: 70px;
+}
+nav {
+	margin-top: -5px;
+	display: none;
+	background: #00a0e1;
+	color: #fff;
+	clear: both;
+}
+nav ul{
+	vertical-align: center;
+	list-style: none;
+	margin: 0;
+}
+nav ul li a{
+	color: #fff;
+	text-decoration: none;
+	margin: 2px 0;
+	font-size: 1.1em;
+}
+nav ul li ul{
+	list-style: square;
+}
+nav ul li a:hover{
+	color: #fff;
+	text-decoration: underline;
+}
+h2 {
+	text-align: center;
+}
+#search {
+	margin-bottom: 1em;
+}
+#logo{
+	position: relative;
+	max-width: 90%;
+	max-height: 70px;
+	margin: 0 auto;
+}
+#impressum {
+	color: #fff;	
+	text-decoration: none;
+	display: block;
+}
+#social {
+	text-align:center; 
+	margin: 0 auto;
+>>>>>>> 45aa99db5e259a649c080f1c5bce9b2f668fca16
 
 .form-field-label {
 	position: absolute;
@@ -448,6 +531,7 @@ button:hover {
 		margin-top: -5px;
 	}
 }
+<<<<<<< HEAD
 /*----------------normale Bildschirme-------------------*/
 @media only screen and (min-width : 1085px) {
 	#quelle {
@@ -717,4 +801,30 @@ button:hover {
 		margin-bottom: 20px;
 		background: #fff;
 	}
+=======
+#logout{
+	position: right;		
+}
+}
+/*Druckanzeige*/
+@media print {
+#nav,footer{
+	display:none;	
+}
+#header-content{
+	text-align: center;
+}
+small {
+	font-size: 0.88em;
+	text-transform:uppercase;
+	margin-bottom: 0.8em;
+}
+.name-address {
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 20px;
+    background: #fff;
+}
+
+>>>>>>> 45aa99db5e259a649c080f1c5bce9b2f668fca16
 }

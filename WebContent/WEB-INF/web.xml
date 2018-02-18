@@ -32,6 +32,10 @@
 		<servlet-name>cars</servlet-name>
 		<servlet-class>com.wwi16.servlet.Cars</servlet-class>
 	</servlet>
+		<servlet>
+		<servlet-name>cars_detail</servlet-name>
+		<servlet-class>com.wwi16.servlet.Cars_detail</servlet-class>
+	</servlet>
 	<servlet>
 		<servlet-name>return_car</servlet-name>
 		<servlet-class>com.wwi16.servlet.Return_car</servlet-class>
@@ -75,6 +79,10 @@
 	<servlet-mapping>
 		<servlet-name>profil</servlet-name>
 		<url-pattern>/profil</url-pattern>
+	</servlet-mapping>
+		<servlet-mapping>
+		<servlet-name>cars_detail</servlet-name>
+		<url-pattern>/cars_detail</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>cars</servlet-name>
