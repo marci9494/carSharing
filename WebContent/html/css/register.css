@@ -1,0 +1,15 @@
+.formular-wrapper {
+	padding-left: 0px;
+	clear: both;
+	padding-bottom: 10px;
+}
+
+.formular_ul {
+	list-style-type: none;
+	padding-left: 0px;
+}
+
+.formular_li {
+	float: left;
+	padding-right: 15px;
+}
