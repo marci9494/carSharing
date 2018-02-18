@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <link rel="stylesheet" type="text/css"
-	href="/carSharing/html/css/register.css" media="screen" />
+	href="/carSharing/html/css/register_car.css" media="screen" />
 
 <jsp:include page="/theme/html/header.html" />
 
@@ -128,12 +128,12 @@
 		<br>
 		<div class="formular-wrapper">
 			<ul class="formular_ul">
-				<li class="formular_li"><label for="baujahr">Baujahr</label> <input
-					type="int" name="baujahr" id="baujahr" placeholder="z.B. 2012"
-					size="10" maxlength="4"></li>
+				<li class="formular_li"><label for="baujahr">Baujahr</label><br>
+					<input type="int" name="baujahr" id="baujahr"
+					placeholder="z.B. 2012" size="10" maxlength="4"></li>
 				<li class="formular_li"><label for="laufleistung">Laufleistung
-						in km</label> <input type="int" name="laufleistung" id="laufleistung"
-					placeholder="z.B. 148000" size="20" maxlength="6"></li>
+						in km</label><br> <input type="int" name="laufleistung"
+					id="laufleistung" placeholder="z.B. 148000" size="20" maxlength="6"></li>
 			</ul>
 		</div>
 
@@ -144,8 +144,8 @@
 		</div>
 
 		<div class="formular-wrapper">
-			<label for="ps">PS</label> <input type="int" name="ps" id="ps"
-				placeholder="z.B. 122" size="10" maxlength="3"> <label>Kraftstoff</label>
+			<label for="ps">PS</label><br> <input type="int" name="ps"
+				id="ps" placeholder="z.B. 122" size="10" maxlength="3"> <label>Kraftstoff</label>
 			<select id="kraftstoff">
 				<option value="Benzin">Benzin</option>
 				<option value="Diesel">Diesel</option>
@@ -155,14 +155,38 @@
 			</select>
 		</div>
 
+		<div class="formular-wrapper">
+			<label>Farbe</label> <br> <select id="farbe">
+				<option value="Grau">Grau</option>
+				<option value="Rot">Rot</option>
+				<option value="Schwarz">Schwarz</option>
+				<option value="Weiß">Weiß</option>
+				<option value="sonstiges">sonstiges</option>
+			</select>
+		</div>
+
 		<br>
 
 		<div class="formular-wrapper">
-			<label for="ausstattung">Geben Sie die Ausstattung des
-				Fahrzeugs an (Trennunng von mehreren Elementen mit einem
-				Strichpunkt)</label> <br>
-			<textarea name=ausstattung id="ausstattung" rows="5" cols="1000"
-				placeholder="Klimatronik;elektronische Fensterheber;Frontscheibenheizung"></textarea>
+
+			<label class="container">Kindersitz <input type="checkbox"
+				checked="checked"> <span class="checkmark"></span>
+			</label> <label class="container">Navigationsgerät <input
+				type="checkbox"> <span class="checkmark"></span>
+			</label> <label class="container">Klimaanlage oder Klimaautomatik <input
+				type="checkbox"> <span class="checkmark"></span>
+			</label> <label class="container">Fahradträger <input type="checkbox">
+				<span class="checkmark"></span>
+			</label> <label class="container">Dachbox <input type="checkbox">
+				<span class="checkmark"></span>
+			</label> <label class="container">Tempomat <input type="checkbox">
+				<span class="checkmark"></span>
+			</label> <label class="container">Winterreifen <input type="checkbox">
+				<span class="checkmark"></span>
+			</label> <label class="container">Schneeketten <input type="checkbox">
+				<span class="checkmark"></span>
+			</label>
+
 		</div>
 
 		<div class="formular-wrapper">
@@ -171,8 +195,8 @@
 
 		<div class="formular-wrapper">
 			<label>Fügen Sie Bilder Ihres Fahrzeugs hinzu, um die
-				Attraktivität Ihrer Anzeige zu erhöhen</label><br>
-			<input name="datei[]" type="file" size="50" accept="image/*" multiple>
+				Attraktivität Ihrer Anzeige zu erhöhen</label> <br> <input
+				name="datei[]" type="file" size="50" accept="image/*" multiple>
 			</label>
 		</div>
 
@@ -182,15 +206,35 @@
 
 		<div class="formular-wrapper">
 			<label>Laden Sie bitte ein Bild Ihres Fahrzeugscheins
-				(Zulassungsbescheinigung Teil I) hoch 
-		</div>
-		<div class="formular-wrapper">
-			<input name="datei" type="file" size="50" accept="image/*"> </label>
+				(Zulassungsbescheinigung Teil I) hoch</label> <br> <input name="datei"
+				type="file" size="50" accept="image/*">
 		</div>
 
 		<div class="formular-wrapper">
-			<button class="send_reg" id="button--primary" onclick="register()">Weiter</button>
+			<button onclick="register()">Weiter</button>
 		</div>
+
+		<div class="formular-wrapper">
+			<div class="slidecontainer">
+				<input type="range" min="1" max="100" value="50" class="slider"
+					id="myRange">
+				<script>
+					var slider = document.getElementById("myRange");
+					var output = document.getElementById("demo");
+					output.innerHTML = slider.value; // Display the default slider value
+
+					// Update the current slider value (each time you drag the slider handle)
+					slider.oninput = function() {
+						output.innerHTML = this.value;
+					}
+				</script>
+
+
+			</div>
+		</div>
+
+
+
 	</div>
 </body>
 <jsp:include page="/theme/html/footer.html" />
