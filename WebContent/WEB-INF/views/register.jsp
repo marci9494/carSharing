@@ -151,7 +151,7 @@
 		</script>
 
 		<div class="formular-wrapper">
-			<button class="send_reg" id="button--primary" onclick="register()">Weiter</button>
+			<button onclick="register()">Weiter</button>
 		</div>
 	</div>
 </body>
