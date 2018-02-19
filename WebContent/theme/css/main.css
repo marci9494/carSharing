@@ -255,6 +255,15 @@ header {
 	margin: right;
 }
 
+.banner-wrapper {
+	width: 100%;
+	margin-top: 60px;
+}
+
+.banner {
+	width: 100%;
+}
+
 /*---------------Smartphones--------------------*/
 @media only screen and (max-width: 414px) {
 	.show-menu {
