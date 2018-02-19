@@ -600,3 +600,18 @@ textarea {
 	width: auto;
 	display: block;
 }
+
+button {
+	border: 1px solid #00a0e1;
+	background: #00a0e1;
+	color: #fff;
+	height: 50px;
+	border-radius: 20px;
+}
+
+button:hover {
+	color: #00a0e1;
+	background: transparent;
+	box-shadow: 0 0 2px rgba(0, 158, 227, 0.5);
+	outline: 0;
+}
