@@ -6,6 +6,7 @@
 <jsp:include page="/theme/html/header.html" />
 <style>
 <jsp:include page="/html/css/renting_out.css" />
+<jsp:include page="/theme/css/main.css" />
 </style>
 
 <body>
@@ -16,6 +17,13 @@
 <main>
 	<div id="header-content" >
 		<h1 id="header-content-text">Auto&shyvermietung</h1>
+	</div>
+	<div>
+	<h5>Autodaten im Überblick</h5>
+	<p>Marke:<br>
+	Farbe:<br>
+	Sitzplätze:<br>
+	</p>
 	</div>
 	<div>
 		<h5>Vermietungs&shyzeitraum</h5>
