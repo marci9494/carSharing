@@ -11,7 +11,7 @@
 
 .formular_li {
 	float: left;
-	padding-right: 15px;
+	padding-right: 100px;
 }
 
 .slidecontainer {
@@ -42,7 +42,7 @@
 	width: 25px;
 	height: 25px;
 	border-radius: 50%;
-	background: #4CAF50;
+	background: #4472C4;
 	cursor: pointer;
 }
 
@@ -50,7 +50,7 @@
 	width: 25px;
 	height: 25px;
 	border-radius: 50%;
-	background: #4CAF50;
+	background: #4472C4;
 	cursor: pointer;
 }
 
@@ -61,7 +61,7 @@
 	padding-left: 35px;
 	margin-bottom: 12px;
 	cursor: pointer;
-	font-size: 22px;
+	font-size: 14px;
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;

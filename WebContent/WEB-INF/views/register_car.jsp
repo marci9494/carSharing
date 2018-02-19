@@ -140,53 +140,56 @@
 		<br> <br>
 
 		<div class="formular-wrapper">
-			<h2>Leistung und Ausstattung</h2>
+			<h2>Leistung</h2>
 		</div>
 
 		<div class="formular-wrapper">
-			<label for="ps">PS</label><br> <input type="int" name="ps"
-				id="ps" placeholder="z.B. 122" size="10" maxlength="3"> <label>Kraftstoff</label>
-			<select id="kraftstoff">
-				<option value="Benzin">Benzin</option>
-				<option value="Diesel">Diesel</option>
-				<option value="Elektro">Elektro</option>
-				<option value="Hybrid">Hybrid</option>
-				<option value="Erdgas">Erdgas</option>
-			</select>
+			<ul class="formular_ul">
+				<li class="formular_li"><label for="ps">PS</label><br> <input
+					type="int" name="ps" id="ps" placeholder="z.B. 122" size="10"
+					maxlength="3"></li>
+				<li class="formular_li"><label>Kraftstoff</label><br> <select
+					id="kraftstoff">
+						<option value="Benzin">Benzin</option>
+						<option value="Diesel">Diesel</option>
+						<option value="Elektro">Elektro</option>
+						<option value="Hybrid">Hybrid</option>
+						<option value="Erdgas">Erdgas</option>
+				</select></li>
 		</div>
 
 		<div class="formular-wrapper">
-			<label>Farbe</label> <br> <select id="farbe">
-				<option value="Grau">Grau</option>
-				<option value="Rot">Rot</option>
-				<option value="Schwarz">Schwarz</option>
-				<option value="Weiß">Weiß</option>
-				<option value="sonstiges">sonstiges</option>
-			</select>
+			<h2>Ausstattung</h2>
 		</div>
 
-		<br>
-
 		<div class="formular-wrapper">
-
-			<label class="container">Kindersitz <input type="checkbox"
-				checked="checked"> <span class="checkmark"></span>
-			</label> <label class="container">Navigationsgerät <input
-				type="checkbox"> <span class="checkmark"></span>
-			</label> <label class="container">Klimaanlage oder Klimaautomatik <input
-				type="checkbox"> <span class="checkmark"></span>
-			</label> <label class="container">Fahradträger <input type="checkbox">
-				<span class="checkmark"></span>
-			</label> <label class="container">Dachbox <input type="checkbox">
-				<span class="checkmark"></span>
-			</label> <label class="container">Tempomat <input type="checkbox">
-				<span class="checkmark"></span>
-			</label> <label class="container">Winterreifen <input type="checkbox">
-				<span class="checkmark"></span>
-			</label> <label class="container">Schneeketten <input type="checkbox">
-				<span class="checkmark"></span>
-			</label>
-
+			<ul class="formular_ul">
+				<li class="formular_li"><label>Farbe</label> <br> <select
+					id="farbe">
+						<option value="Grau">Grau</option>
+						<option value="Rot">Rot</option>
+						<option value="Schwarz">Schwarz</option>
+						<option value="Weiß">Weiß</option>
+						<option value="sonstiges">sonstiges</option>
+				</select></li>
+				<li class="formular_li"><label class="container">Kindersitz
+						<input type="checkbox" checked="checked"> <span
+						class="checkmark"></span>
+				</label> <label class="container">Navigationsgerät <input
+						type="checkbox"> <span class="checkmark"></span>
+				</label> <label class="container">Klimaanlage oder Klimaautomatik <input
+						type="checkbox"> <span class="checkmark"></span>
+				</label> <label class="container">Fahradträger <input
+						type="checkbox"> <span class="checkmark"></span>
+				</label> <label class="container">Dachbox <input type="checkbox">
+						<span class="checkmark"></span>
+				</label> <label class="container">Tempomat <input type="checkbox">
+						<span class="checkmark"></span>
+				</label> <label class="container">Winterreifen <input
+						type="checkbox"> <span class="checkmark"></span>
+				</label> <label class="container">Schneeketten <input
+						type="checkbox"> <span class="checkmark"></span>
+				</label></li>
 		</div>
 
 		<div class="formular-wrapper">
