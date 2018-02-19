@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <link rel="stylesheet" type="text/css" href="/carSharing/html/css/login.css" media="screen" />
-<jsp:include page="/theme/html/header.html" />
+<jsp:include page="/theme/html/header.jsp" />
 <style>
 <jsp:include page="/html/css/login.css" />
 </style>

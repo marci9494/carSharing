@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <link rel="stylesheet" type="text/css" href="/carSharing/html/css/return_car.css" media="screen" />
-<jsp:include page="/theme/html/header.html" />
+<jsp:include page="/theme/html/header.jsp" />
 <style>
 	<jsp:include page="/html/css/return_car.css" />
 </style>
@@ -21,6 +21,16 @@
 	<div id="header-content" >
 		<h1 id="header-content-text">Auto&shyrückgabe</h1>
 	</div>
+	<h5>Autodaten im Überblick</h5>
+		<p>
+			<span class="form-field-label">Marke: ${car.marke}</span>
+			<br><br><br><br>
+			<span class="form-field-label">Modell: ${car.modell}</span>
+			<br><br><br><br>
+			<span class="form-field-label">Farbe: ${car.farbe}</span>
+			<br><br><br><br>
+			<span class="form-field-label"> Sitzplätze: ${car.sitzplätze}</span>
+		</p>
 <form action="textarea.html" method="post"> 
 	<div>
 		<h5>Mängel</h5>

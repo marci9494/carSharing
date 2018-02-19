@@ -4,7 +4,7 @@
 <html>
 <link rel="stylesheet" type="text/css"
 	href="/carSharing/html/css/profil.css" media="screen" />
-<jsp:include page="/theme/html/header.html" />
+<jsp:include page="/theme/html/header.jsp" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <style>

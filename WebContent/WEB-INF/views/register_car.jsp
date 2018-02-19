@@ -5,7 +5,7 @@
 <link rel="stylesheet" type="text/css"
 	href="/carSharing/html/css/register_car.css" media="screen" />
 
-<jsp:include page="/theme/html/header.html" />
+<jsp:include page="/theme/html/header.jsp" />
 
 <!-- <script src="https://code.jquery.com/jquery-2.1.1.min.js"
 	type="text/javascript"></script>

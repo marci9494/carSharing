@@ -5,7 +5,7 @@
 
 
 
-<jsp:include page="/theme/html/header.html" />
+<jsp:include page="/theme/html/header.jsp" />
 
 <link rel="stylesheet" type="text/css"
 	href="/carSharing/html/css/register.css" media="screen" />

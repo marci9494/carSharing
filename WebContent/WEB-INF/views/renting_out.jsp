@@ -17,17 +17,14 @@
 			<li><a href="">Mieten</a></li>
 			<li><a href="/carSharing/cars">Vermieten</a></li>
 			<c:choose>
-   				 <c:when test= userEmail!=null>
+   				 <c:when test= "userEmail!=null">
         			<li><a href="/carSharing/profil">Profil</a></li>
-        		<br />
    				 </c:when>    
     			 <c:otherwise>
         			<li><a href="/carSharing/login">Login</a></li>
-        		<br />
     			</c:otherwise>
 		</c:choose>
 		</ul>
-
 	</nav>
 </header>
 <body>
@@ -37,6 +34,14 @@
 	</div>
 <main>
 //nur anzeigen wenn angemeldet
+		<c:choose>
+   				 <c:when test= "userEmail!=null">
+        			<div class="logout">Herzlich Willkommen ${userEmail } <a href="/carsharing/Logout">(Logout)</a></div>
+   				 </c:when>    
+    			 <c:otherwise>
+        			Herzlich Willkommen
+    			</c:otherwise>
+		</c:choose>
 	<div class="logout">Herzlich Willkommen ${userEmail } <a href="/carsharing/Logout">(Logout)</a></div>
 
 	<div id="header-content" >

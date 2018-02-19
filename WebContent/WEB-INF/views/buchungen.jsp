@@ -4,7 +4,7 @@
 <html>
 <link rel="stylesheet" type="text/css"
 	href="/carSharing/html/css/login.css" media="screen" />
-<jsp:include page="/theme/html/header.html" />
+<jsp:include page="/theme/html/header.jsp" />
 
 <body>
 <head>
