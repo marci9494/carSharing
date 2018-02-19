@@ -23,7 +23,7 @@
 			<li><a href="">Mieten</a></li>
 			<li><a href="/carSharing/cars">Vermieten</a></li>
 			<c:choose>
-   				 <c:when test= "userEmail!=null">
+   				 <c:when test="${ userEmail!=null}">
         			<li><a href="/carSharing/profil">Profil</a></li>
    				 </c:when>    
     			 <c:otherwise>
