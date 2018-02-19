@@ -15,14 +15,23 @@
 		src="/carSharing/html/img/header.jpg">
 	</div>
 <main>
+//nur anzeigen wenn angemeldet
+	<div class="logout">Herzlich Willkommen ${userEmail } <a href="/carsharing/Logout">(Logout)</a></div>
+
 	<div id="header-content" >
 		<h1 id="header-content-text">Auto&shyvermietung</h1>
 	</div>
 	<div>
 	<h5>Autodaten im Überblick</h5>
-	<p>Marke:<br>
-	Farbe:<br>
-	Sitzplätze:<br>
+		<p>
+			<span class="form-field-label">Marke: ${car.marke}</span>
+			<br><br><br><br>
+			<span class="form-field-label">Modell: ${car.modell}</span>
+			<br><br><br><br>
+			<span class="form-field-label">Farbe: ${car.farbe}</span>
+			<br><br><br><br>
+			<span class="form-field-label"> Sitzplätze: ${car.sitzplätze}</span>
+		</p>
 	</p>
 	</div>
 	<div>
