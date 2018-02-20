@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@  taglib  prefix="c"   uri="http://java.sun.com/jsp/jstl/core"  %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <link rel="stylesheet" type="text/css"
@@ -10,8 +11,20 @@
 <body>
 <html lang="de">
 
+<div id=hallo>
+		<c:choose>
+   				 <c:when test= "${ userEmail!=null}">
+        			<div class="logout">Herzlich Willkommen ${userEmail } <a href="/carsharing/logout">(Logout)</a></div>
+   				 </c:when>    
+    			 <c:otherwise>
+        			Herzlich Willkommen
+    			</c:otherwise>
+		</c:choose>
+		</div>
+
 <head>
 
+		
 <meta charset="UTF-8">
 <link rel="shortcut icon" type="image/x-icon"
 	href="https://production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" />
