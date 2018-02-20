@@ -70,7 +70,7 @@
 		<br>
 		<br>
 	</div>
-	<button onclick="update()"> Speichern</button>
+	<button id="enver-button" onclick="update()"> Speichern</button>
 	<br>
 	<br>
 	<br>
@@ -95,7 +95,7 @@
 				src="/carSharing/html/img/amex.jpg" id="amex">
 				</div>
 				<br><br><br><br>
-			 <button type="button" id="button--primary">Daten ändern</button>
+			 <button id="enver-button">Speichern</button>
 			 <br><br><br><br>
 			 
 	
