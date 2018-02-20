@@ -8,11 +8,6 @@
 	href="/carSharing/html/css/register.css" media="screen" />
 
 <jsp:include page="/theme/html/header.jsp" />
-<style>
-<jsp:include page="/theme/css/main.css"/>
-<jsp:include page="/carSharing/html/css/register.css"/>
-
-</style>
 
 <body>
 
