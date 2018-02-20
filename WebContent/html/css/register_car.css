@@ -4,6 +4,56 @@
 	padding-bottom: 10px;
 }
 
+.kennzeichen-wrapper {
+	position: relative;
+}
+
+.kennzeichen-wrapper img {
+	display: block;
+	z-index: auto;
+	background-size: contain;
+	min-height: 48.96px;
+	min-width: 252px;
+}
+
+.kennzeichen-wrapper span {
+	position: absolute;
+	top: 0;
+	line-height: 2em;
+	z-index: auto;
+	margin-top: 9px;
+}
+
+.kennzeichen-wrapper input {
+	font-size: 2em;
+	background: transparent;
+	border: none;
+}
+
+#span1 {
+	margin-left: 30px;
+}
+
+#span1 input {
+	width: 60px;
+}
+
+#span2 {
+	margin-left: 110px;
+}
+
+#span2 input {
+	width: 40px;
+}
+
+#span3 {
+	margin-left: 170px;
+}
+
+#span3 input {
+	width: 75px;
+}
+
 .formular_ul {
 	list-style-type: none;
 	padding-left: 0px;
@@ -118,4 +168,8 @@
 	-webkit-transform: rotate(45deg);
 	-ms-transform: rotate(45deg);
 	transform: rotate(45deg);
+}
+
+.kennzeichen_img {
+	width: 20%;
 }

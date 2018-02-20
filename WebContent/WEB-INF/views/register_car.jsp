@@ -42,6 +42,21 @@
 	</div>
 	<div class="content-wrapper">
 
+
+
+		<label>Kfz-Kennzeichen</label><br>
+		<div class="kennzeichen-wrapper">
+			<img class="kennzeichen_img" alt="Kennzeichen"
+				src="/carSharing/html/img/kennzeichen.jpg"> <span id="span1">
+				<input type="text" name="kennzeichen_1" id="kennzeichen_1"
+				placeholder="HH" maxlength="3">
+			</span> <span id="span2"> <input type="text" name="kennzeichen_2"
+				id="kennzeichen_2" placeholder="XX" maxlength="2">
+			</span> <span id="span3"> <input type="int" name="kennzeichen_3"
+				id="kennzeichen_3" placeholder="1234" maxlength="4">
+			</span>
+		</div>
+
 		<div class="formular-wrapper">
 			<ul class="formular_ul">
 				<li class="formular_li"><label>Automarke</label> <br> <select

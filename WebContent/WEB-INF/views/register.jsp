@@ -3,18 +3,22 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
-
-
-<jsp:include page="/theme/html/header.jsp"/>
-
 <link rel="stylesheet" type="text/css"
 	href="/carSharing/html/css/register.css" media="screen" />
+
+<jsp:include page="/theme/html/header.jsp" />
+<style>
+<jsp:include page="/theme/css/main.css"/>
+<jsp:include page="/carSharing/html/css/register.css"/>
+
+</style>
 
 <body>
 
 	<div class="banner-wrapper">
 		<img class="banner" alt="Banner" src="/carSharing/html/img/header.jpg">
 	</div>
+
 	<div class="content-wrapper">
 		<div id="header-content">
 			<h1 id="header-content-text">Registrierung</h1>
