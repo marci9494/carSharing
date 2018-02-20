@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@  taglib  prefix="c"   uri="http://java.sun.com/jsp/jstl/core"  %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <link rel="stylesheet" type="text/css"
@@ -30,6 +31,17 @@
 		<h1 id="header-content-text">Meine CarNow Accountdetails</h1>
 	</div>
 <div class="content-wrapper">
+
+<div id=hallo>
+		<c:choose>
+   				 <c:when test= "${ userEmail!=null}">
+        			<div class="logout">Herzlich Willkommen ${userEmail } <a href="/carsharing/logout">(Logout)</a></div>
+   				 </c:when>    
+    			 <c:otherwise>
+        			Herzlich Willkommen
+    			</c:otherwise>
+		</c:choose>
+		</div>
 
 	<p>Hier findest du alle wichtigen Infos rund um deinen Account.
 		Stell sicher, dass deine Angaben immer auf dem neusten Stand sind,
@@ -70,7 +82,7 @@
 		<br>
 		<br>
 	</div>
-	<button onclick="update()"> Speichern</button>
+	<button id="enver-button" onclick="update()"> Speichern</button>
 	<br>
 	<br>
 	<br>
@@ -95,7 +107,7 @@
 				src="/carSharing/html/img/amex.jpg" id="amex">
 				</div>
 				<br><br><br><br>
-			 <button type="button" id="button--primary">Daten ändern</button>
+			 <button id="enver-button">Speichern</button>
 			 <br><br><br><br>
 			 
 	

@@ -9,6 +9,10 @@ h5{
 .banner{
 	width:100%;
 }
+
+#hallo{
+	text-align:right;
+}
 /*---------------Smartphones--------------------*/
 @media only screen and (max-width: 400px){
 h5 {

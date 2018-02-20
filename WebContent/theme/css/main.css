@@ -251,8 +251,8 @@ header {
 	margin-top: -5px;
 }
 
-#logout {
-	margin: right;
+#hallo{
+	text-align:right;
 }
 
 .banner-wrapper {
@@ -442,7 +442,7 @@ p {
 	padding-left: 2em;
 	padding-right: 2em;
 	color: #262626;
-	font-size: .9em;
+	font-size: 1.1em;
 	line-height: 1.62em;
 	margin: 0 auto;
 	margin-top: 1em;
