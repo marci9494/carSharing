@@ -43,20 +43,20 @@
 	</div>
 	<div class="content-wrapper">
 
-<div id=hallo>
-		<c:choose>
-   				 <c:when test= "${ userEmail!=null}">
-        			<div class="logout">Herzlich Willkommen ${userEmail } <a href="/carsharing/logout">(Logout)</a></div>
-   				 </c:when>    
-    			 <c:otherwise>
+		<div id=hallo>
+			<c:choose>
+				<c:when test="${ userEmail!=null}">
+					<div class="logout">
+						Herzlich Willkommen ${userEmail } <a href="/carsharing/logout">(Logout)</a>
+					</div>
+				</c:when>
+				<c:otherwise>
         			Herzlich Willkommen
     			</c:otherwise>
-		</c:choose>
+			</c:choose>
 		</div>
 
-<br><br>
-
-		<label>Kfz-Kennzeichen</label><br>
+		<br> <br> <label>Kfz-Kennzeichen</label><br>
 		<div class="kennzeichen-wrapper">
 			<img class="kennzeichen_img" alt="Kennzeichen"
 				src="/carSharing/html/img/kennzeichen.jpg"> <span id="span1">
@@ -191,14 +191,6 @@
 
 		<div class="formular-wrapper">
 			<ul class="formular_ul">
-				<li class="formular_li"><label>Farbe</label> <br> <select
-					id="farbe">
-						<option value="Grau">Grau</option>
-						<option value="Rot">Rot</option>
-						<option value="Schwarz">Schwarz</option>
-						<option value="Weiß">Weiß</option>
-						<option value="sonstiges">sonstiges</option>
-				</select></li>
 				<li class="formular_li"><label class="container">Kindersitz
 						<input type="checkbox" checked="checked"> <span
 						class="checkmark"></span>
@@ -217,6 +209,32 @@
 				</label> <label class="container">Schneeketten <input
 						type="checkbox"> <span class="checkmark"></span>
 				</label></li>
+				<li class="formular_li"><label>Farbe des Fahrzeugs</label> <br>
+					<select id="farbe">
+						<option value="Grau">Grau</option>
+						<option value="Rot">Rot</option>
+						<option value="Schwarz">Schwarz</option>
+						<option value="Weiß">Weiß</option>
+						<option value="sonstiges">sonstiges</option>
+				</select>
+				<br><br>
+				<label>Anzahl der Sitzplätze (inklusive Fahrersitz)</label> <br>
+					<select id="farbe">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						
+				</select>
+				
+				
+				</li>
+				
 		</div>
 
 		<div class="formular-wrapper">
@@ -241,30 +259,61 @@
 		</div>
 
 		<div class="formular-wrapper">
-			<button onclick="register()">Weiter</button>
+			<h2>Preis und Konditionen</h2>
 		</div>
 
 		<div class="formular-wrapper">
+
+			<label>Startpreis</label>
+
 			<div class="slidecontainer">
-				<input type="range" min="1" max="100" value="50" class="slider"
-					id="myRange">
-				<script>
-					var slider = document.getElementById("myRange");
-					var output = document.getElementById("demo");
-					output.innerHTML = slider.value; // Display the default slider value
-
-					// Update the current slider value (each time you drag the slider handle)
-					slider.oninput = function() {
-						output.innerHTML = this.value;
-					}
-				</script>
-
-
+				<input type="range" min="1" max="100" value="12" class="slider"
+					id="basispreis_range">
 			</div>
+
+
+			<span>Startpreis: </span> <span id="basispreis"></span> <span>€</span>
+
+			<script>
+				var slider = document.getElementById("basispreis_range");
+				var output = document.getElementById("basispreis");
+				output.innerHTML = slider.value; // Display the default slider value
+
+				// Update the current slider value (each time you drag the slider handle)
+				slider.oninput = function() {
+					output.innerHTML = this.value;
+				}
+			</script>
+		</div>
+		<br>
+		<div class="formular-wrapper">
+
+			<label>Kilometerpreis</label>
+
+			<div class="slidecontainer">
+				<input type="range" min="0.00" max="40" value="2.50" step=0.10
+					class="slider" id="kilometer_range">
+			</div>
+
+
+			<span>Preis pro Kilometer: </span> <span id="kilometerpreis"></span>
+			<span>€</span>
+
+			<script>
+				var sliderk = document.getElementById("kilometer_range");
+				var outputk = document.getElementById("kilometerpreis");
+				outputk.innerHTML = sliderk.value; // Display the default slider value
+
+				// Update the current slider value (each time you drag the slider handle)
+				sliderk.oninput = function() {
+					outputk.innerHTML = this.value;
+				}
+			</script>
 		</div>
 
-
-
+		<div class="formular-wrapper">
+			<button onclick="register()">Weiter</button>
+		</div>
 	</div>
 </body>
 <jsp:include page="/theme/html/footer.html" />
