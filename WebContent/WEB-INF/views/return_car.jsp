@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@  taglib  prefix="c"   uri="http://java.sun.com/jsp/jstl/core"  %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <link rel="stylesheet" type="text/css" href="/carSharing/html/css/return_car.css" media="screen" />
@@ -14,9 +15,17 @@
 		src="/carSharing/html/img/header.jpg">
 	</div>
 <main>
-
-//nur anzeigen wenn angemeldet
-	<div id="logout">Herzlich Willkommen ${userEmail } <a href="/carsharing/Logout">(Logout)</a></div>
+<br>
+		<div id=hallo>
+		<c:choose>
+   				 <c:when test= "${ userEmail!=null}">
+        			<div class="logout">Herzlich Willkommen ${userEmail } <a href="/carsharing/logout">(Logout)</a></div>
+   				 </c:when>    
+    			 <c:otherwise>
+        			Herzlich Willkommen
+    			</c:otherwise>
+		</c:choose>
+		</div>
 
 	<div id="header-content" >
 		<h1 id="header-content-text">Auto&shyrückgabe</h1>
@@ -30,6 +39,7 @@
 			<span class="form-field-label">Farbe: ${car.farbe}</span>
 			<br><br><br><br>
 			<span class="form-field-label"> Sitzplätze: ${car.sitzplätze}</span>
+			<br><br><br>
 		</p>
 <form action="textarea.html" method="post"> 
 	<div>
