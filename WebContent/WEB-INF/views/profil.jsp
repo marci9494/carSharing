@@ -24,13 +24,6 @@
 
 	</div>
 
- <br>
-
-
-	<div id="header-content">
-		<h1 id="header-content-text">Meine CarNow Accountdetails</h1>
-	</div>
-<div class="content-wrapper">
 
 <div id=hallo>
 		<c:choose>
@@ -43,6 +36,12 @@
 		</c:choose>
 		</div>
 
+	<div id="header-content">
+		<h1 id="header-content-text">Meine CarNow Accountdetails</h1>
+	</div>
+
+
+<div class="content-wrapper">
 	<p>Hier findest du alle wichtigen Infos rund um deinen Account.
 		Stell sicher, dass deine Angaben immer auf dem neusten Stand sind,
 		damit deiner Nutzung von carNow nichts im Wege steht. Solltest du

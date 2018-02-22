@@ -31,7 +31,6 @@
 		</c:choose>
 		</div>
 
-<br>
 
 				
 				
