@@ -14,9 +14,12 @@
 		<img class="banner" alt="Banner"
 		src="/carSharing/html/img/header.jpg">
 	</div>
-<main>
 <br>
-		<div id=hallo>
+	<div id="header-content" >
+		<h1 id="header-content-text">Auto&shyrückgabe</h1>
+	</div>
+<div class="content-wrapper">
+<div id=hallo>
 		<c:choose>
    				 <c:when test= "${ userEmail!=null}">
         			<div class="logout">Herzlich Willkommen ${userEmail } <a href="/carsharing/logout">(Logout)</a></div>
@@ -26,12 +29,8 @@
     			</c:otherwise>
 		</c:choose>
 		</div>
-
-	<div id="header-content" >
-		<h1 id="header-content-text">Auto&shyrückgabe</h1>
-	</div>
+		
 	<h5>Autodaten im Überblick</h5>
-		<p>
 			<span class="form-field-label">Marke: ${car.marke}</span>
 			<br><br><br><br>
 			<span class="form-field-label">Modell: ${car.modell}</span>
@@ -40,28 +39,26 @@
 			<br><br><br><br>
 			<span class="form-field-label"> Sitzplätze: ${car.sitzplätze}</span>
 			<br><br><br>
-		</p>
+		
 <form action="textarea.html" method="post"> 
 	<div>
 		<h5>Mängel</h5>
-		<p>Hast du während deiner Benutzung Mängel am Auto verursacht? Gib sie hier bitte ein.
+		Hast du während deiner Benutzung Mängel am Auto verursacht? Gib sie hier bitte ein.
 			<br><br>
 			<textarea id="text" name="text" cols="35" rows="4"></textarea>
-		<br>
-		</p>	
+		<br>	
 	</div>
 	<div>
 		<h5>Nachricht an den Vermieter</h5>
-		<p>Willst du dem Vermieter noch etwas mitteilen? Hier hast du die Gelegenheit dazu.
+		Willst du dem Vermieter noch etwas mitteilen? Hier hast du die Gelegenheit dazu.
 			<br><br>
 			<textarea id="text" name="text" cols="35" rows="4"></textarea> 
 			<br><br>
 			<button type="button" id="button--primary">Auto zurückgeben</button>
 			<br>
-		</p>
 	</div>  
 </form> 
-</main>
+</div>
 </body>
 
 <jsp:include page="/theme/html/footer.html" />
