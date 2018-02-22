@@ -201,6 +201,12 @@ a:hover {
 	vertical-align: middle;
 }
 
+.content-wrapper {
+	margin: 0 auto;
+	max-width: 1020px;
+	
+}
+
 input {
 	border: none;
 	border-bottom: 1px dotted #666666;
