@@ -7,6 +7,7 @@
 <jsp:include page="/theme/html/header.jsp" />
 <style>
 	<jsp:include page="/html/css/return_car.css" />
+	<jsp:include page ="/theme/css/main.css"/>
 </style>
 
 <body>
@@ -18,6 +19,7 @@
 	<div id="header-content" >
 		<h1 id="header-content-text">Auto&shyrückgabe</h1>
 	</div>
+	
 <div class="content-wrapper">
 <div id=hallo>
 		<c:choose>
