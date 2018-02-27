@@ -11,36 +11,56 @@
 <head>
 <style>
 
-
-.form {
-	width: 340px;
-	height: 470px;
-	border-radius: 8px;
-	box-shadow: 0 0 40px -10px #000;
-	margin: calc(50vh - 220px) auto;
-	padding: 20px 30px;
-	max-width: calc(100vw - 40px);
-	box-sizing: border-box;
-	position: relative
+ table {
+  overflow: hidden;
+  text-align: center;
 }
 
-
-
-
-input:focus {
-	border-bottom: 2px solid #78788c
+td, th {
+  padding: 10px;
+  position: relative;
+  outline: 0;
 }
 
-p:before {
-	content: attr(type);
-	display: block;
-	margin: 28px 0 0;
-	font-size: 14px;
-	color: #5a5a5a
+body:not(.nohover) tbody tr:hover {
+  background-color: aqua;
 }
 
+td:hover::after,
+thead th:not(:empty):hover::after,
+td:focus::after,
+thead th:not(:empty):focus::after { 
+  content: '';  
+  height: 10000px;
+  left: 0;
+  position: absolute;  
+  top: -5000px;
+  width: 100%;
+  z-index: -1;
+}
 
+td:hover::after,
+th:hover::after {
+  background-color: aqua;
+}
 
+td:focus::after,
+th:focus::after {
+  background-color: lightblue;
+}
+
+/* Focus stuff for mobile */
+td:focus::before,
+tbody th:focus::before {
+  background-color: lightblue;
+  content: '';  
+  height: 100%;
+  top: 0;
+  left: -5000px;
+  position: absolute;  
+  width: 10000px;
+  z-index: -1;
+}
 
 
 </style>
@@ -63,23 +83,46 @@ p:before {
 		</c:choose>
 		</div>
 
+<main>
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th class="col">Vermieten</th>
+        <th class="col">Mieten</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th class="row">Buchungsnummer 1</th>
+        <td>Test</td>
+          <td>Test</td>
+    
+      </tr>
 
-<form class="form">
-	<h2>Deine Buchungen</h2>
-	<p type="Name:">
-		<input placeholder="Dein Name..."></input>
-	</p>
-	<p type="Vorname:">
-		<input placeholder="Dein Vorname"></input>
-	</p>
-	<p type="Buchungsnummer:">
-		<input placeholder="Deine Buchungsnummer"></input>
-	</p>
-	<button>Send Message</button>
-	<div>
-		<span class="fa fa-phone"></span>Car2Go <span class="fa fa-envelope-o"></span>
-	</div>
-</form>
+      <tr>
+        <th class="row">Buchungsnummer 2</th>
+        <td>Test</td>
+          <td>Test</td>
+      </tr>
+
+      <tr>
+        <th class="row">Buchungsnummer 3</th>
+        <td>Test</td>
+          <td>Test</td>
+
+      </tr>
+
+      <tr>
+        <th class="row">Buchungsnummer 4</th>
+        <td>Test</td>
+          <td>Test</td>
+      </tr>
+    <tbody>
+  </table>
+</main>
+
 
 </body>
 <jsp:include page="/theme/html/footer.html" />
