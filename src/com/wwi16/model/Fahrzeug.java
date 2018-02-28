@@ -19,10 +19,18 @@ public class Fahrzeug implements Serializable{
 	
 	@Id @GeneratedValue
 	    private Long id;
-		private int leistung;
-		private int sitzplaetze;
+		private String kennzeichen;
 		private String modell;
-		private int km_stand;
+		private int baujahr;
+		private int laufleistung;
+
+		private String kraftstoff;
+		
+		private int sitzplaetze;
+		private int basispreis;
+		private int kilometerpreis;
+		
+		private int leistung;
 		
 		@OneToOne
 		private FahrzeugFarbe farbe;
@@ -34,6 +42,42 @@ public class Fahrzeug implements Serializable{
 		private String plz;
 		
 		
+		public String getKennzeichen() {
+			return kennzeichen;
+		}
+		public void setKennzeichen(String kennzeichen) {
+			this.kennzeichen = kennzeichen;
+		}
+		public int getBaujahr() {
+			return baujahr;
+		}
+		public void setBaujahr(int baujahr) {
+			this.baujahr = baujahr;
+		}
+		public int getLaufleistung() {
+			return laufleistung;
+		}
+		public void setLaufleistung(int laufleistung) {
+			this.laufleistung = laufleistung;
+		}
+		public String getKraftstoff() {
+			return kraftstoff;
+		}
+		public void setKraftstoff(String kraftstoff) {
+			this.kraftstoff = kraftstoff;
+		}
+		public int getBasispreis() {
+			return basispreis;
+		}
+		public void setBasispreis(int basispreis) {
+			this.basispreis = basispreis;
+		}
+		public int getKilometerpreis() {
+			return kilometerpreis;
+		}
+		public void setKilometerpreis(int kilometerpreis) {
+			this.kilometerpreis = kilometerpreis;
+		}
 		public Long getId() {
 			return id;
 		}
@@ -58,12 +102,8 @@ public class Fahrzeug implements Serializable{
 		public void setModell(String modell) {
 			this.modell = modell;
 		}
-		public int getKm_stand() {
-			return km_stand;
-		}
-		public void setKm_stand(int km_stand) {
-			this.km_stand = km_stand;
-		}
+
+
 		public FahrzeugFarbe getFarbe() {
 			return farbe;
 		}
