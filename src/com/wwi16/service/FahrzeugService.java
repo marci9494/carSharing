@@ -8,20 +8,13 @@ import org.hibernate.Transaction;
 
 import com.wwi16.model.Ausstattung;
 import com.wwi16.model.Fahrzeug;
-<<<<<<< HEAD
-import com.wwi16.model.Nutzer;
-=======
 import com.wwi16.model.User;
->>>>>>> 7666aae2ae778dcd1c1805570cb25100dd83354a
 import com.wwi16.util.HibernateUtil;
 
 public class FahrzeugService {
 
 	public List<Fahrzeug> searchFahrzeugByPlz(String plz) {
-<<<<<<< HEAD
 
-=======
->>>>>>> 7666aae2ae778dcd1c1805570cb25100dd83354a
 		Session session = HibernateUtil.openSession();
 		Transaction tx = null;
 		List<Fahrzeug> fahrzeuge = null;
@@ -41,7 +34,6 @@ public class FahrzeugService {
 		}
 		return fahrzeuge;
 	}
-<<<<<<< HEAD
 
 	public Fahrzeug createFahrzeug(String kennzeichen, String modell, int baujahr, int laufleistung, int leistung,
 			String kraftstoff, int sitzplaetze, int basispreis, int kilometerpreis) {
@@ -73,8 +65,6 @@ public class FahrzeugService {
 		return fahrzeug;
 
 	}
-=======
->>>>>>> 7666aae2ae778dcd1c1805570cb25100dd83354a
 
 	public Fahrzeug getFahrzeugById(String publicId) {
 		Session session = HibernateUtil.openSession();
