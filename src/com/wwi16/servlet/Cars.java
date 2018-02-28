@@ -1,6 +1,7 @@
 package com.wwi16.servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,8 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.wwi16.model.Nutzer;
-import com.wwi16.service.NutzerService;
+import com.wwi16.model.Fahrzeug;
+import com.wwi16.model.User;
+import com.wwi16.service.FahrzeugService;
+import com.wwi16.service.UserService;
 
 
 
@@ -41,9 +44,16 @@ public class Cars extends HttpServlet {
 
 			if(userEmail != null){
 				
-				NutzerService nutzerService = new NutzerService();
-				Nutzer nutzer = nutzerService.getNutzer(userEmail);
+				UserService nutzerService = new UserService();
+				User nutzer = nutzerService.getNutzer(userEmail);
 				request.setAttribute("nutzer",nutzer);
+				
+				FahrzeugService fahrzeugService = new FahrzeugService();
+				List<Fahrzeug> fahrzeuge = fahrzeugService.searchFahrzeugeByUser(userEmail);
+				System.out.println(fahrzeuge.size());
+				request.setAttribute("fahrzeuge",fahrzeuge);
+				
+				
 				
 			}else{
 				//User nicht angemeldet was machen!?

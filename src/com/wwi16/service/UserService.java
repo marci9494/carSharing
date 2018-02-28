@@ -8,20 +8,20 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import com.wwi16.model.Ausstattung;
-import com.wwi16.model.Nutzer;
+import com.wwi16.model.User;
 import com.wwi16.util.HibernateUtil;
 
-public class NutzerService {
+public class UserService {
 	
 	public boolean checkLogin(String email, String pw){
         Session session = HibernateUtil.openSession();
         Transaction tx = null;
-        Nutzer nutzer = null;
+        User nutzer = null;
         try {
             tx = session.getTransaction();
             tx.begin();
-            Query query = session.createQuery("from Nutzer where email='"+email+"'");
-            nutzer = (Nutzer)query.uniqueResult();
+            Query query = session.createQuery("from User where email='"+email+"'");
+            nutzer = (User)query.uniqueResult();
             tx.commit();
         } catch (Exception e) {
             if (tx != null) {
@@ -46,12 +46,12 @@ public class NutzerService {
 		return false;
 	}
 	
-	public Nutzer createNutzer(String vorname, String nachname,String strasse,String plz, String ort, String email, boolean vermieter, String password){
+	public User createNutzer(String vorname, String nachname,String strasse,String plz, String ort, String email, boolean vermieter, String password){
 		 Session session = HibernateUtil.openSession();
 		 
 		 session.beginTransaction();
 		 
-		 Nutzer nutzer = new Nutzer();
+		 User nutzer = new User();
 		 nutzer.setEmail(email);
 		 nutzer.setNachname(nachname);
 		 nutzer.setOrt(ort);
@@ -73,15 +73,15 @@ public class NutzerService {
 		return nutzer;
 	}
 	
-	public Nutzer getNutzer(String email){
+	public User getNutzer(String email){
         Session session = HibernateUtil.openSession();
         Transaction tx = null;
-        Nutzer nutzer = null;
+        User nutzer = null;
         try {
             tx = session.getTransaction();
             tx.begin();
-            Query query = session.createQuery("from Nutzer where email='"+email+"'");
-            nutzer = (Nutzer)query.uniqueResult();
+            Query query = session.createQuery("from User where email='"+email+"'");
+            nutzer = (User)query.uniqueResult();
             tx.commit();
         } catch (Exception e) {
             if (tx != null) {

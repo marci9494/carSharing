@@ -24,7 +24,7 @@ import com.wwi16.model.Distance;
 import com.wwi16.model.Fahrzeug;
 import com.wwi16.service.AusstattungService;
 import com.wwi16.service.FahrzeugService;
-import com.wwi16.service.NutzerService;
+import com.wwi16.service.UserService;
 import com.wwi16.util.RadiusSearchUtil;
 
 /**

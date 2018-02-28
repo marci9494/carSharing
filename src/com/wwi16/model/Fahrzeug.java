@@ -33,6 +33,8 @@ public class Fahrzeug implements Serializable{
 		
 		private String plz;
 		
+		private User eigentümer;
+		
 		
 		public Long getId() {
 			return id;

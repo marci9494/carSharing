@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.wwi16.service.NutzerService;
+import com.wwi16.service.UserService;
 
 /*import com.wwi16.service.NutzerService;*/
 
@@ -41,7 +41,7 @@ public class Login extends HttpServlet {
 	        response.setContentType("text/html");
 	        String user = request.getParameter("username");
 	        String pass = request.getParameter("pass");
-	        NutzerService nutzerService = new NutzerService();
+	        UserService nutzerService = new UserService();
 	        boolean checkLogin = nutzerService.checkLogin(user, pass);
 	        System.out.println("Login = " + checkLogin);
 	        
