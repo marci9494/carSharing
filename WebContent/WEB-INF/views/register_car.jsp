@@ -306,10 +306,10 @@
 		<script>
 			function registerCar() {
 				
-				var stopgap = "-"
 				var kennzeichen = jQuery('#kennzeichen_1').val();
-				kennzeichen = kennzeichen.concat(stopgap).concat(jQuery('#kennzeichen_2').val()).concat(stopgap).concat(jQuery('#kennzeichen_2').val());
-
+				var kennzeichen = jQuery('#kennzeichen_2').val();
+				var kennzeichen = jQuery('#kennzeichen_3').val();
+				
 				var automarke = jQuery('#automarke').val();
 				var modell = jQuery('#modell').val();
 				var baujahr = jQuery('#baujahr').val();

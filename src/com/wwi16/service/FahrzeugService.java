@@ -35,8 +35,8 @@ public class FahrzeugService {
 		return fahrzeuge;
 	}
 
-	public Fahrzeug createFahrzeug(String kennzeichen, String modell, int baujahr, int laufleistung, int leistung,
-			String kraftstoff, int sitzplaetze, int basispreis, int kilometerpreis) {
+	public Fahrzeug createFahrzeug(String kennzeichen, String modell, String baujahr, String laufleistung, String leistung,
+			String kraftstoff, String sitzplaetze, String basispreis, String kilometerpreis) {
 
 		Session session = HibernateUtil.openSession();
 		session.beginTransaction();
