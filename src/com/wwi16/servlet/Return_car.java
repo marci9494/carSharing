@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.wwi16.model.Fahrzeug;
+import com.wwi16.service.FahrzeugService;
+
 public class Return_car extends HttpServlet {
 	
     public Return_car() {
@@ -22,6 +25,16 @@ public class Return_car extends HttpServlet {
 			String userEmail = (String) session.getAttribute("userEmail");
 			System.out.print("Hello, " + userEmail + " Welcome to Profile");
 			request.setAttribute("userEmail", userEmail);
+		}
+		
+		String carId = (String)request.getParameter("id");
+		
+		if(carId != null){
+			FahrzeugService fahrzeugService = new FahrzeugService();
+			Fahrzeug fahrzeugById = fahrzeugService.getFahrzeugById(carId);
+			request.setAttribute("car", fahrzeugById);
+		}else{
+			System.out.println("Keine CarId gesetzt");
 		}
 		
 		

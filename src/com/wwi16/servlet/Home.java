@@ -53,6 +53,7 @@ public class Home extends HttpServlet {
 			String userEmail = (String) session.getAttribute("userEmail");
 
 			System.out.print("Hello, " + userEmail + " Welcome to Profile");
+			request.setAttribute("userEmail", userEmail);
 		}
 		// AusstattungService ausstattungsServie = new AusstattungService();
 		// Ausstattung ausstattungById =

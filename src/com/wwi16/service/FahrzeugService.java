@@ -34,5 +34,26 @@ public class FahrzeugService {
         }
         return fahrzeuge;
     }
+	
+    public Fahrzeug getFahrzeugById(String publicId) {
+        Session session = HibernateUtil.openSession();
+        Transaction tx = null;
+        Fahrzeug fahrzeug = null;
+        try {
+            tx = session.getTransaction();
+            tx.begin();
+            Query query = session.createQuery("from Fahrzeug where id='"+publicId+"'");
+            fahrzeug = (Fahrzeug)query.uniqueResult();
+            tx.commit();
+        } catch (Exception e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return fahrzeug;
+    }
 
 }
