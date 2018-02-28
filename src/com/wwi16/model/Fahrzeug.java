@@ -41,6 +41,8 @@ public class Fahrzeug implements Serializable{
 		
 		private String plz;
 		
+		private User eigentümer;
+		
 		
 		public String getKennzeichen() {
 			return kennzeichen;

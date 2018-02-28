@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.wwi16.model.Nutzer;
-import com.wwi16.service.NutzerService;
+import com.wwi16.model.User;
+import com.wwi16.service.UserService;
 
 
 
@@ -41,8 +41,8 @@ public class Cars_detail extends HttpServlet {
 
 			if(userEmail != null){
 				
-				NutzerService nutzerService = new NutzerService();
-				Nutzer nutzer = nutzerService.getNutzer(userEmail);
+				UserService nutzerService = new UserService();
+				User nutzer = nutzerService.getNutzer(userEmail);
 				request.setAttribute("nutzer",nutzer);
 				
 			}else{

@@ -33,13 +33,13 @@
 		</div>
 		
 	<h5>Autodaten im Überblick</h5>
-			<span class="form-field-label">Marke: ${car.marke}</span>
+			<span class="form-field-label">Marke: ${car.hersteller.name}</span>
 			<br><br><br><br>
 			<span class="form-field-label">Modell: ${car.modell}</span>
 			<br><br><br><br>
-			<span class="form-field-label">Farbe: ${car.farbe}</span>
+			<span class="form-field-label">Farbe: ${car.farbe.name}</span>
 			<br><br><br><br>
-			<span class="form-field-label"> Sitzplätze: ${car.sitzplätze}</span>
+			<span class="form-field-label"> Sitzplätze: ${car.sitzplaetze}</span>
 			<br><br><br>
 		
 <form action="textarea.html" method="post"> 

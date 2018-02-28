@@ -19,6 +19,6 @@
 		<mapping class="com.wwi16.model.FahrzeugFarbe" />
 		<mapping class="com.wwi16.model.FahrzeugHersteller" />
 		<mapping class="com.wwi16.model.FahrzeugKategorie" />
-		<mapping class="com.wwi16.model.Nutzer" />
+		<mapping class="com.wwi16.model.User" />
 	</session-factory>
 </hibernate-configuration>

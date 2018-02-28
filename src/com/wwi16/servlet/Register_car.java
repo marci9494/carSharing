@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.wwi16.model.Nutzer;
-import com.wwi16.service.NutzerService;
+import com.wwi16.model.User;
+import com.wwi16.service.UserService;
 
 public class Register_car extends HttpServlet{
 	
