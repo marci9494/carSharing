@@ -50,7 +50,6 @@ public class Cars extends HttpServlet {
 				
 				FahrzeugService fahrzeugService = new FahrzeugService();
 				List<Fahrzeug> fahrzeuge = fahrzeugService.searchFahrzeugeByUser(userEmail);
-				System.out.println(fahrzeuge.size());
 				request.setAttribute("fahrzeuge",fahrzeuge);
 				
 				
