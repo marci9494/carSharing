@@ -23,7 +23,7 @@ td, th {
 }
 
 body:not(.nohover) tbody tr:hover {
-  background-color: aqua;
+  background-color: #00a0e1;
 }
 
 td:hover::after,
@@ -41,18 +41,18 @@ thead th:not(:empty):focus::after {
 
 td:hover::after,
 th:hover::after {
-  background-color: aqua;
+  background-color: #00a0e1;
 }
 
 td:focus::after,
 th:focus::after {
-  background-color: lightblue;
+  background-color: #00a0e1;
 }
 
 /* Focus stuff for mobile */
 td:focus::before,
 tbody th:focus::before {
-  background-color: lightblue;
+  background-color: #00a0e1;
   content: '';  
   height: 100%;
   top: 0;
@@ -82,7 +82,17 @@ tbody th:focus::before {
     			</c:otherwise>
 		</c:choose>
 		</div>
+		
+		<div class="banner-wrapper">
+		<img class="banner" alt="Banner"
+		src="/carSharing/html/img/header.jpg">
 
+	</div>
+
+
+<div id="header-content" >
+				<h1 id="header-content-text">Deine Buchungen</h1>
+			</div>
 <main>
   <table>
     <thead>
