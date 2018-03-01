@@ -77,6 +77,8 @@ public class FahrzeugService {
 		fahrzeug.setSitzplaetze(sitzplaetze);
 		fahrzeug.setModell(modell);
 		fahrzeug.setKm_stand(laufleistung);
+		//TODO ersetzen
+		fahrzeug.setPlz("89168");
 		
 		
 		
@@ -91,8 +93,8 @@ public class FahrzeugService {
 		// fahrzeug.setKilometerpreis(kilometerpreis);
 
 		try {
-			session.save(fahrzeug);
-			session.flush();
+			 session.save(fahrzeug);
+			 session.getTransaction().commit();
 		} catch (Exception e) {
 
 			e.printStackTrace();

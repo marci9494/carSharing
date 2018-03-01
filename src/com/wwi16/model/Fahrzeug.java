@@ -2,7 +2,9 @@ package com.wwi16.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -33,19 +35,22 @@ public class Fahrzeug implements Serializable {
 	private String kilometerpreis;
 
 	private String leistung;
-
-	@OneToOne
-	@JoinColumn(name = "id")
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "farbe")
 	private FahrzeugFarbe farbe;
-	@OneToOne
-	@JoinColumn(name = "id")
+	
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "hersteller")
 	private FahrzeugHersteller hersteller;
-	@OneToOne
-	@JoinColumn(name = "id")
+	
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "kategorie")
 	private FahrzeugKategorie kategorie;
 
 	private String plz;
 
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "eigentuemer")
 	private User eigentuemer;
 
 	public String getKennzeichen() {
