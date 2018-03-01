@@ -169,7 +169,7 @@ p:before {
 
 	</div>
 <div id="header-content" >
-				<h1 id="header-content-text">Impressum</h1>
+				<h1 id="header-content-text">Deine Bewertung</h1>
 </div>
 
 
