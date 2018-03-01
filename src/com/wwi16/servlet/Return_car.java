@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.wwi16.model.Buchung;
 import com.wwi16.model.Fahrzeug;
+import com.wwi16.service.BuchungService;
 import com.wwi16.service.FahrzeugService;
 
 public class Return_car extends HttpServlet {
@@ -27,12 +29,12 @@ public class Return_car extends HttpServlet {
 			request.setAttribute("userEmail", userEmail);
 		}
 		
-		String carId = (String)request.getParameter("id");
+		String buchungsId = (String)request.getParameter("id");
 		
-		if(carId != null){
-			FahrzeugService fahrzeugService = new FahrzeugService();
-			Fahrzeug fahrzeugById = fahrzeugService.getFahrzeugById(carId);
-			request.setAttribute("car", fahrzeugById);
+		if(buchungsId != null){
+			BuchungService buchungService = new BuchungService();
+			Buchung buchung = buchungService.getBuchungById(buchungsId);
+			request.setAttribute("buchung", buchung);
 		}else{
 			System.out.println("Keine CarId gesetzt");
 		}

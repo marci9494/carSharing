@@ -1,6 +1,7 @@
 package com.wwi16.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -52,6 +53,9 @@ public class Fahrzeug implements Serializable {
 	@OneToOne
 	@JoinColumn(name = "eigentuemer")
 	private User eigentuemer;
+	
+	//TODO WORK
+	private List<Ausstattung> ausstattung;
 
 	public String getKennzeichen() {
 		return kennzeichen;
@@ -175,6 +179,14 @@ public class Fahrzeug implements Serializable {
 
 	public void setEigentuemer(User eigentuemer) {
 		this.eigentuemer = eigentuemer;
+	}
+
+	public List<Ausstattung> getAusstattung() {
+		return ausstattung;
+	}
+
+	public void setAusstattung(List<Ausstattung> ausstattung) {
+		this.ausstattung = ausstattung;
 	}
 
 }

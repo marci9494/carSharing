@@ -6,6 +6,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import com.wwi16.model.Ausstattung;
 import com.wwi16.model.Buchung;
 import com.wwi16.model.Fahrzeug;
 import com.wwi16.util.HibernateUtil;
@@ -33,5 +34,26 @@ public class BuchungService {
 		}
 		return buchungen;
 	}
+	
+    public Buchung getBuchungById(String publicId) {
+        Session session = HibernateUtil.openSession();
+        Transaction tx = null;
+        Buchung buchung = null;
+        try {
+            tx = session.getTransaction();
+            tx.begin();
+            Query query = session.createQuery("from Buchung where id='"+publicId+"'");
+            buchung = (Buchung)query.uniqueResult();
+            tx.commit();
+        } catch (Exception e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return buchung;
+    }
 
 }
