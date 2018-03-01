@@ -51,8 +51,7 @@ input:focus{border-bottom:2px solid #78788c}
 p:before{content:attr(type);display:block;margin:28px 0 0;font-size:14px;color:white}
 button{float:right;padding:8px 12px;margin:8px 0 0;font-family:'Montserrat',sans-serif;border:2px solid #78788c;background:0;color:#fff;cursor:pointer;transition:all .3s}
 button:hover{background:#78788c;color:#fff}
-div{content:'Hi';position:absolute;bottom:-15px;right:-20px;background:#50505a;color:#fff;width:320px;padding:16px 4px 16px 0;border-radius:6px;font-size:13px;box-shadow:10px 10px 40px -14px #000}
-span{margin:0 5px 0 15px}
+
     
     
           body {
