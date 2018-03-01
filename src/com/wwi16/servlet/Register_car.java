@@ -40,23 +40,21 @@ public class Register_car extends HttpServlet{
 		String sitzplaetze = request.getParameter("sitzplaetze");
 		String basispreis = request.getParameter("basispreis_range");
 		String kilometerpreis = request.getParameter("kilometerpreis_range");
-	System.out.println(modell);
-		
 		FahrzeugService fahrzeugService = new FahrzeugService();
 		Fahrzeug fahrzeug = fahrzeugService.createFahrzeug(kennzeichen, modell, baujahr, laufleistung, leistung, kraftstoff, sitzplaetze, basispreis, kilometerpreis);
-		PrintWriter out = response.getWriter();
-		if(fahrzeug != null){
-			System.out.println("Fahrzeug " + kennzeichen + " registriert");
-			HttpSession session=request.getSession();  
-/*            session.setAttribute("userEmail",email);  
-            
-            out.print(Boolean.TRUE);*/
-    		out.flush();
-		}else{
-			//TODO fehlerbehandlung
-			out.print(Boolean.TRUE);
-	    	out.flush();
-		}
+//		PrintWriter out = response.getWriter();
+//		if(fahrzeug != null){
+//			System.out.println("Fahrzeug " + kennzeichen + " registriert");
+//			HttpSession session=request.getSession();  
+///*            session.setAttribute("userEmail",email);  
+//            
+//            out.print(Boolean.TRUE);*/
+//    		out.flush();
+//		}else{
+//			//TODO fehlerbehandlung
+//			out.print(Boolean.TRUE);
+//	    	out.flush();
+//		}
 		
 	}
 

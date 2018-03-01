@@ -334,8 +334,8 @@
 					
 					farbe : farbe,
 					sitzplaetze: sitzplaetze,
-					basispreis_range = basispreis_range,
-					kilometerpreis_range = kilometerpreis_range
+					basispreis_range : basispreis_range,
+					kilometerpreis_range : kilometerpreis_range
 					
 				}, function(data, status) {
 					if (data) {
@@ -347,7 +347,7 @@
 			}
 		</script>
 		<div class="formular-wrapper">
-			<button onclick="register()">Weiter</button>
+			<button onclick="registerCar()">Weiter</button>
 		</div>
 	</div>
 

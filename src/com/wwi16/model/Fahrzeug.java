@@ -5,6 +5,7 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -23,7 +24,7 @@ public class Fahrzeug implements Serializable {
 	private String kennzeichen;
 	private String modell;
 	private String baujahr;
-	private String laufleistung;
+	private String km_stand;
 
 	private String kraftstoff;
 
@@ -34,10 +35,13 @@ public class Fahrzeug implements Serializable {
 	private String leistung;
 
 	@OneToOne
+	@JoinColumn(name = "id")
 	private FahrzeugFarbe farbe;
 	@OneToOne
+	@JoinColumn(name = "id")
 	private FahrzeugHersteller hersteller;
 	@OneToOne
+	@JoinColumn(name = "id")
 	private FahrzeugKategorie kategorie;
 
 	private String plz;
@@ -58,14 +62,6 @@ public class Fahrzeug implements Serializable {
 
 	public void setBaujahr(String baujahr) {
 		this.baujahr = baujahr;
-	}
-
-	public String getLaufleistung() {
-		return laufleistung;
-	}
-
-	public void setLaufleistung(String laufleistung) {
-		this.laufleistung = laufleistung;
 	}
 
 	public String getKraftstoff() {
@@ -154,6 +150,26 @@ public class Fahrzeug implements Serializable {
 
 	public void setLatitude(String plz) {
 		this.plz = plz;
+	}
+
+	public String getKm_stand() {
+		return km_stand;
+	}
+
+	public void setKm_stand(String km_stand) {
+		this.km_stand = km_stand;
+	}
+
+	public void setPlz(String plz) {
+		this.plz = plz;
+	}
+
+	public User getEigentuemer() {
+		return eigentuemer;
+	}
+
+	public void setEigentuemer(User eigentuemer) {
+		this.eigentuemer = eigentuemer;
 	}
 
 }
