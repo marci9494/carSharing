@@ -5,6 +5,8 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -14,6 +16,7 @@ public class Ausstattung implements Serializable {
     @Id @GeneratedValue
     private Long id;
 	private String name;
+	
 	
     public Ausstattung(Long id, String name) {
         this.id = id;
@@ -38,7 +41,7 @@ public class Ausstattung implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
-    
+
     
 
 }

@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.wwi16.model.Fahrzeug;
 import com.wwi16.model.User;
+import com.wwi16.service.FahrzeugService;
 import com.wwi16.service.UserService;
 
 
@@ -44,6 +46,15 @@ public class Cars_detail extends HttpServlet {
 				UserService nutzerService = new UserService();
 				User nutzer = nutzerService.getNutzer(userEmail);
 				request.setAttribute("nutzer",nutzer);
+				
+				
+				
+				FahrzeugService fahrzeugService = new FahrzeugService();
+				//TODO get id from url
+				Fahrzeug fahrzeug = fahrzeugService.getFahrzeugById("3");
+				
+				System.out.println(fahrzeug.getAusstattung().size());
+				
 				
 			}else{
 				//User nicht angemeldet was machen!?

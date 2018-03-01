@@ -1,15 +1,17 @@
 package com.wwi16.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Column;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -39,11 +41,11 @@ public class Fahrzeug implements Serializable {
 	@OneToOne
 	@JoinColumn(name = "farbe")
 	private FahrzeugFarbe farbe;
-	
+
 	@OneToOne
 	@JoinColumn(name = "hersteller")
 	private FahrzeugHersteller hersteller;
-	
+
 	@OneToOne
 	@JoinColumn(name = "kategorie")
 	private FahrzeugKategorie kategorie;
@@ -53,8 +55,11 @@ public class Fahrzeug implements Serializable {
 	@OneToOne
 	@JoinColumn(name = "eigentuemer")
 	private User eigentuemer;
-	
-	//TODO WORK
+
+	@ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+	@JoinTable(name = "FAHRZEUG_AUSSTATTUNG", 
+	         joinColumns = { @JoinColumn(name = "fahrzeug") }, 
+	         inverseJoinColumns = { @JoinColumn(name = "ausstattung") })
 	private List<Ausstattung> ausstattung;
 
 	public String getKennzeichen() {
@@ -188,5 +193,9 @@ public class Fahrzeug implements Serializable {
 	public void setAusstattung(List<Ausstattung> ausstattung) {
 		this.ausstattung = ausstattung;
 	}
+
+
+
+
 
 }
