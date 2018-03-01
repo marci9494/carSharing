@@ -29,4 +29,12 @@ public class FahrzeugHersteller implements Serializable{
 	}
 	
 	
+	public String[] returnHersteller() {
+		
+		String [] hersteller = new String [73];
+		
+		return hersteller;
+		
+	}
+	
 }

@@ -24,6 +24,8 @@ public class Register_car extends HttpServlet{
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		//Die einzelnen Kennzeichenbestandteile werden mit einem 
+		//Minuszeichen zusammengeführt:
 		String kennzeichen_1 = request.getParameter("kennzeichen_1");
 		String kennzeichen_2 = request.getParameter("kennzeichen_2");
 		String kennzeichen_3 = request.getParameter("kennzeichen_3");
@@ -41,7 +43,7 @@ public class Register_car extends HttpServlet{
 	
 		
 		FahrzeugService fahrzeugService = new FahrzeugService();
-		Fahrzeug fahrzeug = fahrzeugService.createFahrzeug(kennzeichen, modell, baujahr, laufleistung, leistung, kraftstoff, sitzplaetze, basispreis, kilometerpreis)
+		Fahrzeug fahrzeug = fahrzeugService.createFahrzeug(kennzeichen, modell, baujahr, laufleistung, leistung, kraftstoff, sitzplaetze, basispreis, kilometerpreis);
 		PrintWriter out = response.getWriter();
 		if(fahrzeug != null){
 			System.out.println("Fahrzeug " + kennzeichen + " registriert");
