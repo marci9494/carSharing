@@ -33,13 +33,13 @@
 		</div>
 		
 	<h5>Autodaten im Überblick</h5>
-			<span class="form-field-label">Marke: ${car.marke}</span>
+			<span class="form-field-label">Marke: ${buchung.fahrzeug.marke}</span>
 			<br><br><br><br>
-			<span class="form-field-label">Modell: ${car.modell}</span>
+			<span class="form-field-label">Modell: ${buchung.fahrzeug.modell}</span>
 			<br><br><br><br>
-			<span class="form-field-label">Farbe: ${car.farbe}</span>
+			<span class="form-field-label">Farbe: ${buchung.fahrzeug.farbe}</span>
 			<br><br><br><br>
-			<span class="form-field-label"> Sitzplätze: ${car.sitzplätze}</span>
+			<span class="form-field-label"> Sitzplätze: ${buchung.fahrzeug.sitzplätze}</span>
 			<br><br><br>
 		
 <form action="textarea.html" method="post"> 
@@ -47,14 +47,14 @@
 		<h5>Mängel</h5>
 		Hast du während deiner Benutzung Mängel am Auto verursacht? Gib sie hier bitte ein.
 			<br><br>
-			<textarea id="text" name="text" cols="35" rows="4"></textarea>
+			<textarea id="text" name="maengel" cols="35" rows="4"></textarea>
 		<br>	
 	</div>
 	<div>
 		<h5>Nachricht an den Vermieter</h5>
 		Willst du dem Vermieter noch etwas mitteilen? Hier hast du die Gelegenheit dazu.
 			<br><br>
-			<textarea id="text" name="text" cols="35" rows="4"></textarea> 
+			<textarea id="text" name="note" cols="35" rows="4"></textarea> 
 			<br><br>
 			<button type="button" id="button--primary">Auto zurückgeben</button>
 			<br>

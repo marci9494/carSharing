@@ -20,10 +20,10 @@ public class Return_car extends HttpServlet {
 		HttpSession session = request.getSession(false);
 		if (session != null) {
 			String userEmail = (String) session.getAttribute("userEmail");
-			System.out.print("Hello, " + userEmail + " Welcome to Profile");
 			request.setAttribute("userEmail", userEmail);
+			String buchung = (String) session.getAttribute("buchung");
+			request.setAttribute("buchung", buchung);
 		}
-		
 		
 		dispatcher.forward(request, response);
 	}
