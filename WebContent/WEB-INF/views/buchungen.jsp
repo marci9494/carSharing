@@ -73,6 +73,8 @@ td:focus::before, tbody th:focus::before {
 		<img class="banner" alt="Banner" src="/carSharing/html/img/header.jpg">
 
 	</div>
+	
+	<div class="content-wrapper">
 
 	<c:choose>
 		<c:when test="${ userEmail!=null}">
@@ -81,7 +83,7 @@ td:focus::before, tbody th:focus::before {
 			</div>
 		</c:when>
 		<c:otherwise>
-        			Herzlich Willkommen
+        			
     			</c:otherwise>
 	</c:choose>
 	</div>
@@ -115,5 +117,6 @@ td:focus::before, tbody th:focus::before {
 
 </body>
 <jsp:include page="/theme/html/footer.html" />
+</div>
 
 </html>
