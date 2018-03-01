@@ -43,19 +43,21 @@
 <style>
 
 
-    body{background:white;margin:0}
-.form{width:360px;height:550px;background:#5a5a6e;border-radius:8px;box-shadow:0 0 40px -10px #000;margin:calc(50vh - 220px) auto;padding:20px 30px;max-width:calc(100vw - 40px);box-sizing:border-box;font-family:'Montserrat',sans-serif;position:relative}
-h2{margin:10px 0;padding-bottom:10px;width:180px;color:white;border-bottom:3px solid #78788c}
-input{width:100%;padding:10px;box-sizing:border-box;background:none;outline:none;resize:none;border:0;font-family:'Montserrat',sans-serif;transition:all .3s;border-bottom:2px solid #bebed2}
-input:focus{border-bottom:2px solid #78788c}
-p:before{content:attr(type);display:block;margin:28px 0 0;font-size:14px;color:white}
-button{float:right;padding:8px 12px;margin:8px 0 0;font-family:'Montserrat',sans-serif;border:2px solid #78788c;background:0;color:#fff;cursor:pointer;transition:all .3s}
-button:hover{background:#78788c;color:#fff}
+    body{background:white;margin:0;}
+.form{width:360px;height:550px;background:white;border-radius:8px;box-shadow:0 0 40px -10px #000;margin:calc(50vh - 220px) auto;padding:20px 30px;max-width:calc(100vw - 40px);box-sizing:border-box;font-family:'Montserrat',sans-serif;position:relative}
+h2{margin:10px 0;padding-bottom:10px;width:180px;color:black;border-bottom:3px solid white;}
+input{width:100%;padding:10px;box-sizing:border-box;background:none;outline:none;resize:none;border:0;font-family:'Montserrat',sans-serif;transition:all .3s;border-bottom:2px solid white}
+input:focus{border-bottom:2px solid white}
+p:before{content:attr(type);display:block;margin:28px 0 0;font-size:14px;color:black}
+button{float:right;padding:8px 12px;margin:8px 0 0;font-family:'Montserrat',sans-serif;border:2px solid white;background:#00a0e1;color:white;cursor:pointer;transition:all .3s}
+button:hover{background:white;color:#00a0e1}
 
     
     
           body {
-  background: #59ABE3;
+  background: white;
+
+
 }
 
 .review-holder {
@@ -75,7 +77,7 @@ button:hover{background:#78788c;color:#fff}
   -webkit-box-reflect: below -8px -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(250, 250, 250, 0.3)));
   float: left;
   padding: 0 2px;
-  color: #FFF;
+  color: black;
   cursor: pointer;
 }
 .review span:after {
@@ -88,7 +90,7 @@ button:hover{background:#78788c;color:#fff}
   position: absolute;
   left: calc(100% + 10px);
   white-space: nowrap;
-  color: #FFF;
+  color: black;
 }
 .review span:before {
   -webkit-font-smoothing: antialiased;
@@ -115,6 +117,21 @@ button:hover{background:#78788c;color:#fff}
   font-weight: normal;
   font-style: normal;
 }
+
+textarea {
+	caret-color: red;
+	width: 27em;
+	height: 5em;
+	border: 1px solid white;
+	padding: 0.5em;
+	font-family: Tahoma, sans-serif;
+	float:left;
+}
+
+textarea:focus {
+	background: #FFC;
+}
+
 </style>
 
 <script>
@@ -185,13 +202,17 @@ button:hover{background:#78788c;color:#fff}
 				data-description="sehr gut"></span>
 		</span>
 		</span>
+		<p></p>
+		<span><main>
+	<textarea>Hier kannst du dein Kommentar hinterlassen …</textarea>
+</main>
+		
+		</span>
 
 
 	</p>
 	<button>Bewertung senden</button>
-	<div>
-		<span class="fa fa-phone"></span>Car2Go <span class="fa fa-envelope-o"></span>
-	</div>
+
 </form>
 
 
