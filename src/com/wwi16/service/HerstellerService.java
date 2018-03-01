@@ -9,7 +9,7 @@ import com.wwi16.util.HibernateUtil;
 
 public class HerstellerService {
 	
-	
+	// unvollständig:
 	public String[] getAllHersteller(){
         Session session = HibernateUtil.openSession();
         Transaction tx = null;
