@@ -22,8 +22,10 @@ import com.google.gson.Gson;
 import com.wwi16.model.Ausstattung;
 import com.wwi16.model.Distance;
 import com.wwi16.model.Fahrzeug;
+import com.wwi16.model.FahrzeugHersteller;
 import com.wwi16.service.AusstattungService;
 import com.wwi16.service.FahrzeugService;
+import com.wwi16.service.HerstellerService;
 import com.wwi16.service.UserService;
 import com.wwi16.util.RadiusSearchUtil;
 
@@ -60,6 +62,7 @@ public class Home extends HttpServlet {
 		// ausstattungsServie.getAusstattungById("1");
 		// System.out.println(ausstattungById.getName());
 		// request.setAttribute("fahrzeug", ausstattungById);
+		
 
 		dispatcher.forward(request, response);
 
@@ -94,10 +97,12 @@ public class Home extends HttpServlet {
 			 }
 			
 		}
-		 
-		 String json = new Gson().toJson(carDistanceList);
-		 out.print(json);
-		 out.flush();
+		 if(carDistanceList != null){
+			 String json = new Gson().toJson(carDistanceList);
+			 out.print(json);
+			 out.flush();
+		 }
+		
 		//
 		// FahrzeugService fahrzeugService = new FahrzeugService();
 		// // TODO search for plz

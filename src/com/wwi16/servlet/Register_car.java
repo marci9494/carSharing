@@ -25,7 +25,7 @@ public class Register_car extends HttpServlet{
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		//Die einzelnen Kennzeichenbestandteile werden mit einem 
-		//Minuszeichen zusammengeführt:
+		//Minuszeichen zusammengefï¿½hrt:
 		String kennzeichen_1 = request.getParameter("kennzeichen_1");
 		String kennzeichen_2 = request.getParameter("kennzeichen_2");
 		String kennzeichen_3 = request.getParameter("kennzeichen_3");
@@ -40,23 +40,21 @@ public class Register_car extends HttpServlet{
 		String sitzplaetze = request.getParameter("sitzplaetze");
 		String basispreis = request.getParameter("basispreis_range");
 		String kilometerpreis = request.getParameter("kilometerpreis_range");
-	
-		
 		FahrzeugService fahrzeugService = new FahrzeugService();
 		Fahrzeug fahrzeug = fahrzeugService.createFahrzeug(kennzeichen, modell, baujahr, laufleistung, leistung, kraftstoff, sitzplaetze, basispreis, kilometerpreis);
-		PrintWriter out = response.getWriter();
-		if(fahrzeug != null){
-			System.out.println("Fahrzeug " + kennzeichen + " registriert");
-			HttpSession session=request.getSession();  
-/*            session.setAttribute("userEmail",email);  
-            
-            out.print(Boolean.TRUE);*/
-    		out.flush();
-		}else{
-			//TODO fehlerbehandlung
-			out.print(Boolean.TRUE);
-	    	out.flush();
-		}
+//		PrintWriter out = response.getWriter();
+//		if(fahrzeug != null){
+//			System.out.println("Fahrzeug " + kennzeichen + " registriert");
+//			HttpSession session=request.getSession();  
+///*            session.setAttribute("userEmail",email);  
+//            
+//            out.print(Boolean.TRUE);*/
+//    		out.flush();
+//		}else{
+//			//TODO fehlerbehandlung
+//			out.print(Boolean.TRUE);
+//	    	out.flush();
+//		}
 		
 	}
 
