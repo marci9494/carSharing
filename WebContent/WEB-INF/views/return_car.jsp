@@ -33,13 +33,23 @@
 		</div>
 		
 	<h5>Autodaten im Überblick</h5>
+<<<<<<< HEAD
 			<span class="form-field-label">Marke: ${buchung.fahrzeug.marke}</span>
+=======
+			<span class="form-field-label">Marke: ${car.hersteller.name}</span>
+>>>>>>> 5655be8e02c2030f70075d4263ebf9652eebe790
 			<br><br><br><br>
 			<span class="form-field-label">Modell: ${buchung.fahrzeug.modell}</span>
 			<br><br><br><br>
+<<<<<<< HEAD
 			<span class="form-field-label">Farbe: ${buchung.fahrzeug.farbe}</span>
 			<br><br><br><br>
 			<span class="form-field-label"> Sitzplätze: ${buchung.fahrzeug.sitzplätze}</span>
+=======
+			<span class="form-field-label">Farbe: ${car.farbe.name}</span>
+			<br><br><br><br>
+			<span class="form-field-label"> Sitzplätze: ${car.sitzplaetze}</span>
+>>>>>>> 5655be8e02c2030f70075d4263ebf9652eebe790
 			<br><br><br>
 		
 <form action="textarea.html" method="post"> 

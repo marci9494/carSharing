@@ -32,7 +32,7 @@
 </script> -->
 
 <body>
-	
+
 	<div class="banner-wrapper">
 		<img class="banner" alt="Banner" src="/carSharing/html/img/header.jpg">
 
@@ -41,7 +41,7 @@
 	<div id="header-content">
 		<h1 id="header-content-text">Fahrzeugregistrierung</h1>
 	</div>
-<div class="content-wrapper">
+	<div class="content-wrapper">
 		<div id=hallo>
 			<c:choose>
 				<c:when test="${ userEmail!=null}">
@@ -172,7 +172,7 @@
 		<div class="formular-wrapper">
 			<ul class="formular_ul">
 				<li class="formular_li"><label for="ps">PS</label><br> <input
-					type="int" name="ps" id="ps" placeholder="z.B. 122" size="10"
+					type="int" name="ps" id="leistung" placeholder="z.B. 122" size="10"
 					maxlength="3"></li>
 				<li class="formular_li"><label>Kraftstoff</label><br> <select
 					id="kraftstoff">
@@ -215,10 +215,8 @@
 						<option value="Schwarz">Schwarz</option>
 						<option value="Weiß">Weiß</option>
 						<option value="sonstiges">sonstiges</option>
-				</select>
-				<br><br>
-				<label>Anzahl der Sitzplätze (inklusive Fahrersitz)</label> <br>
-					<select id="farbe">
+				</select> <br> <br> <label>Anzahl der Sitzplätze (inklusive
+						Fahrersitz)</label> <br> <select id="sitzplaetze">
 						<option value="1">1</option>
 						<option value="2">2</option>
 						<option value="3">3</option>
@@ -228,12 +226,8 @@
 						<option value="7">7</option>
 						<option value="8">8</option>
 						<option value="9">9</option>
-						
-				</select>
-				
-				
-				</li>
-				
+
+				</select></li>
 		</div>
 
 		<div class="formular-wrapper">
@@ -309,11 +303,55 @@
 				}
 			</script>
 		</div>
+		<script>
+			function registerCar() {
+				
+				var kennzeichen = jQuery('#kennzeichen_1').val();
+				var kennzeichen = jQuery('#kennzeichen_2').val();
+				var kennzeichen = jQuery('#kennzeichen_3').val();
+				
+				var automarke = jQuery('#automarke').val();
+				var modell = jQuery('#modell').val();
+				var baujahr = jQuery('#baujahr').val();
+				var laufleistung = jQuery('#laufleistung').val();
+				var leistung = jQuery('#leistung').val();
+				var kraftstoff = jQuery('#kraftstoff').val();
+				
+				var farbe = jQuery('#farbe').val();
+				var sitzplaetze = jQuery('#sitzplaetze').val();
+				var basispreis_range = jQuery('#basispreis_range').val();
+				var kilometerpreis_range = jQuery('#kilometerpreis_range').val();
+				
 
+				jQuery.post("register_car", {
+					kennzeichen : kennzeichen,
+					automarke : automarke,
+					modell : modell,
+					baujahr : baujahr,
+					laufleistung : laufleistung,
+					leistung : leistung,
+					kraftstoff : kraftstoff,
+					
+					farbe : farbe,
+					sitzplaetze: sitzplaetze,
+					basispreis_range : basispreis_range,
+					kilometerpreis_range : kilometerpreis_range
+					
+				}, function(data, status) {
+					if (data) {
+						window.location.href = "home";
+					} else {
+						//POPUP anzeigen, email bereits vergeben
+					}
+				});
+			}
+		</script>
 		<div class="formular-wrapper">
-			<button onclick="register()">Weiter</button>
+			<button onclick="registerCar()">Weiter</button>
 		</div>
 	</div>
+
+
 </body>
 <jsp:include page="/theme/html/footer.html" />
 </html>

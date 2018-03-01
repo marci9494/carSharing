@@ -14,10 +14,10 @@ public class Bewertung implements Serializable {
     @Id @GeneratedValue
     private Long id;
 	private String kommentar;
-	private Nutzer nutzer;
+	private User nutzer;
 	//TODO BUCHUNG Verknüpfen
 	
-    public Bewertung(Long id, String kommentar,Nutzer nutzer) {
+    public Bewertung(Long id, String kommentar,User nutzer) {
         this.id = id;
         this.kommentar = kommentar;
         this.nutzer = nutzer;
@@ -36,11 +36,11 @@ public class Bewertung implements Serializable {
 		this.kommentar = kommentar;
 	}
 
-	public Nutzer getNutzer() {
+	public User getNutzer() {
 		return nutzer;
 	}
 
-	public void setNutzer(Nutzer nutzer) {
+	public void setNutzer(User nutzer) {
 		this.nutzer = nutzer;
 	}
 }
