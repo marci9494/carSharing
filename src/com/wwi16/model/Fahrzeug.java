@@ -35,21 +35,21 @@ public class Fahrzeug implements Serializable {
 	private String kilometerpreis;
 
 	private String leistung;
-	@OneToOne(fetch = FetchType.LAZY)
+	@OneToOne
 	@JoinColumn(name = "farbe")
 	private FahrzeugFarbe farbe;
 	
-	@OneToOne(fetch = FetchType.LAZY)
+	@OneToOne
 	@JoinColumn(name = "hersteller")
 	private FahrzeugHersteller hersteller;
 	
-	@OneToOne(fetch = FetchType.LAZY)
+	@OneToOne
 	@JoinColumn(name = "kategorie")
 	private FahrzeugKategorie kategorie;
 
 	private String plz;
 
-	@OneToOne(fetch = FetchType.LAZY)
+	@OneToOne
 	@JoinColumn(name = "eigentuemer")
 	private User eigentuemer;
 

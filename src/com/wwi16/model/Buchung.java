@@ -18,10 +18,10 @@ public class Buchung {
 	@Id
 	@GeneratedValue
 	private Long id;
-	@OneToOne(fetch = FetchType.LAZY)
+	@OneToOne
 	@JoinColumn(name = "mieter")
 	private User mieter;
-	@OneToOne(fetch = FetchType.LAZY)
+	@OneToOne
 	@JoinColumn(name = "fahrzeug")
 	private Fahrzeug fahrzeug;
 	

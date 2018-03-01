@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.hibernate.Hibernate;
+
 import com.wwi16.model.Buchung;
 import com.wwi16.service.BuchungService;
 
@@ -23,6 +25,7 @@ public class Buchungen extends HttpServlet{
 		System.out.println(buchungen.size());
 		
 		request.setAttribute("buchungen", buchungen);
+		System.out.println(buchungen.get(0).getFahrzeug().getModell());
 		
 		
 		dispatcher.forward(request, response);
