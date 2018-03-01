@@ -35,22 +35,25 @@ public class FahrzeugService {
 		return fahrzeuge;
 	}
 
-	public Fahrzeug createFahrzeug(String kennzeichen, String modell, String baujahr, String laufleistung, String leistung,
-			String kraftstoff, String sitzplaetze, String basispreis, String kilometerpreis) {
+	public Fahrzeug createFahrzeug(String kennzeichen, String modell, String baujahr, String laufleistung,
+			String leistung, String kraftstoff, String sitzplaetze, String basispreis, String kilometerpreis) {
 
 		Session session = HibernateUtil.openSession();
 		session.beginTransaction();
 
+		// TODO auskommentierte felder müssen noch in der DB angelegt werden.
 		Fahrzeug fahrzeug = new Fahrzeug();
 		/* fahrzeug.setHersteller(hersteller); */
 		fahrzeug.setModell(modell);
-		fahrzeug.setBaujahr(baujahr);
-		fahrzeug.setLaufleistung(laufleistung);
-		fahrzeug.setLeistung(leistung);
-		fahrzeug.setKraftstoff(kraftstoff);
+		// fahrzeug.setBaujahr(baujahr);
+		// fahrzeug.setLaufleistung(laufleistung);
+		if (leistung != null) {
+			fahrzeug.setLeistung(leistung);
+		}
+		// fahrzeug.setKraftstoff(kraftstoff);
 		fahrzeug.setSitzplaetze(sitzplaetze);
-		fahrzeug.setBasispreis(basispreis);
-		fahrzeug.setKilometerpreis(kilometerpreis);
+		// fahrzeug.setBasispreis(basispreis);
+		// fahrzeug.setKilometerpreis(kilometerpreis);
 
 		try {
 			session.save(fahrzeug);
@@ -112,7 +115,7 @@ public class FahrzeugService {
 				session.close();
 			}
 			return fahrzeuge;
-		}else{
+		} else {
 			return null;
 		}
 	}
