@@ -43,8 +43,8 @@
 <style>
 
 
-    body{background:#59ABE3;margin:0}
-.form{width:340px;height:500px;background:#5a5a6e;border-radius:8px;box-shadow:0 0 40px -10px #000;margin:calc(50vh - 220px) auto;padding:20px 30px;max-width:calc(100vw - 40px);box-sizing:border-box;font-family:'Montserrat',sans-serif;position:relative}
+    body{background:white;margin:0}
+.form{width:360px;height:550px;background:#5a5a6e;border-radius:8px;box-shadow:0 0 40px -10px #000;margin:calc(50vh - 220px) auto;padding:20px 30px;max-width:calc(100vw - 40px);box-sizing:border-box;font-family:'Montserrat',sans-serif;position:relative}
 h2{margin:10px 0;padding-bottom:10px;width:180px;color:white;border-bottom:3px solid #78788c}
 input{width:100%;padding:10px;box-sizing:border-box;background:none;outline:none;resize:none;border:0;font-family:'Montserrat',sans-serif;transition:all .3s;border-bottom:2px solid #bebed2}
 input:focus{border-bottom:2px solid #78788c}
