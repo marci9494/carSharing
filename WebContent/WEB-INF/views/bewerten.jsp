@@ -163,6 +163,11 @@ p:before {
 
 
 
+<div class="banner-wrapper">
+		<img class="banner" alt="Banner"
+		src="/carSharing/html/img/header.jpg">
+
+	</div>
 
 
 
