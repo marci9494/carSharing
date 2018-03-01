@@ -168,8 +168,9 @@ p:before {
 		src="/carSharing/html/img/header.jpg">
 
 	</div>
-
-
+<div id="header-content" >
+				<h1 id="header-content-text">Impressum</h1>
+</div>
 
 
 <form class="form">
