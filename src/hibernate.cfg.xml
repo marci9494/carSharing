@@ -17,5 +17,6 @@
 		<mapping class="com.wwi16.model.FahrzeugHersteller" />
 		<mapping class="com.wwi16.model.FahrzeugKategorie" />
 		<mapping class="com.wwi16.model.User" />
+		<mapping class="com.wwi16.model.Buchung" />
 	</session-factory>
 </hibernate-configuration>

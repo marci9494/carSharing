@@ -97,10 +97,12 @@ public class Home extends HttpServlet {
 			 }
 			
 		}
-		 
-		 String json = new Gson().toJson(carDistanceList);
-		 out.print(json);
-		 out.flush();
+		 if(carDistanceList != null){
+			 String json = new Gson().toJson(carDistanceList);
+			 out.print(json);
+			 out.flush();
+		 }
+		
 		//
 		// FahrzeugService fahrzeugService = new FahrzeugService();
 		// // TODO search for plz
