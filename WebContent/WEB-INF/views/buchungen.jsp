@@ -21,8 +21,14 @@ td, th {
 	outline: 0;
 }
 
+<<<<<<<
+HEAD
 body:not (.nohover ) tbody tr:hover {
-	background-color: aqua;
+	background-color: aqua; =======
+	body: not(.nohover) tbody tr:hover{
+  background-color: #00a0e1;
+	>>>>>>>
+	e7fb7dd24ed5fce5004b7360e5130cecc40770f3
 }
 
 td:hover::after, thead th:not (:empty ):hover::after, td:focus::after,
@@ -37,16 +43,16 @@ td:hover::after, thead th:not (:empty ):hover::after, td:focus::after,
 }
 
 td:hover::after, th:hover::after {
-	background-color: aqua;
+	background-color: #00a0e1;
 }
 
 td:focus::after, th:focus::after {
-	background-color: lightblue;
+	background-color: #00a0e1;
 }
 
 /* Focus stuff for mobile */
 td:focus::before, tbody th:focus::before {
-	background-color: lightblue;
+	background-color: #00a0e1;
 	content: '';
 	height: 100%;
 	top: 0;
@@ -62,9 +68,12 @@ td:focus::before, tbody th:focus::before {
 </head>
 
 
+<body>
+	<div class="banner-wrapper">
+		<img class="banner" alt="Banner" src="/carSharing/html/img/header.jpg">
 
+	</div>
 
-<div id=hallo>
 	<c:choose>
 		<c:when test="${ userEmail!=null}">
 			<div class="logout">
@@ -75,29 +84,33 @@ td:focus::before, tbody th:focus::before {
         			Herzlich Willkommen
     			</c:otherwise>
 	</c:choose>
-</div>
+	</div>
 
-<main>
-<table>
-	<thead>
-		<tr>
-			<th></th>
-			<th class="col">Vermieten</th>
-			<th class="col">Mieten</th>
 
-		</tr>
-	</thead>
-	<tbody>
-		<c:forEach items="${buchungen}" var="buchung">
+	<div id="header-content">
+		<h1 id="header-content-text">Deine Buchungen</h1>
+	</div>
+	<main>
+	<table>
+		<thead>
 			<tr>
-				<th class="row">Buchungsnummer ${buchung.id }</th>
-				<td>${buchung.endDatum }</td>
-				<td>${buchung.startDatum }</td>
+				<th></th>
+				<th class="col">Vermieten</th>
+				<th class="col">Mieten</th>
+
 			</tr>
-		</c:forEach>
-	<tbody>
-</table>
-</main>
+		</thead>
+		<tbody>
+			<c:forEach items="${buchungen}" var="buchung">
+				<tr>
+					<th class="row">Buchungsnummer ${buchung.id }</th>
+					<td>${buchung.endDatum }</td>
+					<td>${buchung.startDatum }</td>
+				</tr>
+			</c:forEach>
+		<tbody>
+	</table>
+	</main>
 
 
 </body>
