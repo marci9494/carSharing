@@ -9,11 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.wwi16.model.Buchung;
-import com.wwi16.model.Fahrzeug;
-import com.wwi16.service.BuchungService;
-import com.wwi16.service.FahrzeugService;
-
 public class Return_car extends HttpServlet {
 	
     public Return_car() {
@@ -25,20 +20,10 @@ public class Return_car extends HttpServlet {
 		HttpSession session = request.getSession(false);
 		if (session != null) {
 			String userEmail = (String) session.getAttribute("userEmail");
-			System.out.print("Hello, " + userEmail + " Welcome to Profile");
 			request.setAttribute("userEmail", userEmail);
-		}
-		
-		String buchungsId = (String)request.getParameter("id");
-		
-		if(buchungsId != null){
-			BuchungService buchungService = new BuchungService();
-			Buchung buchung = buchungService.getBuchungById(buchungsId);
+			String buchung = (String) session.getAttribute("buchung");
 			request.setAttribute("buchung", buchung);
-		}else{
-			System.out.println("Keine CarId gesetzt");
 		}
-		
 		
 		dispatcher.forward(request, response);
 	}
