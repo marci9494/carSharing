@@ -45,6 +45,7 @@
 			<h2> Fahrzeuge</h2>
 			
 			<span class="form-field-label">Marke</span>
+			<p class="editable">${fahrzeug.hersteller.name}</p>
 			<br><br>
 			
 			<br><br>

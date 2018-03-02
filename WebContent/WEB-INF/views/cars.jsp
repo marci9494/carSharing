@@ -49,22 +49,24 @@
     <th id="head_tbl"  >Marke</th>
     <th id="head_tbl">Modell</th>
   </tr>
-  <tr>
-    <td id="down_tbl">${nutzer.vorname}</td>
-    <td id="down_tbl" >${nutzer.nachname}</td>
-    <td> <button onclick="visitPage()" >Daten ändern</button> </td>
-   </tr>
+  			<c:forEach items="${fahrzeuge}" var="fahrzeug">
+				<tr>
+					<th class="row"> ${fahrzeug.id }</th>
+					<td>${fahrzeug.modell }</td>
+					<button onclick="visitPage(${fahrzeug.id })">Daten ändern</button> </td>
+				</tr>
+			</c:forEach>
      <tr>
     <td id="down_tbl">${nutzer.vorname}</td>
     <td id="down_tbl" >${nutzer.nachname}</td>
-    <td> <button onclick="visitPage()">Daten ändern</button> </td>
+    <td> <button onclick="visitPage(${fahrzeug.id })">Daten ändern</button> </td>
    </tr>
 </table>
 </div>	
 			
 <script>
-    function visitPage(){
-        window.location='/carSharing/cars_detail';
+    function visitPage(id){
+        window.location='/carSharing/cars_detail?id='+id;
     }
 </script>
 			

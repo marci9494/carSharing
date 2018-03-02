@@ -50,10 +50,11 @@ public class Cars_detail extends HttpServlet {
 				
 				
 				FahrzeugService fahrzeugService = new FahrzeugService();
+				String carId = (String)request.getParameter("id");
 				//TODO get id from url
-				Fahrzeug fahrzeug = fahrzeugService.getFahrzeugById("3");
+				Fahrzeug fahrzeug = fahrzeugService.getFahrzeugById(carId);
 				
-				System.out.println(fahrzeug.getAusstattung().size());
+				request.setAttribute("fahrzeug",fahrzeug);
 				
 				
 			}else{
