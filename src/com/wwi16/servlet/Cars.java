@@ -36,14 +36,14 @@ public class Cars extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/cars.jsp");
+		RequestDispatcher dispatcher = null;
 
 		HttpSession session = request.getSession(false);
 		if (session != null) {
 			String userEmail = (String) session.getAttribute("userEmail");
 
 			if(userEmail != null){
-				
+				dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/cars.jsp");
 				UserService nutzerService = new UserService();
 				User nutzer = nutzerService.getNutzer(userEmail);
 				request.setAttribute("nutzer",nutzer);
@@ -56,7 +56,7 @@ public class Cars extends HttpServlet {
 				
 			}else{
 				//User nicht angemeldet was machen!?
-				
+				dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/login.jsp");
 			}
 		}
 		
