@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.wwi16.model.Fahrzeug;
+import com.wwi16.service.FahrzeugService;
+
 public class Return_car extends HttpServlet {
 	
     public Return_car() {
@@ -30,6 +33,11 @@ public class Return_car extends HttpServlet {
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		String maengel = request.getParameter("maengel");
+		String nachricht = request.getParameter("nachricht");
+		BuchungService buchungservice = new BuchungService();
+		Buchung buchung = BuchungService.getBuchungbyID(ID); //wo bekomme ich die ID her?
+		buchung.maengel = maengel;
+		buchung.nachricht = nachricht;
 	}
 }
