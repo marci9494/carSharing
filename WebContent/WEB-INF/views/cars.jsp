@@ -51,16 +51,13 @@
   </tr>
   			<c:forEach items="${fahrzeuge}" var="fahrzeug">
 				<tr>
-					<th class="row"> ${fahrzeug.id }</th>
-					<td>${fahrzeug.modell }</td>
-					<button onclick="visitPage(${fahrzeug.id })">Daten ändern</button> </td>
+					<td id="down_tbl"> ${fahrzeug.id }</td>
+					<td id="down_tbl">${fahrzeug.modell }</td>
+					<td> <button onclick="visitPage(${fahrzeug.id })">Daten ändern</button> </td>
+					<td> <button onclick="visitPageV(${fahrzeug.id })">Vermieten</button> </td>
 				</tr>
 			</c:forEach>
-     <tr>
-    <td id="down_tbl">${nutzer.vorname}</td>
-    <td id="down_tbl" >${nutzer.nachname}</td>
-    <td> <button onclick="visitPage(${fahrzeug.id })">Daten ändern</button> </td>
-   </tr>
+
 </table>
 </div>	
 			
@@ -68,11 +65,17 @@
     function visitPage(id){
         window.location='/carSharing/cars_detail?id='+id;
     }
+
 </script>
+<script>
+		    function visitPageV(id){
+        window.location='/carSharing/cars_detail?id='+id;
+        $('#vermieten').scrollView();
+
+    }	
+ </script>
 			
-			
-			
-	</div>
+
 			
 
 

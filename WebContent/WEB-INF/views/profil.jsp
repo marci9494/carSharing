@@ -49,35 +49,35 @@
 	<div id="name-adress" class="name-adress">
 		<h2>Persönliche Daten</h2>
 		<p> Wenn du deine Daten ändern willst, so klicke auf diese und speichere sie zum Schluss </p>
-		<span class="form-field-label">Anrede</span> <br>
-		<br> //Zugriff auf Anrede auf DB funktioniert nicht? <br>
-		<br> <span class="form-field-label">Vorname</span> <br>
+
+		<br> <span class="form-field-label">Vorname</span>
 		<br>
-		<p class="editable">${nutzer.vorname}</p>
+		<p class="editable" id=daten>${nutzer.vorname}</p>
+		<br> <span class="form-field-label"> Nachname</span>
 		<br>
-		<br> <span class="form-field-label"> Nachname</span> <br>
+		<p class="editable" id=daten>${nutzer.nachname}</p>
 		<br>
-		<p class="editable">${nutzer.nachname}</p>
+		<span class="form-field-label">Ort</span>
 		<br>
-		<br> <span class="form-field-label">Ort</span> <br>
-		<br>
-		<p class="editable">
-			${nutzer.plz} ${nutzer.ort}
+		<p class="editable" id=daten>
+			${nutzer.ort}
 		</p>
 		<br>
-		<br> <span class="form-field-label">Strasse</span> <br>
+		<span class="form-field-label">PLZ</span>
 		<br>
-		<p class="editable">
-			${nutzer.strasse} 
+		<p class="editable" id=daten>
+			${nutzer.plz} 
 		</p>
 		<br>
-		<br> <span class="form-field-label">E-Mail-Adresse</span> <br>
+		 <span class="form-field-label">Straße und Hausnummer</span>
 		<br>
-		<p class="editable">${nutzer.email}</p>
+		<p class="editable" id=daten>
+			${nutzer.strasse}  
+		</p>
+		
+		<br> <span class="form-field-label">E-Mail-Adresse</span>
 		<br>
-		<br> <span class="form-field-label">Dein Passwort</span> <br>
-		<br>
-		<p class="editable">${nutzer.password}</p>	
+		<p class="editable" id=daten>${nutzer.email}</p>
 		<br>
 		<br>
 	</div>
@@ -127,6 +127,8 @@ $(function () {
  
         //textbox neben label
         label.after("<input type = 'text' style = 'display:none' />");
+
+
  
         //textbox ansprechen
         var textbox = $(this).next();

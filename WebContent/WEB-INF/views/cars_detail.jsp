@@ -37,41 +37,81 @@
 			<div id="header-content" >
 				<h1 id="header-content-text">Meine CarNow Fahrzeuge</h1>
 			</div>
-			<div class="content-wrapper">
+<div class="content-wrapper">
 				
 			<p> Hier findest du alle wichtigen Infos rund um dein zum Mieten freigegebenen Fahrzeuge. Stell sicher, dass die Angaben zum Fahrzeug immer auf dem neusten Stand sind, damit deiner Nutzung von carNow nichts im Wege steht. 
 			Solltest du Fragen haben, melde dich gern bei uns.</p>
 			<div id="name-adress" class="name-adress">
 			<h2> Fahrzeuge</h2>
 			
-			<span class="form-field-label">Marke</span>
-			<p class="editable">${fahrzeug.hersteller.name}</p>
-			<br><br>
-			
-			<br><br>
-			<span class="form-field-label">Modell</span>
-			<br><br>
-			<div id="daten" class="daten">
-			
-			</div>
-			<br><br>
-			<span class="form-field-label">Kilometerstand</span>
-			<br><br>
-			<div id="daten" class="daten">
-			
-			</div>
-			<br><br>
-			<span class="form-field-label">Farbe</span>
-			<br><br><br><br>
-			<span class="form-field-label"> Sitzplätze</span>
-			<br><br><br><br>
-			<span class="form-field-label">Leistung</span>
-			<br><br><br><br>
-			<span class="form-field-label">Bewertung (?)</span>
+			<span class="form-field-label">Marke</span> <br>
+			<p class="editable" id="daten">${fahrzeug.hersteller.name}</p>
 			<br>
+			
+			<span class="form-field-label">Modell</span> <br>
+			<p class="editable" id="daten"> ${fahrzeug.modell}</p>
+			<br>
+			<span class="form-field-label">Kilometerstand</span> <br>
+			<p class="editable" id="daten"> ${fahrzeug.km_stand}</p>
+			<br>
+			<span class="form-field-label">Farbe</span> <br>
+			<p class="editable" id="daten"> ${fahrzeug.farbe.name}</p>
+			<br>
+			<span class="form-field-label"> Sitzplätze</span> <br>
+			<p class="editable" id="daten"> ${fahrzeug.sitzplaetze}</p>
+			<br>
+			<span class="form-field-label">Leistung in PS</span> <br>
+			<p class="editable" id="daten"> ${fahrzeug.leistung} </p> 
+			<br>
+			<span class="form-field-label">Basispreis </span><br>
+			<p  id="daten">Aktuell: ${fahrzeug.basispreis}€</p> 
+
+			<div class="slidecontainer">
+				<input type="range" min="1" max="100" value="12" class="slider"
+					id="basispreis_range">
 			</div>
-			 <button type="button" id="button--primary">Speichern</button>
+
+
+			<span>Neuer Startpreis: </span> <span id="basispreis"></span> <span>€</span>
+
+			<script>
+				var slider = document.getElementById("basispreis_range");
+				var output = document.getElementById("basispreis");
+				output.innerHTML = slider.value; // Display the default slider value
+
+				// Update the current slider value (each time you drag the slider handle)
+				slider.oninput = function() {
+					output.innerHTML = this.value;
+				}
+			</script>
+
+			<br><br>
+			<span class="form-field-label">Kilometerpreis </span><br>
+			<p id="daten">Aktuell: ${fahrzeug.kilometerpreis}€</p> 
+			<div class="slidecontainer">
+				<input type="range" min="0.00" max="40" value="2.50" step=0.10
+					class="slider" id="kilometer_range">
+			</div>
+
+
+			<span> Neuer Preis pro Kilometer: </span> <span id="kilometerpreis"></span>
+			<span>€</span>
+
+			<script>
+				var sliderk = document.getElementById("kilometer_range");
+				var outputk = document.getElementById("kilometerpreis");
+				outputk.innerHTML = sliderk.value; // Display the default slider value
+
+				// Update the current slider value (each time you drag the slider handle)
+				sliderk.oninput = function() {
+					outputk.innerHTML = this.value;
+				}
+			</script>
+			<br><br><br>
+			</div>
+			 <button type="button" id="button--primary" >Speichern</button>
 			 <br><br><br><br>
+			 <div id="vermieten">
 			 <h2>Vermietungs&shyzeitraum</h2>
 		<p>Gib hier den Zeitraum an, in dem du dein Auto anderen Nutzern zur Verfügung stellen willst.
 			<br><br>
@@ -81,15 +121,49 @@
 			<button type="button" id="button--primary">Auto vermieten</button>
 			<br><br>
 		</p>
+		</div>
 			 
 </div>
+
 
 </body>
 <jsp:include page="/theme/html/footer.html" />
 
 <script src="/carSharing/html/js/cars_detail.js"></script>
 
-
-
+<script type="text/javascript">
+$(function () {
+    //Loop through all Labels with class 'editable'.
+    $(".editable").each(function () {
+        //alle label durchschauen
+        var label = $(this);
+ 
+        //textbox neben label
+        label.after("<input type = 'text' style = 'display:none' />");
+ 
+        //textbox ansprechen
+        var textbox = $(this).next();
+ 
+        //namensattribut von textbox festlegen
+        textbox[0].name = this.id.replace("lbl", "txt");
+ 
+        //wertzuweisung
+        textbox.val(label.html());
+ 
+        //bei klick auf label, verstecke label und zeige textbox
+        label.click(function () {
+            $(this).hide();
+            $(this).next().show();
+        });
+ 
+        //wenn rausgeklickt, verstecke textbox und zeige label
+        textbox.focusout(function () {
+            $(this).hide();
+            $(this).prev().html($(this).val());
+            $(this).prev().show();
+        });
+    });
+});
+</script>
 
 </html>
