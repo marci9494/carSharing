@@ -19,6 +19,8 @@
 		src="/carSharing/html/img/header.jpg">
 
 	</div>
+	
+
 
 <div id=hallo>
 		<c:choose>
@@ -69,8 +71,7 @@
 </script>
 <script>
 		    function visitPageV(id){
-        window.location='/carSharing/cars_detail?id='+id;
-        $('#vermieten').scrollView();
+        window.location='/carSharing/cars_detail?id='+id+"#vermieten";
 
     }	
  </script>
