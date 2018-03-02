@@ -14,13 +14,9 @@ import com.wwi16.util.HibernateUtil;
 
 public class HerstellerService {
 	
-<<<<<<< HEAD
-	// unvollständig:
-	public String[] getAllHersteller(){
-=======
+
 	
 	public List<FahrzeugHersteller> getAllHersteller(){
->>>>>>> 50de961bac2da51ce448b91632b6528d7656891f
         Session session = HibernateUtil.openSession();
         Transaction tx = null;
         List<FahrzeugHersteller> hersteller = new ArrayList<>();

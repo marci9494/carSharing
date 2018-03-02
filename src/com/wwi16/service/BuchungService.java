@@ -55,5 +55,22 @@ public class BuchungService {
         }
         return buchung;
     }
+    
+    public Buchung saveBuchung(Buchung buchung){
+		Session session = HibernateUtil.openSession();
+		session.beginTransaction();
+    	
+		try {
+			 session.update(buchung);
+			 session.getTransaction().commit();
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+
+		return buchung;
+    }
 
 }

@@ -31,6 +31,11 @@ public class Buchung {
 	@Column(name = "END_DATUM")
 	private Date endDatum;
 	
+	private String maengel;
+	//TODO to enum
+	private String status;
+	private String nachricht;
+	
 	public Long getId() {
 		return id;
 	}
@@ -60,5 +65,23 @@ public class Buchung {
 	}
 	public void setEndDatum(Date endDatum) {
 		this.endDatum = endDatum;
+	}
+	public String getMaengel() {
+		return maengel;
+	}
+	public void setMaengel(String maengel) {
+		this.maengel = maengel;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	public String getNachricht() {
+		return nachricht;
+	}
+	public void setNachricht(String nachricht) {
+		this.nachricht = nachricht;
 	}
 }

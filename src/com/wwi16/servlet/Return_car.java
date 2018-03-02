@@ -24,9 +24,13 @@ public class Return_car extends HttpServlet {
 		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/return_car.jsp");
 		HttpSession session = request.getSession(false);
 		if (session != null) {
+			BuchungService buchungservice = new BuchungService();
+		
 			String userEmail = (String) session.getAttribute("userEmail");
 			request.setAttribute("userEmail", userEmail);
-			String buchung = (String) session.getAttribute("buchung");
+			String buchungid = request.getParameter("id");
+			Buchung buchung = buchungservice.getBuchungById(buchungid);
+			
 			request.setAttribute("buchung", buchung);
 		}
 		
@@ -38,9 +42,14 @@ public class Return_car extends HttpServlet {
 		String maengel = request.getParameter("maengel");
 		String nachricht = request.getParameter("nachricht");
 		String buchungid = request.getParameter("buchungid");
+		System.out.println(maengel);
+		System.out.println(nachricht);
+		System.out.println(buchungid);
 		BuchungService buchungservice = new BuchungService();
-		Buchung buchung = buchungservice.getBuchungById(buchungid); //wo bekomme ich die ID her?
-		//buchung.set= maengel; hier fehlen bei beiden noch die tabellen
-		//buchung.set = nachricht;
+		Buchung buchung = buchungservice.getBuchungById(buchungid); 
+		buchung.setNachricht(nachricht);
+		buchung.setMaengel(maengel);
+		buchungservice.saveBuchung(buchung);
+		//Status auf abgeschlossen noch setzen
 	}
 }

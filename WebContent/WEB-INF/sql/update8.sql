@@ -1,0 +1,3 @@
+ALTER TABLE `BUCHUNG` ADD `maengel` VARCHAR ( 255 ) NOT  NULL AFTER `END_DATUM`
+, ADD `status` VARCHAR ( 255 ) NOT  NULL AFTER `maengel` , ADD `nachricht`
+VARCHAR ( 255 ) NOT  NULL AFTER `status` ;
