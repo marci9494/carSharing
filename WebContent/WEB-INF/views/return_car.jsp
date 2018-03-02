@@ -19,7 +19,6 @@
 	<div id="header-content" >
 		<h1 id="header-content-text">Auto&shyrückgabe</h1>
 	</div>
-	
 <div class="content-wrapper">
 <div id=hallo>
 		<c:choose>
@@ -33,23 +32,13 @@
 		</div>
 		
 	<h5>Autodaten im Überblick</h5>
-<<<<<<< HEAD
-			<span class="form-field-label">Marke: ${buchung.fahrzeug.marke}</span>
-=======
-			<span class="form-field-label">Marke: ${car.hersteller.name}</span>
->>>>>>> 5655be8e02c2030f70075d4263ebf9652eebe790
+			<span class="form-field-label">Marke: ${buchung.fahrzeug.hersteller.name}</span>
 			<br><br><br><br>
 			<span class="form-field-label">Modell: ${buchung.fahrzeug.modell}</span>
 			<br><br><br><br>
-<<<<<<< HEAD
 			<span class="form-field-label">Farbe: ${buchung.fahrzeug.farbe}</span>
 			<br><br><br><br>
 			<span class="form-field-label"> Sitzplätze: ${buchung.fahrzeug.sitzplätze}</span>
-=======
-			<span class="form-field-label">Farbe: ${car.farbe.name}</span>
-			<br><br><br><br>
-			<span class="form-field-label"> Sitzplätze: ${car.sitzplaetze}</span>
->>>>>>> 5655be8e02c2030f70075d4263ebf9652eebe790
 			<br><br><br>
 		
 <form action="textarea.html" method="post"> 
@@ -64,13 +53,28 @@
 		<h5>Nachricht an den Vermieter</h5>
 		Willst du dem Vermieter noch etwas mitteilen? Hier hast du die Gelegenheit dazu.
 			<br><br>
-			<textarea id="text" name="note" cols="35" rows="4"></textarea> 
+			<textarea id="text" name="nachricht" cols="35" rows="4"></textarea> 
 			<br><br>
 			<button type="button" id="button--primary">Auto zurückgeben</button>
 			<br>
 	</div>  
 </form> 
 </div>
+	<script>
+	function returnCar() {	
+		var maengel = jQuery('#maengel').val();
+		var nachricht = jQuery('#nachricht').val();
+
+		jQuery.post("return_car", {
+			maengel : maengel,
+			nachricht : nachricht,
+	}, function(data, status) {
+		if (data) {
+			window.location.href = "home";
+		} else {					}
+	});
+	}
+		</script>
 </body>
 
 <jsp:include page="/theme/html/footer.html" />
