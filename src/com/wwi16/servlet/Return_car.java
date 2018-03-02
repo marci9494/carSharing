@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.wwi16.model.Buchung;
 import com.wwi16.model.Fahrzeug;
+import com.wwi16.service.BuchungService;
 import com.wwi16.service.FahrzeugService;
 
 public class Return_car extends HttpServlet {
@@ -35,9 +37,10 @@ public class Return_car extends HttpServlet {
 		// TODO Auto-generated method stub
 		String maengel = request.getParameter("maengel");
 		String nachricht = request.getParameter("nachricht");
+		String buchungid = request.getParameter("buchungid");
 		BuchungService buchungservice = new BuchungService();
-		Buchung buchung = BuchungService.getBuchungbyID(ID); //wo bekomme ich die ID her?
-		buchung.maengel = maengel;
-		buchung.nachricht = nachricht;
+		Buchung buchung = buchungservice.getBuchungById(buchungid); //wo bekomme ich die ID her?
+		//buchung.set= maengel; hier fehlen bei beiden noch die tabellen
+		//buchung.set = nachricht;
 	}
 }

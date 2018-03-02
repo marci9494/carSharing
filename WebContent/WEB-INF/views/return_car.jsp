@@ -39,6 +39,7 @@
 			<span class="form-field-label">Farbe: ${buchung.fahrzeug.farbe}</span>
 			<br><br><br><br>
 			<span class="form-field-label"> Sitzplätze: ${buchung.fahrzeug.sitzplätze}</span>
+			<input type="hidden" id="buchungid" val="${buchung.id}"/>
 			<br><br><br>
 		
 <form action="textarea.html" method="post"> 
@@ -64,10 +65,12 @@
 	function returnCar() {	
 		var maengel = jQuery('#maengel').val();
 		var nachricht = jQuery('#nachricht').val();
+		var buchungid = jQuery('#buchungid').val();
 
 		jQuery.post("return_car", {
 			maengel : maengel,
 			nachricht : nachricht,
+			buchungid : buchungid;
 	}, function(data, status) {
 		if (data) {
 			window.location.href = "home";
