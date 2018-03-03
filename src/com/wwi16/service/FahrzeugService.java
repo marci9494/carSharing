@@ -39,7 +39,7 @@ public class FahrzeugService {
 	}
 
 	public Fahrzeug createFahrzeug(String kennzeichen, String modell, String baujahr, String laufleistung,
-			String leistung, String kraftstoff, String sitzplaetze, String basispreis, String kilometerpreis) {
+			String leistung, String kraftstoff, String sitzplaetze, String basispreis, String kilometerpreis,byte[] fahrzeugbild) {
 
 		Session session = HibernateUtil.openSession();
 		session.beginTransaction();
@@ -77,8 +77,10 @@ public class FahrzeugService {
 		fahrzeug.setSitzplaetze(sitzplaetze);
 		fahrzeug.setModell(modell);
 		fahrzeug.setKm_stand(laufleistung);
+		fahrzeug.setFahrzeugbild(fahrzeugbild);
 		//TODO ersetzen
 		fahrzeug.setPlz("89168");
+		
 		
 		
 		

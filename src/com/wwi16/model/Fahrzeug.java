@@ -5,12 +5,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -61,6 +63,10 @@ public class Fahrzeug implements Serializable {
 	         joinColumns = { @JoinColumn(name = "fahrzeug") }, 
 	         inverseJoinColumns = { @JoinColumn(name = "ausstattung") })
 	private List<Ausstattung> ausstattung;
+	
+	@Lob
+    @Column(name="fahrzeugbild", nullable=false, columnDefinition="mediumblob")
+    private byte[] fahrzeugbild;
 
 	public String getKennzeichen() {
 		return kennzeichen;
@@ -192,6 +198,14 @@ public class Fahrzeug implements Serializable {
 
 	public void setAusstattung(List<Ausstattung> ausstattung) {
 		this.ausstattung = ausstattung;
+	}
+
+	public byte[] getFahrzeugbild() {
+		return fahrzeugbild;
+	}
+
+	public void setFahrzeugbild(byte[] fahrzeugbild) {
+		this.fahrzeugbild = fahrzeugbild;
 	}
 
 

@@ -39,7 +39,6 @@ public class Register extends HttpServlet{
 		//Aktuell werden keine vermieter angelegt
 		boolean vermieter = false;
 		String passwort = request.getParameter("passwort");
-	System.out.println("ajax call");
 		InputStream inputStream = null;
 		Part filePart = request.getPart("personalausweis");
         if (filePart != null) {

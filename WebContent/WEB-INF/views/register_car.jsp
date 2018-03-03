@@ -54,274 +54,276 @@
     			</c:otherwise>
 			</c:choose>
 		</div>
-
-		<br> <br> <label>Kfz-Kennzeichen</label><br>
-		<div class="kennzeichen-wrapper">
-			<img class="kennzeichen_img" alt="Kennzeichen"
-				src="/carSharing/html/img/kennzeichen.jpg"> <span id="span1">
-				<input type="text" name="kennzeichen_1" id="kennzeichen_1"
-				placeholder="HH" maxlength="3">
-			</span> <span id="span2"> <input type="text" name="kennzeichen_2"
-				id="kennzeichen_2" placeholder="XX" maxlength="2">
-			</span> <span id="span3"> <input type="int" name="kennzeichen_3"
-				id="kennzeichen_3" placeholder="1234" maxlength="4">
-			</span>
-		</div>
-
-		<div class="formular-wrapper">
-			<ul class="formular_ul">
-				<li class="formular_li"><label>Automarke</label> <br> <select
-					id="marke">
-						<option value="Audi">Audi</option>
-						<option value="Bentley">Bentley</option>
-						<option value="Bitter">Bitter</option>
-						<option value="BMW">BMW</option>
-						<option value="Borgward">Borgward</option>
-						<option value="Brilliance">Brilliance</option>
-						<option value="Bristol">Bristol</option>
-						<option value="Bugatti">Bugatti</option>
-						<option value="Buick">Buick</option>
-						<option value="Cadillac">Cadillac</option>
-						<option value="Chevrolet">Chevrolet</option>
-						<option value="Chrysler">Chrysler</option>
-						<option value="Citroen">Citroen</option>
-						<option value="Dacia">Dacia</option>
-						<option value="Daewoo">Daewoo</option>
-						<option value="Daihatsu">Daihatsu</option>
-						<option value="De Lorean">De Lorean</option>
-						<option value="De Tomaso">De Tomaso</option>
-						<option value="Dodge">Dodge</option>
-						<option value="DS">DS</option>
-						<option value="Ferrari">Ferrari</option>
-						<option value="Fiat">Fiat</option>
-						<option value="Ford">Ford</option>
-						<option value="General Motors">General Motors</option>
-						<option value="GMC">GMC</option>
-						<option value="Honda">Honda</option>
-						<option value="Hummer">Hummer</option>
-						<option value="Hyundai">Hyundai</option>
-						<option value="Infiniti">Infiniti</option>
-						<option value="Isuzu">Isuzu</option>
-						<option value="Jaguar">Jaguar</option>
-						<option value="Jeep">Jeep</option>
-						<option value="Kia">Kia</option>
-						<option value="Lada">Lada</option>
-						<option value="Lamborghini">Lamborghini</option>
-						<option value="Lancia">Lancia</option>
-						<option value="Land Rover">Land Rover</option>
-						<option value="Lexus">Lexus</option>
-						<option value="Lincoln">Lincoln</option>
-						<option value="Lotus">Lotus</option>
-						<option value="Maserati">Maserati</option>
-						<option value="Maybach">Maybach</option>
-						<option value="Mazda">Mazda</option>
-						<option value="MCC-Smart">MCC-Smart</option>
-						<option value="McLaren">McLaren</option>
-						<option value="Mercedes-Benz">Mercedes-Benz</option>
-						<option value="Mercury">Mercury</option>
-						<option value="MG">MG</option>
-						<option value="Mini">Mini</option>
-						<option value="Mitsubishi">Mitsubishi</option>
-						<option value="Morgan">Morgan</option>
-						<option value="NEVS">NEVS</option>
-						<option value="Nissan">Nissan</option>
-						<option value="Oldsmobile">Oldsmobile</option>
-						<option value="Opel">Opel</option>
-						<option value="Peugeot">Peugeot</option>
-						<option value="Plymouth">Plymouth</option>
-						<option value="Porsche">Porsche</option>
-						<option value="Proton">Proton</option>
-						<option value="Qoros">Qoros</option>
-						<option value="Renault">Renault</option>
-						<option value="Rolls-Royce">Rolls-Royce</option>
-						<option value="Saab">Saab</option>
-						<option value="Seat">Seat</option>
-						<option value="Skoda">Skoda</option>
-						<option value="Ssangyong">Ssangyong</option>
-						<option value="Subaru">Subaru</option>
-						<option value="Suzuki">Suzuki</option>
-						<option value="Tesla">Tesla</option>
-						<option value="Toyota">Toyota</option>
-						<option value="Volkswagen">Volkswagen</option>
-						<option value="Volvo">Volvo</option>
-						<option value="Wiesmann">Wiesmann</option>
-				</select></li>
-				<li class="formular_li"><label for="modell">Modell</label><br>
-					<input type="text" name="modell" id="modell"
-					placeholder="z.B. Astra" size="30" maxlength="30"></li>
-				<ul>
-		</div>
-		<br>
-		<div class="formular-wrapper">
-			<ul class="formular_ul">
-				<li class="formular_li"><label for="baujahr">Baujahr</label><br>
-					<input type="int" name="baujahr" id="baujahr"
-					placeholder="z.B. 2012" size="10" maxlength="4"></li>
-				<li class="formular_li"><label for="laufleistung">Laufleistung
-						in km</label><br> <input type="int" name="laufleistung"
-					id="laufleistung" placeholder="z.B. 148000" size="20" maxlength="6"></li>
-			</ul>
-		</div>
-
-		<br> <br>
-
-		<div class="formular-wrapper">
-			<h2>Leistung</h2>
-		</div>
-
-		<div class="formular-wrapper">
-			<ul class="formular_ul">
-				<li class="formular_li"><label for="ps">PS</label><br> <input
-					type="int" name="ps" id="leistung" placeholder="z.B. 122" size="10"
-					maxlength="3"></li>
-				<li class="formular_li"><label>Kraftstoff</label><br> <select
-					id="kraftstoff">
-						<option value="Benzin">Benzin</option>
-						<option value="Diesel">Diesel</option>
-						<option value="Elektro">Elektro</option>
-						<option value="Hybrid">Hybrid</option>
-						<option value="Erdgas">Erdgas</option>
-				</select></li>
-		</div>
-
-		<div class="formular-wrapper">
-			<h2>Ausstattung</h2>
-		</div>
-
-		<div class="formular-wrapper">
-			<ul class="formular_ul">
-				<li class="formular_li"><label class="container">Kindersitz
-						<input type="checkbox" checked="checked"> <span
-						class="checkmark"></span>
-				</label> <label class="container">Navigationsgerät <input
-						type="checkbox"> <span class="checkmark"></span>
-				</label> <label class="container">Klimaanlage oder Klimaautomatik <input
-						type="checkbox"> <span class="checkmark"></span>
-				</label> <label class="container">Fahradträger <input
-						type="checkbox"> <span class="checkmark"></span>
-				</label> <label class="container">Dachbox <input type="checkbox">
-						<span class="checkmark"></span>
-				</label> <label class="container">Tempomat <input type="checkbox">
-						<span class="checkmark"></span>
-				</label> <label class="container">Winterreifen <input
-						type="checkbox"> <span class="checkmark"></span>
-				</label> <label class="container">Schneeketten <input
-						type="checkbox"> <span class="checkmark"></span>
-				</label></li>
-				<li class="formular_li"><label>Farbe des Fahrzeugs</label> <br>
-					<select id="farbe">
-						<option value="Grau">Grau</option>
-						<option value="Rot">Rot</option>
-						<option value="Schwarz">Schwarz</option>
-						<option value="Weiß">Weiß</option>
-						<option value="sonstiges">sonstiges</option>
-				</select> <br> <br> <label>Anzahl der Sitzplätze (inklusive
-						Fahrersitz)</label> <br> <select id="sitzplaetze">
-						<option value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>
-						<option value="5">5</option>
-						<option value="6">6</option>
-						<option value="7">7</option>
-						<option value="8">8</option>
-						<option value="9">9</option>
-
-				</select></li>
-		</div>
-
-		<div class="formular-wrapper">
-			<h2>Fotos</h2>
-		</div>
-
-		<div class="formular-wrapper">
-			<label>Fügen Sie Bilder Ihres Fahrzeugs hinzu, um die
-				Attraktivität Ihrer Anzeige zu erhöhen</label> <br> <input
-				name="datei[]" type="file" size="50" accept="image/*" multiple>
-			</label>
-		</div>
-
-		<div class="formular-wrapper">
-			<h2>Fahrzeugschein</h2>
-		</div>
-
-		<div class="formular-wrapper">
-			<label>Laden Sie bitte ein Bild Ihres Fahrzeugscheins
-				(Zulassungsbescheinigung Teil I) hoch</label> <br> <input name="datei"
-				type="file" size="50" accept="image/*">
-		</div>
-
-		<div class="formular-wrapper">
-			<h2>Preis und Konditionen</h2>
-		</div>
-
-		<div class="formular-wrapper">
-
-			<label>Startpreis</label>
-
-			<div class="slidecontainer">
-				<input type="range" min="1" max="100" value="12" class="slider"
-					id="basispreis_range">
+		<form action="register_car" method="post" id="upload-form" enctype="multipart/form-data">
+			<br> <br> <label>Kfz-Kennzeichen</label><br>
+			<div class="kennzeichen-wrapper">
+				<img class="kennzeichen_img" alt="Kennzeichen"
+					src="/carSharing/html/img/kennzeichen.jpg"> <span id="span1">
+					<input type="text" name="kennzeichen_1" id="kennzeichen_1"
+					placeholder="HH" maxlength="3">
+				</span> <span id="span2"> <input type="text" name="kennzeichen_2"
+					id="kennzeichen_2" placeholder="XX" maxlength="2">
+				</span> <span id="span3"> <input type="int" name="kennzeichen_3"
+					id="kennzeichen_3" placeholder="1234" maxlength="4">
+				</span>
 			</div>
 
-
-			<span>Startpreis: </span> <span id="basispreis"></span> <span>€</span>
-
-			<script>
-				var slider = document.getElementById("basispreis_range");
-				var output = document.getElementById("basispreis");
-				output.innerHTML = slider.value; // Display the default slider value
-
-				// Update the current slider value (each time you drag the slider handle)
-				slider.oninput = function() {
-					output.innerHTML = this.value;
-				}
-			</script>
-		</div>
-		<br>
-		<div class="formular-wrapper">
-
-			<label>Kilometerpreis</label>
-
-			<div class="slidecontainer">
-				<input type="range" min="0.00" max="40" value="2.50" step=0.10
-					class="slider" id="kilometer_range">
+			<div class="formular-wrapper">
+				<ul class="formular_ul">
+					<li class="formular_li"><label>Automarke</label> <br> <select
+						id="marke">
+							<option value="Audi">Audi</option>
+							<option value="Bentley">Bentley</option>
+							<option value="Bitter">Bitter</option>
+							<option value="BMW">BMW</option>
+							<option value="Borgward">Borgward</option>
+							<option value="Brilliance">Brilliance</option>
+							<option value="Bristol">Bristol</option>
+							<option value="Bugatti">Bugatti</option>
+							<option value="Buick">Buick</option>
+							<option value="Cadillac">Cadillac</option>
+							<option value="Chevrolet">Chevrolet</option>
+							<option value="Chrysler">Chrysler</option>
+							<option value="Citroen">Citroen</option>
+							<option value="Dacia">Dacia</option>
+							<option value="Daewoo">Daewoo</option>
+							<option value="Daihatsu">Daihatsu</option>
+							<option value="De Lorean">De Lorean</option>
+							<option value="De Tomaso">De Tomaso</option>
+							<option value="Dodge">Dodge</option>
+							<option value="DS">DS</option>
+							<option value="Ferrari">Ferrari</option>
+							<option value="Fiat">Fiat</option>
+							<option value="Ford">Ford</option>
+							<option value="General Motors">General Motors</option>
+							<option value="GMC">GMC</option>
+							<option value="Honda">Honda</option>
+							<option value="Hummer">Hummer</option>
+							<option value="Hyundai">Hyundai</option>
+							<option value="Infiniti">Infiniti</option>
+							<option value="Isuzu">Isuzu</option>
+							<option value="Jaguar">Jaguar</option>
+							<option value="Jeep">Jeep</option>
+							<option value="Kia">Kia</option>
+							<option value="Lada">Lada</option>
+							<option value="Lamborghini">Lamborghini</option>
+							<option value="Lancia">Lancia</option>
+							<option value="Land Rover">Land Rover</option>
+							<option value="Lexus">Lexus</option>
+							<option value="Lincoln">Lincoln</option>
+							<option value="Lotus">Lotus</option>
+							<option value="Maserati">Maserati</option>
+							<option value="Maybach">Maybach</option>
+							<option value="Mazda">Mazda</option>
+							<option value="MCC-Smart">MCC-Smart</option>
+							<option value="McLaren">McLaren</option>
+							<option value="Mercedes-Benz">Mercedes-Benz</option>
+							<option value="Mercury">Mercury</option>
+							<option value="MG">MG</option>
+							<option value="Mini">Mini</option>
+							<option value="Mitsubishi">Mitsubishi</option>
+							<option value="Morgan">Morgan</option>
+							<option value="NEVS">NEVS</option>
+							<option value="Nissan">Nissan</option>
+							<option value="Oldsmobile">Oldsmobile</option>
+							<option value="Opel">Opel</option>
+							<option value="Peugeot">Peugeot</option>
+							<option value="Plymouth">Plymouth</option>
+							<option value="Porsche">Porsche</option>
+							<option value="Proton">Proton</option>
+							<option value="Qoros">Qoros</option>
+							<option value="Renault">Renault</option>
+							<option value="Rolls-Royce">Rolls-Royce</option>
+							<option value="Saab">Saab</option>
+							<option value="Seat">Seat</option>
+							<option value="Skoda">Skoda</option>
+							<option value="Ssangyong">Ssangyong</option>
+							<option value="Subaru">Subaru</option>
+							<option value="Suzuki">Suzuki</option>
+							<option value="Tesla">Tesla</option>
+							<option value="Toyota">Toyota</option>
+							<option value="Volkswagen">Volkswagen</option>
+							<option value="Volvo">Volvo</option>
+							<option value="Wiesmann">Wiesmann</option>
+					</select></li>
+					<li class="formular_li"><label for="modell">Modell</label><br>
+						<input type="text" name="modell" id="modell"
+						placeholder="z.B. Astra" size="30" maxlength="30"></li>
+					<ul>
+			</div>
+			<br>
+			<div class="formular-wrapper">
+				<ul class="formular_ul">
+					<li class="formular_li"><label for="baujahr">Baujahr</label><br>
+						<input type="int" name="baujahr" id="baujahr"
+						placeholder="z.B. 2012" size="10" maxlength="4"></li>
+					<li class="formular_li"><label for="laufleistung">Laufleistung
+							in km</label><br> <input type="int" name="laufleistung"
+						id="laufleistung" placeholder="z.B. 148000" size="20"
+						maxlength="6"></li>
+				</ul>
 			</div>
 
+			<br> <br>
 
-			<span>Preis pro Kilometer: </span> <span id="kilometerpreis"></span>
-			<span>€</span>
+			<div class="formular-wrapper">
+				<h2>Leistung</h2>
+			</div>
 
-			<script>
-				var sliderk = document.getElementById("kilometer_range");
-				var outputk = document.getElementById("kilometerpreis");
-				outputk.innerHTML = sliderk.value; // Display the default slider value
+			<div class="formular-wrapper">
+				<ul class="formular_ul">
+					<li class="formular_li"><label for="ps">PS</label><br> <input
+						type="int" name="leistung" id="leistung" placeholder="z.B. 122"
+						size="10" maxlength="3"></li>
+					<li class="formular_li"><label>Kraftstoff</label><br> <select
+						id="kraftstoff">
+							<option value="Benzin">Benzin</option>
+							<option value="Diesel">Diesel</option>
+							<option value="Elektro">Elektro</option>
+							<option value="Hybrid">Hybrid</option>
+							<option value="Erdgas">Erdgas</option>
+					</select></li>
+			</div>
 
-				// Update the current slider value (each time you drag the slider handle)
-				sliderk.oninput = function() {
-					outputk.innerHTML = this.value;
-				}
-			</script>
-		</div>
+			<div class="formular-wrapper">
+				<h2>Ausstattung</h2>
+			</div>
+
+			<div class="formular-wrapper">
+				<ul class="formular_ul">
+					<li class="formular_li"><label class="container">Kindersitz
+							<input type="checkbox" checked="checked"> <span
+							class="checkmark"></span>
+					</label> <label class="container">Navigationsgerät <input
+							type="checkbox"> <span class="checkmark"></span>
+					</label> <label class="container">Klimaanlage oder Klimaautomatik <input
+							type="checkbox"> <span class="checkmark"></span>
+					</label> <label class="container">Fahradträger <input
+							type="checkbox"> <span class="checkmark"></span>
+					</label> <label class="container">Dachbox <input type="checkbox">
+							<span class="checkmark"></span>
+					</label> <label class="container">Tempomat <input type="checkbox">
+							<span class="checkmark"></span>
+					</label> <label class="container">Winterreifen <input
+							type="checkbox"> <span class="checkmark"></span>
+					</label> <label class="container">Schneeketten <input
+							type="checkbox"> <span class="checkmark"></span>
+					</label></li>
+					<li class="formular_li"><label>Farbe des Fahrzeugs</label> <br>
+						<select id="farbe">
+							<option value="Grau">Grau</option>
+							<option value="Rot">Rot</option>
+							<option value="Schwarz">Schwarz</option>
+							<option value="Weiß">Weiß</option>
+							<option value="sonstiges">sonstiges</option>
+					</select> <br> <br> <label>Anzahl der Sitzplätze
+							(inklusive Fahrersitz)</label> <br> <select id="sitzplaetze">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+
+					</select></li>
+			</div>
+
+			<div class="formular-wrapper">
+				<h2>Fotos</h2>
+			</div>
+
+			<div class="formular-wrapper">
+				<label>Fügen Sie Bilder Ihres Fahrzeugs hinzu, um die
+					Attraktivität Ihrer Anzeige zu erhöhen</label> <br> <input
+					name="fahrzeugbild" type="file" size="50" accept="image/*">
+				</label>
+			</div>
+
+			<div class="formular-wrapper">
+				<h2>Fahrzeugschein</h2>
+			</div>
+
+			<div class="formular-wrapper">
+				<label>Laden Sie bitte ein Bild Ihres Fahrzeugscheins
+					(Zulassungsbescheinigung Teil I) hoch</label> <br> <input name="datei"
+					type="file" size="50" accept="image/*">
+			</div>
+
+			<div class="formular-wrapper">
+				<h2>Preis und Konditionen</h2>
+			</div>
+
+			<div class="formular-wrapper">
+
+				<label>Startpreis</label>
+
+				<div class="slidecontainer">
+					<input type="range" min="1" max="100" value="12" class="slider"
+						id="basispreis_range">
+				</div>
+
+
+				<span>Startpreis: </span> <span id="basispreis"></span> <span>€</span>
+
+				<script>
+					var slider = document.getElementById("basispreis_range");
+					var output = document.getElementById("basispreis");
+					output.innerHTML = slider.value; // Display the default slider value
+
+					// Update the current slider value (each time you drag the slider handle)
+					slider.oninput = function() {
+						output.innerHTML = this.value;
+					}
+				</script>
+			</div>
+			<br>
+			<div class="formular-wrapper">
+
+				<label>Kilometerpreis</label>
+
+				<div class="slidecontainer">
+					<input type="range" min="0.00" max="40" value="2.50" step=0.10
+						class="slider" id="kilometer_range">
+				</div>
+
+
+				<span>Preis pro Kilometer: </span> <span id="kilometerpreis"></span>
+				<span>€</span>
+
+				<script>
+					var sliderk = document.getElementById("kilometer_range");
+					var outputk = document.getElementById("kilometerpreis");
+					outputk.innerHTML = sliderk.value; // Display the default slider value
+
+					// Update the current slider value (each time you drag the slider handle)
+					sliderk.oninput = function() {
+						outputk.innerHTML = this.value;
+					}
+				</script>
+			</div>
+		</form>
 		<script>
 			function registerCar() {
-				
+
 				var kennzeichen = jQuery('#kennzeichen_1').val();
 				var kennzeichen = jQuery('#kennzeichen_2').val();
 				var kennzeichen = jQuery('#kennzeichen_3').val();
-				
+
 				var automarke = jQuery('#automarke').val();
 				var modell = jQuery('#modell').val();
 				var baujahr = jQuery('#baujahr').val();
 				var laufleistung = jQuery('#laufleistung').val();
 				var leistung = jQuery('#leistung').val();
 				var kraftstoff = jQuery('#kraftstoff').val();
-				
+
 				var farbe = jQuery('#farbe').val();
 				var sitzplaetze = jQuery('#sitzplaetze').val();
 				var basispreis_range = jQuery('#basispreis_range').val();
-				var kilometerpreis_range = jQuery('#kilometerpreis_range').val();
-				
+				var kilometerpreis_range = jQuery('#kilometerpreis_range')
+						.val();
 
 				jQuery.post("register_car", {
 					kennzeichen : kennzeichen,
@@ -331,12 +333,12 @@
 					laufleistung : laufleistung,
 					leistung : leistung,
 					kraftstoff : kraftstoff,
-					
+
 					farbe : farbe,
-					sitzplaetze: sitzplaetze,
+					sitzplaetze : sitzplaetze,
 					basispreis_range : basispreis_range,
 					kilometerpreis_range : kilometerpreis_range
-					
+
 				}, function(data, status) {
 					if (data) {
 						window.location.href = "home";
@@ -347,7 +349,7 @@
 			}
 		</script>
 		<div class="formular-wrapper">
-			<button onclick="registerCar()">Weiter</button>
+			<button onclick="jQuery('#upload-form').submit()">Weiter</button>
 		</div>
 	</div>
 
