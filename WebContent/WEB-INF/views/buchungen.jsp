@@ -73,7 +73,7 @@ td, th {
 							${buchung.fahrzeug.modell}</td>
 						<td>Befüll mich</td>
 						<td><button>Ändern</button></td>
-						<td><button>Löschen</button></td>
+						<td><button>Stornieren</button></td>
 						<td><button>Bewerten</button></td>
 					</tr>
 				</c:forEach>

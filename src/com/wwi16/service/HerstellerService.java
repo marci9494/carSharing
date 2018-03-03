@@ -23,7 +23,7 @@ public class HerstellerService {
         try {
             tx = session.getTransaction();
             tx.begin();
-            Query query = session.createQuery("select name from FahrzeugHersteller");
+            Query query = session.createQuery("from FahrzeugHersteller");
             hersteller = query.list();
             tx.commit();
         } catch (Exception e) {

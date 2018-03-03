@@ -30,7 +30,7 @@ public class RadiusSearchUtil {
 				if (fileRow[1].equals(plz)) {
 					origin_lon = deg2rad(fileRow[2]);
 					origin_lat = deg2rad(fileRow[3]);
-
+					distanceList.add(new Distance(plz, 0.0, fileRow[4]));
 				
 				}
 			}

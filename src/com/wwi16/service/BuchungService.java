@@ -9,19 +9,25 @@ import org.hibernate.Transaction;
 import com.wwi16.model.Ausstattung;
 import com.wwi16.model.Buchung;
 import com.wwi16.model.Fahrzeug;
+import com.wwi16.model.User;
 import com.wwi16.util.HibernateUtil;
+
+import jdk.nashorn.internal.runtime.UserAccessorProperty;
 
 public class BuchungService {
 	
-	public List<Buchung> searchBuchungByUser(String plz) {
+	public List<Buchung> searchBuchungByUser(String userEmail) {
 
+		UserService userService = new UserService();
+		User nutzer = userService.getNutzer(userEmail);
+		
 		Session session = HibernateUtil.openSession();
 		Transaction tx = null;
 		List<Buchung> buchungen = null;
 		try {
 			tx = session.getTransaction();
 			tx.begin();
-			Query query = session.createQuery("from Buchung");
+			Query query = session.createQuery("from Buchung where mieter ='"+ nutzer.getId() +"'");
 			buchungen = (List<Buchung>) query.list();
 			tx.commit();
 		} catch (Exception e) {
