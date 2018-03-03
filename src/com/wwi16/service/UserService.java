@@ -12,41 +12,41 @@ import com.wwi16.model.User;
 import com.wwi16.util.HibernateUtil;
 
 public class UserService {
-	
-	public boolean checkLogin(String email, String pw){
-        Session session = HibernateUtil.openSession();
-        Transaction tx = null;
-        User nutzer = null;
-        try {
-            tx = session.getTransaction();
-            tx.begin();
-            Query query = session.createQuery("from User where email='"+email+"'");
-            nutzer = (User)query.uniqueResult();
-            tx.commit();
-        } catch (Exception e) {
-            if (tx != null) {
-                tx.rollback();
-            }
-            e.printStackTrace();
-        } finally {
-            session.close();
-        }
-		
-        if (nutzer != null){
-        	String hashPassword = hashPassword(pw);
-        	if(hashPassword.equals(nutzer.getPassword())){
-        		return true;
-        	}else{
-        		return false;
-        	}
-        }else{
-        	System.out.println("Email nicht gefunden");
-        }
-		
+
+	public boolean checkLogin(String email, String pw) {
+		Session session = HibernateUtil.openSession();
+		Transaction tx = null;
+		User nutzer = null;
+		try {
+			tx = session.getTransaction();
+			tx.begin();
+			Query query = session.createQuery("from User where email='" + email + "'");
+			nutzer = (User) query.uniqueResult();
+			tx.commit();
+		} catch (Exception e) {
+			if (tx != null) {
+				tx.rollback();
+			}
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+
+		if (nutzer != null) {
+			String hashPassword = hashPassword(pw);
+			if (hashPassword.equals(nutzer.getPassword())) {
+				return true;
+			} else {
+				return false;
+			}
+		} else {
+			System.out.println("Email nicht gefunden");
+		}
+
 		return false;
 	}
-	
-	public User createNutzer(String vorname, String nachname,String strasse,String plz, String ort, String email, boolean vermieter, String password){
+
+	public User createNutzer(String vorname, String nachname,String strasse,String plz, String ort, String email, boolean vermieter, String password,byte[] personalausweis){
 		 Session session = HibernateUtil.openSession();
 		 
 		 session.beginTransaction();
@@ -60,6 +60,7 @@ public class UserService {
 		 nutzer.setVermieter(vermieter);
 		 nutzer.setVorname(vorname);
 		 nutzer.setPassword(hashPassword(password));
+		 nutzer.setPersonalausweis(personalausweis);
 		 try{
 		 session.save(nutzer);
 		 session.getTransaction().commit();
@@ -72,53 +73,49 @@ public class UserService {
 		
 		return nutzer;
 	}
-	
-	public User getNutzer(String email){
-        Session session = HibernateUtil.openSession();
-        Transaction tx = null;
-        User nutzer = null;
-        try {
-            tx = session.getTransaction();
-            tx.begin();
-            Query query = session.createQuery("from User where email='"+email+"'");
-            nutzer = (User)query.uniqueResult();
-            tx.commit();
-        } catch (Exception e) {
-            if (tx != null) {
-                tx.rollback();
-            }
-            e.printStackTrace();
-        } finally {
-            session.close();
-        }
-        return nutzer;
+
+	public User getNutzer(String email) {
+		Session session = HibernateUtil.openSession();
+		Transaction tx = null;
+		User nutzer = null;
+		try {
+			tx = session.getTransaction();
+			tx.begin();
+			Query query = session.createQuery("from User where email='" + email + "'");
+			nutzer = (User) query.uniqueResult();
+			tx.commit();
+		} catch (Exception e) {
+			if (tx != null) {
+				tx.rollback();
+			}
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		return nutzer;
 	}
-	
-	
-	private String hashPassword(String password){
+
+	private String hashPassword(String password) {
 		String generatedPassword = null;
-        try {
-            // Create MessageDigest instance for MD5
-            MessageDigest md = MessageDigest.getInstance("MD5");
-            //Add password bytes to digest
-            md.update(password.getBytes());
-            //Get the hash's bytes
-            byte[] bytes = md.digest();
-            //This bytes[] has bytes in decimal format;
-            //Convert it to hexadecimal format
-            StringBuilder sb = new StringBuilder();
-            for(int i=0; i< bytes.length ;i++)
-            {
-                sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
-            }
-            //Get complete hashed password in hex format
-            generatedPassword = sb.toString();
-        }
-        catch (NoSuchAlgorithmException e)
-        {
-            e.printStackTrace();
-        }
-        return generatedPassword;
+		try {
+			// Create MessageDigest instance for MD5
+			MessageDigest md = MessageDigest.getInstance("MD5");
+			// Add password bytes to digest
+			md.update(password.getBytes());
+			// Get the hash's bytes
+			byte[] bytes = md.digest();
+			// This bytes[] has bytes in decimal format;
+			// Convert it to hexadecimal format
+			StringBuilder sb = new StringBuilder();
+			for (int i = 0; i < bytes.length; i++) {
+				sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
+			}
+			// Get complete hashed password in hex format
+			generatedPassword = sb.toString();
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		}
+		return generatedPassword;
 	}
 
 }

@@ -1,18 +1,23 @@
 package com.wwi16.servlet;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.Part;
 
 import com.wwi16.model.User;
 import com.wwi16.service.UserService;
 
+@MultipartConfig
 public class Register extends HttpServlet{
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -34,12 +39,33 @@ public class Register extends HttpServlet{
 		//Aktuell werden keine vermieter angelegt
 		boolean vermieter = false;
 		String passwort = request.getParameter("passwort");
-	
+	System.out.println("ajax call");
+		InputStream inputStream = null;
+		Part filePart = request.getPart("personalausweis");
+        if (filePart != null) {
+            // prints out some information for debugging
+            System.out.println(filePart.getName());
+            System.out.println(filePart.getSize());
+            System.out.println(filePart.getContentType());
+             
+            // obtains input stream of the upload file
+            inputStream = filePart.getInputStream();
+            ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+
+            int nRead;
+            byte[] data = new byte[16384];
+
+            while ((nRead = inputStream.read(data, 0, data.length)) != -1) {
+              buffer.write(data, 0, nRead);
+            }
+
+            buffer.flush();
+
+            UserService nutzerService = new UserService();
+            User nutzer = nutzerService.createNutzer(vorname, nachname, strasse, plz, ort, email, vermieter, passwort,buffer.toByteArray());
+            PrintWriter out = response.getWriter();
+       
 		
-		
-		UserService nutzerService = new UserService();
-		User nutzer = nutzerService.createNutzer(vorname, nachname, strasse, plz, ort, email, vermieter, passwort);
-		PrintWriter out = response.getWriter();
 		if(nutzer != null){
 			System.out.println("User " + email + " registriert");
 			HttpSession session=request.getSession();  
@@ -52,6 +78,7 @@ public class Register extends HttpServlet{
 			out.print(Boolean.TRUE);
 	    	out.flush();
 		}
+        }
 		
 	}
 

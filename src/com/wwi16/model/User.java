@@ -2,9 +2,11 @@ package com.wwi16.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 
 @Entity
@@ -22,6 +24,10 @@ public class User implements Serializable {
 	private String email;
 	private boolean vermieter;
 	private String password;
+	
+	@Lob
+    @Column(name="PERSONALAUSWEIS", nullable=false, columnDefinition="mediumblob")
+    private byte[] personalausweis;
 
 	public User(Long id, String vorname, String nachname, String strasse, String plz, String ort, String email,
 			boolean vermieter,String password) {
@@ -111,5 +117,13 @@ public class User implements Serializable {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public byte[] getPersonalausweis() {
+		return personalausweis;
+	}
+
+	public void setPersonalausweis(byte[] personalausweis) {
+		this.personalausweis = personalausweis;
 	}
 }
