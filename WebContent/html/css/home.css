@@ -1,10 +1,14 @@
 
 .carPicture {
-	background-image: url("/carSharing/html/img/focus.png");
 	width: 100%;
 	height: 200px;
 	background-size: 100%;
 	border-radius: 10% 10% 0px 0px; 
+}
+.carImg{
+	width: 100%;
+	height:100%;
+	border-radius: 4%;
 }
 
 .carWrapper {

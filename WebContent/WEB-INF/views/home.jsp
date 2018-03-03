@@ -55,7 +55,7 @@
 
 
 		<div id="dummyCarWrapper" class="carWrapper" style="display: none">
-			<div class="carPicture"></div>
+			<div class="carPicture"><img alt="" src="" class="carImg"></div>
 			<div class="carDetails">
 				<div class="bezeichnung">
 					<span class="herstellerBezeichnung"></span><span
@@ -86,7 +86,7 @@
 		jQuery.post("home", {
 			plz : plz
 		}, function(data, status) {
-
+			console.log(data);
 			for (var i = 0; i < data.length; i++) {
 				for (var r = 0; r < data[i].fahrzeug.length; r++) {
 					var carWrapper = jQuery('#dummyCarWrapper').clone();
@@ -95,7 +95,8 @@
 							data[i].fahrzeug[r].modell);
 					carWrapper.find('.standort').text(data[i].ort);
 					carWrapper.find('.entfernung').text(data[i].distance);
-
+					carWrapper.find('.carImg').attr('src', 'data:image/png;base64,' + data[i].fahrzeug[r].fahrzeugBildString);
+					
 					carWrapper.show();
 					jQuery('.foundCars').append(carWrapper);
 				}

@@ -92,8 +92,9 @@ public class Home extends HttpServlet {
 		 System.out.println("plz = " + plz);
 		 
 		 List<Distance> carDistanceList = getFahrzeugeForPlz(request, plz, distance);
+		 
 		 if(carDistanceList != null){
-			 String json = new Gson().toJson(carDistanceList);
+			 String json = new Gson().toJson(setFahrzeugBildString(carDistanceList));
 			 out.print(json);
 			 out.flush();
 		 }
@@ -130,6 +131,21 @@ public class Home extends HttpServlet {
 			
 		}
 		return carDistanceList;
+	}
+	
+	private List<Distance> setFahrzeugBildString(List<Distance> distanceList){
+		for (Distance distance : distanceList) {
+			List<Fahrzeug> fahrzeugList = distance.getFahrzeug();
+			for (Fahrzeug fahrzeug : fahrzeugList) {
+				
+				fahrzeug.setFahrzeugBildString(new sun.misc.BASE64Encoder().encode(fahrzeug.getFahrzeugbild()));
+			}
+			
+		}
+		
+		
+		
+		return distanceList;
 	}
 
 

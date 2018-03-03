@@ -16,6 +16,7 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "FAHRZEUG")
@@ -68,6 +69,9 @@ public class Fahrzeug implements Serializable {
     @Column(name="fahrzeugbild", nullable=false, columnDefinition="mediumblob")
     private byte[] fahrzeugbild;
 
+	@Transient
+	private String fahrzeugBildString;
+	
 	public String getKennzeichen() {
 		return kennzeichen;
 	}
@@ -206,6 +210,14 @@ public class Fahrzeug implements Serializable {
 
 	public void setFahrzeugbild(byte[] fahrzeugbild) {
 		this.fahrzeugbild = fahrzeugbild;
+	}
+
+	public String getFahrzeugBildString() {
+		return fahrzeugBildString;
+	}
+
+	public void setFahrzeugBildString(String fahrzeugBildString) {
+		this.fahrzeugBildString = fahrzeugBildString;
 	}
 
 
