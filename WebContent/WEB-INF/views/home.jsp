@@ -33,16 +33,28 @@
 				class="plzInput" /> <select>
 				<option value="10">10Km</option>
 			</select>
-			<button type="button" onclick="searchCar()">Suchen</button>
+			<button type="button" onclick="searchCar(null,null)">Suchen</button>
 		</div>
 
 		<div class="filter-wrapper">
 			<div class="filters">
-				<div class="fahrzeugkategorie">
-					<span><b>Fahrzeugkategorie</b></span><br>
-					<a>Kombi</a><br>
-					<a>Kleinwagen</a><br>
-					<a>Bus</a>
+				<div class="fahrzeugfilter fahrzeugkategorie">
+					<b>Kategorie</b><br>
+					<c:forEach items="${kategories}" var="kategorie">
+					<a onclick="searchCar('kategorie','${kategorie.id }')">${kategorie.name }</a></br>
+					</c:forEach>
+				</div>
+				<div class="fahrzeugfilter fahrzeugfarbe">
+				<b>Farbe</b><br>
+					<c:forEach items="${farben}" var="farbe">
+					<a>${farbe.name }</a><br>
+					</c:forEach>
+				</div>
+				<div class="fahrzeugfilter fahrzeugausstattung">
+				<b>Ausstattung</b><br>
+					<c:forEach items="${ausstattungen}" var="ausstattung">
+					<a>${ausstattung.name }</a><br>
+					</c:forEach>
 				</div>
 			
 			</div>
@@ -66,7 +78,8 @@
 				</div>
 			</div>
 			<div style="float:right;margin-right:10px;">
-				<button type="button">Mieten</button>
+				<button type="button" onclick="rentCar(this)">Mieten</button>
+				<input type="hidden" class="carId"/>
 			</div>
 			<div style="clear:both"></div>
 
@@ -79,14 +92,17 @@
 <script src="/carSharing/html/js/home.js"></script>
 
 <script>
-	function searchCar() {
+
+	
+	function searchCar(filterType,filterId) {
 		var plz = jQuery('.plzInput').val();
 		console.log(plz);
 
 		jQuery.post("home", {
-			plz : plz
+			plz : plz,
+			filterType : filterType,
+			filterId : filterId
 		}, function(data, status) {
-			console.log(data);
 			for (var i = 0; i < data.length; i++) {
 				for (var r = 0; r < data[i].fahrzeug.length; r++) {
 					var carWrapper = jQuery('#dummyCarWrapper').clone();
@@ -96,15 +112,37 @@
 					carWrapper.find('.standort').text(data[i].ort);
 					carWrapper.find('.entfernung').text(data[i].distance);
 					carWrapper.find('.carImg').attr('src', 'data:image/png;base64,' + data[i].fahrzeug[r].fahrzeugBildString);
-					
+					carWrapper.find('.carId').val(data[i].fahrzeug[r].id);
 					carWrapper.show();
 					jQuery('.foundCars').append(carWrapper);
+					
+					carWrapper.find('')
+					
 				}
 			}
 			jQuery('.filters').show();
 			jQuery('.foundCars').append(jQuery('<div>').css('clear', 'both'));
 
 		});
+	}
+	
+	function rentCar(button){
+		var carId = jQuery(button).parent().find('.carId').val();
+		var abfrage = confirm("Wollen Sie das Fahrzeug wirklich zur miete anfragen?");
+		if(abfrage == true){
+			//TODO statische variablen ersetzen!!!!!
+			
+			jQuery.post("home", {
+				action : "rentCar",
+				carId : carId,
+				userEmail : "marcel_ament@web.de",
+				startDate: "01.01.2017",
+				endDate:"02.01.2017"
+			}, function(data, status) {
+
+			});
+			window.location = "/buchungen"
+		}
 	}
 </script>
 

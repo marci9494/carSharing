@@ -64,15 +64,13 @@ public class Home extends HttpServlet {
 		AusstattungService ausstattungsService = new AusstattungService();
 		request.setAttribute("kategories", kategorieService.getAllKategories());
 		request.setAttribute("ausstattungen", ausstattungsService.getAllAusstattung());
-		request.setAttribute("farbService", farbService);
-		
-		
+		request.setAttribute("farben", farbService.getAllFarben());
+
 		// AusstattungService ausstattungsServie = new AusstattungService();
 		// Ausstattung ausstattungById =
 		// ausstattungsServie.getAusstattungById("1");
 		// System.out.println(ausstattungById.getName());
 		// request.setAttribute("fahrzeug", ausstattungById);
-		
 
 		dispatcher.forward(request, response);
 
@@ -83,72 +81,58 @@ public class Home extends HttpServlet {
 	 *      response)
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		 response.setContentType("application/json");
-		 PrintWriter out = response.getWriter();
-		 String plz = request.getParameter("plz");
-		 //Immer null, nicht gesetzt
-		 double distance = 10;
-		 System.out.println("plz = " + plz);
-		 
-		 List<Distance> carDistanceList = getFahrzeugeForPlz(request, plz, distance);
-		 
-		 if(carDistanceList != null){
-			 String json = new Gson().toJson(setFahrzeugBildString(carDistanceList));
-			 out.print(json);
-			 out.flush();
-		 }
-		
-		//
-		// FahrzeugService fahrzeugService = new FahrzeugService();
-		// // TODO search for plz
-		// List<Fahrzeug> searchFahrzeug =
-		// fahrzeugService.searchFahrzeug("12345");
-		//
-//		 String json = new Gson().toJson(searchFahrzeug);
-		// System.out.println(json);
-//		 String json = new Gson().toJson(.radiusSearchUtil.radiusCalculation(request,plz,Double.parseDouble(distance));
-//		 System.out.println(json);
-//		 out.print(json);
-//		 out.flush();
-		 
+
+		response.setContentType("application/json");
+		PrintWriter out = response.getWriter();
+		String plz = request.getParameter("plz");
+//		String filterType = request.getParameter("plz");
+//		String plz = request.getParameter("plz");
+		// Immer null, nicht gesetzt
+		double distance = 10;
+
+		List<Distance> carDistanceList = getFahrzeugeForPlz(request, plz, distance);
+
+		if (carDistanceList != null) {
+			String json = new Gson().toJson(setFahrzeugBildString(carDistanceList));
+			out.print(json);
+			out.flush();
+		}
+
+	
+
 	}
 
 	private List<Distance> getFahrzeugeForPlz(HttpServletRequest request, String plz, double distance) {
 		RadiusSearchUtil radiusSearchUtil = new RadiusSearchUtil();
-		 List<Distance> radiusCalculation = radiusSearchUtil.radiusCalculation(request, plz, distance);
-		 FahrzeugService fahrzeugService = new FahrzeugService();
-		 
-		 List<Distance> carDistanceList = new ArrayList();
-		 
-		 for (Distance distance2 : radiusCalculation) {
-			 List<Fahrzeug> fahrzeugeByPlz = fahrzeugService.searchFahrzeugByPlz(distance2.getPlz());
-			 if(fahrzeugeByPlz.size() > 0){
-				Distance distanceToAdd = new Distance(distance2.getPlz(), distance2.getDistance(),distance2.getOrt());
+		List<Distance> radiusCalculation = radiusSearchUtil.radiusCalculation(request, plz, distance);
+		FahrzeugService fahrzeugService = new FahrzeugService();
+
+		List<Distance> carDistanceList = new ArrayList();
+
+		for (Distance distance2 : radiusCalculation) {
+			List<Fahrzeug> fahrzeugeByPlz = fahrzeugService.searchFahrzeugByPlz(distance2.getPlz());
+			if (fahrzeugeByPlz.size() > 0) {
+				Distance distanceToAdd = new Distance(distance2.getPlz(), distance2.getDistance(), distance2.getOrt());
 				distanceToAdd.setFahrzeug(fahrzeugeByPlz);
 				carDistanceList.add(distanceToAdd);
-			 }
-			
+			}
+
 		}
 		return carDistanceList;
 	}
-	
-	private List<Distance> setFahrzeugBildString(List<Distance> distanceList){
+
+	private List<Distance> setFahrzeugBildString(List<Distance> distanceList) {
 		for (Distance distance : distanceList) {
 			List<Fahrzeug> fahrzeugList = distance.getFahrzeug();
 			for (Fahrzeug fahrzeug : fahrzeugList) {
-				
-				fahrzeug.setFahrzeugBildString(new sun.misc.BASE64Encoder().encode(fahrzeug.getFahrzeugbild()));
+				if (fahrzeug.getFahrzeugbild() != null) {
+					fahrzeug.setFahrzeugBildString(new sun.misc.BASE64Encoder().encode(fahrzeug.getFahrzeugbild()));
+				}
 			}
-			
+
 		}
-		
-		
-		
+
 		return distanceList;
 	}
-
-
-
 
 }
