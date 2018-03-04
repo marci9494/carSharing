@@ -4,6 +4,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,7 +16,11 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 import com.wwi16.model.Fahrzeug;
+import com.wwi16.model.FahrzeugHersteller;
+import com.wwi16.model.FahrzeugKategorie;
 import com.wwi16.model.User;
+import com.wwi16.service.FahrzeugHerstellerService;
+import com.wwi16.service.FahrzeugKategorieService;
 import com.wwi16.service.FahrzeugService;
 import com.wwi16.service.UserService;
 
@@ -24,6 +29,11 @@ public class Register_car extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/register_car.jsp");
+				
+		FahrzeugHerstellerService FahrzeugHerstellerService = new FahrzeugHerstellerService();
+		List<FahrzeugHersteller> hersteller = FahrzeugHerstellerService.getAllHersteller();
+		System.out.println("Ausgabe" + hersteller);
+		request.setAttribute("hersteller",hersteller);
 		dispatcher.forward(request, response);
 	}
 

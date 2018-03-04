@@ -54,7 +54,8 @@
     			</c:otherwise>
 			</c:choose>
 		</div>
-		<form action="register_car" method="post" id="upload-form" enctype="multipart/form-data">
+		<form action="register_car" method="post" id="upload-form"
+			enctype="multipart/form-data">
 			<br> <br> <label>Kfz-Kennzeichen</label><br>
 			<div class="kennzeichen-wrapper">
 				<img class="kennzeichen_img" alt="Kennzeichen"
@@ -72,80 +73,11 @@
 				<ul class="formular_ul">
 					<li class="formular_li"><label>Automarke</label> <br> <select
 						id="marke">
-							<option value="Audi">Audi</option>
-							<option value="Bentley">Bentley</option>
-							<option value="Bitter">Bitter</option>
-							<option value="BMW">BMW</option>
-							<option value="Borgward">Borgward</option>
-							<option value="Brilliance">Brilliance</option>
-							<option value="Bristol">Bristol</option>
-							<option value="Bugatti">Bugatti</option>
-							<option value="Buick">Buick</option>
-							<option value="Cadillac">Cadillac</option>
-							<option value="Chevrolet">Chevrolet</option>
-							<option value="Chrysler">Chrysler</option>
-							<option value="Citroen">Citroen</option>
-							<option value="Dacia">Dacia</option>
-							<option value="Daewoo">Daewoo</option>
-							<option value="Daihatsu">Daihatsu</option>
-							<option value="De Lorean">De Lorean</option>
-							<option value="De Tomaso">De Tomaso</option>
-							<option value="Dodge">Dodge</option>
-							<option value="DS">DS</option>
-							<option value="Ferrari">Ferrari</option>
-							<option value="Fiat">Fiat</option>
-							<option value="Ford">Ford</option>
-							<option value="General Motors">General Motors</option>
-							<option value="GMC">GMC</option>
-							<option value="Honda">Honda</option>
-							<option value="Hummer">Hummer</option>
-							<option value="Hyundai">Hyundai</option>
-							<option value="Infiniti">Infiniti</option>
-							<option value="Isuzu">Isuzu</option>
-							<option value="Jaguar">Jaguar</option>
-							<option value="Jeep">Jeep</option>
-							<option value="Kia">Kia</option>
-							<option value="Lada">Lada</option>
-							<option value="Lamborghini">Lamborghini</option>
-							<option value="Lancia">Lancia</option>
-							<option value="Land Rover">Land Rover</option>
-							<option value="Lexus">Lexus</option>
-							<option value="Lincoln">Lincoln</option>
-							<option value="Lotus">Lotus</option>
-							<option value="Maserati">Maserati</option>
-							<option value="Maybach">Maybach</option>
-							<option value="Mazda">Mazda</option>
-							<option value="MCC-Smart">MCC-Smart</option>
-							<option value="McLaren">McLaren</option>
-							<option value="Mercedes-Benz">Mercedes-Benz</option>
-							<option value="Mercury">Mercury</option>
-							<option value="MG">MG</option>
-							<option value="Mini">Mini</option>
-							<option value="Mitsubishi">Mitsubishi</option>
-							<option value="Morgan">Morgan</option>
-							<option value="NEVS">NEVS</option>
-							<option value="Nissan">Nissan</option>
-							<option value="Oldsmobile">Oldsmobile</option>
-							<option value="Opel">Opel</option>
-							<option value="Peugeot">Peugeot</option>
-							<option value="Plymouth">Plymouth</option>
-							<option value="Porsche">Porsche</option>
-							<option value="Proton">Proton</option>
-							<option value="Qoros">Qoros</option>
-							<option value="Renault">Renault</option>
-							<option value="Rolls-Royce">Rolls-Royce</option>
-							<option value="Saab">Saab</option>
-							<option value="Seat">Seat</option>
-							<option value="Skoda">Skoda</option>
-							<option value="Ssangyong">Ssangyong</option>
-							<option value="Subaru">Subaru</option>
-							<option value="Suzuki">Suzuki</option>
-							<option value="Tesla">Tesla</option>
-							<option value="Toyota">Toyota</option>
-							<option value="Volkswagen">Volkswagen</option>
-							<option value="Volvo">Volvo</option>
-							<option value="Wiesmann">Wiesmann</option>
+							<c:forEach items="${hersteller}" var="item">
+								<option value="${item}">${item}</option>
+							</c:forEach>
 					</select></li>
+
 					<li class="formular_li"><label for="modell">Modell</label><br>
 						<input type="text" name="modell" id="modell"
 						placeholder="z.B. Astra" size="30" maxlength="30"></li>
@@ -255,10 +187,11 @@
 			<div class="formular-wrapper">
 				<h2>Preis und Konditionen</h2>
 			</div>
-			
+
 			<div class="formular-wrapper">
-				<p> Hier kannst du eingeben, wie viel dein Fahrzeug pro Tag kostet.
-				Pro Tag sind 100 Kilometer frei. Du kannst angeben, wie viel jeder zusätzliche Kilometer kostet. </p>
+				<p>Hier kannst du eingeben, wie viel dein Fahrzeug pro Tag
+					kostet. Pro Tag sind 100 Kilometer frei. Du kannst angeben, wie
+					viel jeder zusätzliche Kilometer kostet.</p>
 			</div>
 
 			<div class="formular-wrapper">
