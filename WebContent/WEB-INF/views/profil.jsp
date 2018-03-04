@@ -154,12 +154,10 @@ theme
 		<form method="post" action="profil" id="update-form">
 			<div id="name-adress" class="name-adress">
 				<h2>Persönliche Daten</h2>
-				<p>Wenn du deine Daten ändern willst, so klicke auf diese und
-					speichere sie zum Schluss</p>
 
 				
 				<br> <span class="form-field-label">Vorname</span> <br>
-				<p class="editable" id=daten for="vorname">${nutzer.vorname}</p>
+				<p class="editable" id=daten >${nutzer.vorname}</p>
 				<input id="vorname" class="editableInput" type='text'
 					style='display: none' name="vorname" value="${nutzer.vorname}" /> <br> <span
 					class="form-field-label"> Nachname</span> <br>

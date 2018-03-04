@@ -1,17 +1,24 @@
 package com.wwi16.service;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import com.mysql.fabric.xmlrpc.base.Array;
 import com.wwi16.model.Ausstattung;
 import com.wwi16.model.Fahrzeug;
 import com.wwi16.model.FahrzeugFarbe;
 import com.wwi16.model.FahrzeugHersteller;
 import com.wwi16.model.FahrzeugKategorie;
+import com.wwi16.model.FahrzeugVermietZeitraum;
 import com.wwi16.model.User;
+import com.wwi16.model.VermietZeitraum;
 import com.wwi16.util.HibernateUtil;
 
 public class FahrzeugService {
@@ -157,5 +164,43 @@ public class FahrzeugService {
 		} else {
 			return null;
 		}
+	}
+	
+	public  void addVermietungsZeitraeumeToFahrzeug(List<VermietZeitraum> vermietZeitraeume, String carId){
+		Fahrzeug fahrzeug = getFahrzeugById(carId);
+		for (VermietZeitraum vermietZeitraum : vermietZeitraeume) {
+			Session session = HibernateUtil.openSession();
+			FahrzeugVermietZeitraum vermietZeitraumEntity = new FahrzeugVermietZeitraum();
+			vermietZeitraumEntity.setEndDate(parseDate(vermietZeitraum.getEndDate()));
+			vermietZeitraumEntity.setStartDate(parseDate(vermietZeitraum.getStartDate()));
+			vermietZeitraumEntity.setFahrzeug(fahrzeug);
+			
+			
+			try {
+				 session.save(vermietZeitraumEntity);
+				 session.getTransaction().commit();
+			} catch (Exception e) {
+
+				e.printStackTrace();
+			} finally {
+				session.close();
+			}
+			
+		}
+		
+		
+
+	}
+	
+	private Date parseDate(String dateString){
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+		Date date = null;
+		try {
+			date =  formatter.parse(dateString);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		};
+		return date;
 	}
 }

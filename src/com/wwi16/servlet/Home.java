@@ -111,7 +111,9 @@ public class Home extends HttpServlet {
 
 		for (Distance distance2 : radiusCalculation) {
 			List<Fahrzeug> fahrzeugeByPlz = fahrzeugService.searchFahrzeugByPlz(distance2.getPlz());
+			System.out.println(fahrzeugeByPlz);
 			if (fahrzeugeByPlz.size() > 0) {
+				System.out.println(fahrzeugeByPlz.get(0).getVermietZeitraeume().size());
 				Distance distanceToAdd = new Distance(distance2.getPlz(), distance2.getDistance(), distance2.getOrt());
 				distanceToAdd.setFahrzeug(fahrzeugeByPlz);
 				carDistanceList.add(distanceToAdd);

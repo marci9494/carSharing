@@ -14,9 +14,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 @Entity
 @Table(name = "FAHRZEUG")
@@ -59,19 +65,23 @@ public class Fahrzeug implements Serializable {
 	@JoinColumn(name = "eigentuemer")
 	private User eigentuemer;
 
-	@ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-	@JoinTable(name = "FAHRZEUG_AUSSTATTUNG", 
-	         joinColumns = { @JoinColumn(name = "fahrzeug") }, 
-	         inverseJoinColumns = { @JoinColumn(name = "ausstattung") })
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinTable(name = "FAHRZEUG_AUSSTATTUNG", joinColumns = { @JoinColumn(name = "fahrzeug") }, inverseJoinColumns = {
+			@JoinColumn(name = "ausstattung") })
 	private List<Ausstattung> ausstattung;
-	
+
 	@Lob
-    @Column(name="fahrzeugbild", nullable=false, columnDefinition="mediumblob")
-    private byte[] fahrzeugbild;
+	@Column(name = "fahrzeugbild", nullable = false, columnDefinition = "mediumblob")
+	private byte[] fahrzeugbild;
+
+	@Fetch(FetchMode.SELECT)
+	@OneToMany(fetch = FetchType.EAGER)
+	@JoinTable(name = "FAHRZEUG_MIETZEITRAUM", joinColumns = @JoinColumn(name = "fahrzeug"), inverseJoinColumns = @JoinColumn(name = "id"))
+	private List<FahrzeugVermietZeitraum> vermietZeitraeume;
 
 	@Transient
 	private String fahrzeugBildString;
-	
+
 	public String getKennzeichen() {
 		return kennzeichen;
 	}
@@ -220,8 +230,12 @@ public class Fahrzeug implements Serializable {
 		this.fahrzeugBildString = fahrzeugBildString;
 	}
 
+	public List<FahrzeugVermietZeitraum> getVermietZeitraeume() {
+		return vermietZeitraeume;
+	}
 
-
-
+	public void setVermietZeitraeume(List<FahrzeugVermietZeitraum> vermietZeitraeume) {
+		this.vermietZeitraeume = vermietZeitraeume;
+	}
 
 }
