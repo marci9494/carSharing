@@ -42,18 +42,30 @@
 		<div id="name-adress" class="name-adress">
 			<h2>Fahrzeuge</h2>
 
-			<span class="form-field-label">Marke</span> <br>
-			<p class="editable" id="daten">${fahrzeug.hersteller.name}</p>
-			<br> <span class="form-field-label">Modell</span> <br>
-			<p class="editable" id="daten">${fahrzeug.modell}</p>
-			<br> <span class="form-field-label">Kilometerstand</span> <br>
-			<p class="editable" id="daten">${fahrzeug.km_stand}</p>
-			<br> <span class="form-field-label">Farbe</span> <br>
-			<p class="editable" id="daten">${fahrzeug.farbe.name}</p>
-			<br> <span class="form-field-label"> Sitzplätze</span> <br>
-			<p class="editable" id="daten">${fahrzeug.sitzplaetze}</p>
-			<br> <span class="form-field-label">Leistung in PS</span> <br>
-			<p class="editable" id="daten">${fahrzeug.leistung}</p>
+			
+							<br> <span class="form-field-label">Marke</span> <br>
+				<p class="editable" id=daten >${fahrzeug.hersteller.name}</p>
+				<input id="marke" class="editableInput" type='text'
+					style='display: none' name="marke" value="${fahrzeug.hersteller.name}" /> <br> <span
+					class="form-field-label"> Modell</span> <br>
+				<p class="editable" id=daten>${fahrzeug.modell}</p>
+				<input id="modell" class="editableInput" type='text'
+					style='display: none' name="modell" value="${fahrzeug.modell}" /> <br> <span
+					class="form-field-label">Farbe</span> <br>
+				<p class="editable" id=daten>${fahrzeug.farbe.name}</p>
+				<input id="farbe" class="editableInput" type='text'
+					style='display: none' name="ort" value="${fahrzeug.farbe.name}" /> <br> <span
+					class="form-field-label">Sitzplätze</span> <br>
+				<p class="editable" id=daten>${fahrzeug.sitzplaetze}</p>
+				<input id="sitzplaetze" class="editableInput" type='text'
+					style='display: none' name="sitzplaetze" value="${fahrzeug.sitzplaetze}" /> <br> <span
+					class="form-field-label">Leistung</span> <br>
+				<p class="editable" id=daten>${fahrzeug.leistung}</p>
+				<input id="leistung" name="leistung" class="editableInput" type='text'
+					style='display: none' value="${fahrzeug.leistung}" /> <br>
+			</div>
+			
+			
 			<br> <span class="form-field-label">Basispreis </span><br>
 			<p id="daten">Aktuell: ${fahrzeug.basispreis}€</p>
 
@@ -102,7 +114,9 @@
 			<br>
 			<br>
 		</div>
-		<button type="button" id="button--primary">Speichern</button>
+			<button onclick="edit()" id="edit-button">Ändern</button>
+
+		<button onclick="jQuery('#update-form').submit()" style="display: none;" id="save-button">Speichern</button>
 		<br>
 		<br>
 		<br>
@@ -134,37 +148,38 @@
 
 
 <script type="text/javascript">
-	$(function() {
-		//Loop through all Labels with class 'editable'.
-		$(".editable").each(function() {
-			//alle label durchschauen
-			var label = $(this);
+	function edit() {
+		jQuery('#save-button').show();
+		jQuery('#edit-button').hide();
+		jQuery('.editableInput').show();
+		jQuery('.editable').hide()
+	}
 
-			//textbox neben label
-			label.after("<input type = 'text' style = 'display:none' />");
+	function update() {
 
-			//textbox ansprechen
-			var textbox = $(this).next();
+		var marke = jQuery('#marke').val();
+		var modell = jQuery('#modell').val();
+		var farbe = jQuery('#farbe').val();
+		var sitzplaetze = jQuery('#sitzplaetze').val();
+		var leistung = jQuery('#leistung').val();
 
-			//namensattribut von textbox festlegen
-			textbox[0].name = this.id.replace("lbl", "txt");
-
-			//wertzuweisung
-			textbox.val(label.html());
-
-			//bei klick auf label, verstecke label und zeige textbox
-			label.click(function() {
-				$(this).hide();
-				$(this).next().show();
-			});
-
-			//wenn rausgeklickt, verstecke textbox und zeige label
-			textbox.focusout(function() {
-				$(this).hide();
-				$(this).prev().html($(this).val());
-				$(this).prev().show();
-			});
+		console.log(passwort);
+		jQuery.post("update", {
+			marke : marke,
+			modell : modell,
+			farbe : farbe,
+			sitzplatze : sitzplatze,
+			leistung : leistung,
+		}, function(data, status) {
+			if (data) {
+				window.location.href = "'/carSharing/cars';";
+			} else {
+				//POPUP anzeigen, email bereits vergeben
+			}
 		});
+<<<<<<< HEAD
+	}
+=======
 	});
 	
 	
@@ -199,6 +214,10 @@
 	}
 		
 	
+<<<<<<< HEAD
+>>>>>>> 34c189752aad2ac30430f31241e601a67360ef69
+=======
+>>>>>>> 34c189752aad2ac30430f31241e601a67360ef69
 </script>
 
 </html>

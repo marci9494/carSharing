@@ -81,6 +81,32 @@ public class Cars_detail extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+<<<<<<< HEAD
+<<<<<<< HEAD
+		System.out.println("doPost");
+		//TODO noch nicht alle parameter Ã¼bergeben
+		String marke = request.getParameter("vorname");
+		String modell = request.getParameter("nachname");
+		String farbe = request.getParameter("strasse");
+		String sitzplaetze = request.getParameter("plz");
+		String leistung = request.getParameter("ort");
+
+		HÄÄÄÄ??
+		UserService userService = new UserService();
+		User user = userService.getNutzerById(userId);
+		
+		user.setVorname(vorname);
+		user.setNachname(nachname);
+		user.setStrasse(strasse);
+		user.setOrt(ort);
+		user.setEmail(email);
+		user.setPlz(plz);
+		
+		userService.updateUser(user);
+		
+=======
+=======
+>>>>>>> 34c189752aad2ac30430f31241e601a67360ef69
 
 		System.out.println("Ajax call super");
 		String carId = request.getParameter("carId");
@@ -89,10 +115,18 @@ public class Cars_detail extends HttpServlet {
 		System.out.println(vermietZeitraeumeString);
 		Gson gson = new Gson();
 		List<VermietZeitraum> vermietzeitraeume = gson.fromJson(vermietZeitraeumeString, new TypeToken<List<VermietZeitraum>>() {}.getType());
+<<<<<<< HEAD
 
 		
 		
 		
+=======
+		System.out.println(vermietzeitraeume.size());
+<<<<<<< HEAD
+>>>>>>> 34c189752aad2ac30430f31241e601a67360ef69
+=======
+>>>>>>> 34c189752aad2ac30430f31241e601a67360ef69
+>>>>>>> c80f132d2bc227c6b8a00ae6b41a60ea5c613384
 		
 		doGet(request, response);
 	}
