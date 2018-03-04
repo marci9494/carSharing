@@ -45,7 +45,7 @@ public class Cars extends HttpServlet {
 			if(userEmail != null){
 				dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/cars.jsp");
 				UserService nutzerService = new UserService();
-				User nutzer = nutzerService.getNutzer(userEmail);
+				User nutzer = nutzerService.getNutzerByMail(userEmail);
 				request.setAttribute("nutzer",nutzer);
 				
 				FahrzeugService fahrzeugService = new FahrzeugService();

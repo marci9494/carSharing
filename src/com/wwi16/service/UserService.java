@@ -81,7 +81,7 @@ public class UserService {
 		return nutzer;
 	}
 
-	public User getNutzer(String email) {
+	public User getNutzerByMail(String email) {
 		Session session = HibernateUtil.openSession();
 		Transaction tx = null;
 		User nutzer = null;
@@ -89,6 +89,27 @@ public class UserService {
 			tx = session.getTransaction();
 			tx.begin();
 			Query query = session.createQuery("from User where email='" + email + "'");
+			nutzer = (User) query.uniqueResult();
+			tx.commit();
+		} catch (Exception e) {
+			if (tx != null) {
+				tx.rollback();
+			}
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		return nutzer;
+	}
+	
+	public User getNutzerById(String id) {
+		Session session = HibernateUtil.openSession();
+		Transaction tx = null;
+		User nutzer = null;
+		try {
+			tx = session.getTransaction();
+			tx.begin();
+			Query query = session.createQuery("from User where id='" + id + "'");
 			nutzer = (User) query.uniqueResult();
 			tx.commit();
 		} catch (Exception e) {
@@ -123,6 +144,24 @@ public class UserService {
 			e.printStackTrace();
 		}
 		return generatedPassword;
+	}
+	
+	public User updateUser(User user){
+		System.out.println("update!!");
+		Session session = HibernateUtil.openSession();
+		session.beginTransaction();
+    	
+		try {
+			 session.update(user);
+			 session.getTransaction().commit();
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+
+		return user;
 	}
 
 }

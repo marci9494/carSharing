@@ -51,7 +51,7 @@ public class FahrzeugService {
 		FahrzeugFarbe foundFarbe = farbService.getFahrzeugFarbeById("1");
 		FahrzeugHersteller foundHersteller = herstellerService.getHerstellerById("1");
 		FahrzeugKategorie foundKategorie = kategorieService.getFahrzeugKategorieById("1");
-		User user = userService.getNutzer("marcel_ament@web.de");
+		User user = userService.getNutzerByMail("marcel_ament@web.de");
 		Fahrzeug fahrzeug = new Fahrzeug();
 		
 		if(foundFarbe != null){
@@ -132,7 +132,7 @@ public class FahrzeugService {
 	public List<Fahrzeug> searchFahrzeugeByUser(String userEmail) {
 
 		UserService userService = new UserService();
-		User nutzer = userService.getNutzer(userEmail);
+		User nutzer = userService.getNutzerByMail(userEmail);
 
 		if (nutzer != null) {
 

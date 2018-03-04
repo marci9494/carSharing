@@ -44,7 +44,7 @@ public class Cars_detail extends HttpServlet {
 			if(userEmail != null){
 				
 				UserService nutzerService = new UserService();
-				User nutzer = nutzerService.getNutzer(userEmail);
+				User nutzer = nutzerService.getNutzerByMail(userEmail);
 				request.setAttribute("nutzer",nutzer);
 				
 				

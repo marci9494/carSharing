@@ -19,7 +19,7 @@ public class BuchungService {
 	public List<Buchung> searchBuchungByUser(String userEmail) {
 
 		UserService userService = new UserService();
-		User nutzer = userService.getNutzer(userEmail);
+		User nutzer = userService.getNutzerByMail(userEmail);
 		
 		Session session = HibernateUtil.openSession();
 		Transaction tx = null;

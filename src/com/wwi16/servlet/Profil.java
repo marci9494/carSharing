@@ -42,7 +42,7 @@ public class Profil extends HttpServlet {
 			if(userEmail != null){
 				
 				UserService nutzerService = new UserService();
-				User nutzer = nutzerService.getNutzer(userEmail);
+				User nutzer = nutzerService.getNutzerByMail(userEmail);
 				request.setAttribute("nutzer",nutzer);
 				
 			}else{
@@ -64,7 +64,32 @@ public class Profil extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		System.out.println("doPost");
+		//TODO noch nicht alle parameter übergeben
+		String userId = request.getParameter("userId");
+		String vorname = request.getParameter("vorname");
+		String nachname = request.getParameter("nachname");
+		String strasse = request.getParameter("strasse");
+		String plz = request.getParameter("plz");
+		String ort = request.getParameter("ort");
+		String email = request.getParameter("email");
+		String kartennummer = request.getParameter("kartennummer");
+		String valid = request.getParameter("valid");
+		String karteninhaber = request.getParameter("karteninhaber");
+		
+		UserService userService = new UserService();
+		User user = userService.getNutzerById(userId);
+		
+		user.setVorname(vorname);
+		user.setNachname(nachname);
+		user.setStrasse(strasse);
+		user.setOrt(ort);
+		user.setEmail(email);
+		user.setPlz(plz);
+		
+		userService.updateUser(user);
+		
+		
 		doGet(request, response);
 	}
 	

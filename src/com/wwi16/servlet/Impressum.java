@@ -42,7 +42,7 @@ public class Impressum extends HttpServlet {
 			if(userEmail != null){
 				
 				UserService nutzerService = new UserService();
-				User nutzer = nutzerService.getNutzer(userEmail);
+				User nutzer = nutzerService.getNutzerByMail(userEmail);
 				request.setAttribute("nutzer",nutzer);
 				
 			}else{
