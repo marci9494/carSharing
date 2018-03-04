@@ -42,106 +42,109 @@
 		<div id="name-adress" class="name-adress">
 			<h2>Fahrzeuge</h2>
 
-			
-							<br> <span class="form-field-label">Marke</span> <br>
-				<p class="editable" id=daten >${fahrzeug.hersteller.name}</p>
-				<input id="marke" class="editableInput" type='text'
-					style='display: none' name="marke" value="${fahrzeug.hersteller.name}" /> <br> <span
-					class="form-field-label"> Modell</span> <br>
-				<p class="editable" id=daten>${fahrzeug.modell}</p>
-				<input id="modell" class="editableInput" type='text'
-					style='display: none' name="modell" value="${fahrzeug.modell}" /> <br> <span
-					class="form-field-label">Farbe</span> <br>
-				<p class="editable" id=daten>${fahrzeug.farbe.name}</p>
-				<input id="farbe" class="editableInput" type='text'
-					style='display: none' name="ort" value="${fahrzeug.farbe.name}" /> <br> <span
-					class="form-field-label">Sitzplätze</span> <br>
-				<p class="editable" id=daten>${fahrzeug.sitzplaetze}</p>
-				<input id="sitzplaetze" class="editableInput" type='text'
-					style='display: none' name="sitzplaetze" value="${fahrzeug.sitzplaetze}" /> <br> <span
-					class="form-field-label">Leistung</span> <br>
-				<p class="editable" id=daten>${fahrzeug.leistung}</p>
-				<input id="leistung" name="leistung" class="editableInput" type='text'
-					style='display: none' value="${fahrzeug.leistung}" /> <br>
-			</div>
-			
-			
-			<br> <span class="form-field-label">Basispreis </span><br>
-			<p id="daten">Aktuell: ${fahrzeug.basispreis}€</p>
 
-			<div class="slidecontainer">
-				<input type="range" min="1" max="100" value="12" class="slider"
-					id="basispreis_range">
-			</div>
-
-
-			<span>Neuer Startpreis: </span> <span id="basispreis"></span> <span>€</span>
-
-			<script>
-				var slider = document.getElementById("basispreis_range");
-				var output = document.getElementById("basispreis");
-				output.innerHTML = slider.value; // Display the default slider value
-
-				// Update the current slider value (each time you drag the slider handle)
-				slider.oninput = function() {
-					output.innerHTML = this.value;
-				}
-			</script>
-
-			<br>
-			<br> <span class="form-field-label">Kilometerpreis </span><br>
-			<p id="daten">Aktuell: ${fahrzeug.kilometerpreis}€</p>
-			<div class="slidecontainer">
-				<input type="range" min="0.00" max="40" value="2.50" step=0.10
-					class="slider" id="kilometer_range">
-			</div>
-
-
-			<span> Neuer Preis pro Kilometer: </span> <span id="kilometerpreis"></span>
-			<span>€</span>
-
-			<script>
-				var sliderk = document.getElementById("kilometer_range");
-				var outputk = document.getElementById("kilometerpreis");
-				outputk.innerHTML = sliderk.value; // Display the default slider value
-
-				// Update the current slider value (each time you drag the slider handle)
-				sliderk.oninput = function() {
-					outputk.innerHTML = this.value;
-				}
-			</script>
-			<br>
-			<br>
-			<br>
+			<br> <span class="form-field-label">Marke</span> <br>
+			<p class="editable" id=daten>${fahrzeug.hersteller.name}</p>
+			<input id="marke" class="editableInput" type='text'
+				style='display: none' name="marke"
+				value="${fahrzeug.hersteller.name}" /> <br> <span
+				class="form-field-label"> Modell</span> <br>
+			<p class="editable" id=daten>${fahrzeug.modell}</p>
+			<input id="modell" class="editableInput" type='text'
+				style='display: none' name="modell" value="${fahrzeug.modell}" /> <br>
+			<span class="form-field-label">Farbe</span> <br>
+			<p class="editable" id=daten>${fahrzeug.farbe.name}</p>
+			<input id="farbe" class="editableInput" type='text'
+				style='display: none' name="ort" value="${fahrzeug.farbe.name}" />
+			<br> <span class="form-field-label">Sitzplätze</span> <br>
+			<p class="editable" id=daten>${fahrzeug.sitzplaetze}</p>
+			<input id="sitzplaetze" class="editableInput" type='text'
+				style='display: none' name="sitzplaetze"
+				value="${fahrzeug.sitzplaetze}" /> <br> <span
+				class="form-field-label">Leistung</span> <br>
+			<p class="editable" id=daten>${fahrzeug.leistung}</p>
+			<input id="leistung" name="leistung" class="editableInput"
+				type='text' style='display: none' value="${fahrzeug.leistung}" /> <br>
 		</div>
-			<button onclick="edit()" id="edit-button">Ändern</button>
 
-		<button onclick="jQuery('#update-form').submit()" style="display: none;" id="save-button">Speichern</button>
-		<br>
-		<br>
-		<br>
-		<br>
-		<div id="vermieten">
-			<h2>Vermietungs&shyzeitraum</h2>
-			<p>
-				Gib hier den Zeitraum an, in dem du dein Auto anderen Nutzern zur
-				Verfügung stellen willst. <br>
-				<div class="vermietzeitraum">
-				 <label><input  class="startDate" type="date"  /></label> - <label>
-				 <input class="endDate" type="date"  /></label> <a onclick="addVermietZeitraum()">Zusaetzlicher vermietzeitraum</a>
-				
-				</div>
-				<button onclick="saveVermietzeitraum('${fahrzeug.id}')" >Auto vermieten</button>
-				<br>
-				<br>
-			</p>
+
+		<br> <span class="form-field-label">Basispreis </span><br>
+		<p id="daten">Aktuell: ${fahrzeug.basispreis}€</p>
+
+		<div class="slidecontainer">
+			<input type="range" min="1" max="100" value="12" class="slider"
+				id="basispreis_range">
 		</div>
+
+
+		<span>Neuer Startpreis: </span> <span id="basispreis"></span> <span>€</span>
+
+		<script>
+			var slider = document.getElementById("basispreis_range");
+			var output = document.getElementById("basispreis");
+			output.innerHTML = slider.value; // Display the default slider value
+
+			// Update the current slider value (each time you drag the slider handle)
+			slider.oninput = function() {
+				output.innerHTML = this.value;
+			}
+		</script>
+
+		<br> <br> <span class="form-field-label">Kilometerpreis
+		</span><br>
+		<p id="daten">Aktuell: ${fahrzeug.kilometerpreis}€</p>
+		<div class="slidecontainer">
+			<input type="range" min="0.00" max="40" value="2.50" step=0.10
+				class="slider" id="kilometer_range">
+		</div>
+
+
+		<span> Neuer Preis pro Kilometer: </span> <span id="kilometerpreis"></span>
+		<span>€</span>
+
+		<script>
+			var sliderk = document.getElementById("kilometer_range");
+			var outputk = document.getElementById("kilometerpreis");
+			outputk.innerHTML = sliderk.value; // Display the default slider value
+
+			// Update the current slider value (each time you drag the slider handle)
+			sliderk.oninput = function() {
+				outputk.innerHTML = this.value;
+			}
+		</script>
+		<br> <br> <br>
+	</div>
+	<button onclick="edit()" id="edit-button">Ändern</button>
+
+	<button onclick="jQuery('#update-form').submit()"
+		style="display: none;" id="save-button">Speichern</button>
+	<br>
+	<br>
+	<br>
+	<br>
+	<div id="vermieten">
+		<h2>Vermietungs&shyzeitraum</h2>
+		<p>
+			Gib hier den Zeitraum an, in dem du dein Auto anderen Nutzern zur
+			Verfügung stellen willst. <br>
+		<div class="vermietzeitraum">
+			<label><input class="startDate" type="date" /></label> - <label>
+				<input class="endDate" type="date" />
+			</label> <a onclick="addVermietZeitraum()">Zusaetzlicher vermietzeitraum</a>
+
+		</div>
+		<button onclick="saveVermietzeitraum('${fahrzeug.id}')">Auto
+			vermieten</button>
+		<br> <br>
+		</p>
+	</div>
 
 	</div>
-<div class="cloneVermietZeitraum" style="display:none;">
-<label><input class="startDate" type="date"  /></label> - <label>
-				 <input  class="endDate" type="date"  /></label> <a onclick="addVermietZeitraum()">Zusaetzlicher vermietzeitraum</a>
-</div>
+	<div class="cloneVermietZeitraum" style="display: none;">
+		<label><input class="startDate" type="date" /></label> - <label>
+			<input class="endDate" type="date" />
+		</label> <a onclick="addVermietZeitraum()">Zusaetzlicher vermietzeitraum</a>
+	</div>
 
 </body>
 <jsp:include page="/theme/html/footer.html" />
@@ -177,28 +180,26 @@
 				//POPUP anzeigen, email bereits vergeben
 			}
 		});
-<<<<<<< HEAD
 	}
-=======
-	});
-	
-	
-	
-	function addVermietZeitraum(){
+
+	function addVermietZeitraum() {
 		var div = jQuery(".cloneVermietZeitraum").clone();
 		div.removeClass("cloneVermietZeitraum");
 		div.addClass('vermietzeitraum');
 		jQuery('.vermietzeitraum').last().after(div);
 		div.show();
-		
+
 	}
-	
-	function saveVermietzeitraum(carId){
+
+	function saveVermietzeitraum(carId) {
 		var vermietZeitraeume = [];
-		jQuery('.vermietzeitraum').each(function( index ) {
+		jQuery('.vermietzeitraum').each(function(index) {
 			console.log("schleife!!!")
-			var vermietzeitraum = {startDate:jQuery(this).find('.startDate').val() , endDate:jQuery(this).find('.endDate').val()}
-		    vermietZeitraeume.push(vermietzeitraum);
+			var vermietzeitraum = {
+				startDate : jQuery(this).find('.startDate').val(),
+				endDate : jQuery(this).find('.endDate').val()
+			}
+			vermietZeitraeume.push(vermietzeitraum);
 		});
 		console.log(JSON.stringify(vermietZeitraeume));
 		console.log(jQuery().serialize(vermietZeitraeume));
@@ -208,16 +209,10 @@
 			vermietZeitraeume : JSON.stringify(vermietZeitraeume)
 		}, function(data, status) {
 
-		 aler("Vermietzeiträume gespeichert")
+			aler("Vermietzeiträume gespeichert")
 
 		});
 	}
-		
-	
-<<<<<<< HEAD
->>>>>>> 34c189752aad2ac30430f31241e601a67360ef69
-=======
->>>>>>> 34c189752aad2ac30430f31241e601a67360ef69
 </script>
 
 </html>
