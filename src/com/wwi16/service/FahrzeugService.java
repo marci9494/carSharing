@@ -167,10 +167,9 @@ public class FahrzeugService {
 	}
 	
 	public  void addVermietungsZeitraeumeToFahrzeug(List<VermietZeitraum> vermietZeitraeume, String carId){
-		Session session = HibernateUtil.openSession();
 		Fahrzeug fahrzeug = getFahrzeugById(carId);
 		for (VermietZeitraum vermietZeitraum : vermietZeitraeume) {
-			
+			Session session = HibernateUtil.openSession();
 			FahrzeugVermietZeitraum vermietZeitraumEntity = new FahrzeugVermietZeitraum();
 			vermietZeitraumEntity.setEndDate(parseDate(vermietZeitraum.getEndDate()));
 			vermietZeitraumEntity.setStartDate(parseDate(vermietZeitraum.getStartDate()));
@@ -184,16 +183,17 @@ public class FahrzeugService {
 
 				e.printStackTrace();
 			} finally {
-			
+				session.close();
 			}
 			
 		}
+		
 		
 
 	}
 	
 	private Date parseDate(String dateString){
-		SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 		Date date = null;
 		try {
 			date =  formatter.parse(dateString);
