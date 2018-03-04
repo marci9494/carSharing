@@ -20,7 +20,7 @@
 			<h1 id="header-content-text">Registrierung</h1>
 		</div>
 
-		<div id=hallo>
+<%-- 		<div id=hallo>
 			<c:choose>
 				<c:when test="${ userEmail!=null}">
 					<div class="logout">
@@ -31,7 +31,7 @@
         			Herzlich Willkommen
     			</c:otherwise>
 			</c:choose>
-		</div>
+		</div> --%>
 
 		<h2>Logindaten</h2>
 		<form action="register" method="post" id="upload-form"

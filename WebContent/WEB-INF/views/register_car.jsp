@@ -255,10 +255,15 @@
 			<div class="formular-wrapper">
 				<h2>Preis und Konditionen</h2>
 			</div>
+			
+			<div class="formular-wrapper">
+				<p> Hier kannst du eingeben, wie viel dein Fahrzeug pro Tag kostet.
+				Pro Tag sind 100 Kilometer frei. Du kannst angeben, wie viel jeder zusätzliche Kilometer kostet. </p>
+			</div>
 
 			<div class="formular-wrapper">
 
-				<label>Startpreis</label>
+				<label>Tagespreis</label>
 
 				<div class="slidecontainer">
 					<input type="range" min="1" max="100" value="12" class="slider"
@@ -266,11 +271,11 @@
 				</div>
 
 
-				<span>Startpreis: </span> <span id="basispreis"></span> <span>€</span>
+				<span>Tagespreis: </span> <span id="tagespreis"></span> <span>€</span>
 
 				<script>
-					var slider = document.getElementById("basispreis_range");
-					var output = document.getElementById("basispreis");
+					var slider = document.getElementById("tagespreis_range");
+					var output = document.getElementById("tagespreis");
 					output.innerHTML = slider.value; // Display the default slider value
 
 					// Update the current slider value (each time you drag the slider handle)
@@ -321,7 +326,7 @@
 
 				var farbe = jQuery('#farbe').val();
 				var sitzplaetze = jQuery('#sitzplaetze').val();
-				var basispreis_range = jQuery('#basispreis_range').val();
+				var tagespreis_range = jQuery('#tagespreis_range').val();
 				var kilometerpreis_range = jQuery('#kilometerpreis_range')
 						.val();
 
@@ -336,7 +341,7 @@
 
 					farbe : farbe,
 					sitzplaetze : sitzplaetze,
-					basispreis_range : basispreis_range,
+					tagespreis_range : tagespreis_range,
 					kilometerpreis_range : kilometerpreis_range
 
 				}, function(data, status) {

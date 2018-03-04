@@ -43,7 +43,7 @@ public class Fahrzeug implements Serializable {
 	private String kraftstoff;
 
 	private String sitzplaetze;
-	private String basispreis;
+	private String tagespreis;
 	private String kilometerpreis;
 
 	private String leistung;
@@ -106,12 +106,12 @@ public class Fahrzeug implements Serializable {
 		this.kraftstoff = kraftstoff;
 	}
 
-	public String getBasispreis() {
-		return basispreis;
+	public String getTagespreis() {
+		return tagespreis;
 	}
 
-	public void setBasispreis(String basispreis) {
-		this.basispreis = basispreis;
+	public void setTagespreis(String tagespreis) {
+		this.tagespreis = tagespreis;
 	}
 
 	public String getKilometerpreis() {
