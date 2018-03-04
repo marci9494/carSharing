@@ -1,70 +1,89 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@  taglib  prefix="c"   uri="http://java.sun.com/jsp/jstl/core"  %>
+<%@  taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
- <link rel="stylesheet" type="text/css" href="/carSharing/html/css/cars_detail.css" media="screen" />
+<link rel="stylesheet" type="text/css"
+	href="/carSharing/html/css/cars_detail.css" media="screen" />
 <jsp:include page="/theme/html/header.jsp" />
 <style>
-<jsp:include page ="/html/css/cars_detail.css"/>
-<jsp:include page ="/theme/css/main.css"/>
-
+<
+jsp
+:include
+ 
+page
+ 
+="/
+html
+/css/cars_detail
+.css
+"/
+>
+<
+jsp
+:include
+ 
+page
+ 
+="/
+theme
+/css/main
+.css
+"/
+>
 </style>
 
 
 
 <body>
 	<div class="banner-wrapper">
-		<img class="banner" alt="Banner"
-		src="/carSharing/html/img/header.jpg">
+		<img class="banner" alt="Banner" src="/carSharing/html/img/header.jpg">
 
 	</div>
 
-<div id=hallo>
+	<div id=hallo>
 		<c:choose>
-   				 <c:when test= "${ userEmail!=null}">
-        			<div class="logout">Herzlich Willkommen ${userEmail } <a href="/carsharing/logout">(Logout)</a></div>
-   				 </c:when>    
-    			 <c:otherwise>
+			<c:when test="${ userEmail!=null}">
+				<div class="logout">
+					Herzlich Willkommen ${userEmail } <a href="/carsharing/logout">(Logout)</a>
+				</div>
+			</c:when>
+			<c:otherwise>
         			Herzlich Willkommen
     			</c:otherwise>
 		</c:choose>
-		</div>
+	</div>
 
 
-				
-				
-			<div id="header-content" >
-				<h1 id="header-content-text">Meine CarNow Fahrzeuge</h1>
-			</div>
-<div class="content-wrapper">
-				
-			<p> Hier findest du alle wichtigen Infos rund um dein zum Mieten freigegebenen Fahrzeuge. Stell sicher, dass die Angaben zum Fahrzeug immer auf dem neusten Stand sind, damit deiner Nutzung von carNow nichts im Wege steht. 
-			Solltest du Fragen haben, melde dich gern bei uns.</p>
-			<div id="name-adress" class="name-adress">
-			<h2> Fahrzeuge</h2>
-			
+
+
+	<div id="header-content">
+		<h1 id="header-content-text">Meine CarNow Fahrzeuge</h1>
+	</div>
+	<div class="content-wrapper">
+
+		<p>Hier findest du alle wichtigen Infos rund um dein zum Mieten
+			freigegebenen Fahrzeuge. Stell sicher, dass die Angaben zum Fahrzeug
+			immer auf dem neusten Stand sind, damit deiner Nutzung von carNow
+			nichts im Wege steht. Solltest du Fragen haben, melde dich gern bei
+			uns.</p>
+		<div id="name-adress" class="name-adress">
+			<h2>Fahrzeuge</h2>
+
 			<span class="form-field-label">Marke</span> <br>
 			<p class="editable" id="daten">${fahrzeug.hersteller.name}</p>
-			<br>
-			
-			<span class="form-field-label">Modell</span> <br>
-			<p class="editable" id="daten"> ${fahrzeug.modell}</p>
-			<br>
-			<span class="form-field-label">Kilometerstand</span> <br>
-			<p class="editable" id="daten"> ${fahrzeug.km_stand}</p>
-			<br>
-			<span class="form-field-label">Farbe</span> <br>
-			<p class="editable" id="daten"> ${fahrzeug.farbe.name}</p>
-			<br>
-			<span class="form-field-label"> Sitzplätze</span> <br>
-			<p class="editable" id="daten"> ${fahrzeug.sitzplaetze}</p>
-			<br>
-			<span class="form-field-label">Leistung in PS</span> <br>
-			<p class="editable" id="daten"> ${fahrzeug.leistung} </p> 
-			<br>
-			<span class="form-field-label">Basispreis </span><br>
-			<p  id="daten">Aktuell: ${fahrzeug.basispreis}€</p> 
+			<br> <span class="form-field-label">Modell</span> <br>
+			<p class="editable" id="daten">${fahrzeug.modell}</p>
+			<br> <span class="form-field-label">Kilometerstand</span> <br>
+			<p class="editable" id="daten">${fahrzeug.km_stand}</p>
+			<br> <span class="form-field-label">Farbe</span> <br>
+			<p class="editable" id="daten">${fahrzeug.farbe.name}</p>
+			<br> <span class="form-field-label"> Sitzplätze</span> <br>
+			<p class="editable" id="daten">${fahrzeug.sitzplaetze}</p>
+			<br> <span class="form-field-label">Leistung in PS</span> <br>
+			<p class="editable" id="daten">${fahrzeug.leistung}</p>
+			<br> <span class="form-field-label">Basispreis </span><br>
+			<p id="daten">Aktuell: ${fahrzeug.basispreis}€</p>
 
 			<div class="slidecontainer">
 				<input type="range" min="1" max="100" value="12" class="slider"
@@ -85,9 +104,9 @@
 				}
 			</script>
 
-			<br><br>
-			<span class="form-field-label">Kilometerpreis </span><br>
-			<p id="daten">Aktuell: ${fahrzeug.kilometerpreis}€</p> 
+			<br>
+			<br> <span class="form-field-label">Kilometerpreis </span><br>
+			<p id="daten">Aktuell: ${fahrzeug.kilometerpreis}€</p>
 			<div class="slidecontainer">
 				<input type="range" min="0.00" max="40" value="2.50" step=0.10
 					class="slider" id="kilometer_range">
@@ -107,23 +126,30 @@
 					outputk.innerHTML = this.value;
 				}
 			</script>
-			<br><br><br>
-			</div>
-			 <button type="button" id="button--primary" >Speichern</button>
-			 <br><br><br><br>
-			 <div id="vermieten">
-			 <h2>Vermietungs&shyzeitraum</h2>
-		<p>Gib hier den Zeitraum an, in dem du dein Auto anderen Nutzern zur Verfügung stellen willst.
-			<br><br>
-			<label><input type="date" value="von" /></label> -
-			<label><input type="date" value="bis" /></label>
-			<br><br>
-			<button type="button" id="button--primary">Auto vermieten</button>
-			<br><br>
-		</p>
+			<br>
+			<br>
+			<br>
 		</div>
-			 
-</div>
+		<button type="button" id="button--primary">Speichern</button>
+		<br>
+		<br>
+		<br>
+		<br>
+		<div id="vermieten">
+			<h2>Vermietungs&shyzeitraum</h2>
+			<p>
+				Gib hier den Zeitraum an, in dem du dein Auto anderen Nutzern zur
+				Verfügung stellen willst. <br>
+				<br> <label><input type="date" value="von" /></label> - <label><input
+					type="date" value="bis" /></label> <br>
+				<br>
+				<button type="button" id="button--primary">Auto vermieten</button>
+				<br>
+				<br>
+			</p>
+		</div>
+
+	</div>
 
 
 </body>
@@ -132,38 +158,38 @@
 <script src="/carSharing/html/js/cars_detail.js"></script>
 
 <script type="text/javascript">
-$(function () {
-    //Loop through all Labels with class 'editable'.
-    $(".editable").each(function () {
-        //alle label durchschauen
-        var label = $(this);
- 
-        //textbox neben label
-        label.after("<input type = 'text' style = 'display:none' />");
- 
-        //textbox ansprechen
-        var textbox = $(this).next();
- 
-        //namensattribut von textbox festlegen
-        textbox[0].name = this.id.replace("lbl", "txt");
- 
-        //wertzuweisung
-        textbox.val(label.html());
- 
-        //bei klick auf label, verstecke label und zeige textbox
-        label.click(function () {
-            $(this).hide();
-            $(this).next().show();
-        });
- 
-        //wenn rausgeklickt, verstecke textbox und zeige label
-        textbox.focusout(function () {
-            $(this).hide();
-            $(this).prev().html($(this).val());
-            $(this).prev().show();
-        });
-    });
-});
+	$(function() {
+		//Loop through all Labels with class 'editable'.
+		$(".editable").each(function() {
+			//alle label durchschauen
+			var label = $(this);
+
+			//textbox neben label
+			label.after("<input type = 'text' style = 'display:none' />");
+
+			//textbox ansprechen
+			var textbox = $(this).next();
+
+			//namensattribut von textbox festlegen
+			textbox[0].name = this.id.replace("lbl", "txt");
+
+			//wertzuweisung
+			textbox.val(label.html());
+
+			//bei klick auf label, verstecke label und zeige textbox
+			label.click(function() {
+				$(this).hide();
+				$(this).next().show();
+			});
+
+			//wenn rausgeklickt, verstecke textbox und zeige label
+			textbox.focusout(function() {
+				$(this).hide();
+				$(this).prev().html($(this).val());
+				$(this).prev().show();
+			});
+		});
+	});
 </script>
 
 </html>
