@@ -34,7 +34,8 @@
 		</div>
 
 		<h2>Logindaten</h2>
-		<form action="register" method="post" id="upload-form" enctype="multipart/form-data">
+		<form action="register" method="post" id="upload-form"
+			enctype="multipart/form-data">
 			<div class="formular-wrapper">
 				<label for="email">Email</label> <br> <input type="email"
 					name="email" id="email" placeholder="Geben Sie bitte Ihre Email an"
@@ -109,19 +110,42 @@
 			</div>
 			<div class="formular-wrapper">
 				<label>Bild oder Scan Ihres Personalausweis (Bild- oder
-					PDF-Datei)</label><br> <input name="personalausweis"
-					type="file" size="50" accept="image/*,application/pdf"> </label>
+					PDF-Datei)</label><br> <input name="personalausweis" type="file"
+					size="50" accept="image/*,application/pdf"> </label>
 			</div>
 			<div class="formular-wrapper">
 				<label>Bild oder Scan Ihres Führerscheins (Bild- oder
-					PDF-Datei)</label> <br> <input name="fuehrerschein" type="file" size="50"
-					accept="image/*,application/pdf"> </label>
+					PDF-Datei)</label> <br> <input name="fuehrerschein" type="file"
+					size="50" accept="image/*,application/pdf"> </label>
 			</div>
+
 			<div class="formular-wrapper">
-			<button onclick="jQuery('#upload-form').submit()">Weiter</button>
-		</div>
+				<h2>Kreditkarteninformationen</h2>
+			</div>
+
+			<div class="formular-wrapper">
+				<label for="kartennummer">Kreditkartennummer</label> <br> <input type="text"
+					name="kartennummer" id="kartennummer" placeholder="11122233344555" size="16">
+			</div>
+			
+			<div class="formular-wrapper">
+				<label for="valid">Gültig bis</label> <br> <input type="text"
+					name="valid" id="valid" placeholder="MM/JJ" size="5">
+			</div>
+			
+			<div class="formular-wrapper">
+				<label for="valid">Gültig bis</label> <br> <input type="text"
+					name="valid" id="valid" placeholder="MM/JJ" size="5">
+			</div>
+
+			<div class="formular-wrapper">
+				<button onclick="jQuery('#upload-form').submit()">Weiter</button>
+			</div>
+
+
+
 		</form>
-		
+
 	</div>
 	<script>
 		var password = document.getElementById("passwort"), confirm_password = document
@@ -169,7 +193,6 @@
 			//		}
 			//	});
 
-	
 		}
 	</script>
 </body>
