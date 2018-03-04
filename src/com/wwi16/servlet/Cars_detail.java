@@ -82,6 +82,7 @@ public class Cars_detail extends HttpServlet {
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 <<<<<<< HEAD
+<<<<<<< HEAD
 		System.out.println("doPost");
 		//TODO noch nicht alle parameter übergeben
 		String marke = request.getParameter("vorname");
@@ -104,6 +105,8 @@ public class Cars_detail extends HttpServlet {
 		userService.updateUser(user);
 		
 =======
+=======
+>>>>>>> 34c189752aad2ac30430f31241e601a67360ef69
 
 		System.out.println("Ajax call super");
 		String carId = request.getParameter("carId");
@@ -113,6 +116,9 @@ public class Cars_detail extends HttpServlet {
 		Gson gson = new Gson();
 		List<VermietZeitraum> vermietzeitraeume = gson.fromJson(vermietZeitraeumeString, new TypeToken<List<VermietZeitraum>>() {}.getType());
 		System.out.println(vermietzeitraeume.size());
+<<<<<<< HEAD
+>>>>>>> 34c189752aad2ac30430f31241e601a67360ef69
+=======
 >>>>>>> 34c189752aad2ac30430f31241e601a67360ef69
 		
 		doGet(request, response);
