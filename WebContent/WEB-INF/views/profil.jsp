@@ -49,10 +49,12 @@
 	<div id="name-adress" class="name-adress">
 		<h2>Persönliche Daten</h2>
 		<p> Wenn du deine Daten ändern willst, so klicke auf diese und speichere sie zum Schluss </p>
-
+		<form method="post" action="update">
+			
 		<br> <span class="form-field-label">Vorname</span>
 		<br>
-		<p class="editable" id=daten>${nutzer.vorname}</p>
+		<p class="editable" id=daten for="vorname">${nutzer.vorname}</p>
+		</form>
 		<br> <span class="form-field-label"> Nachname</span>
 		<br>
 		<p class="editable" id=daten>${nutzer.nachname}</p>
@@ -81,7 +83,8 @@
 		<br>
 		<br>
 	</div>
-	<button id="enver-button" onclick="update()"> Speichern</button>
+	
+	<button onclick="jQuery('#upload-form').submit() type="submit" value="update" id="enver-button"> Speichern</button>
 	<br>
 	<br>
 	<br>
@@ -95,7 +98,9 @@
 	  <span class="form-field-label">Anbieter</span>
 			<br><br><br><br>
 			<span class="form-field-label">Kartenummer</span>
-			<br><br><br><br>
+			<br>
+			<p class="editable" id=daten></p>
+			<br>
 			<span class="form-field-label">Gültigkeit</span>
 			<br><br><br><br>
 			<span class="form-field-label">Prüfziffer</span>
