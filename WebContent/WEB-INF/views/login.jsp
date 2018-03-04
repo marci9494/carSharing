@@ -6,28 +6,7 @@
 	href="/carSharing/html/css/login.css" media="screen" />
 <jsp:include page="/theme/html/header.jsp" />
 <style>
-<
-jsp
-
-
-:include
-
- 
-
-page
-
-
-="/
-html
-/css/login
-
-
-.css
-
-
-"
-/
->
+<jsp:include page ="/html/css/login.css"/>
 </style>
 
 <body>
