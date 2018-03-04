@@ -20,5 +20,6 @@
 		<mapping class="com.wwi16.model.User" />
 		<mapping class="com.wwi16.model.Buchung" />
 		<mapping class="com.wwi16.model.Ausstattung" />
+		<mapping class="com.wwi16.model.Kreditkarte" />
 	</session-factory>
 </hibernate-configuration>
