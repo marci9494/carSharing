@@ -107,6 +107,9 @@ public class Cars_detail extends HttpServlet {
 			List<VermietZeitraum> vermietzeitraeume = gson.fromJson(vermietZeitraeumeString,
 					new TypeToken<List<VermietZeitraum>>() {
 					}.getType());
+			
+			FahrzeugService fahrzeugService = new FahrzeugService();
+			fahrzeugService.addVermietungsZeitraeumeToFahrzeug(vermietzeitraeume, carId);
 		}
 
 		doGet(request, response);

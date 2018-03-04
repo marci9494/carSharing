@@ -6,6 +6,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -20,6 +22,9 @@ public class FahrzeugVermietZeitraum {
 	@Column(name = "END_DATUM")
 	private Date endDate;
 	
+	@ManyToOne
+	@JoinColumn(name = "fahrzeug")
+	private Fahrzeug fahrzeug;
 	
 	public Long getId() {
 		return id;
@@ -38,6 +43,12 @@ public class FahrzeugVermietZeitraum {
 	}
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
+	}
+	public Fahrzeug getFahrzeug() {
+		return fahrzeug;
+	}
+	public void setFahrzeug(Fahrzeug fahrzeug) {
+		this.fahrzeug = fahrzeug;
 	}
 	
 	
