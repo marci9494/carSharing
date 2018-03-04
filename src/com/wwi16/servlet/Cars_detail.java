@@ -1,6 +1,8 @@
 package com.wwi16.servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,8 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.wwi16.model.Fahrzeug;
 import com.wwi16.model.User;
+import com.wwi16.model.VermietZeitraum;
 import com.wwi16.service.FahrzeugService;
 import com.wwi16.service.UserService;
 
@@ -76,9 +81,20 @@ public class Cars_detail extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
+		System.out.println("Ajax call super");
+		String carId = request.getParameter("carId");
+		String vermietZeitraeumeString = request.getParameter("vermietZeitraeume");
+		System.out.println(carId);
+		System.out.println(vermietZeitraeumeString);
+		Gson gson = new Gson();
+		List<VermietZeitraum> vermietzeitraeume = gson.fromJson(vermietZeitraeumeString, new TypeToken<List<VermietZeitraum>>() {}.getType());
+		System.out.println(vermietzeitraeume.size());
+		
 		doGet(request, response);
 	}
+	
+	
 	
 
 

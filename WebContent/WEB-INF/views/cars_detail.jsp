@@ -6,34 +6,6 @@
 <link rel="stylesheet" type="text/css"
 	href="/carSharing/html/css/cars_detail.css" media="screen" />
 <jsp:include page="/theme/html/header.jsp" />
-<style>
-<
-jsp
-:include
- 
-page
- 
-="/
-html
-/css/cars_detail
-.css
-"/
->
-<
-jsp
-:include
- 
-page
- 
-="/
-theme
-/css/main
-.css
-"/
->
-</style>
-
-
 
 <body>
 	<div class="banner-wrapper">
@@ -140,22 +112,26 @@ theme
 			<p>
 				Gib hier den Zeitraum an, in dem du dein Auto anderen Nutzern zur
 				Verfügung stellen willst. <br>
-				<br> <label><input type="date" value="von" /></label> - <label><input
-					type="date" value="bis" /></label> <br>
-				<br>
-				<button type="button" id="button--primary">Auto vermieten</button>
+				<div class="vermietzeitraum">
+				 <label><input  class="startDate" type="date"  /></label> - <label>
+				 <input class="endDate" type="date"  /></label> <a onclick="addVermietZeitraum()">Zusaetzlicher vermietzeitraum</a>
+				
+				</div>
+				<button onclick="saveVermietzeitraum('${fahrzeug.id}')" >Auto vermieten</button>
 				<br>
 				<br>
 			</p>
 		</div>
 
 	</div>
-
+<div class="cloneVermietZeitraum" style="display:none;">
+<label><input class="startDate" type="date"  /></label> - <label>
+				 <input  class="endDate" type="date"  /></label> <a onclick="addVermietZeitraum()">Zusaetzlicher vermietzeitraum</a>
+</div>
 
 </body>
 <jsp:include page="/theme/html/footer.html" />
 
-<script src="/carSharing/html/js/cars_detail.js"></script>
 
 <script type="text/javascript">
 	$(function() {
@@ -190,6 +166,39 @@ theme
 			});
 		});
 	});
+	
+	
+	
+	function addVermietZeitraum(){
+		var div = jQuery(".cloneVermietZeitraum").clone();
+		div.removeClass("cloneVermietZeitraum");
+		div.addClass('vermietzeitraum');
+		jQuery('.vermietzeitraum').last().after(div);
+		div.show();
+		
+	}
+	
+	function saveVermietzeitraum(carId){
+		var vermietZeitraeume = [];
+		jQuery('.vermietzeitraum').each(function( index ) {
+			console.log("schleife!!!")
+			var vermietzeitraum = {startDate:jQuery(this).find('.startDate').val() , endDate:jQuery(this).find('.endDate').val()}
+		    vermietZeitraeume.push(vermietzeitraum);
+		});
+		console.log(JSON.stringify(vermietZeitraeume));
+		console.log(jQuery().serialize(vermietZeitraeume));
+		jQuery.post("cars_detail", {
+			action : "saveVermietzeitraum",
+			carId : carId,
+			vermietZeitraeume : JSON.stringify(vermietZeitraeume)
+		}, function(data, status) {
+
+		 aler("Vermietzeiträume gespeichert")
+
+		});
+	}
+		
+	
 </script>
 
 </html>
