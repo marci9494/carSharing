@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="FAHRZEUG_KATEGORIE")
+@Table(name="FAHRZEUG_MIETZEITRAUM")
 public class FahrzeugVermietZeitraum {
 	@Id @GeneratedValue
     private Long id;

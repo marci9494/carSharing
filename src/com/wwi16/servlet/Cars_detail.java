@@ -89,7 +89,10 @@ public class Cars_detail extends HttpServlet {
 		System.out.println(vermietZeitraeumeString);
 		Gson gson = new Gson();
 		List<VermietZeitraum> vermietzeitraeume = gson.fromJson(vermietZeitraeumeString, new TypeToken<List<VermietZeitraum>>() {}.getType());
-		System.out.println(vermietzeitraeume.size());
+
+		
+		
+		
 		
 		doGet(request, response);
 	}

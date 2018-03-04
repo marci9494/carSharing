@@ -12,6 +12,7 @@ import com.wwi16.model.FahrzeugFarbe;
 import com.wwi16.model.FahrzeugHersteller;
 import com.wwi16.model.FahrzeugKategorie;
 import com.wwi16.model.User;
+import com.wwi16.model.VermietZeitraum;
 import com.wwi16.util.HibernateUtil;
 
 public class FahrzeugService {
@@ -157,5 +158,9 @@ public class FahrzeugService {
 		} else {
 			return null;
 		}
+	}
+	
+	public  void addVermietungsZeitraeumeToFahrzeug(List<VermietZeitraum> vermietZeitraeume, String carId){
+		
 	}
 }
