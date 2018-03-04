@@ -46,7 +46,7 @@ public class FahrzeugService {
 	}
 
 	public Fahrzeug createFahrzeug(String kennzeichen, String modell, String baujahr, String laufleistung,
-			String leistung, String kraftstoff, String sitzplaetze, String tagespreis, String kilometerpreis,byte[] fahrzeugbild) {
+			String leistung, String kraftstoff, String sitzplaetze, String tagespreis, String kilometerpreis,byte[] fahrzeugbild, String eigentuemerEmail) {
 
 		Session session = HibernateUtil.openSession();
 		session.beginTransaction();
@@ -58,7 +58,7 @@ public class FahrzeugService {
 		FahrzeugFarbe foundFarbe = farbService.getFahrzeugFarbeById("1");
 		FahrzeugHersteller foundHersteller = herstellerService.getHerstellerById("1");
 		FahrzeugKategorie foundKategorie = kategorieService.getFahrzeugKategorieById("1");
-		User user = userService.getNutzerByMail("marcel_ament@web.de");
+		User user = userService.getNutzerByMail(eigentuemerEmail);
 		Fahrzeug fahrzeug = new Fahrzeug();
 		
 		if(foundFarbe != null){
@@ -89,13 +89,11 @@ public class FahrzeugService {
 		fahrzeug.setPlz("89168");
 		fahrzeug.setTagespreis(tagespreis);
 		fahrzeug.setKilometerpreis(kilometerpreis);
-		
-		
+		fahrzeug.setBaujahr(baujahr);
 		
 		
 		/* fahrzeug.setHersteller(hersteller); */
 		
-		// fahrzeug.setBaujahr(baujahr);
 		// fahrzeug.setLaufleistung(laufleistung);
 		
 		// fahrzeug.setKraftstoff(kraftstoff);

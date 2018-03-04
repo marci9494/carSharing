@@ -260,8 +260,8 @@
 				var farbe = jQuery('#farbe').val();
 				var sitzplaetze = jQuery('#sitzplaetze').val();
 				var tagespreis_range = jQuery('#tagespreis_range').val();
-				var kilometerpreis_range = jQuery('#kilometerpreis_range')
-						.val();
+				var kilometerpreis_range = jQuery('#kilometerpreis_range').val();
+				var eigentuemer = ${nutzer.email};
 
 				jQuery.post("register_car", {
 					kennzeichen : kennzeichen,
@@ -276,6 +276,7 @@
 					sitzplaetze : sitzplaetze,
 					tagespreis_range : tagespreis_range,
 					kilometerpreis_range : kilometerpreis_range
+					eigentuemer : eigentuemer
 
 				}, function(data, status) {
 					if (data) {

@@ -29,11 +29,30 @@ public class Register_car extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/register_car.jsp");
-				
+		
+		//Übergabe aller Fahrzeughersteller
 		FahrzeugHerstellerService FahrzeugHerstellerService = new FahrzeugHerstellerService();
 		List<FahrzeugHersteller> hersteller = FahrzeugHerstellerService.getAllHersteller();
 		System.out.println("Ausgabe" + hersteller);
 		request.setAttribute("hersteller",hersteller);
+		
+		//Übergabe des aktuellen Nutzers
+		HttpSession session = request.getSession(false);
+		if (session != null) {
+			String userEmail = (String) session.getAttribute("userEmail");
+
+			if(userEmail != null){
+				
+				UserService nutzerService = new UserService();
+				User nutzer = nutzerService.getNutzerByMail(userEmail);
+				request.setAttribute("nutzer",nutzer);
+				
+			}else{
+				//User nicht angemeldet was machen!?
+				
+			}
+		}
+		
 		dispatcher.forward(request, response);
 	}
 
@@ -55,6 +74,7 @@ public class Register_car extends HttpServlet {
 		String sitzplaetze = request.getParameter("sitzplaetze");
 		String basispreis = request.getParameter("basispreis_range");
 		String kilometerpreis = request.getParameter("kilometerpreis_range");
+		String eigentuemer = request.getParameter("eigentuemer");
 
 		InputStream inputStream = null;
 		Part filePart = request.getPart("fahrzeugbild");
@@ -79,7 +99,7 @@ public class Register_car extends HttpServlet {
 
 			FahrzeugService fahrzeugService = new FahrzeugService();
 			Fahrzeug fahrzeug = fahrzeugService.createFahrzeug(kennzeichen, modell, baujahr, laufleistung, leistung,
-					kraftstoff, sitzplaetze, basispreis, kilometerpreis,buffer.toByteArray());
+					kraftstoff, sitzplaetze, basispreis, kilometerpreis,buffer.toByteArray(),eigentuemer);
 		}
 		// PrintWriter out = response.getWriter();
 		// if(fahrzeug != null){
