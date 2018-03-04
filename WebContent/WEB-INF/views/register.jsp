@@ -122,27 +122,26 @@
 			<div class="formular-wrapper">
 				<h2>Kreditkarteninformationen</h2>
 			</div>
-
 			<div class="formular-wrapper">
-				<label for="kartennummer">Kreditkartennummer</label> <br> <input type="text"
-					name="kartennummer" id="kartennummer" placeholder="11122233344555" size="16">
+				<ul class="formular_ul">
+					<li class="formular_li"><label for="kartennummer">Kreditkartennummer</label>
+						<br> <input type="text" name="kartennummer" id="kartennummer"
+						placeholder="11122233344555" size="16"></li>
+					<li class="formular_li"><label for="valid">Gültig bis</label>
+						<br> <input type="text" name="valid" id="valid"
+						placeholder="MM/JJ" size="5"></li>
+					<li class="formular_li"><label for="karteninhaber">Karteninhaber</label>
+						<br> <input type="text" name="karteninhaber"
+						id="karteninhaber" placeholder="Vor- und Nachname" size="30">
+					</li>
+				</ul>
 			</div>
 			
-			<div class="formular-wrapper">
-				<label for="valid">Gültig bis</label> <br> <input type="text"
-					name="valid" id="valid" placeholder="MM/JJ" size="5">
-			</div>
-			
-			<div class="formular-wrapper">
-				<label for="valid">Gültig bis</label> <br> <input type="text"
-					name="valid" id="valid" placeholder="MM/JJ" size="5">
-			</div>
+			<br><br>
 
 			<div class="formular-wrapper">
 				<button onclick="jQuery('#upload-form').submit()">Weiter</button>
 			</div>
-
-
 
 		</form>
 
@@ -174,6 +173,9 @@
 			var passwort = jQuery('#passwort').val();
 			var file_data = jQuery('#personalausweis').prop('files')[0];
 			var form_data = new FormData();
+			var kartennummer = jQuery('#kartennummer').val();
+			var valid = jQuery('#valid').val();
+			var karteninhaber = jQuery('#karteninhaber').val();
 			form_data.append('file', file_data);
 			alert(form_data)
 			//	jQuery.post("register", {

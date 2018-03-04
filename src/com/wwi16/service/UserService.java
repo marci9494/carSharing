@@ -8,6 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import com.wwi16.model.Ausstattung;
+import com.wwi16.model.Kreditkarte;
 import com.wwi16.model.User;
 import com.wwi16.util.HibernateUtil;
 
@@ -46,7 +47,7 @@ public class UserService {
 		return false;
 	}
 
-	public User createNutzer(String vorname, String nachname,String strasse,String plz, String ort, String email, boolean vermieter, String password,byte[] personalausweis){
+	public User createNutzer(String vorname, String nachname,String strasse,String plz, String ort, String email, boolean vermieter, String password,byte[] personalausweis, String kartennummer, String valid, String karteninhaber){
 		 Session session = HibernateUtil.openSession();
 		 
 		 session.beginTransaction();
@@ -61,8 +62,14 @@ public class UserService {
 		 nutzer.setVorname(vorname);
 		 nutzer.setPassword(hashPassword(password));
 		 nutzer.setPersonalausweis(personalausweis);
+		 Kreditkarte kreditkarte = new Kreditkarte();
+		 kreditkarte.setKarteninhaber(karteninhaber);
+		 kreditkarte.setKartennummer(kartennummer);
+		 kreditkarte.setValid(valid);
+		 		 
 		 try{
 		 session.save(nutzer);
+		 session.save(kreditkarte);
 		 session.getTransaction().commit();
 	        } catch (Exception e) {
 	     

@@ -36,6 +36,9 @@ public class Register extends HttpServlet{
 		String plz = request.getParameter("postleitzahl");
 		String ort = request.getParameter("stadt");
 		String email = request.getParameter("email");
+		String kartennummer = request.getParameter("kartennummer");
+		String valid = request.getParameter("valid");
+		String karteninhaber = request.getParameter("karteninhaber");
 		//Aktuell werden keine vermieter angelegt
 		boolean vermieter = false;
 		String passwort = request.getParameter("passwort");
@@ -61,7 +64,7 @@ public class Register extends HttpServlet{
             buffer.flush();
 
             UserService nutzerService = new UserService();
-            User nutzer = nutzerService.createNutzer(vorname, nachname, strasse, plz, ort, email, vermieter, passwort,buffer.toByteArray());
+            User nutzer = nutzerService.createNutzer(vorname, nachname, strasse, plz, ort, email, vermieter, passwort, buffer.toByteArray(), kartennummer, valid, karteninhaber);
             PrintWriter out = response.getWriter();
        
 		
