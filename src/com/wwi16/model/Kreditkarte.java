@@ -16,16 +16,15 @@ public class Kreditkarte {
 	private Long id;
 	private String kartennummer;
 	private String valid;
-	
+	private String inhaber;
+
 	@OneToOne
 	@JoinColumn(name = "user")
 	private User user;
 
-
 	public Kreditkarte() {
 
 	}
-
 
 	public Long getId() {
 		return id;
@@ -57,6 +56,14 @@ public class Kreditkarte {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public void setInhaber(String inhaber) {
+		this.inhaber = inhaber;
+	}
+
+	public String getInhaber() {
+		return inhaber;
 	}
 
 }

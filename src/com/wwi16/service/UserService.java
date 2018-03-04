@@ -66,7 +66,8 @@ public class UserService {
 		 kreditkarte.setUser(nutzer);
 		 kreditkarte.setKartennummer(kartennummer);
 		 kreditkarte.setValid(valid);
-		 		 
+		 kreditkarte.setInhaber(karteninhaber);
+		 
 		 try{
 		 session.save(nutzer);
 		 session.save(kreditkarte);
