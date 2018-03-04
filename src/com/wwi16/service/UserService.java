@@ -63,7 +63,7 @@ public class UserService {
 		 nutzer.setPassword(hashPassword(password));
 		 nutzer.setPersonalausweis(personalausweis);
 		 Kreditkarte kreditkarte = new Kreditkarte();
-		 kreditkarte.setKarteninhaber(karteninhaber);
+		 kreditkarte.setUser(nutzer);
 		 kreditkarte.setKartennummer(kartennummer);
 		 kreditkarte.setValid(valid);
 		 		 
