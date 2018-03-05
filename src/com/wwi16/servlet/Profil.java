@@ -57,14 +57,7 @@ public class Profil extends HttpServlet {
 			}
 		}
 		
-		
-		
-
-		
 		dispatcher.forward(request, response);
-
-		
-		
 	}
 
 	/**
