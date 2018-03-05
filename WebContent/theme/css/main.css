@@ -186,7 +186,7 @@ input[type=checkbox]:checked ~ nav {
 
 #logo {
 	position: relative;
-	max-width: 90%;
+	max-width: 40%;
 	max-height: 40px;
 	margin: 0 auto;
 }
@@ -475,9 +475,9 @@ h5 {
 #logo {
 	float: left;
 	margin-left: 2em;
-	width: 226px;
-	height: 70px;
-	margin-top: 20px;
+	width: 155px;
+	height: 111px;
+	margin-top: 30px;
 	margin-right: 5px;
 }
 
