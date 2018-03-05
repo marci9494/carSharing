@@ -1,0 +1,1 @@
+ALTER TABLE `BUCHUNG` CHANGE `maengel` `maengel` VARCHAR(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL, CHANGE `status` `status` VARCHAR(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL, CHANGE `nachricht` `nachricht` VARCHAR(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL;

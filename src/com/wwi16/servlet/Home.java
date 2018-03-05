@@ -31,6 +31,7 @@ import com.wwi16.model.Fahrzeug;
 import com.wwi16.model.FahrzeugHersteller;
 import com.wwi16.model.FahrzeugVermietZeitraum;
 import com.wwi16.service.AusstattungService;
+import com.wwi16.service.BuchungService;
 import com.wwi16.service.FahrzeugFarbeService;
 import com.wwi16.service.FahrzeugKategorieService;
 import com.wwi16.service.FahrzeugService;
@@ -91,15 +92,14 @@ public class Home extends HttpServlet {
 
 		response.setContentType("application/json");
 		PrintWriter out = response.getWriter();
-		String plz = request.getParameter("plz");
-		// String filterType = request.getParameter("plz");
-		// String plz = request.getParameter("plz");
-		String distance = request.getParameter("distance");
-		String startDate = request.getParameter("startDate");
-		String endDate = request.getParameter("endDate");
+		
 		String action = request.getParameter("action");
 
 		if ("searchCar".equals(action)) {
+			String distance = request.getParameter("distance");
+			String startDate = request.getParameter("startDate");
+			String endDate = request.getParameter("endDate");
+			String plz = request.getParameter("plz");
 			List<Distance> carDistanceList = getFahrzeugeForPlz(request, plz, Double.valueOf(distance),startDate,endDate);
 
 			if (carDistanceList != null) {
@@ -117,6 +117,15 @@ public class Home extends HttpServlet {
 				}
 			}
 
+		}else if("rentCar".equals(action)){
+			String userEmail = request.getParameter("userEmail");
+			String startDate = request.getParameter("startDate");
+			String endDate = request.getParameter("endDate");
+			String carId = request.getParameter("carId");
+			
+			BuchungService buchungService = new BuchungService();
+			buchungService.createBuchung(userEmail,carId,startDate,endDate);
+			
 		}
 
 	}

@@ -1,5 +1,8 @@
 package com.wwi16.service;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -78,5 +81,45 @@ public class BuchungService {
 
 		return buchung;
     }
+    
+    public Buchung createBuchung(String userEmail,String carId, String startDateString, String endDateString){
+    	UserService userService = new UserService();
+    	FahrzeugService fahrzeugService = new FahrzeugService();
+    	Fahrzeug fahrzeug = fahrzeugService.getFahrzeugById(carId);
+    	User user = userService.getNutzerByMail(userEmail);
+    	
+    	Buchung buchung = new Buchung();
+    	buchung.setFahrzeug(fahrzeug);
+    	buchung.setMieter(user);
+    	buchung.setEndDatum(parseDate(endDateString));
+    	buchung.setStartDatum(parseDate(startDateString));
+    	
+    	
+		Session session = HibernateUtil.openSession();
+		session.beginTransaction();
+    	
+		try {
+			 session.save(buchung);
+			 session.getTransaction().commit();
+		} catch (Exception e) {
 
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+
+		return buchung;
+    }
+
+	private Date parseDate(String dateString){
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+		Date date = null;
+		try {
+			date =  formatter.parse(dateString);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		};
+		return date;
+	}
 }
