@@ -53,9 +53,11 @@ public class Cars_detail extends HttpServlet {
 
 				FahrzeugService fahrzeugService = new FahrzeugService();
 				String carId = (String) request.getParameter("id");
-				// TODO get id from url
+				//TODO Check if user is owner of fahrzeug
 				Fahrzeug fahrzeug = fahrzeugService.getFahrzeugById(carId);
-
+				System.out.println(fahrzeug.getVermietZeitraeume().size());
+				
+				
 				request.setAttribute("fahrzeug", fahrzeug);
 
 			} else {

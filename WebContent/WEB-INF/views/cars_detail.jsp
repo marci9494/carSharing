@@ -68,8 +68,8 @@
 		</div>
 
 
-		<br> <span class="form-field-label">Basispreis </span><br>
-		<p id="daten">Aktuell: ${fahrzeug.basispreis}€</p>
+		<br> <span class="form-field-label">Tagespreis </span><br>
+		<p id="daten">Aktuell: ${fahrzeug.tagespreis}€</p>
 
 		<div class="slidecontainer">
 			<input type="range" min="1" max="100" value="12" class="slider"
@@ -127,15 +127,27 @@
 		<p>
 			Gib hier den Zeitraum an, in dem du dein Auto anderen Nutzern zur
 			Verfügung stellen willst. <br>
-		<div class="vermietzeitraum">
-			<label><input class="startDate" type="date" /></label> - <label>
-				<input class="endDate" type="date" />
-			</label> <a onclick="addVermietZeitraum()">Zusaetzlicher vermietzeitraum</a>
+			<c:forEach items="${fahrzeug.vermietZeitraeume}" var="vermietZeitraum">
+				<div class="vermietzeitraum">
+					<label><input class="startDate" type="date" value="${vermietZeitraum.startDate }"/></label> - <label>
+						<input class="endDate" type="date" value="${vermietZeitraum.endDate }"/>
+					</label> <a onclick="addVermietZeitraum()">Zusaetzlicher
+						vermietzeitraum</a><a onclick="deleteVermietZeitraum('${vermietZeitraum.id }')">Loeschen</a>
 
-		</div>
-		<button onclick="saveVermietzeitraum('${fahrzeug.id}')">Auto
-			vermieten</button>
-		<br> <br>
+				</div>
+			</c:forEach>
+			 <c:if test = "${empty fahrzeug.vermietZeitraeume}">>
+			 				<div class="vermietzeitraum">
+					<label><input class="startDate" type="date" /></label> - <label>
+						<input class="endDate" type="date" />
+					</label> <a onclick="addVermietZeitraum()">Zusaetzlicher
+						vermietzeitraum</a>
+
+				</div>
+			 </c:if>
+			<button onclick="saveVermietzeitraum('${fahrzeug.id}')">Auto
+				vermieten</button>
+			<br> <br>
 		</p>
 	</div>
 
