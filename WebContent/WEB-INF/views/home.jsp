@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@  taglib  prefix="c"   uri="http://java.sun.com/jsp/jstl/core"  %>
+<%@  taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <link rel="stylesheet" type="text/css"
@@ -17,26 +17,27 @@
 	</div>
 	<div id=hallo>
 		<c:choose>
-   				 <c:when test= "${ userEmail!=null}">
-        			<div class="logout">Herzlich Willkommen ${userEmail } <a href="/carsharing/logout">(Logout)</a></div>
-   				 </c:when>    
-    			 <c:otherwise>
+			<c:when test="${ userEmail!=null}">
+				<div class="logout">
+					Herzlich Willkommen ${userEmail} <a href="/carsharing/logout">(Logout)</a>
+				</div>
+				<input type="hidden" class="userEmail" value="${userEmail}" />
+			</c:when>
+			<c:otherwise>
         			Herzlich Willkommen
     			</c:otherwise>
 		</c:choose>
-		</div>
-	
+	</div>
+
 	<div class="content-wrapper">
 
 		<div class="search-overlay">
 			Jetzt Autos in der nähe finden<br> <input type="text"
-				class="plzInput" /> 
-			<select class="distanceSelect">
+				class="plzInput" /> <select class="distanceSelect">
 				<option value="10">10Km</option>
 				<option value="20">20Km</option>
-			</select>
-			<span>Von</span><input class="startDate" type="date" />
-			<span>Bis</span><input class="endDate" type="date" />
+			</select> <span>Von</span><input class="startDate" type="date" /> <span>Bis</span><input
+				class="endDate" type="date" />
 			<button type="button" onclick="searchCar(null,null)">Suchen</button>
 		</div>
 
@@ -45,33 +46,36 @@
 				<div class="fahrzeugfilter fahrzeugkategorie">
 					<b>Kategorie</b><br>
 					<c:forEach items="${kategories}" var="kategorie">
-					<a onclick="searchCar('kategorie','${kategorie.id }')">${kategorie.name }</a></br>
+						<a onclick="searchCar('kategorie','${kategorie.id }')">${kategorie.name }</a>
+						</br>
 					</c:forEach>
 				</div>
 				<div class="fahrzeugfilter fahrzeugfarbe">
-				<b>Farbe</b><br>
+					<b>Farbe</b><br>
 					<c:forEach items="${farben}" var="farbe">
-					<a>${farbe.name }</a><br>
+						<a>${farbe.name }</a>
+						<br>
 					</c:forEach>
 				</div>
 				<div class="fahrzeugfilter fahrzeugausstattung">
-				<b>Ausstattung</b><br>
+					<b>Ausstattung</b><br>
 					<c:forEach items="${ausstattungen}" var="ausstattung">
-					<a>${ausstattung.name }</a><br>
+						<a>${ausstattung.name }</a>
+						<br>
 					</c:forEach>
 				</div>
-			
+
 			</div>
-		
+
 		</div>
-		<div class="foundCars">
-		
-		</div>
-		<div style="clear:both;"></div>
+		<div class="foundCars"></div>
+		<div style="clear: both;"></div>
 
 
 		<div id="dummyCarWrapper" class="carWrapper" style="display: none">
-			<div class="carPicture"><img alt="" src="" class="carImg"></div>
+			<div class="carPicture">
+				<img alt="" src="" class="carImg">
+			</div>
 			<div class="carDetails">
 				<div class="bezeichnung">
 					<span class="herstellerBezeichnung"></span><span
@@ -81,11 +85,11 @@
 					<span class="standort"></span> - <span class="entfernung"></span><span>Km</span>
 				</div>
 			</div>
-			<div style="float:right;margin-right:10px;">
+			<div style="float: right; margin-right: 10px;">
 				<button type="button" onclick="rentCar(this)">Mieten</button>
-				<input type="hidden" class="carId"/>
+				<input type="hidden" class="carId" />
 			</div>
-			<div style="clear:both"></div>
+			<div style="clear: both"></div>
 
 		</div>
 	</div>
@@ -96,9 +100,7 @@
 <script src="/carSharing/html/js/home.js"></script>
 
 <script>
-
-	
-	function searchCar(filterType,filterId) {
+	function searchCar(filterType, filterId) {
 		console.log("SearchCar!!")
 		var plz = jQuery('.plzInput').val();
 		var distance = jQuery('.distanceSelect').val();
@@ -122,13 +124,16 @@
 							data[i].fahrzeug[r].modell);
 					carWrapper.find('.standort').text(data[i].ort);
 					carWrapper.find('.entfernung').text(data[i].distance);
-					carWrapper.find('.carImg').attr('src', 'data:image/png;base64,' + data[i].fahrzeug[r].fahrzeugBildString);
+					carWrapper.find('.carImg').attr(
+							'src',
+							'data:image/png;base64,'
+									+ data[i].fahrzeug[r].fahrzeugBildString);
 					carWrapper.find('.carId').val(data[i].fahrzeug[r].id);
 					carWrapper.show();
 					jQuery('.foundCars').append(carWrapper);
-					
+
 					carWrapper.find('')
-					
+
 				}
 			}
 			jQuery('.filters').show();
@@ -136,23 +141,32 @@
 
 		});
 	}
-	
-	function rentCar(button){
-		var carId = jQuery(button).parent().find('.carId').val();
-		var abfrage = confirm("Wollen Sie das Fahrzeug wirklich zur miete anfragen?");
-		if(abfrage == true){
-			//TODO statische variablen ersetzen!!!!!
-			
-			jQuery.post("home", {
-				action : "rentCar",
-				carId : carId,
-				userEmail : "marcel_ament@web.de",
-				startDate: "01.01.2017",
-				endDate:"02.01.2017"
-			}, function(data, status) {
 
-			});
-			window.location = "/buchungen"
+	function rentCar(button) {
+		var carId = jQuery(button).parent().find('.carId').val();
+		var userEmail = jQuery('.userEmail').val();
+		if (userEmail) {
+
+			var abfrage = confirm("Wollen Sie das Fahrzeug wirklich zur miete anfragen?");
+			if (abfrage == true) {
+				//TODO statische variablen ersetzen!!!!!
+				var startDate = jQuery('.startDate').val();
+				var endDate = jQuery('.endDate').val();
+
+				jQuery.post("home", {
+					action : "rentCar",
+					carId : carId,
+					userEmail : userEmail,
+					startDate : startDate,
+					endDate : endDate
+				}, function(data, status) {
+
+				});
+				window.location = "/carSharing/buchungen"
+			}
+		}else{
+			Alert("Bitte melden Sie sich an");
+			window.location = "/carSharing/login"
 		}
 	}
 </script>
