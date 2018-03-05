@@ -35,6 +35,8 @@
 				<option value="10">10Km</option>
 				<option value="20">20Km</option>
 			</select>
+			<span>Von</span><input class="startDate" type="date" />
+			<span>Bis</span><input class="endDate" type="date" />
 			<button type="button" onclick="searchCar(null,null)">Suchen</button>
 		</div>
 
@@ -97,12 +99,18 @@
 
 	
 	function searchCar(filterType,filterId) {
+		console.log("SearchCar!!")
 		var plz = jQuery('.plzInput').val();
 		var distance = jQuery('.distanceSelect').val();
+		var startDate = jQuery('.startDate').val();
+		var endDate = jQuery('.endDate').val();
 
 		jQuery.post("home", {
+			action : "searchCar",
 			plz : plz,
 			distance : distance,
+			startDate : startDate,
+			endDate : endDate,
 			filterType : filterType,
 			filterId : filterId
 		}, function(data, status) {
