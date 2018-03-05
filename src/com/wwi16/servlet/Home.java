@@ -16,8 +16,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.jasper.tagplugins.jstl.core.ForEach;
-
+import com.fasterxml.jackson.core.JsonGenerationException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.wwi16.model.Ausstattung;
 import com.wwi16.model.Distance;
@@ -85,20 +86,28 @@ public class Home extends HttpServlet {
 		response.setContentType("application/json");
 		PrintWriter out = response.getWriter();
 		String plz = request.getParameter("plz");
-//		String filterType = request.getParameter("plz");
-//		String plz = request.getParameter("plz");
-		// Immer null, nicht gesetzt
-		double distance = 10;
+		// String filterType = request.getParameter("plz");
+		// String plz = request.getParameter("plz");
+		String distance = request.getParameter("distance");
 
-		List<Distance> carDistanceList = getFahrzeugeForPlz(request, plz, distance);
+		List<Distance> carDistanceList = getFahrzeugeForPlz(request, plz, Double.valueOf(distance));
 
 		if (carDistanceList != null) {
-			String json = new Gson().toJson(setFahrzeugBildString(carDistanceList));
-			out.print(json);
-			out.flush();
+			ObjectMapper mapper = new ObjectMapper();
+			try {
+				String json = mapper.writeValueAsString(setFahrzeugBildString(carDistanceList));
+				out.print(json);
+				out.flush();
+			} catch (JsonGenerationException e) {
+				e.printStackTrace();
+			} catch (JsonMappingException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+			
 		}
-
-	
 
 	}
 
@@ -111,9 +120,7 @@ public class Home extends HttpServlet {
 
 		for (Distance distance2 : radiusCalculation) {
 			List<Fahrzeug> fahrzeugeByPlz = fahrzeugService.searchFahrzeugByPlz(distance2.getPlz());
-			System.out.println(fahrzeugeByPlz);
 			if (fahrzeugeByPlz.size() > 0) {
-				System.out.println(fahrzeugeByPlz.get(0).getVermietZeitraeume().size());
 				Distance distanceToAdd = new Distance(distance2.getPlz(), distance2.getDistance(), distance2.getOrt());
 				distanceToAdd.setFahrzeug(fahrzeugeByPlz);
 				carDistanceList.add(distanceToAdd);

@@ -9,6 +9,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @Table(name="FAHRZEUG_MIETZEITRAUM")
@@ -16,14 +20,17 @@ public class FahrzeugVermietZeitraum {
 	@Id @GeneratedValue
     private Long id;
 	
+	@Temporal(TemporalType.DATE)
 	@Column(name = "START_DATUM")
 	private Date startDate;
 	
+	@Temporal(TemporalType.DATE)
 	@Column(name = "END_DATUM")
 	private Date endDate;
 	
 	@ManyToOne
 	@JoinColumn(name = "fahrzeug")
+	@JsonBackReference
 	private Fahrzeug fahrzeug;
 	
 	public Long getId() {

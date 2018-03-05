@@ -24,6 +24,8 @@ import org.hibernate.annotations.FetchMode;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 @Table(name = "FAHRZEUG")
 public class Fahrzeug implements Serializable {
@@ -76,7 +78,8 @@ public class Fahrzeug implements Serializable {
 
 	@Fetch(FetchMode.SELECT)
 	@OneToMany(fetch = FetchType.EAGER)
-	@JoinTable(name = "FAHRZEUG_MIETZEITRAUM", joinColumns = @JoinColumn(name = "fahrzeug"), inverseJoinColumns = @JoinColumn(name = "id"))
+	@JoinTable(name = "FAHRZEUG_MIETZEITRAUM", joinColumns = @JoinColumn(name = "id"), inverseJoinColumns = @JoinColumn(name = "fahrzeug"))
+	@JsonManagedReference
 	private List<FahrzeugVermietZeitraum> vermietZeitraeume;
 
 	@Transient

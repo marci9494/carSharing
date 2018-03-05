@@ -30,8 +30,10 @@
 
 		<div class="search-overlay">
 			Jetzt Autos in der nähe finden<br> <input type="text"
-				class="plzInput" /> <select>
+				class="plzInput" /> 
+			<select class="distanceSelect">
 				<option value="10">10Km</option>
+				<option value="20">20Km</option>
 			</select>
 			<button type="button" onclick="searchCar(null,null)">Suchen</button>
 		</div>
@@ -96,10 +98,11 @@
 	
 	function searchCar(filterType,filterId) {
 		var plz = jQuery('.plzInput').val();
-		console.log(plz);
+		var distance = jQuery('.distanceSelect').val();
 
 		jQuery.post("home", {
 			plz : plz,
+			distance : distance,
 			filterType : filterType,
 			filterId : filterId
 		}, function(data, status) {
