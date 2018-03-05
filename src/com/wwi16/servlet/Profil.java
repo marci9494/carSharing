@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.wwi16.model.Kreditkarte;
 import com.wwi16.model.User;
+import com.wwi16.service.KreditkartenService;
 import com.wwi16.service.UserService;
 
 
@@ -45,11 +47,16 @@ public class Profil extends HttpServlet {
 				User nutzer = nutzerService.getNutzerByMail(userEmail);
 				request.setAttribute("nutzer",nutzer);
 				
+				KreditkartenService kreditkartenService = new KreditkartenService();
+				Kreditkarte kreditkarte = kreditkartenService.getKreditkarteByUser(nutzer);
+				request.setAttribute("kreditkarte", kreditkarte);
+				
 			}else{
 				//User nicht angemeldet was machen!?
 				
 			}
 		}
+		
 		
 		
 

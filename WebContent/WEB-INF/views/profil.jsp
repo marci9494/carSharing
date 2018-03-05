@@ -185,11 +185,12 @@ theme
 
 			<br> <br> <br> <br> <br> <br> <br>
 			<h2>Kreditkarteninformationen</h2>
-			<span class="form-field-label">Anbieter</span> <br> <br> <br>
-			<br> <span class="form-field-label">Kartenummer</span> <br>
-			<p class="editable" id=daten></p>
-			<br> <span class="form-field-label">Gültigkeit</span> <br>
-			<br> <br> <br> <span class="form-field-label">Prüfziffer</span>
+			<span class="form-field-label">Kartennummer</span> <br>
+			<p class="editable" id=daten> ${kreditkarte.kartennummer} </p>
+			<span class="form-field-label">Gültig bis</span> <br>
+			<p class="editable" id=daten> ${kreditkarte.valid} </p>
+			<span class="form-field-label">Karteninhaber</span> <br>
+			<p class="editable" id=daten> ${kreditkarte.inhaber} </p>
 			<br> <br> <br> <br>
 			<div class="form-group" id="credit_cards">
 				<img src="/carSharing/html/img/visa.jpg" id="visa"> <img
