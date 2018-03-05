@@ -46,7 +46,7 @@ public class FahrzeugService {
 	}
 
 	public Fahrzeug createFahrzeug(String kennzeichen, String modell, String baujahr, String laufleistung,
-			String leistung, String kraftstoff, String sitzplaetze, String tagespreis, String kilometerpreis,byte[] fahrzeugbild, String eigentuemerEmail) {
+			String leistung, String kraftstoff, String sitzplaetze, String tagespreis, String kilometerpreis,byte[] fahrzeugbild, String eigentuemerID) {
 
 		Session session = HibernateUtil.openSession();
 		session.beginTransaction();
@@ -58,7 +58,8 @@ public class FahrzeugService {
 		FahrzeugFarbe foundFarbe = farbService.getFahrzeugFarbeById("1");
 		FahrzeugHersteller foundHersteller = herstellerService.getHerstellerById("1");
 		FahrzeugKategorie foundKategorie = kategorieService.getFahrzeugKategorieById("1");
-		User user = userService.getNutzerByMail(eigentuemerEmail);
+		User user = userService.getNutzerById(eigentuemerID);
+		System.out.println("ID :" + user.getId());
 		Fahrzeug fahrzeug = new Fahrzeug();
 		
 		if(foundFarbe != null){

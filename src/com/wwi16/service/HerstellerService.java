@@ -13,9 +13,7 @@ import com.wwi16.model.User;
 import com.wwi16.util.HibernateUtil;
 
 public class HerstellerService {
-	
-
-	
+		
 	public List<FahrzeugHersteller> getAllHersteller(){
         Session session = HibernateUtil.openSession();
         Transaction tx = null;

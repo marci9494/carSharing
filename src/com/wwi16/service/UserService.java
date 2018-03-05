@@ -121,6 +121,7 @@ public class UserService {
 		} finally {
 			session.close();
 		}
+		System.out.println(nutzer);
 		return nutzer;
 	}
 

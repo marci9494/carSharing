@@ -33,7 +33,6 @@ public class Register_car extends HttpServlet {
 		//Übergabe aller Fahrzeughersteller
 		FahrzeugHerstellerService FahrzeugHerstellerService = new FahrzeugHerstellerService();
 		List<FahrzeugHersteller> hersteller = FahrzeugHerstellerService.getAllHersteller();
-		System.out.println("Ausgabe" + hersteller);
 		request.setAttribute("hersteller",hersteller);
 		
 		//Übergabe des aktuellen Nutzers
@@ -74,7 +73,8 @@ public class Register_car extends HttpServlet {
 		String sitzplaetze = request.getParameter("sitzplaetze");
 		String basispreis = request.getParameter("basispreis_range");
 		String kilometerpreis = request.getParameter("kilometerpreis_range");
-		String eigentuemer = request.getParameter("eigentuemer");
+		String eigentuemerID = request.getParameter("eigentuemerID");
+		System.out.println("EigentuemerID: "+ eigentuemerID);
 
 		InputStream inputStream = null;
 		Part filePart = request.getPart("fahrzeugbild");
@@ -99,7 +99,7 @@ public class Register_car extends HttpServlet {
 
 			FahrzeugService fahrzeugService = new FahrzeugService();
 			Fahrzeug fahrzeug = fahrzeugService.createFahrzeug(kennzeichen, modell, baujahr, laufleistung, leistung,
-					kraftstoff, sitzplaetze, basispreis, kilometerpreis,buffer.toByteArray(),eigentuemer);
+					kraftstoff, sitzplaetze, basispreis, kilometerpreis,buffer.toByteArray(),eigentuemerID);
 		}
 		// PrintWriter out = response.getWriter();
 		// if(fahrzeug != null){

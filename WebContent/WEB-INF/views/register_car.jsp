@@ -8,29 +8,6 @@
 
 <jsp:include page="/theme/html/header.jsp" />
 
-<!-- <script src="https://code.jquery.com/jquery-2.1.1.min.js"
-	type="text/javascript"></script>
-<link
-	href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css"
-	rel="stylesheet" />
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
-<script type="text/javascript">
-	$(document).ready(function() {
-		var marke = [];
-		$("#marke").select2({
-			data : marke
-		});
-	});
-
-	$(document).ready(function() {
-		var kraftstoff = [];
-		$("#kraftstoff").select2({
-			data : kraftstoff
-		});
-	});
-</script> -->
-
 <body>
 
 	<div class="banner-wrapper">
@@ -242,7 +219,11 @@
 					}
 				</script>
 			</div>
+			<div class="formular-wrapper">
+			<button onclick="jQuery('#upload-form').submit()">Weiter</button>
+		</div>			
 		</form>
+		<label id="user_id">${nutzer.id}</label>
 		<script>
 			function registerCar() {
 
@@ -261,35 +242,33 @@
 				var sitzplaetze = jQuery('#sitzplaetze').val();
 				var tagespreis_range = jQuery('#tagespreis_range').val();
 				var kilometerpreis_range = jQuery('#kilometerpreis_range').val();
-				var eigentuemer = ${nutzer.email};
+				var eigentuemerID = ${nutzer.id};
 
-				jQuery.post("register_car", {
-					kennzeichen : kennzeichen,
-					automarke : automarke,
-					modell : modell,
-					baujahr : baujahr,
-					laufleistung : laufleistung,
-					leistung : leistung,
-					kraftstoff : kraftstoff,
+				//jQuery.post("register_car", {
+				//	kennzeichen : kennzeichen,
+				//	automarke : automarke,
+				//	modell : modell,
+				//	baujahr : baujahr,
+				//	laufleistung : laufleistung,
+				//	leistung : leistung,
+				//	kraftstoff : kraftstoff,
 
-					farbe : farbe,
-					sitzplaetze : sitzplaetze,
-					tagespreis_range : tagespreis_range,
-					kilometerpreis_range : kilometerpreis_range
-					eigentuemer : eigentuemer
+				//	farbe : farbe,
+				//	sitzplaetze : sitzplaetze,
+				//	tagespreis_range : tagespreis_range,
+				//	kilometerpreis_range : kilometerpreis_range
+				//	eigentuemerID : eigentuemerID
 
-				}, function(data, status) {
-					if (data) {
-						window.location.href = "home";
-					} else {
+				//}, function(data, status) {
+				//	if (data) {
+				//		window.location.href = "home";
+				//	} else {
 						//POPUP anzeigen, email bereits vergeben
-					}
-				});
+				//	}
+				//}); 
 			}
 		</script>
-		<div class="formular-wrapper">
-			<button onclick="jQuery('#upload-form').submit()">Weiter</button>
-		</div>
+		
 	</div>
 
 
