@@ -78,7 +78,7 @@ public class Fahrzeug implements Serializable {
 
 	@Fetch(FetchMode.SELECT)
 	@OneToMany(fetch = FetchType.EAGER)
-	@JoinTable(name = "FAHRZEUG_MIETZEITRAUM", joinColumns = @JoinColumn(name = "id"), inverseJoinColumns = @JoinColumn(name = "fahrzeug"))
+	@JoinTable(name = "FAHRZEUG_MIETZEITRAUM", joinColumns = @JoinColumn(name = "fahrzeug"), inverseJoinColumns = @JoinColumn(name = "id"))
 	@JsonManagedReference
 	private List<FahrzeugVermietZeitraum> vermietZeitraeume;
 
