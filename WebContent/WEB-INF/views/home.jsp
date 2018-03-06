@@ -167,7 +167,7 @@
 				window.location = "/carSharing/buchungen"
 			}
 		}else{
-			Alert("Bitte melden Sie sich an");
+			alert("Bitte melden Sie sich an");
 			window.location = "/carSharing/login"
 		}
 	}
