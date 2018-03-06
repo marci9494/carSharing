@@ -130,19 +130,16 @@ theme
 
 	<div id=hallo>
 		<c:choose>
-			<c:when test="${ userEmail!=null}">
+			<c:when test="${ user!=null}">
 				<div class="logout">
-					Herzlich Willkommen ${userEmail } <a href="/carsharing/logout">(Logout)</a>
+					Herzlich Willkommen ${user.vorname} ${user.nachname} <a href="/carsharing/logout">(Logout)</a>
 				</div>
+				<input type="hidden" class="userEmail" value="${userEmail}" />
 			</c:when>
 			<c:otherwise>
         			Herzlich Willkommen
     			</c:otherwise>
 		</c:choose>
-	</div>
-
-	<div id="header-content">
-		<h1 id="header-content-text">Meine CarNow Accountdetails</h1>
 	</div>
 
 

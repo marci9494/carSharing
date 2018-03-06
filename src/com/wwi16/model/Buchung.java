@@ -4,6 +4,8 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -32,8 +34,9 @@ public class Buchung {
 	private Date endDatum;
 	
 	private String maengel;
-	//TODO to enum
-	private String status;
+	
+	@Enumerated(EnumType.ORDINAL)
+	private FahrzeugStatus status;
 	private String nachricht;
 	
 	public Long getId() {
@@ -72,16 +75,17 @@ public class Buchung {
 	public void setMaengel(String maengel) {
 		this.maengel = maengel;
 	}
-	public String getStatus() {
-		return status;
-	}
-	public void setStatus(String status) {
-		this.status = status;
-	}
+
 	public String getNachricht() {
 		return nachricht;
 	}
 	public void setNachricht(String nachricht) {
 		this.nachricht = nachricht;
+	}
+	public FahrzeugStatus getStatus() {
+		return status;
+	}
+	public void setStatus(FahrzeugStatus status) {
+		this.status = status;
 	}
 }
