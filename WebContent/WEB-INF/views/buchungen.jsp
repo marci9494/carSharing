@@ -58,6 +58,7 @@ td, th {
 					<th class="col">End Datum</th>
 					<th class="col">Fahrzeug</th>
 					<th class="col">Preis</th>
+					<th class="col">Status</th>
 					<th class="col"></th>
 					<th class="col"></th>
 					<th class="col"></th>
@@ -72,6 +73,7 @@ td, th {
 						<td>${buchung.fahrzeug.hersteller.name}-
 							${buchung.fahrzeug.modell}</td>
 						<td>Befüll mich</td>
+						<td>${buchung.status}-</td>
 						<td><button>Ändern</button></td>
 						<td><button>Stornieren</button></td>
 						<td><button>Bewerten</button></td>
