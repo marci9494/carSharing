@@ -61,6 +61,10 @@ public class FahrzeugService {
 		FahrzeugKategorie foundKategorie = kategorieService.getFahrzeugKategorieById("1");
 		User user = userService.getNutzerById(eigentuemerID);
 		Fahrzeug fahrzeug = new Fahrzeug();
+		
+		System.out.println("Tagespreis: "+tagespreis);
+		System.out.println("Kilometerpreis: "+kilometerpreis);
+
 
 		if (foundFarbe != null) {
 			fahrzeug.setFarbe(foundFarbe);
@@ -81,6 +85,7 @@ public class FahrzeugService {
 
 		// TODO auskommentierte felder mÃ¼ssen noch in der DB angelegt werden.
 
+		fahrzeug.setKennzeichen(kennzeichen);
 		fahrzeug.setLeistung(leistung);
 		fahrzeug.setSitzplaetze(sitzplaetze);
 		fahrzeug.setModell(modell);
@@ -91,12 +96,10 @@ public class FahrzeugService {
 		fahrzeug.setTagespreis(tagespreis);
 		fahrzeug.setKilometerpreis(kilometerpreis);
 		fahrzeug.setBaujahr(baujahr);
+		
+		//Als Eigentümer wird der eingeloggte User eingetragen
+		fahrzeug.setEigentuemer(user);
 
-		/* fahrzeug.setHersteller(hersteller); */
-
-		// fahrzeug.setLaufleistung(laufleistung);
-
-		// fahrzeug.setKraftstoff(kraftstoff);
 
 		try {
 			session.save(fahrzeug);

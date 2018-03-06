@@ -20,18 +20,19 @@
 	</div>
 	<div class="content-wrapper">
 		<div id=hallo>
-		<c:choose>
-			<c:when test="${ user!=null}">
-				<div class="logout">
-					Herzlich Willkommen ${user.vorname} ${user.nachname} <a href="/carsharing/logout">(Logout)</a>
-				</div>
-				<input type="hidden" class="userEmail" value="${userEmail}" />
-			</c:when>
-			<c:otherwise>
+			<c:choose>
+				<c:when test="${ user!=null}">
+					<div class="logout">
+						Herzlich Willkommen ${user.vorname} ${user.nachname} <a
+							href="/carsharing/logout">(Logout)</a>
+					</div>
+					<input type="hidden" class="userEmail" value="${userEmail}" />
+				</c:when>
+				<c:otherwise>
         			Herzlich Willkommen
     			</c:otherwise>
-		</c:choose>
-	</div>
+			</c:choose>
+		</div>
 		<form action="register_car" method="post" id="upload-form"
 			enctype="multipart/form-data">
 			<br> <br> <label>Kfz-Kennzeichen</label><br>
@@ -178,20 +179,21 @@
 
 				<div class="slidecontainer">
 					<input type="range" min="1" max="100" value="12" class="slider"
-						id="basispreis_range">
+						id="tagespreis_range">
 				</div>
-
-
-				<span>Tagespreis: </span> <span id="tagespreis"></span> <span>€</span>
+				<input type="hidden" name="tagespreis" value="" /> 
+				
+				<span>Tagespreis:</span> <span id="tp_span"></span> <span>€</span>
 
 				<script>
 					var slider = document.getElementById("tagespreis_range");
-					var output = document.getElementById("tagespreis");
-					output.innerHTML = slider.value; // Display the default slider value
+					var outputTagespreis = document.getElementById("tp_span");
+					outputTagespreis.innerHTML = slider.value; // Display the default slider value
 
 					// Update the current slider value (each time you drag the slider handle)
 					slider.oninput = function() {
-						output.innerHTML = this.value;
+						outputTagespreis.innerHTML = this.value;
+						
 					}
 				</script>
 			</div>
@@ -205,33 +207,38 @@
 						class="slider" id="kilometer_range">
 				</div>
 
-
-				<span>Preis pro Kilometer: </span> <span id="kilometerpreis"></span>
-				<span>€</span>
+				<input type="hidden" name="kilometerpreis" value="" /> 
+				
+				<span>Preis pro Kilometer: </span> <span id="kp_span"></span> <span>€</span>
 
 				<script>
 					var sliderk = document.getElementById("kilometer_range");
-					var outputk = document.getElementById("kilometerpreis");
-					outputk.innerHTML = sliderk.value; // Display the default slider value
+					var outputKilometerpreis = document
+							.getElementById("kp_span");
+					outputKilometerpreis.innerHTML = sliderk.value; // Display the default slider value
 
 					// Update the current slider value (each time you drag the slider handle)
 					sliderk.oninput = function() {
-						outputk.innerHTML = this.value;
+						outputKilometerpreis.innerHTML = this.value;
 					}
 				</script>
 			</div>
 			<div class="formular-wrapper">
-			<button onclick="jQuery('#upload-form').submit()">Weiter</button>
-		</div>	
-		<input type="hidden" name="userId" value="${nutzer.id}"/>		
+				<label>${nutzer.id}</label>
+				<button onclick="jQuery('#upload-form').submit()">Weiter</button>
+			</div>
+			<input type="hidden" name="userId" value="${nutzer.id}" />
 		</form>
-		<label id="user_id">${nutzer.id}</label>
 		<script>
 			function registerCar() {
+				
+				document.getElementById('tagespreis').value = outputTagespreis.innerHTML;
 
-				var kennzeichen = jQuery('#kennzeichen_1').val();
-				var kennzeichen = jQuery('#kennzeichen_2').val();
-				var kennzeichen = jQuery('#kennzeichen_3').val();
+				var kennzeichen1 = jQuery('#kennzeichen_1').val();
+				var kennzeichen2 = jQuery('#kennzeichen_2').val();
+				var kennzeichen3 = jQuery('#kennzeichen_3').val();
+				var kennzeichen = kennzeichen1.concat("-").concat(kennzeichen2)
+						.concat("-").concat(kennzeichen3);
 
 				var automarke = jQuery('#automarke').val();
 				var modell = jQuery('#modell').val();
@@ -242,8 +249,8 @@
 
 				var farbe = jQuery('#farbe').val();
 				var sitzplaetze = jQuery('#sitzplaetze').val();
-				var tagespreis_range = jQuery('#tagespreis_range').val();
-				var kilometerpreis_range = jQuery('#kilometerpreis_range').val();
+				var tagespreis = jQuery('#tagespreis').val();
+				var kilometerpreis = outputKilometerpreis.innerHTML;
 				var eigentuemerID = jQuery('#user_id').val();
 
 				//jQuery.post("register_car", {
@@ -265,12 +272,12 @@
 				//	if (data) {
 				//		window.location.href = "home";
 				//	} else {
-						//POPUP anzeigen, email bereits vergeben
+				//POPUP anzeigen, email bereits vergeben
 				//	}
 				//}); 
 			}
 		</script>
-		
+
 	</div>
 
 
