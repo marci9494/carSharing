@@ -60,7 +60,6 @@ public class FahrzeugService {
 		FahrzeugHersteller foundHersteller = herstellerService.getHerstellerById("1");
 		FahrzeugKategorie foundKategorie = kategorieService.getFahrzeugKategorieById("1");
 		User user = userService.getNutzerById(eigentuemerID);
-		System.out.println("ID :" + user.getId());
 		Fahrzeug fahrzeug = new Fahrzeug();
 
 		if (foundFarbe != null) {
