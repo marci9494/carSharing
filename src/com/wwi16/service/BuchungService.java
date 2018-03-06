@@ -2,6 +2,7 @@ package com.wwi16.service;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -20,10 +21,8 @@ import jdk.nashorn.internal.runtime.UserAccessorProperty;
 
 public class BuchungService {
 	
-	public List<Buchung> searchBuchungByUser(String userEmail) {
+	public List<Buchung> searchBuchungenByUser(User user) {
 
-		UserService userService = new UserService();
-		User nutzer = userService.getNutzerByMail(userEmail);
 		
 		Session session = HibernateUtil.openSession();
 		Transaction tx = null;
@@ -31,9 +30,36 @@ public class BuchungService {
 		try {
 			tx = session.getTransaction();
 			tx.begin();
-			Query query = session.createQuery("from Buchung where mieter ='"+ nutzer.getId() +"'");
+			Query query = session.createQuery("from Buchung where mieter ='"+ user.getId() +"'");
 			buchungen = (List<Buchung>) query.list();
 			tx.commit();
+		} catch (Exception e) {
+			if (tx != null) {
+				tx.rollback();
+			}
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		return buchungen;
+	}
+	public List<Buchung> searchBuchungenMyCars(User user) {
+
+		
+		Session session = HibernateUtil.openSession();
+		Transaction tx = null;
+		List<Buchung> buchungen = new ArrayList<>();
+		FahrzeugService fahrzeugService = new FahrzeugService();
+		List<Fahrzeug> fahrzeugeByUser = fahrzeugService.searchFahrzeugeByUser(user);
+		try {
+			for (Fahrzeug fahrzeug : fahrzeugeByUser) {
+				tx = session.getTransaction();
+				tx.begin();
+				Query query = session.createQuery("from Buchung where fahrzeug ='"+ fahrzeug.getId() +"'");
+				buchungen.addAll((List<Buchung>) query.list());
+				tx.commit();
+			}
+			
 		} catch (Exception e) {
 			if (tx != null) {
 				tx.rollback();

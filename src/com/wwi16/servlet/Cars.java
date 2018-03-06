@@ -46,10 +46,10 @@ public class Cars extends HttpServlet {
 				dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/cars.jsp");
 				UserService nutzerService = new UserService();
 				User nutzer = nutzerService.getNutzerByMail(userEmail);
-				request.setAttribute("nutzer",nutzer);
+				request.setAttribute("user",nutzer);
 				
 				FahrzeugService fahrzeugService = new FahrzeugService();
-				List<Fahrzeug> fahrzeuge = fahrzeugService.searchFahrzeugeByUser(userEmail);
+				List<Fahrzeug> fahrzeuge = fahrzeugService.searchFahrzeugeByUser(nutzer);
 				request.setAttribute("fahrzeuge",fahrzeuge);
 				
 				

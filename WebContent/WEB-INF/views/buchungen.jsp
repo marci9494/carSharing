@@ -50,6 +50,7 @@ td, th {
 		<div id="header-content">
 			<h1 id="header-content-text">Deine Buchungen</h1>
 		</div>
+		<div>Deine Buchungen</div>
 		<table>
 			<thead>
 				<tr>
@@ -65,7 +66,39 @@ td, th {
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${buchungen}" var="buchung">
+				<c:forEach items="${myBuchungen}" var="buchung">
+					<tr>
+						<th class="row">Buchungsnummer ${buchung.id }</th>
+						<td><fmt:formatDate pattern="dd.MM.yyyy" value="${buchung.startDatum }" /></td>
+						<td><fmt:formatDate pattern="dd.MM.yyyy" value="${buchung.endDatum }" /></td>
+						<td>${buchung.fahrzeug.hersteller.name}-
+							${buchung.fahrzeug.modell}</td>
+						<td>Befüll mich</td>
+						<td>${buchung.status}-</td>
+						<td><button>Ändern</button></td>
+						<td><button>Stornieren</button></td>
+						<td><button>Bewerten</button></td>
+					</tr>
+				</c:forEach>
+			<tbody>
+		</table>
+		<div>Buchungen für dein Fahrzeug</div>
+		<table>
+			<thead>
+				<tr>
+					<th></th>
+					<th class="col">Start Datum</th>
+					<th class="col">End Datum</th>
+					<th class="col">Fahrzeug</th>
+					<th class="col">Preis</th>
+					<th class="col">Status</th>
+					<th class="col"></th>
+					<th class="col"></th>
+					<th class="col"></th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach items="${carsBuchungen}" var="buchung">
 					<tr>
 						<th class="row">Buchungsnummer ${buchung.id }</th>
 						<td><fmt:formatDate pattern="dd.MM.yyyy" value="${buchung.startDatum }" /></td>
