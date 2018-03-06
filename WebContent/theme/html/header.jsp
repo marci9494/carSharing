@@ -20,7 +20,7 @@
 	<nav id="nav">
 		<ul>
 			<li><a href="/carSharing/home">Dashboard</a></li>
-			<li><a href="">Mieten</a></li>
+			<li><a href="/carSharing/buchungen">Meine Buchungen</a></li>
 			<li><a href="/carSharing/cars">Vermieten</a></li>
 			<c:choose>
    				 <c:when test="${ userEmail!=null}">

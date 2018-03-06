@@ -44,15 +44,15 @@ theme
 	<!--Content wrapper für gleiche Seitenabstände-->
 	<div class="content-wrapper">
 		<div id=hallo>
+			<!--Prüfung ob User eingeloggt ist-->
+			<!--Wenn ja: Begrüßung und Logout Option-->
+			<!--Wenn nein: nur Begrüßung-->
 			<c:choose>
-				<!--Prüfung ob User eingeloggt ist-->
 				<c:when test="${ userEmail!=null}">
-					<!--Wenn ja: Begrüßung und Logout Option-->
 					<div class="logout">
 						Herzlich Willkommen ${userEmail } <a href="/carsharing/logout">(Logout)</a>
 					</div>
 				</c:when>
-					<!--Wenn nein: nur Begrüßung-->
 					<c:otherwise>
         				Herzlich Willkommen
     				</c:otherwise>
@@ -131,7 +131,7 @@ theme
 		});
 	}
 	</script>
-	
+</div>	
 </body>
 <jsp:include page="/theme/html/footer.html" />
 </html>
