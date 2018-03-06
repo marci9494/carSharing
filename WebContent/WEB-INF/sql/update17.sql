@@ -1,0 +1,2 @@
+DROP TABLE `preis`;
+ALTER TABLE `user` DROP `VERMIETER`
