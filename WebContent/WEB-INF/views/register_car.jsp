@@ -20,17 +20,18 @@
 	</div>
 	<div class="content-wrapper">
 		<div id=hallo>
-			<c:choose>
-				<c:when test="${ userEmail!=null}">
-					<div class="logout">
-						Herzlich Willkommen ${userEmail } <a href="/carsharing/logout">(Logout)</a>
-					</div>
-				</c:when>
-				<c:otherwise>
+		<c:choose>
+			<c:when test="${ user!=null}">
+				<div class="logout">
+					Herzlich Willkommen ${user.vorname} ${user.nachname} <a href="/carsharing/logout">(Logout)</a>
+				</div>
+				<input type="hidden" class="userEmail" value="${userEmail}" />
+			</c:when>
+			<c:otherwise>
         			Herzlich Willkommen
     			</c:otherwise>
-			</c:choose>
-		</div>
+		</c:choose>
+	</div>
 		<form action="register_car" method="post" id="upload-form"
 			enctype="multipart/form-data">
 			<br> <br> <label>Kfz-Kennzeichen</label><br>

@@ -23,17 +23,18 @@
 			<!--Prüfung ob User eingeloggt ist-->
 			<!--Wenn ja: Begrüßung und Logout Option-->
 			<!--Wenn nein: nur Begrüßung-->
-			<c:choose>
-				<c:when test="${ userEmail!=null}">
-					<div class="logout">
-						Herzlich Willkommen ${userEmail } <a href="/carsharing/logout">(Logout)</a>
-					</div>
-				</c:when>
-					<c:otherwise>
-        				Herzlich Willkommen
-    				</c:otherwise>
-			</c:choose>
-		</div>
+		<c:choose>
+			<c:when test="${ user!=null}">
+				<div class="logout">
+					Herzlich Willkommen ${user.vorname} ${user.nachname} <a href="/carsharing/logout">(Logout)</a>
+				</div>
+				<input type="hidden" class="userEmail" value="${userEmail}" />
+			</c:when>
+			<c:otherwise>
+        			Herzlich Willkommen
+    			</c:otherwise>
+		</c:choose>
+	</div>
 
 		<!--Autodaten des Zurückzugebenden Autos werden nochmals angezeigt-->
 		<h5>Daten des Rückgabeautos im Überblick</h5>
