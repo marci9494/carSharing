@@ -7,14 +7,16 @@
 	href="/carSharing/html/css/home.css" media="screen" />
 <jsp:include page="/theme/html/header.jsp" />
 
-
-
 <body>
 
 	<div class="banner-wrapper">
 		<img class="banner" alt="Banner" src="/carSharing/html/img/header.jpg">
-
 	</div>
+	
+	<div id="header-content">
+		<h1 id="header-content-text">Herzlich Willkommen</h1>
+	</div>
+	<div class="content-wrapper">
 	<div id=hallo>
 		<c:choose>
 			<c:when test="${ userEmail!=null}">
@@ -28,11 +30,12 @@
     			</c:otherwise>
 		</c:choose>
 	</div>
-
-	<div class="content-wrapper">
-
+		<a>
+			Autos privat, sicher und schnell zur Miete anzubieten und unterschiedlichen Menschen mit unterschiedlichsten Autos eine Plattform für die Vermietung zu bieten, das ist schon seit 2018 unser Ziel.
+		</a>
+		<br><br><br>
 		<div class="search-overlay">
-			Jetzt Autos in der nähe finden<br> <input type="text"
+			Jetzt Autos in der Nähe finden<br> <input type="text"
 				class="plzInput" /> <select class="distanceSelect">
 				<option value="10">10Km</option>
 				<option value="20">20Km</option>
@@ -93,7 +96,6 @@
 
 		</div>
 	</div>
-
 </body>
 <jsp:include page="/theme/html/footer.html" />
 

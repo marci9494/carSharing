@@ -6,30 +6,6 @@
 <link rel="stylesheet" type="text/css"
 	href="/carSharing/html/css/return_car.css" media="screen" />
 <jsp:include page="/theme/html/header.jsp" />
-<style>
-<
-jsp
-:include
- 
-page
-="/html/css/return_car
-.css
-"
-/
->
-<
-jsp
-:include
- 
-page
- 
-="/
-theme
-/css/main
-.css
-"/
->
-</style>
 
 <body>
 	<!--Einbinden des Banners-->
