@@ -73,7 +73,7 @@ public class Register_car extends HttpServlet {
 		String sitzplaetze = request.getParameter("sitzplaetze");
 		String basispreis = request.getParameter("basispreis_range");
 		String kilometerpreis = request.getParameter("kilometerpreis_range");
-		String eigentuemerID = request.getParameter("eigentuemerID");
+		String eigentuemerID = request.getParameter("userId");
 		System.out.println("EigentuemerID: "+ eigentuemerID);
 
 		InputStream inputStream = null;

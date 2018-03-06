@@ -221,7 +221,8 @@
 			</div>
 			<div class="formular-wrapper">
 			<button onclick="jQuery('#upload-form').submit()">Weiter</button>
-		</div>			
+		</div>	
+		<input type="hidden" name="userId" value="${nutzer.id}"/>		
 		</form>
 		<label id="user_id">${nutzer.id}</label>
 		<script>
