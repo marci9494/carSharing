@@ -36,7 +36,7 @@
 		</div>
 
 		<!--Autodaten des Zurückzugebenden Autos werden nochmals angezeigt-->
-		<h5>Autodaten im Überblick</h5>
+		<h5>Daten des Rückgabeautos im Überblick</h5>
 		
 		<span class="form-field-label">
 			Marke: ${buchung.fahrzeug.hersteller.name}
