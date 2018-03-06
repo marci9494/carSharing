@@ -30,6 +30,7 @@ import com.wwi16.model.Distance;
 import com.wwi16.model.Fahrzeug;
 import com.wwi16.model.FahrzeugHersteller;
 import com.wwi16.model.FahrzeugVermietZeitraum;
+import com.wwi16.model.User;
 import com.wwi16.service.AusstattungService;
 import com.wwi16.service.BuchungService;
 import com.wwi16.service.FahrzeugFarbeService;
@@ -63,9 +64,12 @@ public class Home extends HttpServlet {
 		HttpSession session = request.getSession(false);
 		if (session != null) {
 			String userEmail = (String) session.getAttribute("userEmail");
-
-			System.out.print("Hello, " + userEmail + " Welcome to Profile");
-			request.setAttribute("userEmail", userEmail);
+			UserService userService = new UserService();
+			if (userEmail != null) {
+				User user = userService.getNutzerByMail(userEmail);
+				System.out.print("Hello, " + user.getEmail() + " Welcome to Profile");
+				request.setAttribute("user", user);
+			}
 		}
 		FahrzeugKategorieService kategorieService = new FahrzeugKategorieService();
 		FahrzeugFarbeService farbService = new FahrzeugFarbeService();
@@ -92,7 +96,7 @@ public class Home extends HttpServlet {
 
 		response.setContentType("application/json");
 		PrintWriter out = response.getWriter();
-		
+
 		String action = request.getParameter("action");
 
 		if ("searchCar".equals(action)) {
@@ -100,7 +104,8 @@ public class Home extends HttpServlet {
 			String startDate = request.getParameter("startDate");
 			String endDate = request.getParameter("endDate");
 			String plz = request.getParameter("plz");
-			List<Distance> carDistanceList = getFahrzeugeForPlz(request, plz, Double.valueOf(distance),startDate,endDate);
+			List<Distance> carDistanceList = getFahrzeugeForPlz(request, plz, Double.valueOf(distance), startDate,
+					endDate);
 
 			if (carDistanceList != null) {
 				ObjectMapper mapper = new ObjectMapper();
@@ -117,24 +122,25 @@ public class Home extends HttpServlet {
 				}
 			}
 
-		}else if("rentCar".equals(action)){
+		} else if ("rentCar".equals(action)) {
 			String userEmail = request.getParameter("userEmail");
 			String startDate = request.getParameter("startDate");
 			String endDate = request.getParameter("endDate");
 			String carId = request.getParameter("carId");
-			
+
 			BuchungService buchungService = new BuchungService();
-			buchungService.createBuchung(userEmail,carId,startDate,endDate);
-			
+			buchungService.createBuchung(userEmail, carId, startDate, endDate);
+
 		}
 
 	}
 
-	private List<Distance> getFahrzeugeForPlz(HttpServletRequest request, String plz, double distance,String startDateString, String endDateString) {
+	private List<Distance> getFahrzeugeForPlz(HttpServletRequest request, String plz, double distance,
+			String startDateString, String endDateString) {
 		RadiusSearchUtil radiusSearchUtil = new RadiusSearchUtil();
 		List<Distance> radiusCalculation = radiusSearchUtil.radiusCalculation(request, plz, distance);
 		FahrzeugService fahrzeugService = new FahrzeugService();
-		
+
 		Date startDate = parseDate(startDateString);
 		Date endDate = parseDate(endDateString);
 		Calendar startCal = Calendar.getInstance();
@@ -154,14 +160,15 @@ public class Home extends HttpServlet {
 						Calendar cal2 = Calendar.getInstance();
 						cal1.setTime(fahrzeugVermietZeitraum.getStartDate());
 						cal2.setTime(fahrzeugVermietZeitraum.getEndDate());
-						if((fahrzeugVermietZeitraum.getStartDate().before(startDate) && fahrzeugVermietZeitraum.getEndDate().after(endDate))){
+						if ((fahrzeugVermietZeitraum.getStartDate().before(startDate)
+								&& fahrzeugVermietZeitraum.getEndDate().after(endDate))) {
 							fahrzeugeInDateRange.add(fahrzeug);
-						}else if(checkIfSameDay(cal1, startCal)){
-							if(fahrzeugVermietZeitraum.getEndDate().after(endDate)){
+						} else if (checkIfSameDay(cal1, startCal)) {
+							if (fahrzeugVermietZeitraum.getEndDate().after(endDate)) {
 								fahrzeugeInDateRange.add(fahrzeug);
 							}
-						}else if(checkIfSameDay(cal2, endCal)){
-							if(fahrzeugVermietZeitraum.getStartDate().before(startDate)){
+						} else if (checkIfSameDay(cal2, endCal)) {
+							if (fahrzeugVermietZeitraum.getStartDate().before(startDate)) {
 								fahrzeugeInDateRange.add(fahrzeug);
 							}
 						}
@@ -177,7 +184,7 @@ public class Home extends HttpServlet {
 	}
 
 	private Date parseDate(String dateString) {
-		
+
 		DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 		try {
 			return format.parse(dateString);
@@ -201,9 +208,10 @@ public class Home extends HttpServlet {
 
 		return distanceList;
 	}
-	private boolean checkIfSameDay(Calendar cal1,Calendar cal2){
-		return cal1.get(Calendar.YEAR) == cal2.get(Calendar.YEAR) &&
-                cal1.get(Calendar.DAY_OF_YEAR) == cal2.get(Calendar.DAY_OF_YEAR);
+
+	private boolean checkIfSameDay(Calendar cal1, Calendar cal2) {
+		return cal1.get(Calendar.YEAR) == cal2.get(Calendar.YEAR)
+				&& cal1.get(Calendar.DAY_OF_YEAR) == cal2.get(Calendar.DAY_OF_YEAR);
 	}
 
 }
