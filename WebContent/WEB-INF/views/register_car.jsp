@@ -244,7 +244,7 @@
 				var sitzplaetze = jQuery('#sitzplaetze').val();
 				var tagespreis_range = jQuery('#tagespreis_range').val();
 				var kilometerpreis_range = jQuery('#kilometerpreis_range').val();
-				var eigentuemerID = ${nutzer.id};
+				var eigentuemerID = jQuery('#user_id').val();
 
 				//jQuery.post("register_car", {
 				//	kennzeichen : kennzeichen,
