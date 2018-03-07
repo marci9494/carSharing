@@ -10,7 +10,7 @@
 
 <body>
 <html lang="de">
-
+<div class="content-wrapper">
 <div id=hallo>
 		<c:choose>
 			<c:when test="${ user!=null}">
@@ -219,7 +219,7 @@ textarea:focus {
 </form>
 
 
-
+</div>
 </body>
 <jsp:include page="/theme/html/footer.html" />
 

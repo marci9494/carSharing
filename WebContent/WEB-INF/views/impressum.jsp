@@ -26,7 +26,9 @@
 				
 			<div id="header-content" >
 				<h1 id="header-content-text">Impressum</h1>
+			</div>
 				
+	<div id=content-wrapper>		
 	<div id=hallo>
 		<c:choose>
 			<c:when test="${ user!=null}">
@@ -41,7 +43,6 @@
 		</c:choose>
 	</div>		
 				
-			</div>
 			<h2> Mietbedingungen</h2>
 			<p> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut 
 			labore et dolore magna aliquyam erat, sed diam voluptua. 
@@ -64,7 +65,7 @@
 		<p> Duale Hochschule Baden-Württemberg Heidenheim </p>
 		<p> Studiengang WWI16B - carNow Gruppe </p>
 
-
+</div>
 </body>
 <jsp:include page="/theme/html/footer.html" />
 

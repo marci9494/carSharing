@@ -124,10 +124,13 @@ theme
 <body>
 	<div class="banner-wrapper">
 		<img class="banner" alt="Banner" src="/carSharing/html/img/header.jpg">
-
+	</div>
+	
+	<div id="header-content">
+		<h1 id="header-content-text">Profil</h1>
 	</div>
 
-
+<div class="content-wrapper">
 	<div id=hallo>
 		<c:choose>
 			<c:when test="${ user!=null}">
@@ -142,8 +145,6 @@ theme
 		</c:choose>
 	</div>
 
-
-	<div class="content-wrapper">
 		<p>Hier findest du alle wichtigen Infos rund um deinen Account.
 			Stell sicher, dass deine Angaben immer auf dem neusten Stand sind,
 			damit deiner Nutzung von carNow nichts im Wege steht. Solltest du

@@ -13,6 +13,11 @@
 
 	</div>
 
+	<div id="header-content">
+		<h1 id="header-content-text">Meine CarNow Fahrzeuge</h1>
+	</div>
+	
+<div class="content-wrapper">
 	<div id=hallo>
 		<c:choose>
 			<c:when test="${ user!=null}">
@@ -26,14 +31,6 @@
     			</c:otherwise>
 		</c:choose>
 	</div>
-
-
-
-
-	<div id="header-content">
-		<h1 id="header-content-text">Meine CarNow Fahrzeuge</h1>
-	</div>
-	<div class="content-wrapper">
 
 		<p>Hier findest du alle wichtigen Infos rund um dein zum Mieten
 			freigegebenen Fahrzeuge. Stell sicher, dass die Angaben zum Fahrzeug

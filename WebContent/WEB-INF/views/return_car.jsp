@@ -12,10 +12,10 @@
 	<div class="banner-wrapper">
 		<img class="banner" alt="Banner" src="/carSharing/html/img/header.jpg">
 	</div>
-	<br>
+	
 	<!--Seitentitel auf Banner-->
 	<div id="header-content">
-		<h1 id="header-content-text">Auto&shyrückgabe</h1>
+		<h1 id="header-content-text">Autorückgabe</h1>
 	</div>
 	<!--Content wrapper für gleiche Seitenabstände-->
 	<div class="content-wrapper">

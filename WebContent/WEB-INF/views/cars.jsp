@@ -18,11 +18,12 @@
 		<img class="banner" alt="Banner"
 		src="/carSharing/html/img/header.jpg">
 
-	</div>
-	
-
-
-<div id=hallo>
+	</div>	
+			<div id="header-content" >
+				<h1 id="header-content-text">Meine CarNow Fahrzeuge</h1>
+			</div>
+	<div class="content-wrapper">	
+	<div id=hallo>
 		<c:choose>
 			<c:when test="${ user!=null}">
 				<div class="logout">
@@ -35,15 +36,8 @@
     			</c:otherwise>
 		</c:choose>
 	</div>
-
-
-				
-				
-			<div id="header-content" >
-				<h1 id="header-content-text">Meine CarNow Fahrzeuge</h1>
-			</div>
-			
-		<div class="content-wrapper">	
+	
+		
 			<p> Hier findest du alle wichtigen Infos rund um deine zum Mieten freigegebenen Fahrzeuge. Stell sicher, dass die Angaben zum Fahrzeug immer auf dem neusten Stand sind, damit deiner Nutzung von carNow nichts im Wege steht. 
 			Solltest du Fragen haben, melde dich gern bei uns.</p>
 			<br>

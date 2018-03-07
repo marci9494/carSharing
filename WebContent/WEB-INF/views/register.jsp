@@ -15,10 +15,11 @@
 		<img class="banner" alt="Banner" src="/carSharing/html/img/header.jpg">
 	</div>
 
-	<div class="content-wrapper">
-		<div id="header-content">
+	<div id="header-content">
 			<h1 id="header-content-text">Registrierung</h1>
 		</div>
+
+	<div class="content-wrapper">
 
 <%-- 		<div id=hallo>
 		<c:choose>

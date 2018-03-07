@@ -30,21 +30,15 @@ td, th {
 <body>
 	<div class="banner-wrapper">
 		<img class="banner" alt="Banner" src="/carSharing/html/img/header.jpg">
-
 	</div>
+	
+	<div id="header-content">
+			<h1 id="header-content-text">Deine Buchungen</h1>
+		</div>
 
 
-
-	<c:choose>
-		<c:when test="${ userEmail!=null}">
-			<div class="logout">
-				Herzlich Willkommen ${userEmail } <a href="/carsharing/logout">(Logout)</a>
-			</div>
-		</c:when>
-		<c:otherwise>
-
-		</c:otherwise>
-	</c:choose><div id=hallo>
+<div class="content-wrapper">
+	<div id=hallo>
 		<c:choose>
 			<c:when test="${ user!=null}">
 				<div class="logout">
@@ -58,10 +52,7 @@ td, th {
 		</c:choose>
 	</div>
 
-	<div class="content-wrapper">
-		<div id="header-content">
-			<h1 id="header-content-text">Deine Buchungen</h1>
-		</div>
+		
 		<div>Deine Buchungen</div>
 		<table>
 			<thead>
@@ -156,6 +147,7 @@ td, th {
 			}
 		}
 	</script>
+	</div>
 </body>
 <jsp:include page="/theme/html/footer.html" />
 
