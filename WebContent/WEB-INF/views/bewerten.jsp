@@ -47,7 +47,7 @@
 
 
     body{background:white;margin:0;}
-.form{width:360px;height:550px;background:white;border-radius:8px;box-shadow:0 0 40px -10px #000;margin:calc(50vh - 220px) auto;padding:20px 30px;max-width:calc(100vw - 40px);box-sizing:border-box;font-family:'Montserrat',sans-serif;position:relative}
+.form{width:360px;height:550px;background:white;border-radius:8px;border:solid;margin:calc(vh - 220px) auto;padding:20px 30px;max-width:calc(100vw - 40px);box-sizing:border-box;font-family:'Montserrat',sans-serif;position:relative}
 h2{margin:10px 0;padding-bottom:10px;width:180px;color:black;border-bottom:3px solid white;}
 input{width:100%;padding:10px;box-sizing:border-box;background:none;outline:none;resize:none;border:0;font-family:'Montserrat',sans-serif;transition:all .3s;border-bottom:2px solid white}
 input:focus{border-bottom:2px solid white}
@@ -176,7 +176,17 @@ textarea:focus {
 				<h1 id="header-content-text">Deine Bewertung</h1>
 </div>
 
+<p></p>>
+<p></p>
 
+
+<h3>Hallo "Name"! Bitte bewerte deinen Vertragspartner auf einer fairen Basis!</h3>
+
+
+
+<p></p>
+Auf CarNow können Sie Nutzer, mit denen Sie einen Vertrag abgeschlossen haben, bewerten oder weitere Angaben machen(s.Kommentarfeld). Diese Bewertungen und Meinungen werden freiwillig abgegeben. 
+<p></p>
 <form class="form">
 	<h2>Deine Bewertung</h2>
 	<p type="Zustand des Fahrzeuges:">
