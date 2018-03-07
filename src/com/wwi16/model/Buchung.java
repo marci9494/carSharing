@@ -36,7 +36,7 @@ public class Buchung {
 	private String maengel;
 	
 	@Enumerated(EnumType.ORDINAL)
-	private FahrzeugStatus status;
+	private BuchungStatus status;
 	private String nachricht;
 	
 	public Long getId() {
@@ -82,10 +82,10 @@ public class Buchung {
 	public void setNachricht(String nachricht) {
 		this.nachricht = nachricht;
 	}
-	public FahrzeugStatus getStatus() {
+	public BuchungStatus getStatus() {
 		return status;
 	}
-	public void setStatus(FahrzeugStatus status) {
+	public void setStatus(BuchungStatus status) {
 		this.status = status;
 	}
 }

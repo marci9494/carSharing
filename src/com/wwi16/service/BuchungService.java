@@ -13,7 +13,7 @@ import org.hibernate.Transaction;
 import com.wwi16.model.Ausstattung;
 import com.wwi16.model.Buchung;
 import com.wwi16.model.Fahrzeug;
-import com.wwi16.model.FahrzeugStatus;
+import com.wwi16.model.BuchungStatus;
 import com.wwi16.model.User;
 import com.wwi16.util.HibernateUtil;
 
@@ -120,7 +120,7 @@ public class BuchungService {
     	buchung.setMieter(user);
     	buchung.setEndDatum(parseDate(endDateString));
     	buchung.setStartDatum(parseDate(startDateString));
-    	buchung.setStatus(FahrzeugStatus.ANGEFRAGT);
+    	buchung.setStatus(BuchungStatus.ANGEFRAGT);
     	
     	
 		Session session = HibernateUtil.openSession();

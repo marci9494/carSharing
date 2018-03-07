@@ -31,28 +31,29 @@ td, th {
 	<div class="banner-wrapper">
 		<img class="banner" alt="Banner" src="/carSharing/html/img/header.jpg">
 	</div>
-	
+
 	<div id="header-content">
-			<h1 id="header-content-text">Deine Buchungen</h1>
+		<h1 id="header-content-text">Deine Buchungen</h1>
+	</div>
+
+
+	<div class="content-wrapper">
+		<div id=hallo>
+			<c:choose>
+				<c:when test="${ user!=null}">
+					<div class="logout">
+						Herzlich Willkommen ${user.vorname} ${user.nachname} <a
+							href="/carsharing/logout">(Logout)</a>
+					</div>
+					<input type="hidden" class="userEmail" value="${userEmail}" />
+				</c:when>
+				<c:otherwise>
+        			Herzlich Willkommen
+    			</c:otherwise>
+			</c:choose>
 		</div>
 
 
-<div class="content-wrapper">
-	<div id=hallo>
-		<c:choose>
-			<c:when test="${ user!=null}">
-				<div class="logout">
-					Herzlich Willkommen ${user.vorname} ${user.nachname} <a href="/carsharing/logout">(Logout)</a>
-				</div>
-				<input type="hidden" class="userEmail" value="${userEmail}" />
-			</c:when>
-			<c:otherwise>
-        			Herzlich Willkommen
-    			</c:otherwise>
-		</c:choose>
-	</div>
-
-		
 		<div>Deine Buchungen</div>
 		<table>
 			<thead>
@@ -119,28 +120,48 @@ td, th {
 							<td><button onclick="buchungFreigeben('${buchung.id }')">Freigeben</button></td>
 							<td><button onclick="buchungAblehnen('${buchung.id }')">Ablehnen</button></td>
 						</c:if>
+						<c:if test="${ buchung.status == 'FREIGEGEBEN'}">
+							<td><button onclick="buchungAbgeholt('${buchung.id }')">Fahrzeug abgeholt</button></td>
+						</c:if>
 						<td><button>Bewerten</button></td>
 					</tr>
 				</c:forEach>
 			<tbody>
 		</table>
-		<input type="hidden" class="userId" value="${user.id}"/>
+		<input type="hidden" class="userId" value="${user.id}" />
 	</div>
 	<script>
 		function buchungFreigeben(buchungId) {
-				var abfrage = confirm("Wollen Sie das Fahrzeug wirklich zur miete freigeben?");
-				if (abfrage == true) {
-					var userId = jQuery('.userId').val();
+			var abfrage = confirm("Wollen Sie das Fahrzeug wirklich zur miete freigeben?");
+			if (abfrage == true) {
+				var userId = jQuery('.userId').val();
 
-					jQuery.post("buchungen", {
-						action : "buchungFreigeben",
-						buchungId : buchungId,
-						userId : userId
-					}, function(data, status) {
+				jQuery.post("buchungen", {
+					action : "buchungFreigeben",
+					buchungId : buchungId,
+					userId : userId
+				}, function(data, status) {
+					location.reload();
+				});
 
-					});
-					window.location = "/carSharing/buchungen"
-				}
+			} else {
+				alert("Bitte melden Sie sich an");
+				window.location = "/carSharing/login"
+			}
+		}
+		function buchungAbgeholt(buchungId) {
+			var abfrage = confirm("Wurde das Fahrzeug vom Mieter abgeholt?");
+			if (abfrage == true) {
+				var userId = jQuery('.userId').val();
+
+				jQuery.post("buchungen", {
+					action : "buchungAbgeholt",
+					buchungId : buchungId,
+					userId : userId
+				}, function(data, status) {
+					location.reload();
+				});
+
 			} else {
 				alert("Bitte melden Sie sich an");
 				window.location = "/carSharing/login"
