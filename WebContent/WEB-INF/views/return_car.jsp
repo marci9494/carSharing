@@ -68,7 +68,7 @@
 
 
 		<div>
-			<!--User kann Mängel eingeben, die er versusacht hat-->
+			<!--User kann Mängel eingeben, die am Auto verursacht wurden-->
 			<h5>Mängel</h5>
 			Hast du während deiner Benutzung Mängel am Auto verursacht? Gib sie hier bitte ein. 
 			<br><br>
@@ -77,11 +77,16 @@
 		</div>
 		
 		<div>
-			<!--User kann Nachricht an Vermieter eingeben-->
-			<h5>Nachricht an den Vermieter</h5>
-			Willst du dem Vermieter noch etwas mitteilen? Hier hast du die Gelegenheit dazu. 
+			<!--Aktueller Kilometerstand nach Nutzung wird eingegeben-->
+			<h5>Aktueller Kilometerstand</h5>
+			<input type="text" name="kilometerstand" id="kilometerstand" size="5" required><label>km</label>
 			<br><br>
-			<textarea id="nachricht" name="nachricht" cols="35" rows="4"></textarea>
+		</div>
+		
+		<div>
+			<!--Tatsächliches Rückgabedatum wird angegeben-->
+			<h5>Rückgabedatum</h5>
+			<input type="date" name="rueckgabdatum" id="rueckgabedatum" size="5" required><label></label>
 			<br><br>
 			<!--Button zur Rückgabe des Autos-->
 			<button type="button" id="button--primary" onclick="returnCar()">Auto zurückgeben</button>
@@ -92,14 +97,17 @@
 	function returnCar() {	
 		//Daten werden aus den Eingabefeldern ausgelesen
 		var maengel = jQuery('#maengel').val();
-		var nachricht = jQuery('#nachricht').val();
+		var kilometerstand = jQuery('#kilometerstand').val();
 		var buchungid = jQuery('#buchungid').val();
+		var rueckgabedatum = jQuery('#rueckgabedatum').val();
 		
 		//Ausgelesene Daten werden gesetzt
 		jQuery.post("return_car", {
 			maengel : maengel,
 			nachricht : nachricht,
 			buchungid : buchungid
+			rueckgabedatum: rueckgabedatum
+			kilometerstand: kilometerstand
 		//User wird nach Beendigung auf die Homeseite weitergeleitet
 		}, function(data, status) {
 			if (data) {

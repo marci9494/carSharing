@@ -50,18 +50,21 @@ public class Return_car extends HttpServlet {
 		String maengel = request.getParameter("maengel");
 		String nachricht = request.getParameter("nachricht");
 		String buchungid = request.getParameter("buchungid");
+		String kilometerstand = request.getParameter("kilometerstand");
+		String rueckgabedatum = request.getParameter("rueckgabedatum");
 		
 		//Zur Überprüfung werden die Daten in der Konsole ausgegeben
 		System.out.println(maengel);
 		System.out.println(nachricht);
 		System.out.println(buchungid);
+		System.out.println(kilometerstand);
+		System.out.println(rueckgabedatum);
 		
 		//Buchungsservice wird angelegt
 		BuchungService buchungservice = new BuchungService();
 		//Es wird nach entsprechender Buchung gesucht
 		Buchung buchung = buchungservice.getBuchungById(buchungid); 
 		//Daten aus Eingabe werden in die Buchung geschrieben
-		buchung.setNachricht(nachricht);
 		buchung.setMaengel(maengel);
 		//Buchung wird gespeichert
 		buchungservice.saveBuchung(buchung);
