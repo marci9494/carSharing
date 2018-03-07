@@ -20,18 +20,19 @@
 	</div>
 	<div class="content-wrapper">
 		<div id=hallo>
-		<c:choose>
-			<c:when test="${ user!=null}">
-				<div class="logout">
-					Herzlich Willkommen ${user.vorname} ${user.nachname} <a href="/carsharing/logout">(Logout)</a>
-				</div>
-				<input type="hidden" class="userEmail" value="${userEmail}" />
-			</c:when>
-			<c:otherwise>
+			<c:choose>
+				<c:when test="${ user!=null}">
+					<div class="logout">
+						Herzlich Willkommen ${user.vorname} ${user.nachname} <a
+							href="/carsharing/logout">(Logout)</a>
+					</div>
+					<input type="hidden" class="userEmail" value="${userEmail}" />
+				</c:when>
+				<c:otherwise>
         			Herzlich Willkommen
     			</c:otherwise>
-		</c:choose>
-	</div>
+			</c:choose>
+		</div>
 		<form action="register_car" method="post" id="upload-form"
 			enctype="multipart/form-data">
 			<br> <br> <label>Kfz-Kennzeichen</label><br>
@@ -41,9 +42,9 @@
 					<input type="text" name="kennzeichen_1" id="kennzeichen_1"
 					placeholder="HH" maxlength="3">
 				</span> <span id="span2"> <input type="text" name="kennzeichen_2"
-					id="kennzeichen_2" placeholder="XX" maxlength="2">
+					id="kennzeichen_2" placeholder="XX" maxlength="2" required>
 				</span> <span id="span3"> <input type="int" name="kennzeichen_3"
-					id="kennzeichen_3" placeholder="1234" maxlength="4">
+					id="kennzeichen_3" placeholder="1234" maxlength="4" required>
 				</span>
 			</div>
 
@@ -58,7 +59,7 @@
 
 					<li class="formular_li"><label for="modell">Modell</label><br>
 						<input type="text" name="modell" id="modell"
-						placeholder="z.B. Astra" size="30" maxlength="30"></li>
+						placeholder="z.B. Astra" size="30" maxlength="30" required></li>
 					<ul>
 			</div>
 			<br>
@@ -66,11 +67,11 @@
 				<ul class="formular_ul">
 					<li class="formular_li"><label for="baujahr">Baujahr</label><br>
 						<input type="int" name="baujahr" id="baujahr"
-						placeholder="z.B. 2012" size="10" maxlength="4"></li>
+						placeholder="z.B. 2012" size="10" maxlength="4" required></li>
 					<li class="formular_li"><label for="laufleistung">Laufleistung
 							in km</label><br> <input type="int" name="laufleistung"
 						id="laufleistung" placeholder="z.B. 148000" size="20"
-						maxlength="6"></li>
+						maxlength="6" required></li>
 				</ul>
 			</div>
 
@@ -84,14 +85,15 @@
 				<ul class="formular_ul">
 					<li class="formular_li"><label for="ps">PS</label><br> <input
 						type="int" name="leistung" id="leistung" placeholder="z.B. 122"
-						size="10" maxlength="3"></li>
+						size="10" maxlength="3" required></li>
 					<li class="formular_li"><label>Kraftstoff</label><br> <select
-						id="kraftstoff">
-							<option value="Benzin">Benzin</option>
-							<option value="Diesel">Diesel</option>
-							<option value="Elektro">Elektro</option>
-							<option value="Hybrid">Hybrid</option>
-							<option value="Erdgas">Erdgas</option>
+						id="kraftstoff" name="kraftstoff">
+							<option value="1">Benzin</option>
+							<option value="2">Diesel</option>
+							<option value="3">Elektro</option>
+							<option value="4">Hybrid</option>
+							<option value="5">Erdgas</option>
+							<option value="6">sonstige</option>
 					</select></li>
 			</div>
 
@@ -120,14 +122,14 @@
 							type="checkbox"> <span class="checkmark"></span>
 					</label></li>
 					<li class="formular_li"><label>Farbe des Fahrzeugs</label> <br>
-						<select id="farbe">
-							<option value="Grau">Grau</option>
-							<option value="Rot">Rot</option>
-							<option value="Schwarz">Schwarz</option>
-							<option value="Weiß">Weiß</option>
-							<option value="sonstiges">sonstiges</option>
+						<select id="farbe" name="farbe">
+							<option value="1">Grau</option>
+							<option value="2">Rot</option>
+							<option value="3">Schwarz</option>
+							<option value="4">Weiß</option>
+							<option value="5">sonstiges</option>
 					</select> <br> <br> <label>Anzahl der Sitzplätze
-							(inklusive Fahrersitz)</label> <br> <select id="sitzplaetze">
+							(inklusive Fahrersitz)</label> <br> <select id="sitzplaetze" name="sitzplaetze">
 							<option value="1">1</option>
 							<option value="2">2</option>
 							<option value="3">3</option>
@@ -175,101 +177,62 @@
 			<div class="formular-wrapper">
 
 				<label>Tagespreis</label>
+				<br>
+				<input type="text" name="tagesPreisInput" id="tagesPreisInput" placeholder="5,30" size ="5" required> <label>€</label>
 
-				<div class="slidecontainer">
+<!-- 				<div class="slidecontainer">
 					<input type="range" min="1" max="100" value="12" class="slider"
-						id="basispreis_range">
+						id="tagespreis_range">
 				</div>
-
-
-				<span>Tagespreis: </span> <span id="tagespreis"></span> <span>€</span>
+				
+				<span>Tagespreis:</span> <span id="tp_span"></span> <span>€</span>
 
 				<script>
 					var slider = document.getElementById("tagespreis_range");
-					var output = document.getElementById("tagespreis");
-					output.innerHTML = slider.value; // Display the default slider value
+					var outputTagespreis = document.getElementById("tp_span");
+					outputTagespreis.innerHTML = slider.value; // Display the default slider value
 
 					// Update the current slider value (each time you drag the slider handle)
 					slider.oninput = function() {
-						output.innerHTML = this.value;
+						outputTagespreis.innerHTML = this.value;
 					}
-				</script>
+				</script> -->
+				
 			</div>
 			<br>
 			<div class="formular-wrapper">
 
 				<label>Kilometerpreis</label>
+				<br>
+				<input type="text" name="kilometerPreisInput" id="kilometerPreisInput" placeholder="5,30" size="5" required><label>€</label>
 
-				<div class="slidecontainer">
+<!-- 				<div class="slidecontainer">
 					<input type="range" min="0.00" max="40" value="2.50" step=0.10
 						class="slider" id="kilometer_range">
 				</div>
-
-
-				<span>Preis pro Kilometer: </span> <span id="kilometerpreis"></span>
-				<span>€</span>
+				
+				<span>Preis pro Kilometer: </span> <span id="kp_span"></span> <span>€</span>
 
 				<script>
 					var sliderk = document.getElementById("kilometer_range");
-					var outputk = document.getElementById("kilometerpreis");
-					outputk.innerHTML = sliderk.value; // Display the default slider value
+					var outputKilometerpreis = document
+							.getElementById("kp_span");
+					outputKilometerpreis.innerHTML = sliderk.value; // Display the default slider value
 
 					// Update the current slider value (each time you drag the slider handle)
 					sliderk.oninput = function() {
-						outputk.innerHTML = this.value;
+						outputKilometerpreis.innerHTML = this.value;
 					}
-				</script>
+				</script> -->
 			</div>
+					
+			
 			<div class="formular-wrapper">
-			<button onclick="jQuery('#upload-form').submit()">Weiter</button>
-		</div>			
+
+				<button onclick="jQuery('#upload-form').submit()">Weiter</button>
+			</div>
+			<input type="hidden" name="userId" value="${nutzer.id}" />
 		</form>
-		<label id="user_id">${nutzer.id}</label>
-		<script>
-			function registerCar() {
-
-				var kennzeichen = jQuery('#kennzeichen_1').val();
-				var kennzeichen = jQuery('#kennzeichen_2').val();
-				var kennzeichen = jQuery('#kennzeichen_3').val();
-
-				var automarke = jQuery('#automarke').val();
-				var modell = jQuery('#modell').val();
-				var baujahr = jQuery('#baujahr').val();
-				var laufleistung = jQuery('#laufleistung').val();
-				var leistung = jQuery('#leistung').val();
-				var kraftstoff = jQuery('#kraftstoff').val();
-
-				var farbe = jQuery('#farbe').val();
-				var sitzplaetze = jQuery('#sitzplaetze').val();
-				var tagespreis_range = jQuery('#tagespreis_range').val();
-				var kilometerpreis_range = jQuery('#kilometerpreis_range').val();
-				var eigentuemerID = ${nutzer.id};
-
-				//jQuery.post("register_car", {
-				//	kennzeichen : kennzeichen,
-				//	automarke : automarke,
-				//	modell : modell,
-				//	baujahr : baujahr,
-				//	laufleistung : laufleistung,
-				//	leistung : leistung,
-				//	kraftstoff : kraftstoff,
-
-				//	farbe : farbe,
-				//	sitzplaetze : sitzplaetze,
-				//	tagespreis_range : tagespreis_range,
-				//	kilometerpreis_range : kilometerpreis_range
-				//	eigentuemerID : eigentuemerID
-
-				//}, function(data, status) {
-				//	if (data) {
-				//		window.location.href = "home";
-				//	} else {
-						//POPUP anzeigen, email bereits vergeben
-				//	}
-				//}); 
-			}
-		</script>
-		
 	</div>
 
 

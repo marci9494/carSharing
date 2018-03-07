@@ -22,7 +22,6 @@ public class User implements Serializable {
 	private String plz;
 	private String ort;
 	private String email;
-	private boolean vermieter;
 	private String password;
 	
 	@Lob
@@ -30,7 +29,7 @@ public class User implements Serializable {
     private byte[] personalausweis;
 
 	public User(Long id, String vorname, String nachname, String strasse, String plz, String ort, String email,
-			boolean vermieter,String password) {
+			String password) {
 		this.id = id;
 		this.vorname = vorname;
 		this.nachname = nachname;
@@ -38,7 +37,6 @@ public class User implements Serializable {
 		this.plz = plz;
 		this.ort = ort;
 		this.email = email;
-		this.vermieter = vermieter;
 		this.password = password;
 
 	}
@@ -101,14 +99,6 @@ public class User implements Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public boolean isVermieter() {
-		return vermieter;
-	}
-
-	public void setVermieter(boolean vermieter) {
-		this.vermieter = vermieter;
 	}
 
 	public String getPassword() {

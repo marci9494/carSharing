@@ -22,5 +22,6 @@
 		<mapping class="com.wwi16.model.Ausstattung" />
 		<mapping class="com.wwi16.model.Kreditkarte" />
 		<mapping class="com.wwi16.model.FahrzeugVermietZeitraum" />
+		<mapping class="com.wwi16.model.Kraftstoff" />
 	</session-factory>
 </hibernate-configuration>

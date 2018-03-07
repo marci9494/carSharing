@@ -42,8 +42,6 @@ public class Fahrzeug implements Serializable {
 	private String baujahr;
 	private String km_stand;
 
-	private String kraftstoff;
-
 	private String sitzplaetze;
 	private String tagespreis;
 	private String kilometerpreis;
@@ -60,6 +58,10 @@ public class Fahrzeug implements Serializable {
 	@OneToOne
 	@JoinColumn(name = "kategorie")
 	private FahrzeugKategorie kategorie;
+	
+	@OneToOne
+	@JoinColumn(name = "kraftstoff")
+	private Kraftstoff kraftstoff;
 
 	private String plz;
 
@@ -101,11 +103,11 @@ public class Fahrzeug implements Serializable {
 		this.baujahr = baujahr;
 	}
 
-	public String getKraftstoff() {
+	public Kraftstoff getKraftstoff() {
 		return kraftstoff;
 	}
 
-	public void setKraftstoff(String kraftstoff) {
+	public void setKraftstoff(Kraftstoff kraftstoff) {
 		this.kraftstoff = kraftstoff;
 	}
 

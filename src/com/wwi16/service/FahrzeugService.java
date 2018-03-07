@@ -17,6 +17,7 @@ import com.wwi16.model.FahrzeugFarbe;
 import com.wwi16.model.FahrzeugHersteller;
 import com.wwi16.model.FahrzeugKategorie;
 import com.wwi16.model.FahrzeugVermietZeitraum;
+import com.wwi16.model.Kraftstoff;
 import com.wwi16.model.User;
 import com.wwi16.model.VermietZeitraum;
 import com.wwi16.util.HibernateUtil;
@@ -45,7 +46,7 @@ public class FahrzeugService {
 		return fahrzeuge;
 	}
 
-	public Fahrzeug createFahrzeug(String kennzeichen, String modell, String baujahr, String laufleistung,
+	public Fahrzeug createFahrzeug(String kennzeichen, String modell, String baujahr, String farbe, String laufleistung,
 			String leistung, String kraftstoff, String sitzplaetze, String tagespreis, String kilometerpreis,
 			byte[] fahrzeugbild, String eigentuemerID) {
 
@@ -55,13 +56,16 @@ public class FahrzeugService {
 		HerstellerService herstellerService = new HerstellerService();
 		FahrzeugKategorieService kategorieService = new FahrzeugKategorieService();
 		UserService userService = new UserService();
+		KraftstoffService kraftstoffService = new KraftstoffService();
 		// TODO 1 durch id ersetzen
-		FahrzeugFarbe foundFarbe = farbService.getFahrzeugFarbeById("1");
+		System.out.println("Farbe: " + farbe);
+		FahrzeugFarbe foundFarbe = farbService.getFahrzeugFarbeById(farbe);
 		FahrzeugHersteller foundHersteller = herstellerService.getHerstellerById("1");
 		FahrzeugKategorie foundKategorie = kategorieService.getFahrzeugKategorieById("1");
 		User user = userService.getNutzerById(eigentuemerID);
-		System.out.println("ID :" + user.getId());
+		Kraftstoff foundKraftstoff = kraftstoffService.getKraftstoffById(kraftstoff);
 		Fahrzeug fahrzeug = new Fahrzeug();
+		
 
 		if (foundFarbe != null) {
 			fahrzeug.setFarbe(foundFarbe);
@@ -79,9 +83,14 @@ public class FahrzeugService {
 			fahrzeug.setEigentuemer(user);
 			System.out.println(user.getNachname());
 		}
+		if (kraftstoff != null) {
+			fahrzeug.setKraftstoff(foundKraftstoff);
+			System.out.println(foundKraftstoff.getName());
+		}
 
 		// TODO auskommentierte felder mÃ¼ssen noch in der DB angelegt werden.
 
+		fahrzeug.setKennzeichen(kennzeichen);
 		fahrzeug.setLeistung(leistung);
 		fahrzeug.setSitzplaetze(sitzplaetze);
 		fahrzeug.setModell(modell);
@@ -92,12 +101,10 @@ public class FahrzeugService {
 		fahrzeug.setTagespreis(tagespreis);
 		fahrzeug.setKilometerpreis(kilometerpreis);
 		fahrzeug.setBaujahr(baujahr);
+		
+		//Als Eigentümer wird der eingeloggte User eingetragen
+		fahrzeug.setEigentuemer(user);
 
-		/* fahrzeug.setHersteller(hersteller); */
-
-		// fahrzeug.setLaufleistung(laufleistung);
-
-		// fahrzeug.setKraftstoff(kraftstoff);
 
 		try {
 			session.save(fahrzeug);
