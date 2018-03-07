@@ -44,7 +44,7 @@ public class Register_car extends HttpServlet {
 				
 				UserService nutzerService = new UserService();
 				User nutzer = nutzerService.getNutzerByMail(userEmail);
-				request.setAttribute("nutzer",nutzer);
+				request.setAttribute("user",nutzer);
 				
 			}else{
 				//User nicht angemeldet was machen!?

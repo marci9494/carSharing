@@ -69,6 +69,9 @@ public class Home extends HttpServlet {
 				User user = userService.getNutzerByMail(userEmail);
 				System.out.print("Hello, " + user.getEmail() + " Welcome to Profile");
 				request.setAttribute("user", user);
+				UserService nutzerService = new UserService();
+				User nutzer = nutzerService.getNutzerByMail(userEmail);
+				request.setAttribute("user",nutzer);
 			}
 		}
 		FahrzeugKategorieService kategorieService = new FahrzeugKategorieService();

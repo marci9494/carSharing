@@ -36,7 +36,9 @@ public class Buchungen extends HttpServlet{
 				List<Buchung> buchungenForMyCars = buchungsService.searchBuchungenMyCars(user);
 				request.setAttribute("carsBuchungen", buchungenForMyCars);
 				System.out.print("Hello, " + userEmail + " Welcome to Profile");
-				request.setAttribute("userEmail", userEmail);
+				UserService nutzerService = new UserService();
+				User nutzer = nutzerService.getNutzerByMail(userEmail);
+				request.setAttribute("user",nutzer);
 			}
 			else{
 				 dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/login.jsp");

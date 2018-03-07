@@ -45,7 +45,7 @@ public class Profil extends HttpServlet {
 				
 				UserService nutzerService = new UserService();
 				User nutzer = nutzerService.getNutzerByMail(userEmail);
-				request.setAttribute("nutzer",nutzer);
+				request.setAttribute("user",nutzer);
 				
 				KreditkartenService kreditkartenService = new KreditkartenService();
 				Kreditkarte kreditkarte = kreditkartenService.getKreditkarteByUser(nutzer);
