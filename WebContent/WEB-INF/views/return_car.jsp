@@ -79,14 +79,14 @@
 		<div>
 			<!--Aktueller Kilometerstand nach Nutzung wird eingegeben-->
 			<h5>Aktueller Kilometerstand</h5>
-			<input type="text" name="kilometerstand" id="kilometerstand" size="5" required><label>km</label>
+			<input type="text" name="kilometerstand" id="kilometerstand" size="5"><label>km</label>
 			<br><br>
 		</div>
 		
 		<div>
 			<!--Tatsächliches Rückgabedatum wird angegeben-->
 			<h5>Rückgabedatum</h5>
-			<input type="date" name="rueckgabdatum" id="rueckgabedatum" size="5" required><label></label>
+			<input type="text" name="rueckgabdatum" id="rueckgabedatum" size="5"><label></label>
 			<br><br>
 			<!--Button zur Rückgabe des Autos-->
 			<button type="button" id="button--primary" onclick="returnCar()">Auto zurückgeben</button>
@@ -104,9 +104,8 @@
 		//Ausgelesene Daten werden gesetzt
 		jQuery.post("return_car", {
 			maengel : maengel,
-			nachricht : nachricht,
-			buchungid : buchungid
-			rueckgabedatum: rueckgabedatum
+			buchungid : buchungid,
+			rueckgabedatum: rueckgabedatum,
 			kilometerstand: kilometerstand
 		//User wird nach Beendigung auf die Homeseite weitergeleitet
 		}, function(data, status) {

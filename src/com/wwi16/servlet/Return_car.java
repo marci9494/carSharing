@@ -48,14 +48,12 @@ public class Return_car extends HttpServlet {
 		// TODO Auto-generated method stub
 		//Parameter werden auf die Werte aus der jsp gesetzt
 		String maengel = request.getParameter("maengel");
-		String nachricht = request.getParameter("nachricht");
 		String buchungid = request.getParameter("buchungid");
 		String kilometerstand = request.getParameter("kilometerstand");
 		String rueckgabedatum = request.getParameter("rueckgabedatum");
 		
 		//Zur Überprüfung werden die Daten in der Konsole ausgegeben
 		System.out.println(maengel);
-		System.out.println(nachricht);
 		System.out.println(buchungid);
 		System.out.println(kilometerstand);
 		System.out.println(rueckgabedatum);
