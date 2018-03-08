@@ -78,7 +78,7 @@ p {
 	margin: 0 auto;
 	margin-top: 1em;
 	margin-bottom: .5em;
-	text-align: justify;
+	width: 100%;
 }
 
 h1 {
@@ -414,9 +414,7 @@ p {
 	margin: 0 auto;
 	margin-top: 1em;
 	margin-bottom: .5em;
-	text-align: justify;
-	column-count: 1;
-	width: 70%;
+	width: 100%;
 }
 
 footer {

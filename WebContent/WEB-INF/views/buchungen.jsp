@@ -52,8 +52,8 @@ td, th {
     			</c:otherwise>
 			</c:choose>
 		</div>
-
-
+<p>Hier kannst du deine Mietungen und Vermietungen einsehen, Autos zurückgeben und deine Buchung bewerten. Stelle immer sicher, dass deine Autos im richtigen Status stehen.</p>
+<br><br>
 		<div>Deine Buchungen</div>
 		<table>
 			<thead>

@@ -35,7 +35,7 @@
     			</c:otherwise>
 		</c:choose>
 	</div>
-
+	<p>Trage nun den aktuellen Kilometerstand deines Autos und eventuelle neu entstandene Schäden ein, bevor du das Auto als zurückgegeben annimmst.</p>
 		<!--Autodaten des Zurückzugebenden Autos werden nochmals angezeigt-->
 		<h5>Daten des Rückgabeautos im Überblick</h5>
 		

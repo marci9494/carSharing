@@ -22,6 +22,7 @@
 			<li><a href="/carSharing/home">Dashboard</a></li>
 			<li><a href="/carSharing/buchungen">Meine Buchungen</a></li>
 			<li><a href="/carSharing/cars">Vermieten</a></li>
+			<!-- Wenn User angemeldet ist, wird Profil angezeigt, ansonsten Login -->
 			<c:choose>
    				 <c:when test="${ userEmail!=null}">
         			<li><a href="/carSharing/profil">Profil</a></li>
