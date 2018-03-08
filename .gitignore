@@ -14,3 +14,4 @@ WebContent/WEB-INF/views/home.jsp
 .settings/org.eclipse.wst.jsdt.ui.superType.name
 *.class
 *.jsp
+build/*
