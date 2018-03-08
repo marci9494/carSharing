@@ -36,42 +36,30 @@
 	color="#111" />
 <title>Bewerte deinen Mieter!</title>
 
-
-
-
-
-
-
-
-<style>
-
-
- 
-
 </head>
 
 
 
 <div class="banner-wrapper">
-		<img class="banner" alt="Banner"
-		src="/carSharing/html/img/header.jpg">
+	<img class="banner" alt="Banner"
+	src="/carSharing/html/img/header.jpg">
+</div>
 
-	</div>
 <div id="header-content" >
-				<h1 id="header-content-text">Deine Bewertung</h1>
+	<h1 id="header-content-text">Deine Bewertung</h1>
 </div>
 
 <p></p>>
 <p></p>
 
 
-<h3>Hallo "Name"! Bitte bewerte deinen Vertragspartner auf einer fairen Basis!</h3>
+<h3>Bitte bewerte deinen Vertragspartner auf einer fairen Basis!</h3>
 
 
 
-<p></p>
-Auf CarNow können Sie Nutzer, mit denen Sie einen Vertrag abgeschlossen haben, bewerten oder weitere Angaben machen(s.Kommentarfeld). Diese Bewertungen und Meinungen werden freiwillig abgegeben. 
-<p></p>
+
+<p>Auf CarNow kannst du Nutzer bewerten und ihnen noch zusätzliche Nachrichten schreiben.</p>
+
 <form class="form">
 	<h2>Deine Bewertung</h2>
 	<p type="Zustand des Fahrzeuges:">

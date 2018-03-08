@@ -31,7 +31,7 @@
 		</c:choose>
 	</div>
 	<br>
-		Autos privat, sicher und schnell zur Miete anzubieten und unterschiedlichen Menschen mit unterschiedlichsten Autos eine Plattform für die Vermietung zu bieten, das ist schon seit 2018 unser Ziel.
+		<p>Autos privat, sicher und schnell zur Miete anzubieten und unterschiedlichen Menschen mit unterschiedlichsten Autos eine Plattform für die Vermietung zu bieten, das ist schon seit 2018 unser Ziel.</p>
 		<br><br><br>
 		<div class="search-overlay">
 			Jetzt Autos in der Nähe finden<br> <input type="text"

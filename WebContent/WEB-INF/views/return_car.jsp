@@ -17,8 +17,10 @@
 	<div id="header-content">
 		<h1 id="header-content-text">Autorückgabe</h1>
 	</div>
+	
 	<!--Content wrapper für gleiche Seitenabstände-->
 	<div class="content-wrapper">
+	
 		<div id=hallo>
 			<!--Prüfung ob User eingeloggt ist-->
 			<!--Wenn ja: Begrüßung und Logout Option-->
@@ -35,7 +37,9 @@
     			</c:otherwise>
 		</c:choose>
 	</div>
-	<p>Trage nun den aktuellen Kilometerstand deines Autos und eventuelle neu entstandene Schäden ein, bevor du das Auto als zurückgegeben annimmst.</p>
+	
+		<p>Trage nun den aktuellen Kilometerstand deines Autos und eventuelle neu entstandene Schäden ein, bevor du das Auto als zurückgegeben annimmst.</p>
+		
 		<!--Autodaten des Zurückzugebenden Autos werden nochmals angezeigt-->
 		<h5>Daten des Rückgabeautos im Überblick</h5>
 		
@@ -92,6 +96,7 @@
 			<button type="button" id="button--primary" onclick="returnCar()">Auto zurückgeben</button>
 			<br>
 		</div>
+
 
 	<script>
 	function returnCar() {	
