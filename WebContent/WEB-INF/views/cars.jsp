@@ -5,6 +5,7 @@
 <html>
  <link rel="stylesheet" type="text/css" href="/carSharing/html/css/cars.css" media="screen" />
 <jsp:include page="/theme/html/header.jsp" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <style>
 <jsp:include page ="/html/css/cars.css"/>
 <jsp:include page ="/theme/css/main.css"/>
@@ -41,7 +42,6 @@
 			<p> Hier findest du alle wichtigen Infos rund um deine zum Mieten freigegebenen Fahrzeuge. Stell sicher, dass die Angaben zum Fahrzeug immer auf dem neusten Stand sind, damit deiner Nutzung von carNow nichts im Wege steht. 
 			Solltest du Fragen haben, melde dich gern bei uns.</p>
 			<br>
-			<br>
 
 <table id="my_table">
   <tr>
@@ -56,6 +56,9 @@
 					<td> <button onclick="visitPageV(${fahrzeug.id })">Vermieten</button> </td>
 				</tr>
 			</c:forEach>
+			<tr> <td>  <button onclick="visitPageR()"> </> <i class="material-icons">add</i>  </button> </td>
+			</tr>
+			
 
 </table>
 </div>	
@@ -70,12 +73,15 @@
 		    function visitPageV(id){
         window.location='/carSharing/cars_detail?id='+id+"#vermieten";
 
-    }	
+    }
  </script>
-			
+	<script>		
+		    function visitPageR(){
+		        window.location='/carSharing/register_car';
 
+		    }	
 			
-
+		    </script>
 
 </body>
 <jsp:include page="/theme/html/footer.html" />
