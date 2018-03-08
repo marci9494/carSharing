@@ -67,7 +67,6 @@ public class FahrzeugService {
 		User user = userService.getNutzerById(eigentuemerID);
 		Kraftstoff foundKraftstoff = kraftstoffService.getKraftstoffById(kraftstoff);
 		Fahrzeug fahrzeug = new Fahrzeug();
-		
 
 		if (foundFarbe != null) {
 			fahrzeug.setFarbe(foundFarbe);
@@ -103,10 +102,9 @@ public class FahrzeugService {
 		fahrzeug.setTagespreis(tagespreis);
 		fahrzeug.setKilometerpreis(kilometerpreis);
 		fahrzeug.setBaujahr(baujahr);
-		
-		//Als Eigent�mer wird der eingeloggte User eingetragen
-		fahrzeug.setEigentuemer(user);
 
+		// Als Eigent�mer wird der eingeloggte User eingetragen
+		fahrzeug.setEigentuemer(user);
 
 		try {
 			session.save(fahrzeug);
@@ -168,33 +166,37 @@ public class FahrzeugService {
 	public void addVermietungsZeitraeumeToFahrzeug(List<VermietZeitraum> vermietZeitraeume, String carId) {
 		Fahrzeug fahrzeug = getFahrzeugById(carId);
 		for (VermietZeitraum vermietZeitraum : vermietZeitraeume) {
-			Session session = HibernateUtil.openSession();
-			FahrzeugVermietZeitraum vermietZeitraumEntity = new FahrzeugVermietZeitraum();
-			vermietZeitraumEntity.setEndDate(DateUtil.parseDate(vermietZeitraum.getEndDate()));
-			vermietZeitraumEntity.setStartDate(DateUtil.parseDate(vermietZeitraum.getStartDate()));
-			vermietZeitraumEntity.setFahrzeug(fahrzeug);
+			if (!checkIfVermietZeitraumExists(vermietZeitraum,fahrzeug)) {
+				Session session = HibernateUtil.openSession();
+				FahrzeugVermietZeitraum vermietZeitraumEntity = new FahrzeugVermietZeitraum();
+				vermietZeitraumEntity.setEndDate(DateUtil.parseDate(vermietZeitraum.getEndDate()));
+				vermietZeitraumEntity.setStartDate(DateUtil.parseDate(vermietZeitraum.getStartDate()));
+				vermietZeitraumEntity.setFahrzeug(fahrzeug);
 
-			try {
-				session.save(vermietZeitraumEntity);
-				session.getTransaction().commit();
-			} catch (Exception e) {
+				try {
+					session.save(vermietZeitraumEntity);
+					if (!session.getTransaction().wasCommitted()){
+						session.getTransaction().commit();
+					}
+				} catch (Exception e) {
 
-				e.printStackTrace();
-			} finally {
-				session.close();
+					e.printStackTrace();
+				} finally {
+					session.close();
+				}
 			}
 
 		}
 
 	}
 
-    public Fahrzeug updateFahrzeug(Fahrzeug fahrzeug){
+	public Fahrzeug updateFahrzeug(Fahrzeug fahrzeug) {
 		Session session = HibernateUtil.openSession();
 		session.beginTransaction();
-    	
+
 		try {
-			 session.update(fahrzeug);
-			 session.getTransaction().commit();
+			session.update(fahrzeug);
+			session.getTransaction().commit();
 		} catch (Exception e) {
 
 			e.printStackTrace();
@@ -203,5 +205,34 @@ public class FahrzeugService {
 		}
 
 		return fahrzeug;
-    }
+	}
+
+	public Boolean checkIfVermietZeitraumExists(VermietZeitraum vermietZeitraum, Fahrzeug fahrzeug) {
+
+		Session session = HibernateUtil.openSession();
+		Transaction tx = null;
+		FahrzeugVermietZeitraum foundVermietZeitraum = null;
+		try {
+			tx = session.getTransaction();
+			tx.begin();
+			Query query = session.createQuery("from FahrzeugVermietZeitraum where START_DATUM = '"
+					+ vermietZeitraum.getStartDate() + "' and END_DATUM='" + vermietZeitraum.getEndDate() + "'"
+					+ "and fahrzeug='" + fahrzeug.getId() + "'");
+			foundVermietZeitraum = (FahrzeugVermietZeitraum) query.uniqueResult();
+			tx.commit();
+		} catch (Exception e) {
+			if (tx != null) {
+				tx.rollback();
+			}
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		if (foundVermietZeitraum == null) {
+			return false;
+		} else {
+			return true;
+		}
+
+	}
 }

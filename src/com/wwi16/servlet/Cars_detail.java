@@ -115,7 +115,6 @@ public class Cars_detail extends HttpServlet {
 			fahrzeugService.addVermietungsZeitraeumeToFahrzeug(vermietzeitraeume, carId);
 		}
 
-		doGet(request, response);
 	}
 
 }

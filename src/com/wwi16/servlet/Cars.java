@@ -55,7 +55,6 @@ public class Cars extends HttpServlet {
 				
 				
 			}else{
-				//User nicht angemeldet was machen!?
 				response.sendRedirect("/carSharing/login");
 				return;
 			}
