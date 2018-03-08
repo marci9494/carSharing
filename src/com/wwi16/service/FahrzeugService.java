@@ -90,9 +90,17 @@ public class FahrzeugService {
 		}
 
 		if (ausstattung != null) {
-			
-			FahrzeugAusstattungService fahrzeugAusstattungService = new FahrzeugAusstattungService();
-			fahrzeugAusstattungService.createFahrzeugAusstattung(fahrzeug, ausstattung);
+//			
+			AusstattungService ausstattungService = new AusstattungService();
+			List<Ausstattung> ausstattungsList = new ArrayList<>();
+//			fahrzeugAusstattungService.createFahrzeugAusstattung(fahrzeug, ausstattung);
+			for (String ausstattungId : ausstattung) {
+				System.out.println("Ausstattungid = " + ausstattungId);
+				Ausstattung ausstattungById = ausstattungService.getAusstattungById(ausstattungId);
+				ausstattungsList.add(ausstattungById);
+				
+			}
+			fahrzeug.setAusstattung(ausstattungsList);
 							
 		}
 				
