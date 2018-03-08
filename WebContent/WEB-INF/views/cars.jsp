@@ -50,7 +50,7 @@
   </tr>
   			<c:forEach items="${fahrzeuge}" var="fahrzeug">
 				<tr>
-					<td id="down_tbl"> ${fahrzeug.id }</td>
+					<td id="down_tbl"> ${fahrzeug.hersteller.name }</td>
 					<td id="down_tbl">${fahrzeug.modell }</td>
 					<td> <button onclick="visitPage(${fahrzeug.id })">Daten ändern</button> </td>
 					<td> <button onclick="visitPageV(${fahrzeug.id })">Vermieten</button> </td>

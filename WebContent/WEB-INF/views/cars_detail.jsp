@@ -5,6 +5,7 @@
 <html>
 <link rel="stylesheet" type="text/css"
 	href="/carSharing/html/css/cars_detail.css" media="screen" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <jsp:include page="/theme/html/header.jsp" />
 
 <body>
@@ -111,7 +112,7 @@
 			}
 		</script>
 		<br> <br> <br>
-	</div>
+
 	<button onclick="edit()" id="edit-button">Ändern</button>
 
 	<button onclick="jQuery('#update-form').submit()"
@@ -138,22 +139,26 @@
 			 				<div class="vermietzeitraum">
 					<label><input class="startDate" type="date" /></label> - <label>
 						<input class="endDate" type="date" />
-					</label> <a onclick="addVermietZeitraum()">Zusaetzlicher
-						vermietzeitraum</a>
-
+					</label> <button onclick="addVermietZeitraum()"> <i class="material-icons">add</i>  </button>
+					<br>
+					
 				</div>
 			 </c:if>
 			<button onclick="saveVermietzeitraum('${fahrzeug.id}')">Auto
 				vermieten</button>
+				
 			<br> <br>
 		</p>
 	</div>
-
 	</div>
+	</div>
+	
 	<div class="cloneVermietZeitraum" style="display: none;">
 		<label><input class="startDate" type="date" /></label> - <label>
 			<input class="endDate" type="date" />
-		</label> <a onclick="addVermietZeitraum()">Zusaetzlicher vermietzeitraum</a>
+		</label> <button onclick="addVermietZeitraum()"> <i class="material-icons">add</i>  </button>
+		<br>
+		<br>
 	</div>
 
 </body>

@@ -155,29 +155,29 @@ theme
 
 				
 				<br> <span class="form-field-label">Vorname</span> <br>
-				<p class="editable" id=daten >${nutzer.vorname}</p>
+				<p class="editable" id=daten >${user.vorname}</p>
 				<input id="vorname" class="editableInput" type='text'
 					style='display: none' name="vorname" value="${nutzer.vorname}" /> <br> <span
 					class="form-field-label"> Nachname</span> <br>
-				<p class="editable" id=daten>${nutzer.nachname}</p>
+				<p class="editable" id=daten>${user.nachname}</p>
 				<input id="nachname" class="editableInput" type='text'
-					style='display: none' name="nachname" value="${nutzer.nachname}" /> <br> <span
+					style='display: none' name="nachname" value="${user.nachname}" /> <br> <span
 					class="form-field-label">Ort</span> <br>
-				<p class="editable" id=daten>${nutzer.ort}</p>
+				<p class="editable" id=daten>${user.ort}</p>
 				<input id="ort" class="editableInput" type='text'
-					style='display: none' name="ort" value="${nutzer.ort}" /> <br> <span
+					style='display: none' name="ort" value="${user.ort}" /> <br> <span
 					class="form-field-label">PLZ</span> <br>
-				<p class="editable" id=daten>${nutzer.plz}</p>
+				<p class="editable" id=daten>${user.plz}</p>
 				<input id="plz" class="editableInput" type='text'
 					style='display: none' name="plz" value="${nutzer.plz}" /> <br> <span
 					class="form-field-label">Straße und Hausnummer</span> <br>
-				<p class="editable" id=daten>${nutzer.strasse}</p>
+				<p class="editable" id=daten>${user.strasse}</p>
 				<input id="strasse" name="strasse" class="editableInput" type='text'
 					style='display: none' value="${nutzer.strasse}" /> <br> <span
 					class="form-field-label">E-Mail-Adresse</span> <br>
-				<p class="editable" id=daten>${nutzer.email}</p>
+				<p class="editable" id=daten>${user.email}</p>
 				<input id="emailAdresse" name="email" class="editableInput" type='text'
-					style='display: none' value="${nutzer.email}" /> <br> <br>
+					style='display: none' value="${user.email}" /> <br> <br>
 			</div>
 
 
