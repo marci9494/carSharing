@@ -40,12 +40,11 @@
 	href="https://production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg"
 	color="#111" />
 
-<p>Bitte bewerte deinen Vertragspartner auf einer fairen Basis!</p>p>
 
-<p>Auf CarNow kannst du Nutzer bewerten und ihnen noch zusätzliche Nachrichten schreiben.</p>
+<p>Auf CarNow kannst du Nutzer bewerten und ihnen noch zusätzliche Nachrichten schreiben.<br>
+Bitte bewerte deinen Vertragspartner auf einer fairen Basis!</p>
 <br>
 
-<form class="form">
 	<h2>Deine Bewertung</h2>
 	<p type="Zustand des Fahrzeuges:">
 		<span class='review-holder'> <span class='review'> <span
@@ -75,16 +74,30 @@
 		</span>
 		<p></p>
 		<span><main>
-	<textarea>Hier kannst du dein Kommentar hinterlassen …</textarea>
+	<textarea cols="35" rows="4">Hier kannst du dein Kommentar hinterlassen …</textarea>
+	<br><br><br><br>
+	<button>Bewertung senden</button>
 </main>
-		
 		</span>
 
 
 	</p>
-	<button>Bewertung senden</button>
+	
 
-</form>
+
+
+<script>
+	window.console = window.console || function(t) {
+	};
+</script>
+
+
+
+<script>
+	if (document.location.search.match(/type=embed/gi)) {
+		window.parent.postMessage("resize", "*");
+	}
+</script>
 
 
 </div>
