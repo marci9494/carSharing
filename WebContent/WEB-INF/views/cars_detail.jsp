@@ -89,34 +89,12 @@
 			}
 		</script>
 
-		<br> <br> <span class="form-field-label">Kilometerpreis
-		</span><br>
-		<p id="daten">Aktuell: ${fahrzeug.kilometerpreis}€</p>
-		<div class="slidecontainer">
-			<input type="range" min="0.00" max="40" value="2.50" step=0.10
-				class="slider" id="kilometer_range">
-		</div>
-
-
-		<span> Neuer Preis pro Kilometer: </span> <span id="kilometerpreis"></span>
-		<span>€</span>
-
-		<script>
-			var sliderk = document.getElementById("kilometer_range");
-			var outputk = document.getElementById("kilometerpreis");
-			outputk.innerHTML = sliderk.value; // Display the default slider value
-
-			// Update the current slider value (each time you drag the slider handle)
-			sliderk.oninput = function() {
-				outputk.innerHTML = this.value;
-			}
-		</script>
-		<br> <br> <br>
+		
 
 	<button onclick="edit()" id="edit-button">Ändern</button>
 
-	<button onclick="jQuery('#update-form').submit()"
-		style="display: none;" id="save-button">Speichern</button>
+	<button 
+		style="display: none;" onclick="update('${fahrzeug.id}')" id="save-button">Speichern</button>
 	<br>
 	<br>
 	<br>
@@ -173,21 +151,24 @@
 		jQuery('.editable').hide()
 	}
 
-	function update() {
+	function update(carId) {
 
 		var marke = jQuery('#marke').val();
 		var modell = jQuery('#modell').val();
 		var farbe = jQuery('#farbe').val();
 		var sitzplaetze = jQuery('#sitzplaetze').val();
 		var leistung = jQuery('#leistung').val();
+		var tagespreis = jQuery('#basispreis_range').val();
 
-		console.log(passwort);
-		jQuery.post("update", {
+		jQuery.post("cars_detail", {
+			action : "update",
 			marke : marke,
 			modell : modell,
 			farbe : farbe,
-			sitzplatze : sitzplatze,
+			sitzplaetze : sitzplaetze,
 			leistung : leistung,
+			tagespreis: tagespreis,
+			carId : carId
 		}, function(data, status) {
 			if (data) {
 				window.location.href = "'/carSharing/cars';";

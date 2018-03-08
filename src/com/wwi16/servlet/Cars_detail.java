@@ -79,11 +79,6 @@ public class Cars_detail extends HttpServlet {
 
 		System.out.println("doPost");
 		// TODO noch nicht alle parameter übergeben
-		String marke = request.getParameter("vorname");
-		String modell = request.getParameter("nachname");
-		String farbe = request.getParameter("strasse");
-		String sitzplaetze = request.getParameter("plz");
-		String leistung = request.getParameter("ort");
 		String action = request.getParameter("action");
 		// UPDATE CAR
 		//
@@ -113,6 +108,19 @@ public class Cars_detail extends HttpServlet {
 			
 			FahrzeugService fahrzeugService = new FahrzeugService();
 			fahrzeugService.addVermietungsZeitraeumeToFahrzeug(vermietzeitraeume, carId);
+		}else if ("update".equals(action)){
+			//TODO @Jonas marke usw upzudaten is doch quatsch... Evtl nur Ausstattung, tagespreis, km-stand
+			String marke = request.getParameter("marke");
+			String modell = request.getParameter("modell");
+			String farbe = request.getParameter("farbe");
+			String sitzplaetze = request.getParameter("sitzplaetze");
+			String leistung = request.getParameter("leistung");
+			String tagespreis = request.getParameter("tagespreis");
+			String carId = request.getParameter("carId");
+			FahrzeugService fahrzeugService = new FahrzeugService();
+			Fahrzeug fahrzeug = fahrzeugService.getFahrzeugById(carId);
+			
+			
 		}
 
 	}
