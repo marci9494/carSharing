@@ -15,10 +15,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
+import com.wwi16.model.Ausstattung;
 import com.wwi16.model.Fahrzeug;
 import com.wwi16.model.FahrzeugHersteller;
 import com.wwi16.model.FahrzeugKategorie;
 import com.wwi16.model.User;
+import com.wwi16.service.AusstattungService;
 import com.wwi16.service.FahrzeugHerstellerService;
 import com.wwi16.service.FahrzeugKategorieService;
 import com.wwi16.service.FahrzeugService;
@@ -30,12 +32,15 @@ public class Register_car extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/register_car.jsp");
 		
-		//Übergabe aller Fahrzeughersteller
+		//ï¿½bergabe aller Fahrzeughersteller
 		FahrzeugHerstellerService FahrzeugHerstellerService = new FahrzeugHerstellerService();
 		List<FahrzeugHersteller> hersteller = FahrzeugHerstellerService.getAllHersteller();
 		request.setAttribute("hersteller",hersteller);
+		AusstattungService ausstattungsService = new AusstattungService();
+		List<Ausstattung> ausstattungen = ausstattungsService.getAllAusstattung();
+		request.setAttribute("ausstattungen",ausstattungen);
 		
-		//Übergabe des aktuellen Nutzers
+		//ï¿½bergabe des aktuellen Nutzers
 		HttpSession session = request.getSession(false);
 		if (session != null) {
 			String userEmail = (String) session.getAttribute("userEmail");
@@ -47,7 +52,8 @@ public class Register_car extends HttpServlet {
 				request.setAttribute("user",nutzer);
 				
 			}else{
-				//User nicht angemeldet was machen!?
+				response.sendRedirect("/carSharing/login");
+				return;
 				
 			}
 		}
