@@ -50,7 +50,7 @@ public class FahrzeugService {
 
 	public Fahrzeug createFahrzeug(String kennzeichen, String modell, String baujahr, String farbe, String laufleistung,
 			String leistung, String kraftstoff, String sitzplaetze, String tagespreis, String kilometerpreis,
-			byte[] fahrzeugbild, String eigentuemerID) {
+			byte[] fahrzeugbild, String eigentuemerID, String[] ausstattung) {
 
 		Session session = HibernateUtil.openSession();
 		session.beginTransaction();
@@ -89,6 +89,13 @@ public class FahrzeugService {
 			System.out.println(foundKraftstoff.getName());
 		}
 
+		if (ausstattung != null) {
+			
+			FahrzeugAusstattungService fahrzeugAusstattungService = new FahrzeugAusstattungService();
+			fahrzeugAusstattungService.createFahrzeugAusstattung(fahrzeug, ausstattung);
+							
+		}
+				
 		// TODO auskommentierte felder müssen noch in der DB angelegt werden.
 
 		fahrzeug.setKennzeichen(kennzeichen);
