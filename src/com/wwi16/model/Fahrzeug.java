@@ -75,7 +75,7 @@ public class Fahrzeug implements Serializable {
 	private List<Ausstattung> ausstattung;
 
 	@Lob
-	@Column(name = "fahrzeugbild", nullable = false, columnDefinition = "mediumblob")
+	@Column(name = "fahrzeugbild", columnDefinition = "mediumblob")
 	private byte[] fahrzeugbild;
 
 	@Fetch(FetchMode.SELECT)

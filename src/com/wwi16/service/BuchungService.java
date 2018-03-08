@@ -15,6 +15,7 @@ import com.wwi16.model.Buchung;
 import com.wwi16.model.Fahrzeug;
 import com.wwi16.model.BuchungStatus;
 import com.wwi16.model.User;
+import com.wwi16.util.DateUtil;
 import com.wwi16.util.HibernateUtil;
 
 import jdk.nashorn.internal.runtime.UserAccessorProperty;
@@ -92,7 +93,7 @@ public class BuchungService {
         return buchung;
     }
     
-    public Buchung saveBuchung(Buchung buchung){
+    public Buchung updateBuchung(Buchung buchung){
 		Session session = HibernateUtil.openSession();
 		session.beginTransaction();
     	
@@ -118,8 +119,8 @@ public class BuchungService {
     	Buchung buchung = new Buchung();
     	buchung.setFahrzeug(fahrzeug);
     	buchung.setMieter(user);
-    	buchung.setEndDatum(parseDate(endDateString));
-    	buchung.setStartDatum(parseDate(startDateString));
+    	buchung.setEndDatum(DateUtil.parseDate(endDateString));
+    	buchung.setStartDatum(DateUtil.parseDate(startDateString));
     	buchung.setStatus(BuchungStatus.ANGEFRAGT);
     	
     	
@@ -139,15 +140,5 @@ public class BuchungService {
 		return buchung;
     }
 
-	private Date parseDate(String dateString){
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-		Date date = null;
-		try {
-			date =  formatter.parse(dateString);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		};
-		return date;
-	}
+
 }

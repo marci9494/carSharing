@@ -12,6 +12,7 @@ import org.hibernate.Transaction;
 
 import com.mysql.fabric.xmlrpc.base.Array;
 import com.wwi16.model.Ausstattung;
+import com.wwi16.model.Buchung;
 import com.wwi16.model.Fahrzeug;
 import com.wwi16.model.FahrzeugFarbe;
 import com.wwi16.model.FahrzeugHersteller;
@@ -20,6 +21,7 @@ import com.wwi16.model.FahrzeugVermietZeitraum;
 import com.wwi16.model.Kraftstoff;
 import com.wwi16.model.User;
 import com.wwi16.model.VermietZeitraum;
+import com.wwi16.util.DateUtil;
 import com.wwi16.util.HibernateUtil;
 
 public class FahrzeugService {
@@ -102,7 +104,7 @@ public class FahrzeugService {
 		fahrzeug.setKilometerpreis(kilometerpreis);
 		fahrzeug.setBaujahr(baujahr);
 		
-		//Als Eigentümer wird der eingeloggte User eingetragen
+		//Als Eigentï¿½mer wird der eingeloggte User eingetragen
 		fahrzeug.setEigentuemer(user);
 
 
@@ -168,8 +170,8 @@ public class FahrzeugService {
 		for (VermietZeitraum vermietZeitraum : vermietZeitraeume) {
 			Session session = HibernateUtil.openSession();
 			FahrzeugVermietZeitraum vermietZeitraumEntity = new FahrzeugVermietZeitraum();
-			vermietZeitraumEntity.setEndDate(parseDate(vermietZeitraum.getEndDate()));
-			vermietZeitraumEntity.setStartDate(parseDate(vermietZeitraum.getStartDate()));
+			vermietZeitraumEntity.setEndDate(DateUtil.parseDate(vermietZeitraum.getEndDate()));
+			vermietZeitraumEntity.setStartDate(DateUtil.parseDate(vermietZeitraum.getStartDate()));
 			vermietZeitraumEntity.setFahrzeug(fahrzeug);
 
 			try {
@@ -186,16 +188,20 @@ public class FahrzeugService {
 
 	}
 
-	private Date parseDate(String dateString) {
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-		Date date = null;
+    public Fahrzeug updateFahrzeug(Fahrzeug fahrzeug){
+		Session session = HibernateUtil.openSession();
+		session.beginTransaction();
+    	
 		try {
-			date = formatter.parse(dateString);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
+			 session.update(fahrzeug);
+			 session.getTransaction().commit();
+		} catch (Exception e) {
+
 			e.printStackTrace();
+		} finally {
+			session.close();
 		}
-		;
-		return date;
-	}
+
+		return fahrzeug;
+    }
 }

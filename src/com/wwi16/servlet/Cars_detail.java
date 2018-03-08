@@ -61,7 +61,8 @@ public class Cars_detail extends HttpServlet {
 				request.setAttribute("fahrzeug", fahrzeug);
 
 			} else {
-				// User nicht angemeldet was machen!?
+				response.sendRedirect("/carSharing/login");
+				return;
 
 			}
 		}

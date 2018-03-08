@@ -37,7 +37,9 @@ public class Buchung {
 	
 	@Enumerated(EnumType.ORDINAL)
 	private BuchungStatus status;
-	private String nachricht;
+	
+	@Column(name = "TATSAECHLICHES_RUECKGABEDATUM")
+	private Date tatsaechlicheRueckgabeDatum;
 	
 	public Long getId() {
 		return id;
@@ -76,16 +78,16 @@ public class Buchung {
 		this.maengel = maengel;
 	}
 
-	public String getNachricht() {
-		return nachricht;
-	}
-	public void setNachricht(String nachricht) {
-		this.nachricht = nachricht;
-	}
 	public BuchungStatus getStatus() {
 		return status;
 	}
 	public void setStatus(BuchungStatus status) {
 		this.status = status;
+	}
+	public Date getTatsaechlicheRueckgabeDatum() {
+		return tatsaechlicheRueckgabeDatum;
+	}
+	public void setTatsaechlicheRueckgabeDatum(Date tatsaechlicheRueckgabeDatum) {
+		this.tatsaechlicheRueckgabeDatum = tatsaechlicheRueckgabeDatum;
 	}
 }

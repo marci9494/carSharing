@@ -90,7 +90,7 @@
 		<div>
 			<!--Tatsächliches Rückgabedatum wird angegeben-->
 			<h5>Rückgabedatum</h5>
-			<input type="text" name="rueckgabdatum" id="rueckgabedatum" size="5"><label></label>
+			<input type="date" name="rueckgabdatum" id="rueckgabedatum" size="5"><label></label>
 			<br><br>
 			<!--Button zur Rückgabe des Autos-->
 			<button type="button" id="button--primary" onclick="returnCar()">Auto zurückgeben</button>
@@ -115,8 +115,11 @@
 		//User wird nach Beendigung auf die Homeseite weitergeleitet
 		}, function(data, status) {
 			if (data) {
-				window.location.href = "home";
-			} else {					}
+				window.location.href = "buchungen";
+			} else {		
+				alert("Error. Bitte spaeter nochmals versuchen")
+				window.location.href = "buchungen";
+			}
 		});
 	}
 	</script>
