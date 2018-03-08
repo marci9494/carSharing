@@ -7,6 +7,14 @@
 	href="/carSharing/html/css/bewerten.css" media="screen" />
 <jsp:include page="/theme/html/header.jsp" />
 
+<div class="banner-wrapper">
+	<img class="banner" alt="Banner"
+	src="/carSharing/html/img/header.jpg">
+</div>
+
+<div id="header-content" >
+	<h1 id="header-content-text">Deine Bewertung</h1>
+</div>
 
 <body>
 <html lang="de">
@@ -38,25 +46,7 @@
 
 </head>
 
-
-
-<div class="banner-wrapper">
-	<img class="banner" alt="Banner"
-	src="/carSharing/html/img/header.jpg">
-</div>
-
-<div id="header-content" >
-	<h1 id="header-content-text">Deine Bewertung</h1>
-</div>
-
-<p></p>>
-<p></p>
-
-
 <h3>Bitte bewerte deinen Vertragspartner auf einer fairen Basis!</h3>
-
-
-
 
 <p>Auf CarNow kannst du Nutzer bewerten und ihnen noch zusätzliche Nachrichten schreiben.</p>
 
