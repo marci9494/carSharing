@@ -79,8 +79,10 @@ public class Register_car extends HttpServlet {
 		String sitzplaetze = request.getParameter("sitzplaetze");
 		String tagespreis = request.getParameter("tagesPreisInput");
 		String kilometerpreis = request.getParameter("kilometerPreisInput");
-		String eigentuemerID = request.getParameter("userId");
-
+		String eigentuemerID = request.getParameter("userId");	
+		//@Jonas schau dir mal https://stackoverflow.com/questions/10658945/getting-checkbox-values-from-a-servlet an.. Damit bekommst alle ausgewählten ausstattungen
+		
+		
 		InputStream inputStream = null;
 		Part filePart = request.getPart("fahrzeugbild");
 		if (filePart != null) {

@@ -104,8 +104,6 @@
 			<div class="formular-wrapper">
 				<ul class="formular_ul">
 					<li class="formular_li">
-	
-					
 					<c:forEach items="${ausstattungen}" var="ausstattung">
 							<label class="container">${ausstattung.name } <input type="checkbox" value="${ausstattung.id }"> <span
 							class="checkmark"></span></label>
