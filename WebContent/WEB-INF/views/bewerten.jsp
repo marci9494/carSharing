@@ -65,7 +65,7 @@
 <p></p>
 
 
-<h3>Hallo "Name"! Bitte bewerte deinen Vertragspartner auf einer fairen Basis!</h3>
+<h3>Hallo "Hurensohn"! Bitte bewerte deinen Vertragspartner auf einer fairen Basis!</h3>
 
 
 
