@@ -108,18 +108,22 @@ public class Cars_detail extends HttpServlet {
 			
 			FahrzeugService fahrzeugService = new FahrzeugService();
 			fahrzeugService.addVermietungsZeitraeumeToFahrzeug(vermietzeitraeume, carId);
+			
 		}else if ("update".equals(action)){
-			//TODO @Jonas marke usw upzudaten is doch quatsch... Evtl nur Ausstattung, tagespreis, km-stand
-			String marke = request.getParameter("marke");
-			String modell = request.getParameter("modell");
-			String farbe = request.getParameter("farbe");
-			String sitzplaetze = request.getParameter("sitzplaetze");
-			String leistung = request.getParameter("leistung");
+						
 			String tagespreis = request.getParameter("tagespreis");
+			String kilometerpreis = request.getParameter("kilometerpreis");
+			
 			String carId = request.getParameter("carId");
+			System.out.println("ID ist "+ carId);
+			
 			FahrzeugService fahrzeugService = new FahrzeugService();
 			Fahrzeug fahrzeug = fahrzeugService.getFahrzeugById(carId);
 			
+			fahrzeug.setTagespreis(tagespreis);
+			fahrzeug.setKilometerpreis(kilometerpreis);
+			
+			fahrzeugService.updateFahrzeug(fahrzeug);
 			
 		}
 
