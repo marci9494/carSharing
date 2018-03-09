@@ -1,7 +1,6 @@
 package com.wwi16.servlet;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -10,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -124,6 +124,9 @@ public class Cars_detail extends HttpServlet {
 			fahrzeug.setKilometerpreis(kilometerpreis);
 			
 			fahrzeugService.updateFahrzeug(fahrzeug);
+			
+			//funktioniert noch nicht:
+			response.sendRedirect("/carSharing/cars_detail?id=" + carId);
 			
 		}
 

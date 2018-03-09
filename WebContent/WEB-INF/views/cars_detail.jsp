@@ -58,7 +58,7 @@
 			<p>${fahrzeug.leistung}</p>
 			<br>
 		</div>
-
+		
 
 		<br> <span class="form-field-label">Tagespreis </span><br> <input
 			type="text" name="tagespreis" id="tagespreis"
@@ -137,8 +137,7 @@
 	}
 
 	
-	/* sinnlos? */
-	/* function update(carId) {
+ 	function update(carId) {
 
 
 		var tagespreis = jQuery('#tagespreis').val();
@@ -149,6 +148,7 @@
 			
 			tagespreis : tagespreis,
 			kilometerpreis : kilometerpreis,
+			
 			carId : carId
 		}, function(data, status) {
 			if (data) {
@@ -157,7 +157,7 @@
 				//POPUP anzeigen, email bereits vergeben
 			}
 		});
-	} */
+	}  
 
 	function addVermietZeitraum() {
 		var div = jQuery(".cloneVermietZeitraum").clone();
