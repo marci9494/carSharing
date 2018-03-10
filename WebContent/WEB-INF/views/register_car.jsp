@@ -106,44 +106,39 @@
 
 			<div class="formular-wrapper">
 				<ul class="formular_ul">
-					<li class="formular_li"><label class="container">Kindersitz
-							<input type="checkbox" checked="checked"> <span
-							class="checkmark"></span>
-					</label> <label class="container">Navigationsgerät <input
-							type="checkbox"> <span class="checkmark"></span>
-					</label> <label class="container">Klimaanlage oder Klimaautomatik <input
-							type="checkbox"> <span class="checkmark"></span>
-					</label> <label class="container">Fahradträger <input
-							type="checkbox"> <span class="checkmark"></span>
-					</label> <label class="container">Dachbox <input type="checkbox">
-							<span class="checkmark"></span>
-					</label> <label class="container">Tempomat <input type="checkbox">
-							<span class="checkmark"></span>
-					</label> <label class="container">Winterreifen <input
-							type="checkbox"> <span class="checkmark"></span>
-					</label> <label class="container">Schneeketten <input
-							type="checkbox"> <span class="checkmark"></span>
-					</label></li>
-					<li class="formular_li"><label>Farbe des Fahrzeugs</label> <br>
-						<select id="farbe" name="farbe">
-							<option value="1">Grau</option>
-							<option value="2">Rot</option>
-							<option value="3">Schwarz</option>
-							<option value="4">Weiß</option>
-							<option value="5">sonstiges</option>
-					</select> <br> <br> <label>Anzahl der Sitzplätze
-							(inklusive Fahrersitz)</label> <br> <select id="sitzplaetze" name="sitzplaetze">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-							<option value="9">9</option>
-
-					</select></li>
+					<li class="formular_li">
+					<c:forEach items="${ausstattungen}" var="ausstattung">
+							<label class="container">${ausstattung.name} <input type="checkbox" value="${ausstattung.id}" name="ausstattung"> <span
+							class="checkmark"></span></label>
+					</c:forEach>	
+						</li>	
+				</ul>
+				
+					
+					<div style="float:left;">
+						<label>Farbe des Fahrzeugs</label> <br>
+							<select id="farbe" name="farbe">
+								<option value="1">Grau</option>
+								<option value="2">Rot</option>
+								<option value="3">Schwarz</option>
+								<option value="4">Weiß</option>
+								<option value="5">sonstiges</option>
+						
+						</select> <br> <br> <label>Anzahl der Sitzplätze
+								(inklusive Fahrersitz)</label> <br> <select id="sitzplaetze" name="sitzplaetze">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+	
+						</select>
+					</div>
+					<div style="clear:both"></div>
 			</div>
 
 			<div class="formular-wrapper">
@@ -234,7 +229,7 @@
 
 				<button onclick="jQuery('#upload-form').submit()">Weiter</button>
 			</div>
-			<input type="hidden" name="userId" value="${nutzer.id}" />
+			<input type="hidden" name="userId" value="${user.id}" />
 		</form>
 	</div>
 

@@ -15,10 +15,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
+import com.wwi16.model.Ausstattung;
 import com.wwi16.model.Fahrzeug;
 import com.wwi16.model.FahrzeugHersteller;
 import com.wwi16.model.FahrzeugKategorie;
 import com.wwi16.model.User;
+import com.wwi16.service.AusstattungService;
 import com.wwi16.service.FahrzeugHerstellerService;
 import com.wwi16.service.FahrzeugKategorieService;
 import com.wwi16.service.FahrzeugService;
@@ -30,12 +32,15 @@ public class Register_car extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/register_car.jsp");
 		
-		//Übergabe aller Fahrzeughersteller
+		//ï¿½bergabe aller Fahrzeughersteller
 		FahrzeugHerstellerService FahrzeugHerstellerService = new FahrzeugHerstellerService();
 		List<FahrzeugHersteller> hersteller = FahrzeugHerstellerService.getAllHersteller();
 		request.setAttribute("hersteller",hersteller);
+		AusstattungService ausstattungsService = new AusstattungService();
+		List<Ausstattung> ausstattungen = ausstattungsService.getAllAusstattung();
+		request.setAttribute("ausstattungen",ausstattungen);
 		
-		//Übergabe des aktuellen Nutzers
+		//ï¿½bergabe des aktuellen Nutzers
 		HttpSession session = request.getSession(false);
 		if (session != null) {
 			String userEmail = (String) session.getAttribute("userEmail");
@@ -46,8 +51,9 @@ public class Register_car extends HttpServlet {
 				User nutzer = nutzerService.getNutzerByMail(userEmail);
 				request.setAttribute("user",nutzer);
 				
-			}else{
-				//User nicht angemeldet was machen!?
+			} else{
+				response.sendRedirect("/carSharing/login");
+				return;
 				
 			}
 		}
@@ -73,15 +79,16 @@ public class Register_car extends HttpServlet {
 		String sitzplaetze = request.getParameter("sitzplaetze");
 		String tagespreis = request.getParameter("tagesPreisInput");
 		String kilometerpreis = request.getParameter("kilometerPreisInput");
-		String eigentuemerID = request.getParameter("userId");
-
+		String eigentuemerID =  request.getParameter("userId");	
+		 
+		String[] ausstattung = request.getParameterValues("ausstattung");
+		//@Jonas schau dir mal https://stackoverflow.com/questions/10658945/getting-checkbox-values-from-a-servlet an.. Damit bekommst alle ausgewÃ¤hlten ausstattungen
+		
+		
 		InputStream inputStream = null;
 		Part filePart = request.getPart("fahrzeugbild");
 		if (filePart != null) {
 			// prints out some information for debugging
-			System.out.println(filePart.getName());
-			System.out.println(filePart.getSize());
-			System.out.println(filePart.getContentType());
 
 			// obtains input stream of the upload file
 			inputStream = filePart.getInputStream();
@@ -98,7 +105,7 @@ public class Register_car extends HttpServlet {
 
 			FahrzeugService fahrzeugService = new FahrzeugService();
 			Fahrzeug fahrzeug = fahrzeugService.createFahrzeug(kennzeichen, modell, baujahr, farbe, laufleistung, leistung,
-					kraftstoff, sitzplaetze, tagespreis, kilometerpreis,buffer.toByteArray(),eigentuemerID);
+					kraftstoff, sitzplaetze, tagespreis, kilometerpreis,buffer.toByteArray(),eigentuemerID, ausstattung);
 		}
 		// PrintWriter out = response.getWriter();
 		// if(fahrzeug != null){
@@ -114,6 +121,8 @@ public class Register_car extends HttpServlet {
 		// out.flush();
 		// }
 
+		
+		response.sendRedirect("/carSharing/cars");
 	}
-
+	
 }

@@ -1,7 +1,6 @@
 package com.wwi16.servlet;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -10,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -61,7 +61,8 @@ public class Cars_detail extends HttpServlet {
 				request.setAttribute("fahrzeug", fahrzeug);
 
 			} else {
-				// User nicht angemeldet was machen!?
+				response.sendRedirect("/carSharing/login");
+				return;
 
 			}
 		}
@@ -78,11 +79,6 @@ public class Cars_detail extends HttpServlet {
 
 		System.out.println("doPost");
 		// TODO noch nicht alle parameter übergeben
-		String marke = request.getParameter("vorname");
-		String modell = request.getParameter("nachname");
-		String farbe = request.getParameter("strasse");
-		String sitzplaetze = request.getParameter("plz");
-		String leistung = request.getParameter("ort");
 		String action = request.getParameter("action");
 		// UPDATE CAR
 		//
@@ -112,9 +108,28 @@ public class Cars_detail extends HttpServlet {
 			
 			FahrzeugService fahrzeugService = new FahrzeugService();
 			fahrzeugService.addVermietungsZeitraeumeToFahrzeug(vermietzeitraeume, carId);
+			
+		}else if ("update".equals(action)){
+						
+			String tagespreis = request.getParameter("tagespreis");
+			String kilometerpreis = request.getParameter("kilometerpreis");
+			
+			String carId = request.getParameter("carId");
+			System.out.println("ID ist "+ carId);
+			
+			FahrzeugService fahrzeugService = new FahrzeugService();
+			Fahrzeug fahrzeug = fahrzeugService.getFahrzeugById(carId);
+			
+			fahrzeug.setTagespreis(tagespreis);
+			fahrzeug.setKilometerpreis(kilometerpreis);
+			
+			fahrzeugService.updateFahrzeug(fahrzeug);
+			
+			//funktioniert noch nicht:
+			response.sendRedirect("/carSharing/cars_detail?id=" + carId);
+			
 		}
 
-		doGet(request, response);
 	}
 
 }

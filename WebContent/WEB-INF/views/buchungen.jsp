@@ -126,6 +126,9 @@ td, th {
 						<c:if test="${ buchung.status == 'FREIGEGEBEN'}">
 							<td><button onclick="buchungAbgeholt('${buchung.id }')">Fahrzeug abgeholt</button></td>
 						</c:if>
+						<c:if test="${ buchung.status == 'ABGEHOLT'}">
+							<td><a href="/carSharing/return_car?id=${buchung.id }"><button >Fahrzeugrückgabe</button></a></td>
+						</c:if>
 						<td><button>Bewerten</button></td>
 					</tr>
 				</c:forEach>

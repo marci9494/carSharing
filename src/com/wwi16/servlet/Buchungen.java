@@ -65,7 +65,7 @@ public class Buchungen extends HttpServlet {
 			Buchung buchung = buchungsService.getBuchungById(buchungsId);
 			if(buchung != null){
 				buchung.setStatus(BuchungStatus.FREIGEGEBEN);
-				buchungsService.saveBuchung(buchung);
+				buchungsService.updateBuchung(buchung);
 				out.print(Boolean.TRUE);
 				out.flush();
 			}
@@ -77,7 +77,7 @@ public class Buchungen extends HttpServlet {
 			Buchung buchung = buchungsService.getBuchungById(buchungsId);
 			if(buchung != null){
 				buchung.setStatus(BuchungStatus.ABGEHOLT);
-				buchungsService.saveBuchung(buchung);
+				buchungsService.updateBuchung(buchung);
 				out.print(Boolean.TRUE);
 				out.flush();
 			}

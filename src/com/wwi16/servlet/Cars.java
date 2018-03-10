@@ -55,8 +55,8 @@ public class Cars extends HttpServlet {
 				
 				
 			}else{
-				//User nicht angemeldet was machen!?
-				dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/login.jsp");
+				response.sendRedirect("/carSharing/login");
+				return;
 			}
 		}
 		
