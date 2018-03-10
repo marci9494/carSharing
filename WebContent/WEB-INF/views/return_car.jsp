@@ -28,7 +28,7 @@
 		<c:choose>
 			<c:when test="${ user!=null}">
 				<div class="logout">
-					Herzlich Willkommen ${user.vorname} ${user.nachname} <a href="/carsharing/logout">(Logout)</a>
+					Herzlich Willkommen ${user.vorname} ${user.nachname} <a href="/carSharing/logout">(Logout)</a>
 				</div>
 				<input type="hidden" class="userEmail" value="${userEmail}" />
 			</c:when>
