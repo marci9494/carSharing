@@ -249,4 +249,42 @@ public class FahrzeugService {
 		}
 
 	}
+    public void deleteVermietzeitraum(String id){
+    	FahrzeugVermietZeitraum vermietZeitraum = getFahrzeugVermietZeitraumById(id);
+    	
+		Session session = HibernateUtil.openSession();
+		session.beginTransaction();
+    	
+		try {
+			 session.delete(vermietZeitraum);
+			 session.getTransaction().commit();
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+    	
+    }
+    
+    public FahrzeugVermietZeitraum getFahrzeugVermietZeitraumById(String publicId){
+		Session session = HibernateUtil.openSession();
+		Transaction tx = null;
+		FahrzeugVermietZeitraum vermietZeitraum = null;
+		try {
+			tx = session.getTransaction();
+			tx.begin();
+			Query query = session.createQuery("from FahrzeugVermietZeitraum where id='" + publicId + "'");
+			vermietZeitraum = (FahrzeugVermietZeitraum) query.uniqueResult();
+			tx.commit();
+		} catch (Exception e) {
+			if (tx != null) {
+				tx.rollback();
+			}
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		return vermietZeitraum;
+    }
 }

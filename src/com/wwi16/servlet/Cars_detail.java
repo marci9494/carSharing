@@ -13,9 +13,12 @@ import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.wwi16.model.BuchungStatus;
 import com.wwi16.model.Fahrzeug;
+import com.wwi16.model.FahrzeugVermietZeitraum;
 import com.wwi16.model.User;
 import com.wwi16.model.VermietZeitraum;
+import com.wwi16.service.BuchungService;
 import com.wwi16.service.FahrzeugService;
 import com.wwi16.service.UserService;
 
@@ -128,6 +131,10 @@ public class Cars_detail extends HttpServlet {
             response.sendRedirect("/carSharing/cars_detail?id=" + carId);
 			return;
 			
+		}else if("delete".equals(action)){
+			String id = request.getParameter("id");
+			FahrzeugService fahrzeugService = new FahrzeugService();
+			fahrzeugService.deleteVermietzeitraum(id);
 		}
 
 	}

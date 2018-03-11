@@ -58,7 +58,7 @@
 			<p>${fahrzeug.leistung}</p>
 			<br>
 		</div>
-		
+
 
 		<br> <span class="form-field-label">Tagespreis </span><br> <input
 			type="text" name="tagespreis" id="tagespreis"
@@ -71,11 +71,10 @@
 			placeholder="${fahrzeug.kilometerpreis}" size="5"> <label>€</label>
 		<p id="daten">Aktuell: ${fahrzeug.kilometerpreis}€</p>
 
-	
-		<button onclick="update('${fahrzeug.id}')"
-			id="save-button">Speichern</button>
+
+		<button onclick="update('${fahrzeug.id}')" id="save-button">Speichern</button>
 		<br> <br> <br> <br>
-		
+
 		<div id="vermieten">
 			<h2>Vermietungs&shyzeitraum</h2>
 			<p>
@@ -87,15 +86,17 @@
 						<label><input class="startDate" type="date"
 							value="${vermietZeitraum.startDate }" /></label> - <label> <input
 							class="endDate" type="date" value="${vermietZeitraum.endDate }" />
-						</label> 
+						</label>
 						<c:if test="${loop.last}">
-						<button onclick="addVermietZeitraum()">
-							<i class="material-icons">add</i>
-						</button>
-						
+							<button class="addVermietzeitraum" onclick="addVermietZeitraum()">
+								<i class="material-icons">add</i>
+							</button>
+
 						</c:if>
 						<button
-							onclick="deleteVermietZeitraum('${vermietZeitraum.id }')"><i class="material-icons">delete</i></button>
+							onclick="deleteVermietZeitraum('${vermietZeitraum.id }');addVermietZeitraum();jQuery(this).parent().remove();addVermietZeitraum();">
+							<i class="material-icons">delete</i>
+						</button>
 					</div>
 				</c:forEach>
 				<c:if test="${empty fahrzeug.vermietZeitraeume}">>
@@ -103,27 +104,31 @@
 						<label><input class="startDate" type="date" /></label> - <label>
 							<input class="endDate" type="date" />
 						</label>
-						<button onclick="addVermietZeitraum()">
-							<i class="material-icons">delete</i>
+						<button class="addVermietzeitraum" onclick="addVermietZeitraum()">
+							<i class="material-icons">add</i>
 						</button>
-						
+
 
 					</div>
 				</c:if>
-				<button onclick="saveVermietzeitraum('${fahrzeug.id}')"><i class="material-icons">drive_eta</i></button>
+				<button onclick="saveVermietzeitraum('${fahrzeug.id}')">
+					<i class="material-icons">drive_eta</i>
+				</button>
 
-				
+
 			</p>
 		</div>
-	</div>
 	</div>
 
 	<div class="cloneVermietZeitraum" style="display: none;">
 		<label><input class="startDate" type="date" /></label> - <label>
 			<input class="endDate" type="date" />
 		</label>
-		<button onclick="addVermietZeitraum()">
+		<button class="addVermietzeitraum" onclick="addVermietZeitraum()">
 			<i class="material-icons">add</i>
+		</button>
+		<button onclick="jQuery(this).parent().remove()">
+			<i class="material-icons">delete</i>
 		</button>
 
 	</div>
@@ -140,19 +145,25 @@
 		jQuery('.editable').hide()
 	}
 
-	
- 	function update(carId) {
+	function deleteVermietZeitraum(id) {
 
+		jQuery.post("cars_detail", {
+			action : "delete",
+			id : id
+		}, function(data, status) {
+
+		});
+	}
+
+	function update(carId) {
 
 		var tagespreis = jQuery('#tagespreis').val();
 		var kilometerpreis = jQuery('#kilometerpreis').val();
 
 		jQuery.post("cars_detail", {
 			action : "update",
-			
 			tagespreis : tagespreis,
 			kilometerpreis : kilometerpreis,
-			
 			carId : carId
 		}, function(data, status) {
 			if (data) {
@@ -161,9 +172,10 @@
 				//POPUP anzeigen, email bereits vergeben
 			}
 		});
-	}  
+	}
 
 	function addVermietZeitraum() {
+		jQuery('#vermieten').find('.addVermietzeitraum').remove();
 		var div = jQuery(".cloneVermietZeitraum").clone();
 		div.removeClass("cloneVermietZeitraum");
 		div.addClass('vermietzeitraum');
@@ -189,9 +201,7 @@
 			carId : carId,
 			vermietZeitraeume : JSON.stringify(vermietZeitraeume)
 		}, function(data, status) {
-
-			aler("Vermietzeiträume gespeichert")
-
+			alert("Vermietzeitraeume wurden gespeichert");
 		});
 	}
 </script>
