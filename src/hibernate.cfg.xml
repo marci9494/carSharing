@@ -24,5 +24,6 @@
 		<mapping class="com.wwi16.model.FahrzeugVermietZeitraum" />
 		<mapping class="com.wwi16.model.Kraftstoff" />
 		<mapping class="com.wwi16.model.FahrzeugAusstattung" />
+		<mapping class="com.wwi16.model.LatLong" />
 	</session-factory>
 </hibernate-configuration>
