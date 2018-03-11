@@ -185,7 +185,7 @@
 		var leistung = jQuery('#leistung').val();
 
 		jQuery.post("cars_details", {
-			action : "update"
+			action : "update",
 			marke : marke,
 			modell : modell,
 			farbe : farbe,

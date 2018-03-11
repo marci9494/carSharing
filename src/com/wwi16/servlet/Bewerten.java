@@ -12,45 +12,42 @@ import javax.servlet.http.HttpSession;
 import com.wwi16.model.User;
 import com.wwi16.service.UserService;
 
+public class Bewerten extends HttpServlet {
 
+	public Bewerten() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
-public class Bewerten extends HttpServlet{
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-	 public Bewerten() {
-	        super();
-	        // TODO Auto-generated constructor stub
-	    }
+		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/bewerten.jsp");
+		System.out.println("Bewerten!!");
+		dispatcher.forward(request, response);
+		HttpSession session = request.getSession(false);
+		if (session != null) {
+			String userEmail = (String) session.getAttribute("userEmail");
 
-		/**
-		 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-		 */
-		public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			
-			RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/bewerten.jsp");
-			System.out.println("Bewerten!!");
-			dispatcher.forward(request, response);
-			HttpSession session = request.getSession(false);
-			if (session != null) {
-				String userEmail = (String) session.getAttribute("userEmail");
-
-				if (userEmail != null) {
-			UserService nutzerService = new UserService();
-			User nutzer = nutzerService.getNutzerByMail(userEmail);
-			request.setAttribute("user",nutzer);}}
-
-			
-			
+			if (userEmail != null) {
+				UserService nutzerService = new UserService();
+				User nutzer = nutzerService.getNutzerByMail(userEmail);
+				request.setAttribute("user", nutzer);
+			}
 		}
-
-		/**
-		 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-		 */
-		public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			// TODO Auto-generated method stub
-			doGet(request, response);
-		}
-		
-
 
 	}
 
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}
