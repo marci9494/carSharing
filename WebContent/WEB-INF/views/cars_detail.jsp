@@ -92,10 +92,10 @@
 						<button onclick="addVermietZeitraum()">
 							<i class="material-icons">add</i>
 						</button>
+						
 						</c:if>
-						<a
-							onclick="deleteVermietZeitraum('${vermietZeitraum.id }')">Loeschen</a>
-
+						<button
+							onclick="deleteVermietZeitraum('${vermietZeitraum.id }')"><i class="material-icons">delete</i></button>
 					</div>
 				</c:forEach>
 				<c:if test="${empty fahrzeug.vermietZeitraeume}">>
@@ -104,16 +104,15 @@
 							<input class="endDate" type="date" />
 						</label>
 						<button onclick="addVermietZeitraum()">
-							<i class="material-icons">add</i>
+							<i class="material-icons">delete</i>
 						</button>
-						<br>
+						
 
 					</div>
 				</c:if>
-				<button onclick="saveVermietzeitraum('${fahrzeug.id}')">Auto
-					vermieten</button>
+				<button onclick="saveVermietzeitraum('${fahrzeug.id}')"><i class="material-icons">drive_eta</i></button>
 
-				<br> <br>
+				
 			</p>
 		</div>
 	</div>
@@ -126,7 +125,7 @@
 		<button onclick="addVermietZeitraum()">
 			<i class="material-icons">add</i>
 		</button>
-		<br> <br>
+
 	</div>
 
 </body>
