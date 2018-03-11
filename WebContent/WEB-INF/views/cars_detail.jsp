@@ -82,13 +82,18 @@
 				Gib hier den Zeitraum an, in dem du dein Auto anderen Nutzern zur
 				Verfügung stellen willst. <br>
 				<c:forEach items="${fahrzeug.vermietZeitraeume}"
-					var="vermietZeitraum">
+					var="vermietZeitraum" varStatus="loop">
 					<div class="vermietzeitraum">
 						<label><input class="startDate" type="date"
 							value="${vermietZeitraum.startDate }" /></label> - <label> <input
 							class="endDate" type="date" value="${vermietZeitraum.endDate }" />
-						</label> <a onclick="addVermietZeitraum()">Zusaetzlicher
-							vermietzeitraum</a><a
+						</label> 
+						<c:if test="${loop.last}">
+						<button onclick="addVermietZeitraum()">
+							<i class="material-icons">add</i>
+						</button>
+						</c:if>
+						<a
 							onclick="deleteVermietZeitraum('${vermietZeitraum.id }')">Loeschen</a>
 
 					</div>
