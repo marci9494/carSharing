@@ -12,8 +12,18 @@ import com.wwi16.model.FahrzeugHersteller;
 import com.wwi16.model.FahrzeugKategorie;
 import com.wwi16.util.HibernateUtil;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class FahrzeugKategorieService.
+ */
 public class FahrzeugKategorieService {
 	
+	/**
+	 * Gets the fahrzeug kategorie by id.
+	 *
+	 * @param publicId the public id
+	 * @return the fahrzeug kategorie by id
+	 */
 	public FahrzeugKategorie getFahrzeugKategorieById(String publicId) {
 		Session session = HibernateUtil.openSession();
 		Transaction tx = null;
@@ -35,6 +45,11 @@ public class FahrzeugKategorieService {
 		return kategorie;
 	}
 	
+	/**
+	 * Gets the all kategories.
+	 *
+	 * @return the all kategories
+	 */
 	public List<FahrzeugKategorie> getAllKategories(){
         Session session = HibernateUtil.openSession();
         Transaction tx = null;

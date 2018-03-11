@@ -7,15 +7,18 @@ import com.wwi16.model.Fahrzeug;
 import com.wwi16.model.FahrzeugAusstattung;
 import com.wwi16.util.HibernateUtil;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class FahrzeugAusstattungService.
+ */
 public class FahrzeugAusstattungService {
 
 	/**
-	 * Speichert in der Datenbank ein Fahrzeug-Ausstattung-Paar
-	 * 
-	 * @param fahrzeug
-	 * @param ausstattung
-	 *            Ein Ausstattungs-Element
-	 * @return
+	 * Speichert in der Datenbank ein Fahrzeug-Ausstattung-Paar.
+	 *
+	 * @param fahrzeug the fahrzeug
+	 * @param ausstattung            Ein Ausstattungs-Element
+	 * @return the fahrzeug ausstattung
 	 */
 	public FahrzeugAusstattung createFahrzeugAusstattung(Fahrzeug fahrzeug, Ausstattung ausstattung) {
 
@@ -40,10 +43,10 @@ public class FahrzeugAusstattungService {
 	}
 
 	/**
-	 * Speichert in der Datenbank Fahrzeug-Ausstattungs-Paare ab
-	 * 
-	 * @param fahrzeug
-	 * @param ausstattung	Mehrere Ausstattungs-Elemente in Form eines Arrays
+	 * Speichert in der Datenbank Fahrzeug-Ausstattungs-Paare ab.
+	 *
+	 * @param fahrzeug the fahrzeug
+	 * @param ausstattung Mehrere Ausstattungs-Elemente in Form eines Arrays
 	 * @return "true"
 	 */
 	public boolean createFahrzeugAusstattung(Fahrzeug fahrzeug, String[] ausstattung) {

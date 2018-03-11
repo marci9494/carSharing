@@ -12,8 +12,17 @@ import com.wwi16.model.FahrzeugHersteller;
 import com.wwi16.model.User;
 import com.wwi16.util.HibernateUtil;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class HerstellerService.
+ */
 public class HerstellerService {
 		
+	/**
+	 * Gets the all hersteller.
+	 *
+	 * @return the all hersteller
+	 */
 	public List<FahrzeugHersteller> getAllHersteller(){
         Session session = HibernateUtil.openSession();
         Transaction tx = null;
@@ -35,6 +44,12 @@ public class HerstellerService {
         return hersteller;
 	}
 	
+    /**
+     * Gets the hersteller by id.
+     *
+     * @param publicId the public id
+     * @return the hersteller by id
+     */
     public FahrzeugHersteller getHerstellerById(String publicId) {
         Session session = HibernateUtil.openSession();
         Transaction tx = null;

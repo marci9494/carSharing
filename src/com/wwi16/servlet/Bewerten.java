@@ -12,14 +12,27 @@ import javax.servlet.http.HttpSession;
 import com.wwi16.model.User;
 import com.wwi16.service.UserService;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Bewerten.
+ */
 public class Bewerten extends HttpServlet {
 
+	/**
+	 * Instantiates a new bewerten.
+	 */
 	public Bewerten() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
 	/**
+	 * Do get.
+	 *
+	 * @param request the request
+	 * @param response the response
+	 * @throws ServletException the servlet exception
+	 * @throws IOException Signals that an I/O exception has occurred.
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
@@ -42,6 +55,12 @@ public class Bewerten extends HttpServlet {
 	}
 
 	/**
+	 * Do post.
+	 *
+	 * @param request the request
+	 * @param response the response
+	 * @throws ServletException the servlet exception
+	 * @throws IOException Signals that an I/O exception has occurred.
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */

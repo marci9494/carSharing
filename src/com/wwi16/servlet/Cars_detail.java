@@ -22,14 +22,19 @@ import com.wwi16.service.BuchungService;
 import com.wwi16.service.FahrzeugService;
 import com.wwi16.service.UserService;
 
+// TODO: Auto-generated Javadoc
 /**
- * Servlet implementation class Cars_detail
+ * Servlet implementation class Cars_detail.
  */
 
 public class Cars_detail extends HttpServlet {
+	
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 112333L;
 
 	/**
+	 * Instantiates a new cars detail.
+	 *
 	 * @see HttpServlet#HttpServlet()
 	 */
 	public Cars_detail() {
@@ -38,6 +43,12 @@ public class Cars_detail extends HttpServlet {
 	}
 
 	/**
+	 * Do get.
+	 *
+	 * @param request the request
+	 * @param response the response
+	 * @throws ServletException the servlet exception
+	 * @throws IOException Signals that an I/O exception has occurred.
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
@@ -75,6 +86,12 @@ public class Cars_detail extends HttpServlet {
 	}
 
 	/**
+	 * Do post.
+	 *
+	 * @param request the request
+	 * @param response the response
+	 * @throws ServletException the servlet exception
+	 * @throws IOException Signals that an I/O exception has occurred.
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */

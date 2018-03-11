@@ -11,8 +11,18 @@ import com.wwi16.model.Kreditkarte;
 import com.wwi16.model.User;
 import com.wwi16.util.HibernateUtil;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class KreditkartenService.
+ */
 public class KreditkartenService {
 
+	/**
+	 * Gets the kreditkarte by user.
+	 *
+	 * @param user the user
+	 * @return the kreditkarte by user
+	 */
 	public Kreditkarte getKreditkarteByUser(User user){
         Session session = HibernateUtil.openSession();
         Transaction tx = null;
@@ -35,6 +45,12 @@ public class KreditkartenService {
         return kreditkarte;
 	}
 	
+	/**
+	 * Gets the kreditkarte by user ID.
+	 *
+	 * @param userID the user ID
+	 * @return the kreditkarte by user ID
+	 */
 	public Kreditkarte getKreditkarteByUserID(Long userID){
         Session session = HibernateUtil.openSession();
         Transaction tx = null;

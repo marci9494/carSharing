@@ -11,8 +11,18 @@ import com.wwi16.model.Ausstattung;
 import com.wwi16.model.FahrzeugFarbe;
 import com.wwi16.util.HibernateUtil;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class AusstattungService.
+ */
 public class AusstattungService {
 	
+    /**
+     * Gets the ausstattung by id.
+     *
+     * @param publicId the public id
+     * @return the ausstattung by id
+     */
     public Ausstattung getAusstattungById(String publicId) {
         Session session = HibernateUtil.openSession();
         Transaction tx = null;
@@ -34,6 +44,11 @@ public class AusstattungService {
         return ausstattung;
     }
     
+	/**
+	 * Gets the all ausstattung.
+	 *
+	 * @return the all ausstattung
+	 */
 	public List<Ausstattung> getAllAusstattung(){
         Session session = HibernateUtil.openSession();
         Transaction tx = null;

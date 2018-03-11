@@ -20,8 +20,18 @@ import com.wwi16.util.HibernateUtil;
 
 import jdk.nashorn.internal.runtime.UserAccessorProperty;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class BuchungService.
+ */
 public class BuchungService {
 	
+	/**
+	 * Search buchungen by user.
+	 *
+	 * @param user the user
+	 * @return the list
+	 */
 	public List<Buchung> searchBuchungenByUser(User user) {
 
 		
@@ -44,6 +54,13 @@ public class BuchungService {
 		}
 		return buchungen;
 	}
+	
+	/**
+	 * Search buchungen my cars.
+	 *
+	 * @param user the user
+	 * @return the list
+	 */
 	public List<Buchung> searchBuchungenMyCars(User user) {
 
 		
@@ -72,6 +89,12 @@ public class BuchungService {
 		return buchungen;
 	}
 	
+    /**
+     * Gets the buchung by id.
+     *
+     * @param publicId the public id
+     * @return the buchung by id
+     */
     public Buchung getBuchungById(String publicId) {
         Session session = HibernateUtil.openSession();
         Transaction tx = null;
@@ -93,6 +116,12 @@ public class BuchungService {
         return buchung;
     }
     
+    /**
+     * Update buchung.
+     *
+     * @param buchung the buchung
+     * @return the buchung
+     */
     public Buchung updateBuchung(Buchung buchung){
 		Session session = HibernateUtil.openSession();
 		session.beginTransaction();
@@ -110,6 +139,15 @@ public class BuchungService {
 		return buchung;
     }
     
+    /**
+     * Creates the buchung.
+     *
+     * @param userEmail the user email
+     * @param carId the car id
+     * @param startDateString the start date string
+     * @param endDateString the end date string
+     * @return the buchung
+     */
     public Buchung createBuchung(String userEmail,String carId, String startDateString, String endDateString){
     	UserService userService = new UserService();
     	FahrzeugService fahrzeugService = new FahrzeugService();

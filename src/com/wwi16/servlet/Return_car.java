@@ -19,9 +19,16 @@ import com.wwi16.service.FahrzeugService;
 import com.wwi16.service.UserService;
 import com.wwi16.util.DateUtil;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Return_car.
+ */
 public class Return_car extends HttpServlet {
 
 
+	/* (non-Javadoc)
+	 * @see javax.servlet.http.HttpServlet#doGet(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
+	 */
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/return_car.jsp");
 
@@ -49,6 +56,9 @@ public class Return_car extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
 
+	/* (non-Javadoc)
+	 * @see javax.servlet.http.HttpServlet#doPost(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
+	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		// Parameter werden auf die Werte aus der jsp gesetzt

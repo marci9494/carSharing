@@ -17,7 +17,16 @@ import com.wwi16.model.LatLong;
 import com.wwi16.util.HibernateUtil;
 
 
+/**
+ * The Class LocationService.
+ */
 public class LocationService {
+	
+	/**
+	 * Fill lat long table.
+	 *
+	 * @param request the request
+	 */
 	public void fillLatLongTable(HttpServletRequest request) {
 		//Only use this to fill the table
 		ServletContext context = request.getServletContext();
@@ -51,6 +60,13 @@ public class LocationService {
 			e.printStackTrace();
 		}
 	}
+	
+	/**
+	 * Gets the location by plz.
+	 *
+	 * @param plz the plz
+	 * @return the location by plz
+	 */
 	public LatLong getLocationByPlz(String plz){
 		 Session session = HibernateUtil.openSession();
 	        Transaction tx = null;
@@ -71,6 +87,12 @@ public class LocationService {
 	        }
 	        return location;
 	}
+	
+	/**
+	 * Gets the all locations.
+	 *
+	 * @return the all locations
+	 */
 	public List<LatLong> getAllLocations(){
 		 Session session = HibernateUtil.openSession();
 	        Transaction tx = null;

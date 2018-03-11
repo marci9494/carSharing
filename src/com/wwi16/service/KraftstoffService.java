@@ -10,8 +10,18 @@ import org.hibernate.Transaction;
 import com.wwi16.model.Kraftstoff;
 import com.wwi16.util.HibernateUtil;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class KraftstoffService.
+ */
 public class KraftstoffService {
 	
+	/**
+	 * Gets the kraftstoff by id.
+	 *
+	 * @param publicId the public id
+	 * @return the kraftstoff by id
+	 */
 	public Kraftstoff getKraftstoffById(String publicId) {
         Session session = HibernateUtil.openSession();
         Transaction tx = null;
@@ -33,6 +43,11 @@ public class KraftstoffService {
         return kraftstoff;
     }
     
+	/**
+	 * Gets the all kraftstoff.
+	 *
+	 * @return the all kraftstoff
+	 */
 	public List<Kraftstoff> getAllKraftstoff(){
         Session session = HibernateUtil.openSession();
         Transaction tx = null;

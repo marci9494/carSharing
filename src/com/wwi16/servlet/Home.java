@@ -41,14 +41,19 @@ import com.wwi16.service.LocationService;
 import com.wwi16.service.UserService;
 import com.wwi16.util.RadiusSearchUtil;
 
+// TODO: Auto-generated Javadoc
 /**
- * Servlet implementation class Home
+ * Servlet implementation class Home.
  */
 
 public class Home extends HttpServlet {
+	
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 112333L;
 
 	/**
+	 * Instantiates a new home.
+	 *
 	 * @see HttpServlet#HttpServlet()
 	 */
 	public Home() {
@@ -57,6 +62,12 @@ public class Home extends HttpServlet {
 	}
 
 	/**
+	 * Do get.
+	 *
+	 * @param request the request
+	 * @param response the response
+	 * @throws ServletException the servlet exception
+	 * @throws IOException Signals that an I/O exception has occurred.
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
@@ -87,6 +98,12 @@ public class Home extends HttpServlet {
 	}
 
 	/**
+	 * Do post.
+	 *
+	 * @param request the request
+	 * @param response the response
+	 * @throws ServletException the servlet exception
+	 * @throws IOException Signals that an I/O exception has occurred.
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
@@ -133,6 +150,16 @@ public class Home extends HttpServlet {
 
 	}
 
+	/**
+	 * Gets the fahrzeuge for plz.
+	 *
+	 * @param request the request
+	 * @param plz the plz
+	 * @param distance the distance
+	 * @param startDateString the start date string
+	 * @param endDateString the end date string
+	 * @return the fahrzeuge for plz
+	 */
 	private List<Distance> getFahrzeugeForPlz(HttpServletRequest request, String plz, double distance,
 			String startDateString, String endDateString) {
 		RadiusSearchUtil radiusSearchUtil = new RadiusSearchUtil();
@@ -181,6 +208,12 @@ public class Home extends HttpServlet {
 		return carDistanceList;
 	}
 
+	/**
+	 * Parses the date.
+	 *
+	 * @param dateString the date string
+	 * @return the date
+	 */
 	private Date parseDate(String dateString) {
 
 		DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
@@ -193,6 +226,12 @@ public class Home extends HttpServlet {
 		return null;
 	}
 
+	/**
+	 * Sets the fahrzeug bild string.
+	 *
+	 * @param distanceList the distance list
+	 * @return the list
+	 */
 	private List<Distance> setFahrzeugBildString(List<Distance> distanceList) {
 		for (Distance distance : distanceList) {
 			List<Fahrzeug> fahrzeugList = distance.getFahrzeug();
@@ -207,6 +246,13 @@ public class Home extends HttpServlet {
 		return distanceList;
 	}
 
+	/**
+	 * Check if same day.
+	 *
+	 * @param cal1 the cal 1
+	 * @param cal2 the cal 2
+	 * @return true, if successful
+	 */
 	private boolean checkIfSameDay(Calendar cal1, Calendar cal2) {
 		return cal1.get(Calendar.YEAR) == cal2.get(Calendar.YEAR)
 				&& cal1.get(Calendar.DAY_OF_YEAR) == cal2.get(Calendar.DAY_OF_YEAR);

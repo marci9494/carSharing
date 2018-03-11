@@ -9,7 +9,20 @@ import com.wwi16.model.Distance;
 import com.wwi16.model.LatLong;
 import com.wwi16.service.LocationService;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class RadiusSearchUtil.
+ */
 public class RadiusSearchUtil {
+	
+	/**
+	 * Radius calculation.
+	 *
+	 * @param request the request
+	 * @param plz the plz
+	 * @param distance the distance
+	 * @return the list
+	 */
 	public List<Distance> radiusCalculation(HttpServletRequest request, String plz, double distance) {
 
 		List<Distance> distanceList = new ArrayList<>();
@@ -37,11 +50,23 @@ public class RadiusSearchUtil {
 
 	}
 
+	/**
+	 * Deg 2 rad.
+	 *
+	 * @param degString the deg string
+	 * @return the double
+	 */
 	private static double deg2rad(String degString) {
 		double deg = Double.parseDouble(degString);
 		return (deg * Math.PI / 180.0);
 	}
 
+	/**
+	 * Round to 2 decimals.
+	 *
+	 * @param val the val
+	 * @return the double
+	 */
 	double roundTo2Decimals(double val) {
 		return Math.round(val * 100.0) / 100.0;
 	}

@@ -19,8 +19,15 @@ import com.wwi16.model.User;
 import com.wwi16.service.BuchungService;
 import com.wwi16.service.UserService;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Buchungen.
+ */
 public class Buchungen extends HttpServlet {
 
+	/* (non-Javadoc)
+	 * @see javax.servlet.http.HttpServlet#doGet(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
+	 */
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher dispatcher = null;
 		HttpSession session = request.getSession(false);
@@ -50,6 +57,9 @@ public class Buchungen extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
 
+	/* (non-Javadoc)
+	 * @see javax.servlet.http.HttpServlet#doPost(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
+	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		response.setContentType("application/json");

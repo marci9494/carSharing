@@ -11,8 +11,18 @@ import com.wwi16.model.FahrzeugFarbe;
 import com.wwi16.model.FahrzeugKategorie;
 import com.wwi16.util.HibernateUtil;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class FahrzeugFarbeService.
+ */
 public class FahrzeugFarbeService {
 	
+    /**
+     * Gets the fahrzeug farbe by id.
+     *
+     * @param publicId the public id
+     * @return the fahrzeug farbe by id
+     */
     public FahrzeugFarbe getFahrzeugFarbeById(String publicId) {
         Session session = HibernateUtil.openSession();
         Transaction tx = null;
@@ -34,6 +44,11 @@ public class FahrzeugFarbeService {
         return farbe;
     }
     
+	/**
+	 * Gets the all farben.
+	 *
+	 * @return the all farben
+	 */
 	public List<FahrzeugFarbe> getAllFarben(){
         Session session = HibernateUtil.openSession();
         Transaction tx = null;

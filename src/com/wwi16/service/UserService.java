@@ -12,8 +12,19 @@ import com.wwi16.model.Kreditkarte;
 import com.wwi16.model.User;
 import com.wwi16.util.HibernateUtil;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class UserService.
+ */
 public class UserService {
 
+	/**
+	 * Check login.
+	 *
+	 * @param email the email
+	 * @param pw the pw
+	 * @return true, if successful
+	 */
 	public boolean checkLogin(String email, String pw) {
 		Session session = HibernateUtil.openSession();
 		Transaction tx = null;
@@ -47,6 +58,22 @@ public class UserService {
 		return false;
 	}
 
+	/**
+	 * Creates the nutzer.
+	 *
+	 * @param vorname the vorname
+	 * @param nachname the nachname
+	 * @param strasse the strasse
+	 * @param plz the plz
+	 * @param ort the ort
+	 * @param email the email
+	 * @param password the password
+	 * @param personalausweis the personalausweis
+	 * @param kartennummer the kartennummer
+	 * @param valid the valid
+	 * @param karteninhaber the karteninhaber
+	 * @return the user
+	 */
 	public User createNutzer(String vorname, String nachname,String strasse,String plz, String ort, String email, String password,byte[] personalausweis, String kartennummer, String valid, String karteninhaber){
 		 Session session = HibernateUtil.openSession();
 		 
@@ -81,6 +108,12 @@ public class UserService {
 		return nutzer;
 	}
 
+	/**
+	 * Gets the nutzer by mail.
+	 *
+	 * @param email the email
+	 * @return the nutzer by mail
+	 */
 	public User getNutzerByMail(String email) {
 		Session session = HibernateUtil.openSession();
 		Transaction tx = null;
@@ -102,6 +135,12 @@ public class UserService {
 		return nutzer;
 	}
 	
+	/**
+	 * Gets the nutzer by id.
+	 *
+	 * @param id the id
+	 * @return the nutzer by id
+	 */
 	public User getNutzerById(String id) {
 		Session session = HibernateUtil.openSession();
 		Transaction tx = null;
@@ -124,6 +163,12 @@ public class UserService {
 		return nutzer;
 	}
 
+	/**
+	 * Hash password.
+	 *
+	 * @param password the password
+	 * @return the string
+	 */
 	private String hashPassword(String password) {
 		String generatedPassword = null;
 		try {
@@ -147,6 +192,12 @@ public class UserService {
 		return generatedPassword;
 	}
 	
+	/**
+	 * Update user.
+	 *
+	 * @param user the user
+	 * @return the user
+	 */
 	public User updateUser(User user){
 		System.out.println("update!!");
 		Session session = HibernateUtil.openSession();

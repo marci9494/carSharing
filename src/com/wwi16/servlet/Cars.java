@@ -17,14 +17,19 @@ import com.wwi16.service.UserService;
 
 
 
+// TODO: Auto-generated Javadoc
 /**
- * Servlet implementation class Cars
+ * Servlet implementation class Cars.
  */
 
 public class Cars extends HttpServlet {
+	
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 112333L;
        
     /**
+     * Instantiates a new cars.
+     *
      * @see HttpServlet#HttpServlet()
      */
     public Cars() {
@@ -33,6 +38,12 @@ public class Cars extends HttpServlet {
     }
 
 	/**
+	 * Do get.
+	 *
+	 * @param request the request
+	 * @param response the response
+	 * @throws ServletException the servlet exception
+	 * @throws IOException Signals that an I/O exception has occurred.
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -70,6 +81,12 @@ public class Cars extends HttpServlet {
 	}
 
 	/**
+	 * Do post.
+	 *
+	 * @param request the request
+	 * @param response the response
+	 * @throws ServletException the servlet exception
+	 * @throws IOException Signals that an I/O exception has occurred.
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

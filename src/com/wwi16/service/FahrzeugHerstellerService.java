@@ -10,8 +10,17 @@ import org.hibernate.Transaction;
 import com.wwi16.model.FahrzeugHersteller;
 import com.wwi16.util.HibernateUtil;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class FahrzeugHerstellerService.
+ */
 public class FahrzeugHerstellerService {
 	
+	/**
+	 * Gets the all hersteller.
+	 *
+	 * @return the all hersteller
+	 */
 	public List<FahrzeugHersteller> getAllHersteller(){
         Session session = HibernateUtil.openSession();
         Transaction tx = null;

@@ -24,8 +24,18 @@ import com.wwi16.model.VermietZeitraum;
 import com.wwi16.util.DateUtil;
 import com.wwi16.util.HibernateUtil;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class FahrzeugService.
+ */
 public class FahrzeugService {
 
+	/**
+	 * Search fahrzeug by plz.
+	 *
+	 * @param plz the plz
+	 * @return the list
+	 */
 	public List<Fahrzeug> searchFahrzeugByPlz(String plz) {
 
 		Session session = HibernateUtil.openSession();
@@ -48,6 +58,24 @@ public class FahrzeugService {
 		return fahrzeuge;
 	}
 
+	/**
+	 * Creates the fahrzeug.
+	 *
+	 * @param kennzeichen the kennzeichen
+	 * @param modell the modell
+	 * @param baujahr the baujahr
+	 * @param farbe the farbe
+	 * @param laufleistung the laufleistung
+	 * @param leistung the leistung
+	 * @param kraftstoff the kraftstoff
+	 * @param sitzplaetze the sitzplaetze
+	 * @param tagespreis the tagespreis
+	 * @param kilometerpreis the kilometerpreis
+	 * @param fahrzeugbild the fahrzeugbild
+	 * @param eigentuemerID the eigentuemer ID
+	 * @param ausstattung the ausstattung
+	 * @return the fahrzeug
+	 */
 	public Fahrzeug createFahrzeug(String kennzeichen, String modell, String baujahr, String farbe, String laufleistung,
 			String leistung, String kraftstoff, String sitzplaetze, String tagespreis, String kilometerpreis,
 			byte[] fahrzeugbild, String eigentuemerID, String[] ausstattung) {
@@ -134,6 +162,12 @@ public class FahrzeugService {
 
 	}
 
+	/**
+	 * Gets the fahrzeug by id.
+	 *
+	 * @param publicId the public id
+	 * @return the fahrzeug by id
+	 */
 	public Fahrzeug getFahrzeugById(String publicId) {
 		Session session = HibernateUtil.openSession();
 		Transaction tx = null;
@@ -155,6 +189,12 @@ public class FahrzeugService {
 		return fahrzeug;
 	}
 
+	/**
+	 * Search fahrzeuge by user.
+	 *
+	 * @param user the user
+	 * @return the list
+	 */
 	public List<Fahrzeug> searchFahrzeugeByUser(User user) {
 
 		Session session = HibernateUtil.openSession();
@@ -177,6 +217,12 @@ public class FahrzeugService {
 		return fahrzeuge;
 	}
 
+	/**
+	 * Adds the vermietungs zeitraeume to fahrzeug.
+	 *
+	 * @param vermietZeitraeume the vermiet zeitraeume
+	 * @param carId the car id
+	 */
 	public void addVermietungsZeitraeumeToFahrzeug(List<VermietZeitraum> vermietZeitraeume, String carId) {
 		Fahrzeug fahrzeug = getFahrzeugById(carId);
 		for (VermietZeitraum vermietZeitraum : vermietZeitraeume) {
@@ -204,6 +250,12 @@ public class FahrzeugService {
 
 	}
 
+	/**
+	 * Update fahrzeug.
+	 *
+	 * @param fahrzeug the fahrzeug
+	 * @return the fahrzeug
+	 */
 	public Fahrzeug updateFahrzeug(Fahrzeug fahrzeug) {
 		Session session = HibernateUtil.openSession();
 		session.beginTransaction();
@@ -221,6 +273,13 @@ public class FahrzeugService {
 		return fahrzeug;
 	}
 
+	/**
+	 * Check if vermiet zeitraum exists.
+	 *
+	 * @param vermietZeitraum the vermiet zeitraum
+	 * @param fahrzeug the fahrzeug
+	 * @return the boolean
+	 */
 	public Boolean checkIfVermietZeitraumExists(VermietZeitraum vermietZeitraum, Fahrzeug fahrzeug) {
 
 		Session session = HibernateUtil.openSession();
@@ -249,6 +308,12 @@ public class FahrzeugService {
 		}
 
 	}
+    
+    /**
+     * Delete vermietzeitraum.
+     *
+     * @param id the id
+     */
     public void deleteVermietzeitraum(String id){
     	FahrzeugVermietZeitraum vermietZeitraum = getFahrzeugVermietZeitraumById(id);
     	
@@ -267,6 +332,12 @@ public class FahrzeugService {
     	
     }
     
+    /**
+     * Gets the fahrzeug vermiet zeitraum by id.
+     *
+     * @param publicId the public id
+     * @return the fahrzeug vermiet zeitraum by id
+     */
     public FahrzeugVermietZeitraum getFahrzeugVermietZeitraumById(String publicId){
 		Session session = HibernateUtil.openSession();
 		Transaction tx = null;
