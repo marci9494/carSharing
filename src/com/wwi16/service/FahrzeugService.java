@@ -93,7 +93,6 @@ public class FahrzeugService {
 //			
 			AusstattungService ausstattungService = new AusstattungService();
 			List<Ausstattung> ausstattungsList = new ArrayList<>();
-//			fahrzeugAusstattungService.createFahrzeugAusstattung(fahrzeug, ausstattung);
 			for (String ausstattungId : ausstattung) {
 				System.out.println("Ausstattungid = " + ausstattungId);
 				Ausstattung ausstattungById = ausstattungService.getAusstattungById(ausstattungId);

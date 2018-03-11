@@ -82,12 +82,6 @@ public class Home extends HttpServlet {
 		request.setAttribute("ausstattungen", ausstattungsService.getAllAusstattung());
 		request.setAttribute("farben", farbService.getAllFarben());
 
-		// AusstattungService ausstattungsServie = new AusstattungService();
-		// Ausstattung ausstattungById =
-		// ausstattungsServie.getAusstattungById("1");
-		// System.out.println(ausstattungById.getName());
-		// request.setAttribute("fahrzeug", ausstattungById);
-
 		dispatcher.forward(request, response);
 
 	}

@@ -82,7 +82,6 @@ public class Register_car extends HttpServlet {
 		String eigentuemerID =  request.getParameter("userId");	
 		 
 		String[] ausstattung = request.getParameterValues("ausstattung");
-		//@Jonas schau dir mal https://stackoverflow.com/questions/10658945/getting-checkbox-values-from-a-servlet an.. Damit bekommst alle ausgewählten ausstattungen
 		
 		
 		InputStream inputStream = null;
@@ -107,19 +106,6 @@ public class Register_car extends HttpServlet {
 			Fahrzeug fahrzeug = fahrzeugService.createFahrzeug(kennzeichen, modell, baujahr, farbe, laufleistung, leistung,
 					kraftstoff, sitzplaetze, tagespreis, kilometerpreis,buffer.toByteArray(),eigentuemerID, ausstattung);
 		}
-		// PrintWriter out = response.getWriter();
-		// if(fahrzeug != null){
-		// System.out.println("Fahrzeug " + kennzeichen + " registriert");
-		// HttpSession session=request.getSession();
-		/// * session.setAttribute("userEmail",email);
-		//
-		// out.print(Boolean.TRUE);*/
-		// out.flush();
-		// }else{
-		// //TODO fehlerbehandlung
-		// out.print(Boolean.TRUE);
-		// out.flush();
-		// }
 
 		
 		response.sendRedirect("/carSharing/cars");

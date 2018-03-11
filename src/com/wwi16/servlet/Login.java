@@ -17,7 +17,6 @@ import javax.servlet.http.HttpSession;
 
 import com.wwi16.service.UserService;
 
-/*import com.wwi16.service.NutzerService;*/
 
 public class Login extends HttpServlet {
 	
@@ -27,13 +26,6 @@ public class Login extends HttpServlet {
     }
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/login.jsp");
-		
-//		AusstattungService ausstattungsServie = new AusstattungService();
-//		Ausstattung ausstattungById = ausstattungsServie.getAusstattungById("1");
-//		System.out.println(ausstattungById.getName());
-//		request.setAttribute("ausstattung", ausstattungById);
-
-		
 		dispatcher.forward(request, response);
 		
 	}
