@@ -49,8 +49,8 @@ public class Login extends HttpServlet {
 	        	System.out.println("Nutzer " + user + " angemeldet");
 	        	HttpSession session=request.getSession();  
 	            session.setAttribute("userEmail",user);  
-	            RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/home.jsp");
-	            dispatcher.forward(request, response);
+	            response.sendRedirect("/carSharing/home");
+				return;
 	        }else{
 	        	System.out.println("Falsches PW von User  " + user);
 	        	//TODO Fehlermeldung anzeigen

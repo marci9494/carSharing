@@ -125,8 +125,8 @@ public class Cars_detail extends HttpServlet {
 			
 			fahrzeugService.updateFahrzeug(fahrzeug);
 			
-			//funktioniert noch nicht:
-			response.sendRedirect("/carSharing/cars_detail?id=" + carId);
+            response.sendRedirect("/carSharing/cars_detail?id=" + carId);
+			return;
 			
 		}
 

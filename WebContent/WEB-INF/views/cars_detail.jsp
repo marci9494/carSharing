@@ -118,7 +118,7 @@
 
 	<button onclick="edit()" id="edit-button">Ändern</button>
 
-	<button onclick="jQuery('#update-form').submit()"
+	<button onclick="update()"
 		style="display: none;" id="save-button">Speichern</button>
 	<br>
 	<br>
@@ -184,12 +184,12 @@
 		var sitzplaetze = jQuery('#sitzplaetze').val();
 		var leistung = jQuery('#leistung').val();
 
-		console.log(passwort);
-		jQuery.post("update", {
+		jQuery.post("cars_details", {
+			action : "update"
 			marke : marke,
 			modell : modell,
 			farbe : farbe,
-			sitzplatze : sitzplatze,
+			sitzplatze : sitzplaetze,
 			leistung : leistung,
 		}, function(data, status) {
 			if (data) {
