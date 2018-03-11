@@ -37,7 +37,7 @@ import com.wwi16.service.FahrzeugFarbeService;
 import com.wwi16.service.FahrzeugKategorieService;
 import com.wwi16.service.FahrzeugService;
 import com.wwi16.service.HerstellerService;
-import com.wwi16.service.LatLongService;
+import com.wwi16.service.LocationService;
 import com.wwi16.service.UserService;
 import com.wwi16.util.RadiusSearchUtil;
 
