@@ -51,8 +51,8 @@
 
 			<div class="formular-wrapper">
 				<label>Anrede: </label> <br> <select name="anrede">
-					<option>Frau</option>
-					<option>Herr</option>
+					<option value="0">Frau</option>
+					<option value="1">Herr</option>
 				</select>
 			</div>
 

@@ -56,7 +56,9 @@
 				<h2>Persönliche Daten</h2>
 
 
-				<br> <span class="form-field-label">Vorname</span> <br>
+				<br> <span class="form-field-label">Anrede</span> <br>
+				<p style='margin-left:25px'>${user.anrede}</p> <br>
+				<span class="form-field-label">Vorname</span> <br>
 				<p class="editable" id=daten>${user.vorname}</p>
 				<input id="vorname" class="editableInput" type='text'
 					style='display: none' name="vorname" value="${user.vorname}" /> <br>

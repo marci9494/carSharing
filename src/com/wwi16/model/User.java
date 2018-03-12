@@ -26,6 +26,9 @@ public class User implements Serializable {
 	private Long id;
 	
 	/** The vorname. */
+	private String anrede;
+	
+	/** The vorname. */
 	private String vorname;
 	
 	/** The nachname. */
@@ -66,9 +69,10 @@ public class User implements Serializable {
 	 * @param email the email
 	 * @param password the password
 	 */
-	public User(Long id, String vorname, String nachname, String strasse, String plz, String ort, String email,
+	public User(Long id, String anrede, String vorname, String nachname, String strasse, String plz, String ort, String email,
 			String password) {
 		this.id = id;
+		this.anrede = anrede;
 		this.vorname = vorname;
 		this.nachname = nachname;
 		this.strasse = strasse;
@@ -103,6 +107,15 @@ public class User implements Serializable {
 	 */
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	
+	public String getAnrede() {
+		return anrede;
+	}
+
+	public void setAnrede(String anrede) {
+		this.anrede = anrede;
 	}
 
 	/**
