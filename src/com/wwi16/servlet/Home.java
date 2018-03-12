@@ -20,6 +20,7 @@ import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.wwi16.model.Ausstattung;
 import com.wwi16.model.Distance;
 import com.wwi16.model.Fahrzeug;
 import com.wwi16.model.FahrzeugFilter;
@@ -160,13 +161,15 @@ public class Home extends HttpServlet {
 			for (FahrzeugFilter filter : filters) {
 				String filterArt = filter.getArt();
 				for (Distance distance : carList) {
+					Distance distanceToAdd = new Distance(distance.getPlz(), distance.getDistance(), distance.getOrt());
+					List<Fahrzeug> fahrzeugeToAdd = new ArrayList<>();
 					for (Fahrzeug fahrzeug : distance.getFahrzeug()) {
 						if (filterArt.equals("kategorie")) {
 							if (fahrzeug.getKategorie() != null) {
 								for (String id : filter.getIds()) {
 									if (fahrzeug.getKategorie().getId().equals(Long.valueOf(id))) {
-										if (!filteredCarList.contains(distance)) {
-											filteredCarList.add(distance);
+										if (!fahrzeugeToAdd.contains(fahrzeug)) {
+											fahrzeugeToAdd.add(fahrzeug);
 										}
 									}
 								}
@@ -176,16 +179,30 @@ public class Home extends HttpServlet {
 							if (fahrzeug.getFarbe() != null) {
 								for (String id : filter.getIds()) {
 									if (fahrzeug.getFarbe().getId().equals(Long.valueOf(id))) {
-										if (!filteredCarList.contains(distance)) {
-											filteredCarList.add(distance);
+										if (!fahrzeugeToAdd.contains(fahrzeug)) {
+											fahrzeugeToAdd.add(fahrzeug);
 										}
 									}
 								}
 							}
 						} else if (filterArt.equals("ausstattung")) {
+							if(fahrzeug.getAusstattung() != null){
+								for (String id : filter.getIds()) {
+									for (Ausstattung ausstattung : fahrzeug.getAusstattung()) {
+										if(ausstattung.getId().equals(Long.valueOf(id))){
+											if (!fahrzeugeToAdd.contains(fahrzeug)) {
+												fahrzeugeToAdd.add(fahrzeug);
+											}
+										}
+									}
+								}
+							}
+							
 
 						}
 					}
+					distanceToAdd.setFahrzeug(fahrzeugeToAdd);
+					filteredCarList.add(distanceToAdd);
 				}
 			}
 
