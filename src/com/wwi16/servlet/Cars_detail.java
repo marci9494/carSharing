@@ -101,7 +101,7 @@ public class Cars_detail extends HttpServlet {
 		if (action.equals("saveVermietzeitraum")) {
 
 			String carId = XssUtil.sanitize(request.getParameter("carId"));
-			String vermietZeitraeumeString = XssUtil.sanitize(request.getParameter("vermietZeitraeume"));
+			String vermietZeitraeumeString = request.getParameter("vermietZeitraeume");
 			Gson gson = new Gson();
 			List<VermietZeitraum> vermietzeitraeume = gson.fromJson(vermietZeitraeumeString,
 					new TypeToken<List<VermietZeitraum>>() {
