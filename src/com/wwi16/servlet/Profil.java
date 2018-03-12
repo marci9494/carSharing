@@ -88,6 +88,7 @@ public class Profil extends HttpServlet {
 		String vorname = XssUtil.sanitize(request.getParameter("vorname"));
 		String nachname = XssUtil.sanitize(request.getParameter("nachname"));
 		String strasse = XssUtil.sanitize(request.getParameter("strasse"));
+		String hausnummer = XssUtil.sanitize(request.getParameter("hausnummer"));
 		String plz = XssUtil.sanitize(request.getParameter("plz"));
 		String ort = XssUtil.sanitize(request.getParameter("ort"));
 		String email = request.getParameter("email");
@@ -104,6 +105,7 @@ public class Profil extends HttpServlet {
 			user.setVorname(vorname);
 			user.setNachname(nachname);
 			user.setStrasse(strasse);
+			user.setHausnummer(hausnummer);
 			user.setOrt(ort);
 			user.setEmail(email);
 			user.setPlz(plz);
