@@ -90,9 +90,4 @@
 </body>
 <jsp:include page="/theme/html/footer.html" />
 
-<script src="/carSharing/html/js/cars.js"></script>
-
-
-
-
 </html>
