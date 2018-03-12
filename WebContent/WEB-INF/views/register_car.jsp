@@ -38,7 +38,7 @@
 			</c:choose>
 		</div>
 		<form action="register_car" method="post" id="upload-form"
-			enctype="multipart/form-data" >
+			enctype="multipart/form-data" accept-charset="ISO-8859-1">
 			<br> <br> <label>Kfz-Kennzeichen</label><br>
 			<div class="kennzeichen-wrapper">
 				<img class="kennzeichen_img" alt="Kennzeichen"

@@ -24,7 +24,7 @@
 		<form method="post" action="login">
 			<label class="user">
 				<p>
-					<input type="text" name="username" placeholder="Username"
+					<input type="text" name="username" placeholder="Email"
 						id="username">
 			</label> <label class="mail"> <input type="password" name="pass"
 				placeholder="Passwort" id="pass">
