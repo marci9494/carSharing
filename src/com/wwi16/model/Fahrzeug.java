@@ -63,9 +63,6 @@ public class Fahrzeug implements Serializable {
 	/** The tagespreis. */
 	private String tagespreis;
 	
-	/** The kilometerpreis. */
-	private String kilometerpreis;
-
 	/** The leistung. */
 	private String leistung;
 	
@@ -191,23 +188,6 @@ public class Fahrzeug implements Serializable {
 		this.tagespreis = tagespreis;
 	}
 
-	/**
-	 * Gets the kilometerpreis.
-	 *
-	 * @return the kilometerpreis
-	 */
-	public String getKilometerpreis() {
-		return kilometerpreis;
-	}
-
-	/**
-	 * Sets the kilometerpreis.
-	 *
-	 * @param kilometerpreis the new kilometerpreis
-	 */
-	public void setKilometerpreis(String kilometerpreis) {
-		this.kilometerpreis = kilometerpreis;
-	}
 
 	/**
 	 * Gets the id.

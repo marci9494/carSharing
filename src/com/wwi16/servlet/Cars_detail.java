@@ -113,7 +113,6 @@ public class Cars_detail extends HttpServlet {
 		} else if ("update".equals(action)) {
 
 			String tagespreis = XssUtil.sanitize(request.getParameter("tagespreis"));
-			String kilometerpreis = XssUtil.sanitize(request.getParameter("kilometerpreis"));
 
 			String carId = request.getParameter("carId");
 			System.out.println("ID ist " + carId);
@@ -122,7 +121,6 @@ public class Cars_detail extends HttpServlet {
 			Fahrzeug fahrzeug = fahrzeugService.getFahrzeugById(carId);
 
 			fahrzeug.setTagespreis(tagespreis);
-			fahrzeug.setKilometerpreis(kilometerpreis);
 
 			fahrzeugService.updateFahrzeug(fahrzeug);
 

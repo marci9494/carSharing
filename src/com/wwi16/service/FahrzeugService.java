@@ -70,15 +70,13 @@ public class FahrzeugService {
 	 * @param kraftstoff the kraftstoff
 	 * @param sitzplaetze the sitzplaetze
 	 * @param tagespreis the tagespreis
-	 * @param kilometerpreis the kilometerpreis
 	 * @param fahrzeugbild the fahrzeugbild
 	 * @param eigentuemerID the eigentuemer ID
 	 * @param ausstattung the ausstattung
 	 * @return the fahrzeug
 	 */
 	public Fahrzeug createFahrzeug(String marke, String kennzeichen, String modell, String baujahr, String farbe, String laufleistung,
-			String leistung, String kraftstoff, String sitzplaetze, String tagespreis, String kilometerpreis,
-			byte[] fahrzeugbild, String eigentuemerID, String[] ausstattung) {
+			String leistung, String kraftstoff, String sitzplaetze, String tagespreis, byte[] fahrzeugbild, String eigentuemerID, String[] ausstattung) {
 
 		Session session = HibernateUtil.openSession();
 		session.beginTransaction();
@@ -141,7 +139,6 @@ public class FahrzeugService {
 		// TODO ersetzen
 		fahrzeug.setPlz("89168");
 		fahrzeug.setTagespreis(tagespreis);
-		fahrzeug.setKilometerpreis(kilometerpreis);
 		fahrzeug.setBaujahr(baujahr);
 
 		// Als Eigent�mer wird der eingeloggte User eingetragen

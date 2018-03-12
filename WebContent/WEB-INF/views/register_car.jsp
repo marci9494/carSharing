@@ -161,8 +161,7 @@
 
 			<div class="formular-wrapper">
 				<p>Hier kannst du eingeben, wie viel dein Fahrzeug pro Tag
-					kostet. Pro Tag sind 100 Kilometer frei. Du kannst angeben, wie
-					viel jeder zusätzliche Kilometer kostet.</p>
+					kostet.</p>
 			</div>
 
 			<div class="formular-wrapper">
@@ -173,13 +172,6 @@
 			
 			</div>
 			<br>
-			<div class="formular-wrapper">
-
-				<label>Kilometerpreis</label>
-				<br>
-				<input type="text" name="kilometerPreisInput" id="kilometerPreisInput" placeholder="5,30" size="5" required><label>€</label>
-
-			</div>
 					
 			
 			<div class="formular-wrapper">
