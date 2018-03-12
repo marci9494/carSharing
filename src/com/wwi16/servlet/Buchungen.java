@@ -57,9 +57,7 @@ public class Buchungen extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
 
-	/* (non-Javadoc)
-	 * @see javax.servlet.http.HttpServlet#doPost(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
-	 */
+
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		response.setContentType("application/json");
@@ -87,6 +85,18 @@ public class Buchungen extends HttpServlet {
 			Buchung buchung = buchungsService.getBuchungById(buchungsId);
 			if(buchung != null){
 				buchung.setStatus(BuchungStatus.ABGEHOLT);
+				buchungsService.updateBuchung(buchung);
+				out.print(Boolean.TRUE);
+				out.flush();
+			}
+		}else if("buchungStornieren".equals(action)){
+			String buchungsId = request.getParameter("buchungId");
+			//TODO check if user has buchung... HTML injection
+			String userId = request.getParameter("userId");
+			BuchungService buchungsService = new BuchungService();
+			Buchung buchung = buchungsService.getBuchungById(buchungsId);
+			if(buchung != null){
+				buchung.setStatus(BuchungStatus.STORNIERT);
 				buchungsService.updateBuchung(buchung);
 				out.print(Boolean.TRUE);
 				out.flush();

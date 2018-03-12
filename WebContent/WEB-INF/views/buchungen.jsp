@@ -81,9 +81,11 @@ td, th {
 								value="${buchung.endDatum }" /></td>
 						<td>${buchung.fahrzeug.hersteller.name}-
 							${buchung.fahrzeug.modell}</td>
+						<td>${buchung.status}</td>
 						<td>Befüll mich</td>
-						<td>${buchung.status}-</td>
-						<td><button>Stornieren</button></td>
+						<c:if test="${ buchung.status != 'ABGESCHLOSSEN' && buchung.status != 'STORNIERT'}">
+							<td><button onclick="buchungStornieren('${buchung.id }')" >Stornieren</button></td>
+						</c:if>
 						<c:if test="${ buchung.status == 'ABGESCHLOSSEN'}">
 							<td><a href="/carSharing/bewerten?id=${buchung.id }"><button>Bewerten</button></a></td>
 						</c:if>
@@ -121,7 +123,7 @@ td, th {
 						<td>${buchung.status}-</td>
 						<c:if test="${ buchung.status == 'ANGEFRAGT'}">
 							<td><button onclick="buchungFreigeben('${buchung.id }')">Freigeben</button></td>
-							<td><button onclick="buchungAblehnen('${buchung.id }')">Ablehnen</button></td>
+							<td><button onclick="buchungStornieren('${buchung.id }')">Ablehnen</button></td>
 						</c:if>
 						<c:if test="${ buchung.status == 'FREIGEGEBEN'}">
 							<td><button onclick="buchungAbgeholt('${buchung.id }')">Fahrzeug abgeholt</button></td>
@@ -172,6 +174,21 @@ td, th {
 				alert("Bitte melden Sie sich an");
 				window.location = "/carSharing/login"
 			}
+		}
+		
+		function buchungStornieren(buchungId){
+			var abfrage = confirm("Wollen Sie die Buchung wirklich stornieren?");
+			if(abfrage == true){
+				var userId = jQuery('.userId').val();
+				jQuery.post("buchungen", {
+					action : "buchungStornieren",
+					buchungId : buchungId,
+					userId : userId
+				}, function(data, status) {
+					location.reload();
+				});
+			}
+			
 		}
 	</script>
 	</div>
