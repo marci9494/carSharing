@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.wwi16.model.Buchung;
 import com.wwi16.model.User;
+import com.wwi16.service.BuchungService;
 import com.wwi16.service.UserService;
 
 // TODO: Auto-generated Javadoc
@@ -29,38 +31,65 @@ public class Bewerten extends HttpServlet {
 	/**
 	 * Do get.
 	 *
-	 * @param request the request
-	 * @param response the response
-	 * @throws ServletException the servlet exception
-	 * @throws IOException Signals that an I/O exception has occurred.
+	 * @param request
+	 *            the request
+	 * @param response
+	 *            the response
+	 * @throws ServletException
+	 *             the servlet exception
+	 * @throws IOException
+	 *             Signals that an I/O exception has occurred.
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/bewerten.jsp");
-		System.out.println("Bewerten!!");
-		dispatcher.forward(request, response);
-		HttpSession session = request.getSession(false);
-		if (session != null) {
-			String userEmail = (String) session.getAttribute("userEmail");
+		String buchungid = request.getParameter("id");
+		if (buchungid != null) {
 
-			if (userEmail != null) {
-				UserService nutzerService = new UserService();
-				User nutzer = nutzerService.getNutzerByMail(userEmail);
-				request.setAttribute("user", nutzer);
+			HttpSession session = request.getSession(false);
+			if (session != null) {
+				String userEmail = (String) session.getAttribute("userEmail");
+
+				if (userEmail != null) {
+					UserService nutzerService = new UserService();
+					User nutzer = nutzerService.getNutzerByMail(userEmail);
+					request.setAttribute("user", nutzer);
+				}
 			}
+			
+			
+			BuchungService buchungsService = new BuchungService();
+			Buchung buchung = buchungsService.getBuchungById(buchungid);
+			if(buchung != null){
+				request.setAttribute("buchung", buchung);
+			}else{
+				response.sendRedirect("/carSharing/buchungen");
+				return;
+			}
+			
+			
+		}else{
+			response.sendRedirect("/carSharing/buchungen");
+			return;
 		}
+
+		dispatcher.forward(request, response);
 
 	}
 
 	/**
 	 * Do post.
 	 *
-	 * @param request the request
-	 * @param response the response
-	 * @throws ServletException the servlet exception
-	 * @throws IOException Signals that an I/O exception has occurred.
+	 * @param request
+	 *            the request
+	 * @param response
+	 *            the response
+	 * @throws ServletException
+	 *             the servlet exception
+	 * @throws IOException
+	 *             Signals that an I/O exception has occurred.
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
