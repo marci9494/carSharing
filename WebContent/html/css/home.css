@@ -51,6 +51,12 @@
 	width: 100%;
 	border-radius: 10px;
 }
+.activeFilter{
+	font-weight: bold;
+}
+a{
+	cursor: pointer;
+}
 .fahrzeugfilter{
 	margin-left:10px;
 }

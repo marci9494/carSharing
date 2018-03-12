@@ -156,13 +156,27 @@ public class Home extends HttpServlet {
 	}
 
 	private List<Distance> checkListForFilters(List<Distance> carList, List<FahrzeugFilter> filters) {
+		FahrzeugService fahrzeugService = new FahrzeugService();
 		List<Distance> filteredCarList = new ArrayList<>();
 		if (filters != null) {
 			
-			for (Distance distance : filteredCarList) {
+			for (Distance distance : carList) {
+				Distance distanceToAdd = new Distance(distance.getPlz(), distance.getDistance(), distance.getOrt());
+				List<Fahrzeug> fahrzeugToAdd = new ArrayList<>();
 				for (Fahrzeug fahrzeug : distance.getFahrzeug()) {
-					
+					boolean fahrzeugHasAllFilter = true;
+					for (FahrzeugFilter filter : filters) {
+						boolean fahrzeugHasFilter = fahrzeugService.fahrzeugHasFilter(fahrzeug, filter);
+						if(!fahrzeugHasFilter){
+							fahrzeugHasAllFilter = false;
+						}
+					}
+					if(fahrzeugHasAllFilter){
+						fahrzeugToAdd.add(fahrzeug);
+					}
 				}
+				distanceToAdd.setFahrzeug(fahrzeugToAdd);
+				filteredCarList.add(distanceToAdd);
 				
 			}
 			

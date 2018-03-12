@@ -34,7 +34,8 @@ public class FahrzeugService {
 	/**
 	 * Search fahrzeug by plz.
 	 *
-	 * @param plz the plz
+	 * @param plz
+	 *            the plz
 	 * @return the list
 	 */
 	public List<Fahrzeug> searchFahrzeugByPlz(String plz) {
@@ -62,22 +63,35 @@ public class FahrzeugService {
 	/**
 	 * Creates the fahrzeug.
 	 *
-	 * @param kennzeichen the kennzeichen
-	 * @param modell the modell
-	 * @param baujahr the baujahr
-	 * @param farbe the farbe
-	 * @param laufleistung the laufleistung
-	 * @param leistung the leistung
-	 * @param kraftstoff the kraftstoff
-	 * @param sitzplaetze the sitzplaetze
-	 * @param tagespreis the tagespreis
-	 * @param fahrzeugbild the fahrzeugbild
-	 * @param eigentuemerID the eigentuemer ID
-	 * @param ausstattung the ausstattung
+	 * @param kennzeichen
+	 *            the kennzeichen
+	 * @param modell
+	 *            the modell
+	 * @param baujahr
+	 *            the baujahr
+	 * @param farbe
+	 *            the farbe
+	 * @param laufleistung
+	 *            the laufleistung
+	 * @param leistung
+	 *            the leistung
+	 * @param kraftstoff
+	 *            the kraftstoff
+	 * @param sitzplaetze
+	 *            the sitzplaetze
+	 * @param tagespreis
+	 *            the tagespreis
+	 * @param fahrzeugbild
+	 *            the fahrzeugbild
+	 * @param eigentuemerID
+	 *            the eigentuemer ID
+	 * @param ausstattung
+	 *            the ausstattung
 	 * @return the fahrzeug
 	 */
-	public Fahrzeug createFahrzeug(String marke, String kennzeichen, String modell, String baujahr, String farbe, String laufleistung,
-			String leistung, String kraftstoff, String sitzplaetze, String tagespreis, byte[] fahrzeugbild, String eigentuemerID, String[] ausstattung) {
+	public Fahrzeug createFahrzeug(String marke, String kennzeichen, String modell, String baujahr, String farbe,
+			String laufleistung, String leistung, String kraftstoff, String sitzplaetze, String tagespreis,
+			byte[] fahrzeugbild, String eigentuemerID, String[] ausstattung) {
 
 		Session session = HibernateUtil.openSession();
 		session.beginTransaction();
@@ -116,19 +130,19 @@ public class FahrzeugService {
 		}
 
 		if (ausstattung != null) {
-//			
+			//
 			AusstattungService ausstattungService = new AusstattungService();
 			List<Ausstattung> ausstattungsList = new ArrayList<>();
 			for (String ausstattungId : ausstattung) {
 				System.out.println("Ausstattungid = " + ausstattungId);
 				Ausstattung ausstattungById = ausstattungService.getAusstattungById(ausstattungId);
 				ausstattungsList.add(ausstattungById);
-				
+
 			}
 			fahrzeug.setAusstattung(ausstattungsList);
-							
+
 		}
-				
+
 		// TODO auskommentierte felder müssen noch in der DB angelegt werden.
 
 		fahrzeug.setKennzeichen(kennzeichen);
@@ -162,7 +176,8 @@ public class FahrzeugService {
 	/**
 	 * Gets the fahrzeug by id.
 	 *
-	 * @param publicId the public id
+	 * @param publicId
+	 *            the public id
 	 * @return the fahrzeug by id
 	 */
 	public Fahrzeug getFahrzeugById(String publicId) {
@@ -189,7 +204,8 @@ public class FahrzeugService {
 	/**
 	 * Search fahrzeuge by user.
 	 *
-	 * @param user the user
+	 * @param user
+	 *            the user
 	 * @return the list
 	 */
 	public List<Fahrzeug> searchFahrzeugeByUser(User user) {
@@ -217,13 +233,15 @@ public class FahrzeugService {
 	/**
 	 * Adds the vermietungs zeitraeume to fahrzeug.
 	 *
-	 * @param vermietZeitraeume the vermiet zeitraeume
-	 * @param carId the car id
+	 * @param vermietZeitraeume
+	 *            the vermiet zeitraeume
+	 * @param carId
+	 *            the car id
 	 */
 	public void addVermietungsZeitraeumeToFahrzeug(List<VermietZeitraum> vermietZeitraeume, String carId) {
 		Fahrzeug fahrzeug = getFahrzeugById(carId);
 		for (VermietZeitraum vermietZeitraum : vermietZeitraeume) {
-			if (!checkIfVermietZeitraumExists(vermietZeitraum,fahrzeug)) {
+			if (!checkIfVermietZeitraumExists(vermietZeitraum, fahrzeug)) {
 				Session session = HibernateUtil.openSession();
 				FahrzeugVermietZeitraum vermietZeitraumEntity = new FahrzeugVermietZeitraum();
 				vermietZeitraumEntity.setEndDate(DateUtil.parseDate(vermietZeitraum.getEndDate()));
@@ -232,7 +250,7 @@ public class FahrzeugService {
 
 				try {
 					session.save(vermietZeitraumEntity);
-					if (!session.getTransaction().wasCommitted()){
+					if (!session.getTransaction().wasCommitted()) {
 						session.getTransaction().commit();
 					}
 				} catch (Exception e) {
@@ -250,7 +268,8 @@ public class FahrzeugService {
 	/**
 	 * Update fahrzeug.
 	 *
-	 * @param fahrzeug the fahrzeug
+	 * @param fahrzeug
+	 *            the fahrzeug
 	 * @return the fahrzeug
 	 */
 	public Fahrzeug updateFahrzeug(Fahrzeug fahrzeug) {
@@ -273,8 +292,10 @@ public class FahrzeugService {
 	/**
 	 * Check if vermiet zeitraum exists.
 	 *
-	 * @param vermietZeitraum the vermiet zeitraum
-	 * @param fahrzeug the fahrzeug
+	 * @param vermietZeitraum
+	 *            the vermiet zeitraum
+	 * @param fahrzeug
+	 *            the fahrzeug
 	 * @return the boolean
 	 */
 	public Boolean checkIfVermietZeitraumExists(VermietZeitraum vermietZeitraum, Fahrzeug fahrzeug) {
@@ -305,37 +326,39 @@ public class FahrzeugService {
 		}
 
 	}
-    
-    /**
-     * Delete vermietzeitraum.
-     *
-     * @param id the id
-     */
-    public void deleteVermietzeitraum(String id){
-    	FahrzeugVermietZeitraum vermietZeitraum = getFahrzeugVermietZeitraumById(id);
-    	
+
+	/**
+	 * Delete vermietzeitraum.
+	 *
+	 * @param id
+	 *            the id
+	 */
+	public void deleteVermietzeitraum(String id) {
+		FahrzeugVermietZeitraum vermietZeitraum = getFahrzeugVermietZeitraumById(id);
+
 		Session session = HibernateUtil.openSession();
 		session.beginTransaction();
-    	
+
 		try {
-			 session.delete(vermietZeitraum);
-			 session.getTransaction().commit();
+			session.delete(vermietZeitraum);
+			session.getTransaction().commit();
 		} catch (Exception e) {
 
 			e.printStackTrace();
 		} finally {
 			session.close();
 		}
-    	
-    }
-    
-    /**
-     * Gets the fahrzeug vermiet zeitraum by id.
-     *
-     * @param publicId the public id
-     * @return the fahrzeug vermiet zeitraum by id
-     */
-    public FahrzeugVermietZeitraum getFahrzeugVermietZeitraumById(String publicId){
+
+	}
+
+	/**
+	 * Gets the fahrzeug vermiet zeitraum by id.
+	 *
+	 * @param publicId
+	 *            the public id
+	 * @return the fahrzeug vermiet zeitraum by id
+	 */
+	public FahrzeugVermietZeitraum getFahrzeugVermietZeitraumById(String publicId) {
 		Session session = HibernateUtil.openSession();
 		Transaction tx = null;
 		FahrzeugVermietZeitraum vermietZeitraum = null;
@@ -354,30 +377,47 @@ public class FahrzeugService {
 			session.close();
 		}
 		return vermietZeitraum;
-    }
-    
-    public boolean fahrzeugHasFilter(Fahrzeug fahrzeug, FahrzeugFilter filter){
-		Session session = HibernateUtil.openSession();
-		Transaction tx = null;
+	}
+
+	public boolean fahrzeugHasFilter(Fahrzeug fahrzeug, FahrzeugFilter filter) {
+
 		Fahrzeug foundFahrzeug = null;
-		
+
 		String art = filter.getArt();
-		
-		try {
-			tx = session.getTransaction();
-			tx.begin();
-			Query query = session.createQuery("from Fahrzeug where id='" + fahrzeug.getId() + "'");
-			foundFahrzeug = (Fahrzeug) query.uniqueResult();
-			tx.commit();
-		} catch (Exception e) {
-			if (tx != null) {
-				tx.rollback();
+		if ("ausstattung".equals(filter.getArt())) {
+			for (String id : filter.getIds()) {
+				for (Ausstattung ausstattung : fahrzeug.getAusstattung()) {
+					if(Long.valueOf(id).equals(ausstattung.getId())){
+						return true;
+					}
+				}
 			}
-			e.printStackTrace();
-		} finally {
-			session.close();
+		} else {
+
+			for (String id : filter.getIds()) {
+				Session session = HibernateUtil.openSession();
+				Transaction tx = null;
+				try {
+					tx = session.getTransaction();
+					tx.begin();
+					Query query = session.createQuery(
+							"from Fahrzeug where id='" + fahrzeug.getId() + "' and " + art + "='" + id + "'");
+					foundFahrzeug = (Fahrzeug) query.uniqueResult();
+					tx.commit();
+					if (foundFahrzeug != null) {
+						return true;
+					}
+				} catch (Exception e) {
+					if (tx != null) {
+						tx.rollback();
+					}
+					e.printStackTrace();
+				} finally {
+					session.close();
+				}
+			}
 		}
-    	return true;
-    }
-    
+		return false;
+	}
+
 }

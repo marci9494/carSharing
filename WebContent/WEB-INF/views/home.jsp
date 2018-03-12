@@ -120,7 +120,6 @@
 
 	function filterCar(art, id, element) {
 		if (jQuery(element).hasClass('activeFilter')) {
-			jQuery('#' + art + '_' + id).css('font-weight', 'none');
 			jQuery('#' + art + '_' + id).removeClass('activeFilter');
 			
 			for (i = 0; i < filters.length; i++) {
@@ -135,7 +134,6 @@
 			
 			
 		} else {
-			jQuery('#' + art + '_' + id).css('font-weight', 'bold');
 			jQuery('#' + art + '_' + id).addClass('activeFilter');
 			var added = false;
 			for (i = 0; i < filters.length; i++) {
