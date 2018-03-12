@@ -99,7 +99,7 @@
 						</button>
 					</div>
 				</c:forEach>
-				<c:if test="${empty fahrzeug.vermietZeitraeume}">>
+				<c:if test="${empty fahrzeug.vermietZeitraeume}">
 			 				<div class="vermietzeitraum">
 						<label><input class="startDate" type="date" /></label> - <label>
 							<input class="endDate" type="date" />

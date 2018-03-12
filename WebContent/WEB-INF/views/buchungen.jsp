@@ -89,7 +89,6 @@ td, th {
 						<c:if test="${ buchung.status == 'ABGESCHLOSSEN'}">
 							<td><a href="/carSharing/bewerten?id=${buchung.id }"><button>Bewerten</button></a></td>
 						</c:if>
-
 					</tr>
 				</c:forEach>
 			<tbody>
@@ -131,7 +130,6 @@ td, th {
 						<c:if test="${ buchung.status == 'ABGEHOLT'}">
 							<td><a href="/carSharing/return_car?id=${buchung.id }"><button >Fahrzeugrückgabe</button></a></td>
 						</c:if>
-						<td><button>Bewerten</button></td>
 					</tr>
 				</c:forEach>
 			<tbody>
