@@ -73,6 +73,22 @@ public class KreditkartenService {
         return kreditkarte;
 	}
 	
-	
+	public Kreditkarte updateKreditkarte(Kreditkarte kreditkarte){
+		System.out.println("update!!");
+		Session session = HibernateUtil.openSession();
+		session.beginTransaction();
+    	
+		try {
+			 session.update(kreditkarte);
+			 session.getTransaction().commit();
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+
+		return kreditkarte;
+	}
 	
 }

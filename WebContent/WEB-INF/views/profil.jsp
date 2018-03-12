@@ -84,22 +84,28 @@
 			</div>
 
 
-			<br> <br> <br> <br> <br> <br> <br>
+			<br> <br>
 			<h2>Kreditkarteninformationen</h2>
 			<span class="form-field-label">Kartennummer</span> <br>
 			<p class="editable" id=daten>${kreditkarte.kartennummer}</p>
+			<input id="kartennummer" name="kartennummer" class="editableInput"
+					type='text' style='display: none' value="${kreditkarte.kartennummer}"/>
 			<span class="form-field-label">Gültig bis</span> <br>
 			<p class="editable" id=daten>${kreditkarte.valid}</p>
+			<input id="valid" name="valid" class="editableInput"
+					type='text' style='display: none' value="${kreditkarte.valid}"/>
 			<span class="form-field-label">Karteninhaber</span> <br>
 			<p class="editable" id=daten>${kreditkarte.inhaber}</p>
+			<input id="karteninhaber" name="karteninhaber" class="editableInput"
+					type='text' style='display: none' value="${kreditkarte.inhaber}"/>
 			<br> <br> <br> <br>
 			<div class="form-group" id="credit_cards">
 				<img src="/carSharing/html/img/visa.jpg" id="visa"> <img
 					src="/carSharing/html/img/mastercard.jpg" id="mastercard"> <img
 					src="/carSharing/html/img/amex.jpg" id="amex">
 			</div>
-			<br> <br> <br> <br> <input type="hidden"
-				name="userId" value="${user.id}" />
+			<br> <br> 
+			<input type="hidden" name="userId" value="${user.id}" />
 			
 			<input type="submit" style="display: none;" id="save-button"
 				value="Speichern" />

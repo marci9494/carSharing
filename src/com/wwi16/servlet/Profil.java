@@ -97,6 +97,9 @@ public class Profil extends HttpServlet {
 
 		UserService userService = new UserService();
 		User user = userService.getNutzerById(userId);
+		KreditkartenService kreditkartenService = new KreditkartenService();
+		Kreditkarte kreditkarte = kreditkartenService.getKreditkarteByUser(user);
+				
 		if (user != null) {
 			user.setVorname(vorname);
 			user.setNachname(nachname);
@@ -104,8 +107,12 @@ public class Profil extends HttpServlet {
 			user.setOrt(ort);
 			user.setEmail(email);
 			user.setPlz(plz);
-			//TODO SET Kreditkarte
 			userService.updateUser(user);
+			
+			kreditkarte.setKartennummer(kartennummer);
+			kreditkarte.setValid(valid);
+			kreditkarte.setInhaber(karteninhaber);
+			kreditkartenService.updateKreditkarte(kreditkarte);
 		}
 		
 
