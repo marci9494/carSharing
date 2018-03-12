@@ -112,7 +112,7 @@
 					</div>
 				</c:if>
 				<button onclick="saveVermietzeitraum('${fahrzeug.id}')">
-					<i class="material-icons">drive_eta</i>
+					Auto vermieten
 				</button>
 
 
