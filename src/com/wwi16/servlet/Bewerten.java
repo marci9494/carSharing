@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.wwi16.model.Bewertung;
 import com.wwi16.model.Buchung;
+import com.wwi16.model.BuchungStatus;
 import com.wwi16.model.Fahrzeug;
 import com.wwi16.model.User;
 import com.wwi16.service.BuchungService;
@@ -23,14 +25,6 @@ import com.wwi16.util.XssUtil;
  * The Class Bewerten.
  */
 public class Bewerten extends HttpServlet {
-
-	/**
-	 * Instantiates a new bewerten.
-	 */
-	public Bewerten() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 
 	/**
 	 * Do get.
@@ -52,9 +46,12 @@ public class Bewerten extends HttpServlet {
 		String buchungid = request.getParameter("id");
 		if (buchungid != null) {
 
-			SessionUtil.setSessionEmail(request);
+			User user = SessionUtil.setSessionEmail(request);
 			
-			
+			if(user == null){
+				response.sendRedirect("/carSharing/login");
+				return;
+			}
 			BuchungService buchungsService = new BuchungService();
 			Buchung buchung = buchungsService.getBuchungById(buchungid);
 			if(buchung != null){
@@ -90,13 +87,26 @@ public class Bewerten extends HttpServlet {
 	 *      response)
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("doPost!!");
 		String zustand = XssUtil.sanitize(request.getParameter("zustand"));
 		String freundlichkeit = XssUtil.sanitize(request.getParameter("freundlichkeit"));
 		String zahlen = XssUtil.sanitize(request.getParameter("zahlen"));
+		//TODO check if user can do this
+		String userId = XssUtil.sanitize(request.getParameter("userId"));
+		String buchungsId = XssUtil.sanitize(request.getParameter("buchungsId"));
+		String kommentar = XssUtil.sanitize(request.getParameter("kommentar"));
+		
+		BuchungService buchungsService = new BuchungService();
+		Bewertung bewertung = new Bewertung();
+		bewertung.setFreundlichkeit(freundlichkeit);
+		bewertung.setKommentar(kommentar);
+		bewertung.setZahlen(zahlen);
+		bewertung.setZustand(zustand);
+		buchungsService.createBewertungForBuchung(bewertung,buchungsId);
+		response.sendRedirect("/carSharing/buchungen");
+		return;
 		
 
-		//Daten in Datenbank schieﬂen
-		//Nutzer zu Buchungsid?
 	}
 
 }

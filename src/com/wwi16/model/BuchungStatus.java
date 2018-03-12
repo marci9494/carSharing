@@ -18,5 +18,6 @@ ABGEHOLT,
 /** The abgeschlossen. */
 ABGESCHLOSSEN,
 /** The storniert. */
-STORNIERT
+STORNIERT,
+BEWERTET
 }

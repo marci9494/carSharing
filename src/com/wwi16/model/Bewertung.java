@@ -8,6 +8,8 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 // TODO: Auto-generated Javadoc
@@ -25,23 +27,15 @@ public class Bewertung implements Serializable {
 	/** The kommentar. */
 	private String kommentar;
 	
-	/** The nutzer. */
-	private User nutzer;
-	//TODO BUCHUNG Verknüpfen
+	@OneToOne
+	@JoinColumn(name = "buchung")
+	private Buchung buchung;
 	
-    /**
-	 * Instantiates a new bewertung.
-	 *
-	 * @param id the id
-	 * @param kommentar the kommentar
-	 * @param nutzer the nutzer
-	 */
-	public Bewertung(Long id, String kommentar,User nutzer) {
-        this.id = id;
-        this.kommentar = kommentar;
-        this.nutzer = nutzer;
+	private String freundlichkeit;
+	private String zahlen;
+	private String zustand;
+	
 
-    }
     
     /**
      * Instantiates a new bewertung.
@@ -68,21 +62,45 @@ public class Bewertung implements Serializable {
 		this.kommentar = kommentar;
 	}
 
-	/**
-	 * Gets the nutzer.
-	 *
-	 * @return the nutzer
-	 */
-	public User getNutzer() {
-		return nutzer;
+	public Long getId() {
+		return id;
 	}
 
-	/**
-	 * Sets the nutzer.
-	 *
-	 * @param nutzer the new nutzer
-	 */
-	public void setNutzer(User nutzer) {
-		this.nutzer = nutzer;
+	public void setId(Long id) {
+		this.id = id;
 	}
+
+	public Buchung getBuchung() {
+		return buchung;
+	}
+
+	public void setBuchung(Buchung buchung) {
+		this.buchung = buchung;
+	}
+
+	public String getFreundlichkeit() {
+		return freundlichkeit;
+	}
+
+	public void setFreundlichkeit(String freundlichkeit) {
+		this.freundlichkeit = freundlichkeit;
+	}
+
+	public String getZahlen() {
+		return zahlen;
+	}
+
+	public void setZahlen(String zahlen) {
+		this.zahlen = zahlen;
+	}
+
+	public String getZustand() {
+		return zustand;
+	}
+
+	public void setZustand(String zustand) {
+		this.zustand = zustand;
+	}
+
+
 }

@@ -62,7 +62,6 @@ td, th {
 			<thead>
 				<tr>
 					<th></th>
-					<th class="col">Buchungsnummer</th>
 					<th class="col">Start Datum</th>
 					<th class="col">End Datum</th>
 					<th class="col">Fahrzeug</th>
@@ -82,12 +81,12 @@ td, th {
 								value="${buchung.endDatum }" /></td>
 						<td>${buchung.fahrzeug.hersteller.name}-
 							${buchung.fahrzeug.modell}</td>
+						<td>${buchung.price} €</td>
 						<td>${buchung.status}</td>
-						<td>Befüll mich</td>
-						<c:if test="${ buchung.status != 'ABGESCHLOSSEN' && buchung.status != 'STORNIERT'}">
+						<c:if test="${ buchung.status != 'ABGESCHLOSSEN' && buchung.status != 'STORNIERT' && buchung.status != 'BEWERTET'  }">
 							<td><button onclick="buchungStornieren('${buchung.id }')" >Stornieren</button></td>
 						</c:if>
-						<c:if test="${ buchung.status == 'ABGESCHLOSSEN'}">
+						<c:if test="${ buchung.status == 'ABGESCHLOSSEN' && buchung.status != 'BEWERTET' }">
 							<td><a href="/carSharing/bewerten?id=${buchung.id }"><button>Bewerten</button></a></td>
 						</c:if>
 					</tr>
@@ -100,7 +99,6 @@ td, th {
 			<thead>
 				<tr>
 					<th></th>
-					<th class="col">Buchungsnummer</th>
 					<th class="col">Start Datum</th>
 					<th class="col">End Datum</th>
 					<th class="col">Fahrzeug</th>
@@ -122,7 +120,7 @@ td, th {
 						<td>${buchung.fahrzeug.hersteller.name}-
 							${buchung.fahrzeug.modell}</td>
 						<td>${buchung.price} €</td>
-						<td>${buchung.status}-</td>
+						<td>${buchung.status}</td>
 						<c:if test="${ buchung.status == 'ANGEFRAGT'}">
 							<td><button onclick="buchungFreigeben('${buchung.id }')">Freigeben</button></td>
 							<td><button onclick="buchungStornieren('${buchung.id }')">Ablehnen</button></td>

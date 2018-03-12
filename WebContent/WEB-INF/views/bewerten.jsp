@@ -35,14 +35,6 @@
 			</c:choose>
 		</div>
 
-		<!-- Was ist das hier alles? -->
-		<meta charset="UTF-8">
-		<link rel="shortcut icon" type="image/x-icon"
-			href="https://production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" />
-		<link rel="mask-icon" type=""
-			href="https://production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg"
-			color="#111" />
-
 
 		<p>
 			Auf CarNow kannst du Nutzer bewerten und ihnen noch zusätzliche
@@ -51,74 +43,69 @@
 		</p>
 		<br>
 		<h5>Daten des zu bewertenden Autos im Überblick</h5>
-		
-		<span class="form-field-label">
-			Marke: ${buchung.fahrzeug.hersteller.name}
-		</span>
-		
-		<br><br><br><br> 
-		
-		<span class="form-field-label">
-			Modell: ${buchung.fahrzeug.modell}
-		</span> 
-		
-		<br><br><br><br> 
-		
-		<span class="form-field-label">
-			Farbe: ${buchung.fahrzeug.farbe.name}
-		</span> <br>
-		
-		<br><br><br> 
-		
-		<span class="form-field-label"> 
-			Sitzplätze: ${buchung.fahrzeug.sitzplaetze}
-		</span> 
-		<br>
-		<h2>Deine Bewertung</h2>
-		<label>Zustand Fahrzeugs</label> <br>
-			<select id="zustand" name="zustand">
-			<option value="1">sehr schlecht</option>
-			<option value="2">schlecht</option>
-			<option value="3">gut</option>
-			<option value="4">sehr gut</option>
-		<br>					
-		<label>Freundlichkeit</label> <br>
-			<select id="freundlichkeit" name="freundlichkeit">
-			<option value="1">sehr schlecht</option>
-			<option value="2">schlecht</option>
-			<option value="3">gut</option>
-			<option value="4">sehr gut</option>
-		<br>				
-		<label>Bezahlvorgang</label> <br>
-			<select id="zahlen" name="zahlen">
-			<option value="1">sehr schlecht</option>
-			<option value="2">schlecht</option>
-			<option value="3">gut</option>
-			<option value="4">sehr gut</option>
-		
-		<p></p>
-		<span><main> <textarea cols="35" rows="4"></textarea>
-		<input type="hidden" name="userId" value="${user.id}" />
-		<input type="hidden" id="buchungid" value="${buchung.id}" />
-			<br>
-			<br>
-			<br>
-			<button onclick="bewerten('${buchung.id}')">Bewertung senden</button>
-			</main> </span>
-		</p>
 
+		<span class="form-field-label"> Marke:
+			${buchung.fahrzeug.hersteller.name} </span> <br> <br> <br> <br>
+		<span class="form-field-label"> Modell:
+			${buchung.fahrzeug.modell} </span> <br> <br> <br> <br> <span
+			class="form-field-label"> Farbe:
+			${buchung.fahrzeug.farbe.name} </span> <br> <br> <br> <br>
+		<span class="form-field-label"> Sitzplätze:
+			${buchung.fahrzeug.sitzplaetze} </span> <br>
+		<h2>Deine Bewertung</h2>
+		<form action="bewerten" method="post" accept-charset="ISO-8859-1">
+			<div>
+				<label>Zustand Fahrzeugs</label> <br> <select id="zustand"
+					name="zustand">
+					<option value="1">sehr schlecht</option>
+					<option value="2">schlecht</option>
+					<option value="3">gut</option>
+					<option value="4">sehr gut</option>
+				</select>
+			</div>
+			<br>
+			<div>
+				<label>Freundlichkeit</label> <br> <select id="freundlichkeit"
+					name="freundlichkeit" style="margin-bottom: 10px;">
+					<option value="1">sehr schlecht</option>
+					<option value="2">schlecht</option>
+					<option value="3">gut</option>
+					<option value="4">sehr gut</option>
+				</select>
+			</div>
+			<br>
+			<div>
+				<label>Bezahlvorgang</label> <br> <select id="zahlen"
+					name="zahlen" style="margin-bottom: 10px;">
+					<option value="1">sehr schlecht</option>
+					<option value="2">schlecht</option>
+					<option value="3">gut</option>
+					<option value="4">sehr gut</option>
+				</select>
+			</div>
+			<br>
+			<div>
+				<label>Sonstiges:</label><br>
+				<textarea name="kommentar" cols="35" rows="4"></textarea>
+			</div>
+			<div style="margin-top:10px;">
+				<input type="hidden" name="userId" value="${user.id}" /> <input
+					type="hidden" name="buchungsId" value="${buchung.id}" /> <input
+					style="width: 100px;" type="submit" value="Speichern" />
+			</div>
+		</form>
 	</div>
 </body>
 <script>
-function bewerten (buchungsId){
-	jQuery.post("bewerten", {
-		action : "bewerten",
-		buchungId : buchungId,
-		
-	}, function(data, status) {
-		location.reload();
-	});
-}
+	function bewerten(buchungsId) {
+		jQuery.post("bewerten", {
+			action : "bewerten",
+			buchungId : buchungId,
+
+		}, function(data, status) {
+			location.reload();
+		});
+	}
 </script>
 
 <jsp:include page="/theme/html/footer.html" />

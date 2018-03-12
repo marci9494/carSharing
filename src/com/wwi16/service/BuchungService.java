@@ -11,6 +11,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import com.wwi16.model.Ausstattung;
+import com.wwi16.model.Bewertung;
 import com.wwi16.model.Buchung;
 import com.wwi16.model.Fahrzeug;
 import com.wwi16.model.BuchungStatus;
@@ -176,6 +177,32 @@ public class BuchungService {
 		}
 
 		return buchung;
+    }
+    
+    public Bewertung createBewertungForBuchung(Bewertung bewertung, String buchungsId){
+    	Buchung buchung = getBuchungById(buchungsId);
+    	if(buchung != null){
+    		buchung.setStatus(BuchungStatus.BEWERTET);
+    		updateBuchung(buchung);
+    		bewertung.setBuchung(buchung);
+    		
+    		Session session = HibernateUtil.openSession();
+    		session.beginTransaction();
+        	
+    		try {
+    			 session.save(bewertung);
+    			 session.getTransaction().commit();
+    		} catch (Exception e) {
+
+    			e.printStackTrace();
+    		} finally {
+    			session.close();
+    		}
+
+    		return bewertung;
+    		
+    	}
+    	return null;
     }
     
 

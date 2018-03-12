@@ -25,5 +25,6 @@
 		<mapping class="com.wwi16.model.Kraftstoff" />
 		<mapping class="com.wwi16.model.FahrzeugAusstattung" />
 		<mapping class="com.wwi16.model.LatLong" />
+		<mapping class="com.wwi16.model.Bewertung" />
 	</session-factory>
 </hibernate-configuration>
