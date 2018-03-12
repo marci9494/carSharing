@@ -56,7 +56,9 @@
 				<h2>Persönliche Daten</h2>
 
 
-				<br> <span class="form-field-label">Vorname</span> <br>
+				<br> <span class="form-field-label">Anrede</span> <br>
+				<p style='margin-left:25px'>${user.anrede}</p> <br>
+				<span class="form-field-label">Vorname</span> <br>
 				<p class="editable" id=daten>${user.vorname}</p>
 				<input id="vorname" class="editableInput" type='text'
 					style='display: none' name="vorname" value="${user.vorname}" /> <br>
@@ -72,10 +74,15 @@
 				<p class="editable" id=daten>${user.plz}</p>
 				<input id="plz" class="editableInput" type='text'
 					style='display: none' name="plz" value="${user.plz}" /> <br>
-				<span class="form-field-label">Straße und Hausnummer</span> <br>
+				<span class="form-field-label">Straße</span> <br>
 				<p class="editable" id=daten>${user.strasse}</p>
 				<input id="strasse" name="strasse" class="editableInput" type='text'
-					style='display: none' value="${user.strasse}" /> <br> <span
+					style='display: none' value="${user.strasse}" /> <br> 
+					<span class="form-field-label">Hausnummer</span> <br>
+				<p class="editable" id=daten>${user.hausnummer}</p>
+				<input id="hausnummer" name="hausnummer" class="editableInput" type='text'
+					style='display: none' value="${user.hausnummer}" /> <br>
+					<span
 					class="form-field-label">E-Mail-Adresse</span> <br>
 				<p class="editable" id=daten>${user.email}</p>
 				<input id="emailAdresse" name="email" class="editableInput"
