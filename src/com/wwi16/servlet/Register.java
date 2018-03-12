@@ -77,11 +77,11 @@ public class Register extends HttpServlet{
 			HttpSession session=request.getSession();  
             session.setAttribute("userEmail",email);  
             
-            out.print(Boolean.TRUE);
-    		out.flush();
+            response.sendRedirect("/carSharing/login");
+			return;
 		}else{
 			//TODO fehlerbehandlung
-			out.print(Boolean.TRUE);
+			out.print("Fehler! Bitte erneut probieren");
 	    	out.flush();
 		}
         }
