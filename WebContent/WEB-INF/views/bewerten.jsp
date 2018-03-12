@@ -50,7 +50,30 @@
 			auf einer fairen Basis!
 		</p>
 		<br>
-
+		<h5>Daten des zu bewertenden Autos im Überblick</h5>
+		
+		<span class="form-field-label">
+			Marke: ${buchung.fahrzeug.hersteller.name}
+		</span>
+		
+		<br><br><br><br> 
+		
+		<span class="form-field-label">
+			Modell: ${buchung.fahrzeug.modell}
+		</span> 
+		
+		<br><br><br><br> 
+		
+		<span class="form-field-label">
+			Farbe: ${buchung.fahrzeug.farbe.name}
+		</span> <br>
+		
+		<br><br><br> 
+		
+		<span class="form-field-label"> 
+			Sitzplätze: ${buchung.fahrzeug.sitzplaetze}
+		</span> 
+		<br>
 		<h2>Deine Bewertung</h2>
 		<label>Zustand Fahrzeugs</label> <br>
 			<select id="zustand" name="zustand">
@@ -58,16 +81,14 @@
 			<option value="2">schlecht</option>
 			<option value="3">gut</option>
 			<option value="4">sehr gut</option>
-		<br>
-								
+		<br>					
 		<label>Freundlichkeit</label> <br>
 			<select id="freundlichkeit" name="freundlichkeit">
 			<option value="1">sehr schlecht</option>
 			<option value="2">schlecht</option>
 			<option value="3">gut</option>
 			<option value="4">sehr gut</option>
-		<br>
-								
+		<br>				
 		<label>Bezahlvorgang</label> <br>
 			<select id="zahlen" name="zahlen">
 			<option value="1">sehr schlecht</option>
@@ -77,18 +98,14 @@
 		
 		<p></p>
 		<span><main> <textarea cols="35" rows="4"></textarea>
-			<br>
+		<input type="hidden" name="userId" value="${user.id}" />
+		<input type="hidden" id="buchungid" value="${buchung.id}" />
 			<br>
 			<br>
 			<br>
 			<button onclick="bewerten('${buchung.id}')">Bewertung senden</button>
 			</main> </span>
-
-
 		</p>
-
-
-
 
 	</div>
 </body>
