@@ -17,10 +17,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.fasterxml.jackson.core.JsonGenerationException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.wwi16.model.Distance;
 import com.wwi16.model.Fahrzeug;
+import com.wwi16.model.FahrzeugFilter;
 import com.wwi16.model.FahrzeugVermietZeitraum;
 import com.wwi16.service.AusstattungService;
 import com.wwi16.service.BuchungService;
@@ -104,13 +106,30 @@ public class Home extends HttpServlet {
 			String startDate = request.getParameter("startDate");
 			String endDate = request.getParameter("endDate");
 			String plz = request.getParameter("plz");
+			String filterString = request.getParameter("filters");
+			System.out.println(filterString);
+			ObjectMapper mapper = new ObjectMapper();
+			List<FahrzeugFilter> filters = null;
+			if (filterString != null && !filterString.isEmpty() && !"[]".equals(filterString)) {
+				filters = mapper.readValue(filterString, new TypeReference<List<FahrzeugFilter>>() {
+				});
+				System.out.println(filters.size());
+			}
+
 			List<Distance> carDistanceList = getFahrzeugeForPlz(request, plz, Double.valueOf(distance), startDate,
 					endDate);
 
-			if (carDistanceList != null) {
-				ObjectMapper mapper = new ObjectMapper();
+			List<Distance> filteredDistanceList = null;
+			if(filters != null){
+				filteredDistanceList = checkListForFilters(carDistanceList, filters);
+			}else{
+				filteredDistanceList = carDistanceList;
+			}
+
+			if (filteredDistanceList != null) {
+
 				try {
-					String json = mapper.writeValueAsString(setFahrzeugBildString(carDistanceList));
+					String json = mapper.writeValueAsString(setFahrzeugBildString(filteredDistanceList));
 					out.print(json);
 					out.flush();
 				} catch (JsonGenerationException e) {
@@ -131,6 +150,48 @@ public class Home extends HttpServlet {
 			BuchungService buchungService = new BuchungService();
 			buchungService.createBuchung(userEmail, carId, startDate, endDate);
 
+		}
+
+	}
+
+	private List<Distance> checkListForFilters(List<Distance> carList, List<FahrzeugFilter> filters) {
+		List<Distance> filteredCarList = new ArrayList<>();
+		if (filters != null) {
+			for (FahrzeugFilter filter : filters) {
+				String filterArt = filter.getArt();
+				for (Distance distance : carList) {
+					for (Fahrzeug fahrzeug : distance.getFahrzeug()) {
+						if (filterArt.equals("kategorie")) {
+							if (fahrzeug.getKategorie() != null) {
+								for (String id : filter.getIds()) {
+									if (fahrzeug.getKategorie().getId().equals(Long.valueOf(id))) {
+										if (!filteredCarList.contains(distance)) {
+											filteredCarList.add(distance);
+										}
+									}
+								}
+							}
+
+						} else if (filterArt.equals("farbe")) {
+							if (fahrzeug.getFarbe() != null) {
+								for (String id : filter.getIds()) {
+									if (fahrzeug.getFarbe().getId().equals(Long.valueOf(id))) {
+										if (!filteredCarList.contains(distance)) {
+											filteredCarList.add(distance);
+										}
+									}
+								}
+							}
+						} else if (filterArt.equals("ausstattung")) {
+
+						}
+					}
+				}
+			}
+
+			return filteredCarList;
+		} else {
+			return null;
 		}
 
 	}
