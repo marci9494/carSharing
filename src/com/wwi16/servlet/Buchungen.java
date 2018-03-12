@@ -39,11 +39,6 @@ public class Buchungen extends HttpServlet {
 				dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/buchungen.jsp");
 				BuchungService buchungsService = new BuchungService();
 				List<Buchung> buchungen = buchungsService.searchBuchungenByUser(user);
-				
-				//TODO REMOVE
-				System.out.println(buchungen.get(0).getPrice());
-				
-				
 				request.setAttribute("myBuchungen", buchungen);
 				List<Buchung> buchungenForMyCars = buchungsService.searchBuchungenMyCars(user);
 				request.setAttribute("carsBuchungen", buchungenForMyCars);

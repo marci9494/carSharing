@@ -217,30 +217,32 @@ public class Buchung {
 	public double getPrice() {
 
 		if (fahrzeug != null && startDatum != null && endDatum != null) {
-			System.out.println("Not null");
-
 			Calendar cal1 = new GregorianCalendar();
 			Calendar cal2 = new GregorianCalendar();
 
 			cal1.setTime(startDatum);
 			cal2.setTime(endDatum);
-	        long millis1 = cal1.getTimeInMillis();
-	        long millis2 = cal2.getTimeInMillis();
-	        long diff = millis2 - millis1;
-	        long diffDays = diff / (24 * 60 * 60 * 1000);
-	       if(fahrzeug.getTagespreis() != null){
-	    	   return Double.valueOf(fahrzeug.getTagespreis()) * diffDays;
-	       }else{
-	    	   return 0.0;
-	       }
-	       
-	        
+
+			if (cal1.get(Calendar.YEAR) == cal2.get(Calendar.YEAR)
+					&& cal1.get(Calendar.DAY_OF_YEAR) == cal2.get(Calendar.DAY_OF_YEAR)) {
+				 return Double.valueOf(fahrzeug.getTagespreis());
+			} else {
+
+				long millis1 = cal1.getTimeInMillis();
+				long millis2 = cal2.getTimeInMillis();
+				long diff = millis2 - millis1;
+				long diffDays = diff / (24 * 60 * 60 * 1000);
+				if (fahrzeug.getTagespreis() != null) {
+					return Double.valueOf(fahrzeug.getTagespreis()) * diffDays;
+				} else {
+					return 0.0;
+				}
+			}
 
 		} else {
 			return 0.0;
 		}
 
-		
 	}
 
 	public void setPrice(double price) {
