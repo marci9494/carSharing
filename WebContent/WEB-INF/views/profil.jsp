@@ -8,11 +8,14 @@
 <jsp:include page="/theme/html/header.jsp" />
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<<<<<<< HEAD
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	
+=======
+
+>>>>>>> 9094114ea988cf592946e7cac80389760a5a3f33
 <style> <jsp:include page ="/html/css/profil.css"/> 
-<jsp:include page ="/theme/css/main.css"/>
 </style>
 
 <link rel="shortcut icon" href="/carSharing/theme/img/tablogo.png">

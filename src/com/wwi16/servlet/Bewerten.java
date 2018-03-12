@@ -13,6 +13,7 @@ import com.wwi16.model.Buchung;
 import com.wwi16.model.User;
 import com.wwi16.service.BuchungService;
 import com.wwi16.service.UserService;
+import com.wwi16.util.SessionUtil;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -48,16 +49,7 @@ public class Bewerten extends HttpServlet {
 		String buchungid = request.getParameter("id");
 		if (buchungid != null) {
 
-			HttpSession session = request.getSession(false);
-			if (session != null) {
-				String userEmail = (String) session.getAttribute("userEmail");
-
-				if (userEmail != null) {
-					UserService nutzerService = new UserService();
-					User nutzer = nutzerService.getNutzerByMail(userEmail);
-					request.setAttribute("user", nutzer);
-				}
-			}
+			SessionUtil.setSessionEmail(request);
 			
 			
 			BuchungService buchungsService = new BuchungService();
@@ -78,6 +70,7 @@ public class Bewerten extends HttpServlet {
 		dispatcher.forward(request, response);
 
 	}
+
 
 	/**
 	 * Do post.

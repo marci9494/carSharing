@@ -168,11 +168,18 @@ input {
 }
 
 input[type=submit] {
-	border: 1px solid #00a0e1;
-	background: #00a0e1;
-	color: #fff;
-	height: 50px;
-	border-radius: 20px;
+	border: 1px solid #00a0e1 !important;
+	background: #00a0e1 !important;
+	color: #fff !important;
+	height: 50px !important;
+	border-radius: 20px !important;
+}
+
+input[type=submit]:hoover {
+	color: #00a0e1;
+	background: transparent;
+	box-shadow: 0 0 2px rgba(0, 158, 227, 0.5);
+	outline: 0;
 }
 
 input[type=checkbox] {

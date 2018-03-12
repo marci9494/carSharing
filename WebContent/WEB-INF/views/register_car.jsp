@@ -3,8 +3,7 @@
 <%@  taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<link rel="stylesheet" type="text/css"
-	href="/carSharing/theme/css/main.css" media="screen" />
+
 <link rel="stylesheet" type="text/css"
 	href="/carSharing/html/css/register_car.css" media="screen" />
 
