@@ -15,6 +15,7 @@ import com.wwi16.model.Ausstattung;
 import com.wwi16.model.Buchung;
 import com.wwi16.model.Fahrzeug;
 import com.wwi16.model.FahrzeugFarbe;
+import com.wwi16.model.FahrzeugFilter;
 import com.wwi16.model.FahrzeugHersteller;
 import com.wwi16.model.FahrzeugKategorie;
 import com.wwi16.model.FahrzeugVermietZeitraum;
@@ -357,4 +358,29 @@ public class FahrzeugService {
 		}
 		return vermietZeitraum;
     }
+    
+    public boolean fahrzeugHasFilter(Fahrzeug fahrzeug, FahrzeugFilter filter){
+		Session session = HibernateUtil.openSession();
+		Transaction tx = null;
+		Fahrzeug foundFahrzeug = null;
+		
+		String art = filter.getArt();
+		
+		try {
+			tx = session.getTransaction();
+			tx.begin();
+			Query query = session.createQuery("from Fahrzeug where id='" + fahrzeug.getId() + "'");
+			foundFahrzeug = (Fahrzeug) query.uniqueResult();
+			tx.commit();
+		} catch (Exception e) {
+			if (tx != null) {
+				tx.rollback();
+			}
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+    	return true;
+    }
+    
 }

@@ -121,9 +121,9 @@ public class Home extends HttpServlet {
 					endDate);
 
 			List<Distance> filteredDistanceList = null;
-			if(filters != null){
+			if (filters != null) {
 				filteredDistanceList = checkListForFilters(carDistanceList, filters);
-			}else{
+			} else {
 				filteredDistanceList = carDistanceList;
 			}
 
@@ -158,53 +158,68 @@ public class Home extends HttpServlet {
 	private List<Distance> checkListForFilters(List<Distance> carList, List<FahrzeugFilter> filters) {
 		List<Distance> filteredCarList = new ArrayList<>();
 		if (filters != null) {
-			for (FahrzeugFilter filter : filters) {
-				String filterArt = filter.getArt();
-				for (Distance distance : carList) {
-					Distance distanceToAdd = new Distance(distance.getPlz(), distance.getDistance(), distance.getOrt());
-					List<Fahrzeug> fahrzeugeToAdd = new ArrayList<>();
-					for (Fahrzeug fahrzeug : distance.getFahrzeug()) {
-						if (filterArt.equals("kategorie")) {
-							if (fahrzeug.getKategorie() != null) {
-								for (String id : filter.getIds()) {
-									if (fahrzeug.getKategorie().getId().equals(Long.valueOf(id))) {
-										if (!fahrzeugeToAdd.contains(fahrzeug)) {
-											fahrzeugeToAdd.add(fahrzeug);
-										}
-									}
-								}
-							}
-
-						} else if (filterArt.equals("farbe")) {
-							if (fahrzeug.getFarbe() != null) {
-								for (String id : filter.getIds()) {
-									if (fahrzeug.getFarbe().getId().equals(Long.valueOf(id))) {
-										if (!fahrzeugeToAdd.contains(fahrzeug)) {
-											fahrzeugeToAdd.add(fahrzeug);
-										}
-									}
-								}
-							}
-						} else if (filterArt.equals("ausstattung")) {
-							if(fahrzeug.getAusstattung() != null){
-								for (String id : filter.getIds()) {
-									for (Ausstattung ausstattung : fahrzeug.getAusstattung()) {
-										if(ausstattung.getId().equals(Long.valueOf(id))){
-											if (!fahrzeugeToAdd.contains(fahrzeug)) {
-												fahrzeugeToAdd.add(fahrzeug);
-											}
-										}
-									}
-								}
-							}
-							
-
-						}
-					}
-					distanceToAdd.setFahrzeug(fahrzeugeToAdd);
-					filteredCarList.add(distanceToAdd);
+			
+			for (Distance distance : filteredCarList) {
+				for (Fahrzeug fahrzeug : distance.getFahrzeug()) {
+					
 				}
+				
 			}
+			
+			
+			
+//
+//			for (Distance distance : carList) {
+//				Distance distanceToAdd = new Distance(distance.getPlz(), distance.getDistance(), distance.getOrt());
+//				List<Fahrzeug> fahrzeugeToAdd = new ArrayList<>();
+//				
+//				for (FahrzeugFilter filter : filters) {
+//					String filterArt = filter.getArt();
+//					
+//					for (Fahrzeug fahrzeug : distance.getFahrzeug()) {
+//						Fahrzeug addedFahrzeug = null;
+//						if (filterArt.equals("kategorie")) {
+//							if (fahrzeug.getKategorie() != null) {
+//								for (String id : filter.getIds()) {
+//									if (fahrzeug.getKategorie().getId().equals(Long.valueOf(id))) {
+//										if (!fahrzeugeToAdd.contains(fahrzeug)) {
+//											fahrzeugeToAdd.add(fahrzeug);
+//										}
+//									}
+//								}
+//							}
+//
+//						} else if (filterArt.equals("farbe")) {
+//							if (fahrzeug.getFarbe() != null) {
+//								boolean fahrzeugHatFarbe = false;
+//								for (String id : filter.getIds()) {
+//									if (addedFahrzeug.getFarbe().getId().equals(Long.valueOf(id))) {
+//										fahrzeugHatFarbe = true;
+//									}
+//								}
+//								if(!fahrzeugHatFarbe){
+//									addedFahrzeug = null;
+//								}
+//							}
+//						} else if (filterArt.equals("ausstattung")) {
+//							if (fahrzeug.getAusstattung() != null) {
+//								for (String id : filter.getIds()) {
+//									for (Ausstattung ausstattung : fahrzeug.getAusstattung()) {
+//										if (ausstattung.getId().equals(Long.valueOf(id))) {
+//											if (!fahrzeugeToAdd.contains(fahrzeug)) {
+//												fahrzeugeToAdd.add(fahrzeug);
+//											}
+//										}
+//									}
+//								}
+//							}
+//
+//						}
+//					}
+//					distanceToAdd.setFahrzeug(fahrzeugeToAdd);
+//					filteredCarList.add(distanceToAdd);
+//				}
+//			}
 
 			return filteredCarList;
 		} else {

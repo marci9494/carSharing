@@ -39,9 +39,7 @@
 			unterschiedlichen Menschen mit unterschiedlichsten Autos eine
 			Plattform für die Vermietung zu bieten, das ist schon seit 2018 unser
 			Ziel.</p>
-		<br>
-		<br>
-		<br>
+		<br> <br> <br>
 		<div class="search-overlay">
 			Jetzt Autos in der Nähe finden<br> <input type="text"
 				class="plzInput" /> <select class="distanceSelect">
@@ -55,25 +53,33 @@
 		<div class="filter-wrapper">
 			<div class="filters">
 				<div class="fahrzeugfilter fahrzeugkategorie">
-					<b>Kategorie</b><br>
+					<h2
+						style="margin: 0px; padding: 0px; text-align: left; padding-top: 10px;">Kategorie</h2>
 					<c:forEach items="${kategories}" var="kategorie">
-						<a onclick="filterCar('kategorie','${kategorie.id }')">${kategorie.name }</a>
+						<a id="kategorie_${kategorie.id }"
+							onclick="filterCar('kategorie','${kategorie.id }',this)">${kategorie.name }</a>
 						</br>
 					</c:forEach>
 				</div>
 				<div class="fahrzeugfilter fahrzeugfarbe">
-					<b>Farbe</b><br>
+					<h2
+						style="margin: 0px; padding: 0px; text-align: left; padding-top: 10px;">Farbe</h2>
 					<c:forEach items="${farben}" var="farbe">
-						<a onclick="filterCar('farbe','${farbe.id }')">${farbe.name }</a>
+						<a id="farbe_${farbe.id }"
+							onclick="filterCar('farbe','${farbe.id }',this)">${farbe.name }</a>
 						<br>
 					</c:forEach>
 				</div>
 				<div class="fahrzeugfilter fahrzeugausstattung">
-					<b>Ausstattung</b><br>
+					<h2
+						style="margin: 0px; padding: 0px; text-align: left; padding-top: 10px;">Ausstattung</h2>
 					<c:forEach items="${ausstattungen}" var="ausstattung">
-						<a onclick="filterCar('ausstattung','${ausstattung.id }')">${ausstattung.name }</a>
+						<a id="ausstattung_${ausstattung.id }"
+							onclick="filterCar('ausstattung','${ausstattung.id }',this)">${ausstattung.name }</a>
 						<br>
 					</c:forEach>
+					<br>
+					<br>
 				</div>
 
 			</div>
@@ -111,26 +117,44 @@
 
 <script>
 	var filters = [];
-	
-	
-	function filterCar(art,id){
-		var added = false;
-		for (i = 0; i < filters.length; i++) { 
-			if(filters[i].art == art){
+
+	function filterCar(art, id, element) {
+		if (jQuery(element).hasClass('activeFilter')) {
+			jQuery('#' + art + '_' + id).css('font-weight', 'none');
+			jQuery('#' + art + '_' + id).removeClass('activeFilter');
+			
+			for (i = 0; i < filters.length; i++) {
+				if(filters[i].art == art){
+					var index = filters[i].ids.indexOf(id);
+					filters[i].ids.splice(index, 1);
+				}
+				if(filters[i].ids.length == 0){
+					filters.splice(i, 1);
+				}
+			}
+			
+			
+		} else {
+			jQuery('#' + art + '_' + id).css('font-weight', 'bold');
+			jQuery('#' + art + '_' + id).addClass('activeFilter');
+			var added = false;
+			for (i = 0; i < filters.length; i++) {
+				if (filters[i].art == art) {
+					var filter = new Object();
+					filters[i].ids.push(id);
+					added = true;
+				}
+			}
+
+			if (filters.length == 0 || !added) {
 				var filter = new Object();
-				filters[i].ids.push(id);
-				added = true;
+				filter.art = art;
+				filter.ids = [];
+				filter.ids.push(id);
+				filters.push(filter);
 			}
 		}
-		
-		if(filters.length == 0 || !added){
-			var filter = new Object();
-			filter.art = art;
-			filter.ids = [];
-			filter.ids.push(id);
-			filters.push(filter);
-		}
-		
+
 		searchCar();
 	}
 
