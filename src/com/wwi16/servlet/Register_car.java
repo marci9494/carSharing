@@ -25,6 +25,7 @@ import com.wwi16.service.FahrzeugHerstellerService;
 import com.wwi16.service.FahrzeugKategorieService;
 import com.wwi16.service.FahrzeugService;
 import com.wwi16.service.UserService;
+import com.wwi16.util.XssUtil;
 
 @MultipartConfig
 public class Register_car extends HttpServlet {
@@ -65,21 +66,21 @@ public class Register_car extends HttpServlet {
 
 		// Die einzelnen Kennzeichenbestandteile werden mit einem
 		// Minuszeichen zusammengefuehrt:
-		String kennzeichen_1 = request.getParameter("kennzeichen_1");
-		String kennzeichen_2 = request.getParameter("kennzeichen_2");
-		String kennzeichen_3 = request.getParameter("kennzeichen_3");
+		String kennzeichen_1 = XssUtil.sanitize(request.getParameter("kennzeichen_1"));
+		String kennzeichen_2 = XssUtil.sanitize(request.getParameter("kennzeichen_2"));
+		String kennzeichen_3 = XssUtil.sanitize(request.getParameter("kennzeichen_3"));
 		String kennzeichen = kennzeichen_1 + "-" + kennzeichen_2 + "-" + kennzeichen_3;
 
-		String modell = request.getParameter("modell");
-		String baujahr = request.getParameter("baujahr");
-		String laufleistung = request.getParameter("laufleistung");
-		String leistung = request.getParameter("leistung");
-		String kraftstoff = request.getParameter("kraftstoff");
-		String farbe = request.getParameter("farbe");
-		String sitzplaetze = request.getParameter("sitzplaetze");
-		String tagespreis = request.getParameter("tagesPreisInput");
-		String kilometerpreis = request.getParameter("kilometerPreisInput");
-		String eigentuemerID =  request.getParameter("userId");	
+		String modell = XssUtil.sanitize(request.getParameter("modell"));
+		String baujahr = XssUtil.sanitize(request.getParameter("baujahr"));
+		String laufleistung = XssUtil.sanitize(request.getParameter("laufleistung"));
+		String leistung = XssUtil.sanitize(request.getParameter("leistung"));
+		String kraftstoff = XssUtil.sanitize(request.getParameter("kraftstoff"));
+		String farbe = XssUtil.sanitize(request.getParameter("farbe"));
+		String sitzplaetze = XssUtil.sanitize(request.getParameter("sitzplaetze"));
+		String tagespreis = XssUtil.sanitize(request.getParameter("tagesPreisInput"));
+		String kilometerpreis = XssUtil.sanitize(request.getParameter("kilometerPreisInput"));
+		String eigentuemerID =  XssUtil.sanitize(request.getParameter("userId"));	
 		 
 		String[] ausstattung = request.getParameterValues("ausstattung");
 		

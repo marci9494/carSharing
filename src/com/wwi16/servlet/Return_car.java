@@ -18,6 +18,7 @@ import com.wwi16.service.BuchungService;
 import com.wwi16.service.FahrzeugService;
 import com.wwi16.service.UserService;
 import com.wwi16.util.DateUtil;
+import com.wwi16.util.XssUtil;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -62,10 +63,11 @@ public class Return_car extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		// Parameter werden auf die Werte aus der jsp gesetzt
-		String maengel = request.getParameter("maengel");
-		String buchungid = request.getParameter("buchungid");
-		String kilometerstand = request.getParameter("kilometerstand");
-		String rueckgabedatum = request.getParameter("rueckgabedatum");
+		String maengel = XssUtil.sanitize(request.getParameter("maengel"));
+		String buchungid = XssUtil.sanitize(request.getParameter("buchungid"));
+		String kilometerstand = XssUtil.sanitize(request.getParameter("kilometerstand"));
+		String rueckgabedatum = XssUtil.sanitize(request.getParameter("rueckgabedatum"));
+		
 		PrintWriter out = response.getWriter();
 		if (buchungid != null && kilometerstand != null && rueckgabedatum != null) {
 

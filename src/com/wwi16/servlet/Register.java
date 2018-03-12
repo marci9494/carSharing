@@ -16,6 +16,7 @@ import javax.servlet.http.Part;
 
 import com.wwi16.model.User;
 import com.wwi16.service.UserService;
+import com.wwi16.util.XssUtil;
 
 /**
  * The Class Register.
@@ -35,17 +36,16 @@ public class Register extends HttpServlet{
 		
 		
 		//TODO noch nicht alle parameter übergeben
-		String vorname = request.getParameter("vorname");
-		String nachname = request.getParameter("nachname");
-		String strasse = request.getParameter("strasse");
-		String plz = request.getParameter("postleitzahl");
-		String ort = request.getParameter("stadt");
-		String email = request.getParameter("email");
-		String kartennummer = request.getParameter("kartennummer");
-		String valid = request.getParameter("valid");
-		String karteninhaber = request.getParameter("karteninhaber");
-		//Aktuell werden keine vermieter angelegt
-		String passwort = request.getParameter("passwort");
+		String vorname = XssUtil.sanitize(request.getParameter("vorname"));
+		String nachname = XssUtil.sanitize(request.getParameter("nachname"));
+		String strasse = XssUtil.sanitize(request.getParameter("strasse"));
+		String plz = XssUtil.sanitize(request.getParameter("postleitzahl"));
+		String ort = XssUtil.sanitize(request.getParameter("stadt"));
+		String email = XssUtil.sanitize(request.getParameter("email"));
+		String kartennummer = XssUtil.sanitize(request.getParameter("kartennummer"));
+		String valid = XssUtil.sanitize(request.getParameter("valid"));
+		String karteninhaber = XssUtil.sanitize(request.getParameter("karteninhaber"));
+		String passwort = XssUtil.sanitize(request.getParameter("passwort"));
 		InputStream inputStream = null;
 		Part filePart = request.getPart("personalausweis");
         if (filePart != null) {

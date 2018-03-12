@@ -13,6 +13,7 @@ import com.wwi16.model.Kreditkarte;
 import com.wwi16.model.User;
 import com.wwi16.service.KreditkartenService;
 import com.wwi16.service.UserService;
+import com.wwi16.util.XssUtil;
 
 
 
@@ -83,16 +84,16 @@ public class Profil extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("doPost");
 		//TODO noch nicht alle parameter übergeben
-		String userId = request.getParameter("userId");
-		String vorname = request.getParameter("vorname");
-		String nachname = request.getParameter("nachname");
-		String strasse = request.getParameter("strasse");
-		String plz = request.getParameter("plz");
-		String ort = request.getParameter("ort");
-		String email = request.getParameter("email");
-		String kartennummer = request.getParameter("kartennummer");
-		String valid = request.getParameter("valid");
-		String karteninhaber = request.getParameter("karteninhaber");
+		String userId = XssUtil.sanitize(request.getParameter("userId"));
+		String vorname = XssUtil.sanitize(request.getParameter("vorname"));
+		String nachname = XssUtil.sanitize(request.getParameter("nachname"));
+		String strasse = XssUtil.sanitize(request.getParameter("strasse"));
+		String plz = XssUtil.sanitize(request.getParameter("plz"));
+		String ort = XssUtil.sanitize(request.getParameter("ort"));
+		String email = XssUtil.sanitize(request.getParameter("email"));
+		String kartennummer = XssUtil.sanitize(request.getParameter("kartennummer"));
+		String valid = XssUtil.sanitize(request.getParameter("valid"));
+		String karteninhaber = XssUtil.sanitize(request.getParameter("karteninhaber"));
 		
 		UserService userService = new UserService();
 		User user = userService.getNutzerById(userId);

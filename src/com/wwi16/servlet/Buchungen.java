@@ -18,6 +18,7 @@ import com.wwi16.model.BuchungStatus;
 import com.wwi16.model.User;
 import com.wwi16.service.BuchungService;
 import com.wwi16.service.UserService;
+import com.wwi16.util.XssUtil;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -63,9 +64,9 @@ public class Buchungen extends HttpServlet {
 		String action = request.getParameter("action");
 
 		if ("buchungFreigeben".equals(action)) {
-			String buchungsId = request.getParameter("buchungId");
+			String buchungsId = XssUtil.sanitize(request.getParameter("buchungId"));
 			// TODO check if user has buchung... HTML injection
-			String userId = request.getParameter("userId");
+			String userId = XssUtil.sanitize(request.getParameter("userId"));
 			BuchungService buchungsService = new BuchungService();
 			Buchung buchung = buchungsService.getBuchungById(buchungsId);
 			if (buchung != null) {
@@ -75,9 +76,9 @@ public class Buchungen extends HttpServlet {
 				out.flush();
 			}
 		} else if ("buchungAbgeholt".equals(action)) {
-			String buchungsId = request.getParameter("buchungId");
+			String buchungsId = XssUtil.sanitize(request.getParameter("buchungId"));
 			// TODO check if user has buchung... HTML injection
-			String userId = request.getParameter("userId");
+			String userId = XssUtil.sanitize(request.getParameter("userId"));
 			BuchungService buchungsService = new BuchungService();
 			Buchung buchung = buchungsService.getBuchungById(buchungsId);
 			if (buchung != null) {
@@ -87,9 +88,9 @@ public class Buchungen extends HttpServlet {
 				out.flush();
 			}
 		} else if ("buchungStornieren".equals(action)) {
-			String buchungsId = request.getParameter("buchungId");
+			String buchungsId = XssUtil.sanitize(request.getParameter("buchungId"));
 			// TODO check if user has buchung... HTML injection
-			String userId = request.getParameter("userId");
+			String userId = XssUtil.sanitize(request.getParameter("userId"));
 			BuchungService buchungsService = new BuchungService();
 			Buchung buchung = buchungsService.getBuchungById(buchungsId);
 			if (buchung != null) {

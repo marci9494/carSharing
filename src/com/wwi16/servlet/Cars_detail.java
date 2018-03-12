@@ -21,6 +21,7 @@ import com.wwi16.model.VermietZeitraum;
 import com.wwi16.service.BuchungService;
 import com.wwi16.service.FahrzeugService;
 import com.wwi16.service.UserService;
+import com.wwi16.util.XssUtil;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -97,30 +98,13 @@ public class Cars_detail extends HttpServlet {
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		System.out.println("doPost");
-		// TODO noch nicht alle parameter übergeben
 		String action = request.getParameter("action");
-		// UPDATE CAR
-		//
-		// UserService userService = new UserService();
-		// User user = userService.getNutzerById(userId);
-		//
-		// user.setVorname(vorname);
-		// user.setNachname(nachname);
-		// user.setStrasse(strasse);
-		// user.setOrt(ort);
-		// user.setEmail(email);
-		// user.setPlz(plz);
-		//
-		// userService.updateUser(user);
+		
 
 		if (action.equals("saveVermietzeitraum")) {
 
-			System.out.println("Ajax call super");
-			String carId = request.getParameter("carId");
-			String vermietZeitraeumeString = request.getParameter("vermietZeitraeume");
-			System.out.println(carId);
-			System.out.println(vermietZeitraeumeString);
+			String carId = XssUtil.sanitize(request.getParameter("carId"));
+			String vermietZeitraeumeString = XssUtil.sanitize(request.getParameter("vermietZeitraeume"));
 			Gson gson = new Gson();
 			List<VermietZeitraum> vermietzeitraeume = gson.fromJson(vermietZeitraeumeString,
 					new TypeToken<List<VermietZeitraum>>() {
@@ -131,8 +115,8 @@ public class Cars_detail extends HttpServlet {
 			
 		}else if ("update".equals(action)){
 						
-			String tagespreis = request.getParameter("tagespreis");
-			String kilometerpreis = request.getParameter("kilometerpreis");
+			String tagespreis = XssUtil.sanitize(request.getParameter("tagespreis"));
+			String kilometerpreis = XssUtil.sanitize(request.getParameter("kilometerpreis"));
 			
 			String carId = request.getParameter("carId");
 			System.out.println("ID ist "+ carId);
