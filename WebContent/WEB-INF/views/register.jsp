@@ -120,11 +120,6 @@
 					size="50" accept="image/*,application/pdf"> </label>
 			</div>
 			<br>
-			<div class="formular-wrapper">
-				<label>Bild oder Scan Ihres Führerscheins (Bild- oder
-					PDF-Datei)</label> <br> <input name="fuehrerschein" type="file"
-					size="50" accept="image/*,application/pdf"> </label>
-			</div>
 
 			<div class="formular-wrapper">
 				<h2>Kreditkarteninformationen</h2>
@@ -147,7 +142,7 @@
 			<br><br>
 
 			<div class="formular-wrapper">
-				<button onclick="jQuery('#upload-form').submit()">Weiter</button>
+				<input type="submit" value="Registrieren"/>
 			</div>
 
 		</form>
