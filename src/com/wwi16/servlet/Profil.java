@@ -83,30 +83,31 @@ public class Profil extends HttpServlet {
 	 *      response)
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("doPost");
-		// TODO noch nicht alle parameter übergeben
 		String userId = XssUtil.sanitize(request.getParameter("userId"));
+		System.out.println("User id =" + userId);
 		String vorname = XssUtil.sanitize(request.getParameter("vorname"));
 		String nachname = XssUtil.sanitize(request.getParameter("nachname"));
 		String strasse = XssUtil.sanitize(request.getParameter("strasse"));
 		String plz = XssUtil.sanitize(request.getParameter("plz"));
 		String ort = XssUtil.sanitize(request.getParameter("ort"));
-		String email = XssUtil.sanitize(request.getParameter("email"));
+		String email = request.getParameter("email");
 		String kartennummer = XssUtil.sanitize(request.getParameter("kartennummer"));
 		String valid = XssUtil.sanitize(request.getParameter("valid"));
 		String karteninhaber = XssUtil.sanitize(request.getParameter("karteninhaber"));
 
 		UserService userService = new UserService();
 		User user = userService.getNutzerById(userId);
-
-		user.setVorname(vorname);
-		user.setNachname(nachname);
-		user.setStrasse(strasse);
-		user.setOrt(ort);
-		user.setEmail(email);
-		user.setPlz(plz);
-
-		userService.updateUser(user);
+		if (user != null) {
+			user.setVorname(vorname);
+			user.setNachname(nachname);
+			user.setStrasse(strasse);
+			user.setOrt(ort);
+			user.setEmail(email);
+			user.setPlz(plz);
+			//TODO SET Kreditkarte
+			userService.updateUser(user);
+		}
+		
 
 		doGet(request, response);
 	}

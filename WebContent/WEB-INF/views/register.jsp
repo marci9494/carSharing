@@ -37,7 +37,7 @@
 
 		<h2>Logindaten</h2>
 		<form action="register" method="post" id="upload-form"
-			enctype="multipart/form-data">
+			enctype="multipart/form-data" accept-charset="ISO-8859-1">
 			<div class="formular-wrapper">
 				<label for="email">Email</label> <br> <input type="email"
 					name="email" id="email" placeholder="Geben Sie bitte Ihre Email an"
