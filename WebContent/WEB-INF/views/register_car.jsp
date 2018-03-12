@@ -54,10 +54,12 @@
 
 			<div class="formular-wrapper">
 				<ul class="formular_ul">
-					<li class="formular_li"><label>Automarke</label> <br> <select
-						id="marke">
+					<li class="formular_li"><label>Automarke</label> <br> 
+					<select	id="marke" name="marke">
+					<c:set var="count" value="0" scope="page" />
 							<c:forEach items="${hersteller}" var="item">
-								<option value="${item}">${item}</option>
+								<option value="${count}">${item}</option>
+								<c:set var="count" value="${count + 1}" scope="page"/>
 							</c:forEach>
 					</select></li>
 
