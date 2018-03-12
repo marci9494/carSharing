@@ -4,6 +4,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <link rel="stylesheet" type="text/css"
+	href="/carSharing/theme/css/main.css" media="screen" />
+<link rel="stylesheet" type="text/css"
 	href="/carSharing/html/css/register_car.css" media="screen" />
 
 <jsp:include page="/theme/html/header.jsp" />
@@ -43,7 +45,7 @@
 				<img class="kennzeichen_img" alt="Kennzeichen"
 					src="/carSharing/html/img/kennzeichen.jpg"> <span id="span1">
 					<input type="text" name="kennzeichen_1" id="kennzeichen_1"
-					placeholder="HH" maxlength="3">
+					placeholder="HH" maxlength="3" required>
 				</span> <span id="span2"> <input type="text" name="kennzeichen_2"
 					id="kennzeichen_2" placeholder="XX" maxlength="2" required>
 				</span> <span id="span3"> <input type="int" name="kennzeichen_3"
@@ -217,7 +219,7 @@
 			
 			<div class="formular-wrapper">
 
-				<input type="submit" value="Registrieren" />
+				<input type="submit" value="Registrieren"/>
 			</div>
 			<input type="hidden" name="userId" value="${user.id}" />
 		</form>
