@@ -66,12 +66,6 @@
 		<p id="daten">Aktuell: ${fahrzeug.tagespreis}€</p>
 
 
-		<span class="form-field-label">Kilometerpreis </span><br> <input
-			type="text" name="kilometerpreis" id="kilometerpreis"
-			placeholder="${fahrzeug.kilometerpreis}" size="5"> <label>€</label>
-		<p id="daten">Aktuell: ${fahrzeug.kilometerpreis}€</p>
-
-
 		<button onclick="update('${fahrzeug.id}')" id="save-button">Speichern</button>
 		<br> <br> <br> <br>
 

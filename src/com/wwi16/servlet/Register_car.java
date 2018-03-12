@@ -73,7 +73,6 @@ public class Register_car extends HttpServlet {
 		String farbe = XssUtil.sanitize(request.getParameter("farbe"));
 		String sitzplaetze = XssUtil.sanitize(request.getParameter("sitzplaetze"));
 		String tagespreis = XssUtil.sanitize(request.getParameter("tagesPreisInput"));
-		String kilometerpreis = XssUtil.sanitize(request.getParameter("kilometerPreisInput"));
 		String eigentuemerID = XssUtil.sanitize(request.getParameter("userId"));
 
 		String[] ausstattung = request.getParameterValues("ausstattung");
@@ -98,7 +97,7 @@ public class Register_car extends HttpServlet {
 
 			FahrzeugService fahrzeugService = new FahrzeugService();
 			Fahrzeug fahrzeug = fahrzeugService.createFahrzeug(marke, kennzeichen, modell, baujahr, farbe, laufleistung,
-					leistung, kraftstoff, sitzplaetze, tagespreis, kilometerpreis, buffer.toByteArray(), eigentuemerID,
+					leistung, kraftstoff, sitzplaetze, tagespreis, buffer.toByteArray(), eigentuemerID,
 					ausstattung);
 		}
 

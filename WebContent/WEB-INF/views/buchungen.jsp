@@ -57,11 +57,12 @@ td, th {
 		</div>
 <p>Hier kannst du deine Mietungen und Vermietungen einsehen, Autos zurückgeben und deine Buchung bewerten. Stelle immer sicher, dass deine Autos im richtigen Status stehen.</p>
 <br><br>
-		<div>Deine Buchungen</div>
+		<h2>Deine Buchungen</h2>
 		<table>
 			<thead>
 				<tr>
 					<th></th>
+					<th class="col">Buchungsnummer</th>
 					<th class="col">Start Datum</th>
 					<th class="col">End Datum</th>
 					<th class="col">Fahrzeug</th>
@@ -93,11 +94,13 @@ td, th {
 				</c:forEach>
 			<tbody>
 		</table>
-		<div>Buchungen für dein Fahrzeug</div>
+		<br>
+		<h2>Buchungen für dein Fahrzeug</h2>
 		<table>
 			<thead>
 				<tr>
 					<th></th>
+					<th class="col">Buchungsnummer</th>
 					<th class="col">Start Datum</th>
 					<th class="col">End Datum</th>
 					<th class="col">Fahrzeug</th>
