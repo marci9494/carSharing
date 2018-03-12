@@ -34,6 +34,9 @@ public class User implements Serializable {
 	/** The strasse. */
 	private String strasse;
 	
+	/** The Hausnummer. */
+	private String hausnummer;
+	
 	/** The plz. */
 	private String plz;
 	
@@ -69,6 +72,7 @@ public class User implements Serializable {
 		this.vorname = vorname;
 		this.nachname = nachname;
 		this.strasse = strasse;
+		this.hausnummer = hausnummer;
 		this.plz = plz;
 		this.ort = ort;
 		this.email = email;
@@ -153,6 +157,15 @@ public class User implements Serializable {
 	 */
 	public void setStrasse(String strasse) {
 		this.strasse = strasse;
+	}
+
+		
+	public String getHausnummer() {
+		return hausnummer;
+	}
+
+	public void setHausnummer(String hausnummer) {
+		this.hausnummer = hausnummer;
 	}
 
 	/**

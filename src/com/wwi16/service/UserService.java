@@ -64,6 +64,7 @@ public class UserService {
 	 * @param vorname the vorname
 	 * @param nachname the nachname
 	 * @param strasse the strasse
+	 * @param hausnummer the hausnummer
 	 * @param plz the plz
 	 * @param ort the ort
 	 * @param email the email
@@ -74,7 +75,7 @@ public class UserService {
 	 * @param karteninhaber the karteninhaber
 	 * @return the user
 	 */
-	public User createNutzer(String vorname, String nachname,String strasse,String plz, String ort, String email, String password,byte[] personalausweis, String kartennummer, String valid, String karteninhaber){
+	public User createNutzer(String vorname, String nachname,String strasse, String hausnummer, String plz, String ort, String email, String password,byte[] personalausweis, String kartennummer, String valid, String karteninhaber){
 		 Session session = HibernateUtil.openSession();
 		 
 		 session.beginTransaction();
@@ -85,6 +86,7 @@ public class UserService {
 		 nutzer.setOrt(ort);
 		 nutzer.setPlz(plz);
 		 nutzer.setStrasse(strasse);
+		 nutzer.setHausnummer(hausnummer);
 		 nutzer.setVorname(vorname);
 		 nutzer.setPassword(hashPassword(password));
 		 nutzer.setPersonalausweis(personalausweis);

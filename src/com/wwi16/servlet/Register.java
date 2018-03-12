@@ -38,6 +38,7 @@ public class Register extends HttpServlet{
 		String vorname = XssUtil.sanitize(request.getParameter("vorname"));
 		String nachname = XssUtil.sanitize(request.getParameter("nachname"));
 		String strasse = XssUtil.sanitize(request.getParameter("strasse"));
+		String hausnummer = XssUtil.sanitize(request.getParameter("hausnummer"));
 		String plz = XssUtil.sanitize(request.getParameter("postleitzahl"));
 		String ort = XssUtil.sanitize(request.getParameter("stadt"));
 		//Dont sanitize email
@@ -71,7 +72,7 @@ public class Register extends HttpServlet{
             User nutzerByMail = nutzerService.getNutzerByMail(email);
             User nutzer = null;
             if(nutzerByMail == null){
-            	nutzer = nutzerService.createNutzer(vorname, nachname, strasse, plz, ort, email, passwort, buffer.toByteArray(), kartennummer, valid, karteninhaber);
+            	nutzer = nutzerService.createNutzer(vorname, nachname, strasse, hausnummer, plz, ort, email, passwort, buffer.toByteArray(), kartennummer, valid, karteninhaber);
             }
             
        
