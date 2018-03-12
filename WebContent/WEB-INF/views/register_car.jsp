@@ -170,25 +170,7 @@
 				<label>Tagespreis</label>
 				<br>
 				<input type="text" name="tagesPreisInput" id="tagesPreisInput" placeholder="5,30" size ="5" required> <label>€</label>
-
-<!-- 				<div class="slidecontainer">
-					<input type="range" min="1" max="100" value="12" class="slider"
-						id="tagespreis_range">
-				</div>
-				
-				<span>Tagespreis:</span> <span id="tp_span"></span> <span>€</span>
-
-				<script>
-					var slider = document.getElementById("tagespreis_range");
-					var outputTagespreis = document.getElementById("tp_span");
-					outputTagespreis.innerHTML = slider.value; // Display the default slider value
-
-					// Update the current slider value (each time you drag the slider handle)
-					slider.oninput = function() {
-						outputTagespreis.innerHTML = this.value;
-					}
-				</script> -->
-				
+			
 			</div>
 			<br>
 			<div class="formular-wrapper">
@@ -197,24 +179,6 @@
 				<br>
 				<input type="text" name="kilometerPreisInput" id="kilometerPreisInput" placeholder="5,30" size="5" required><label>€</label>
 
-<!-- 				<div class="slidecontainer">
-					<input type="range" min="0.00" max="40" value="2.50" step=0.10
-						class="slider" id="kilometer_range">
-				</div>
-				
-				<span>Preis pro Kilometer: </span> <span id="kp_span"></span> <span>€</span>
-
-				<script>
-					var sliderk = document.getElementById("kilometer_range");
-					var outputKilometerpreis = document
-							.getElementById("kp_span");
-					outputKilometerpreis.innerHTML = sliderk.value; // Display the default slider value
-
-					// Update the current slider value (each time you drag the slider handle)
-					sliderk.oninput = function() {
-						outputKilometerpreis.innerHTML = this.value;
-					}
-				</script> -->
 			</div>
 					
 			
