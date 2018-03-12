@@ -44,7 +44,7 @@
 		<br>
 		<div class="search-overlay">
 			Jetzt Autos in der Nähe finden<br> <input type="text"
-				class="plzInput" /> <select class="distanceSelect">
+				class="plzInput" placeholder="Postleitzahl" maxlength="5" /> <select class="distanceSelect">
 				<option value="10">10Km</option>
 				<option value="20">20Km</option>
 			</select> <span>Von</span><input class="startDate" type="date" /> <span>Bis</span><input
