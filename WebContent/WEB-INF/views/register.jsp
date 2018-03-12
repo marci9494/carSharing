@@ -80,6 +80,7 @@
 						placeholder="Ihr Nachname" size="30" maxlength="30"></li>
 				</ul>
 			</div>
+			<br> 
 			<div class="formular-wrapper">
 				<ul class="formular_ul">
 					<li class="formular_li"><label class="strass" for="strasse">Straße</label>
@@ -90,7 +91,7 @@
 						placeholder="Ihre Hausnummer" size="6" maxlength="8"></li>
 				</ul>
 			</div>
-
+			<br>
 			<div class="formular-wrapper">
 				<ul class="formular_ul">
 					<li class="formular_li"><label for="postleitzahl">Postleitzahl</label>
@@ -101,20 +102,24 @@
 						placeholder="Ihr Wohnort" size="30"></li>
 				</ul>
 			</div>
+			<br><br>
 			<div class="formular-wrapper">
 				<label for="land">Land</label> <br> <input type="text"
 					name="land" id="land" value="Deutschland" size="30">
 
 			</div>
+			<br>
 			<div class="formular-wrapper">
 				<label for="geburtsdatum">Geburtsdatum</label> <br> <input
 					type="date" name="geburtsdatum" id="geburtsdatum" size="30">
 			</div>
+			<br>
 			<div class="formular-wrapper">
 				<label>Bild oder Scan Ihres Personalausweis (Bild- oder
 					PDF-Datei)</label><br> <input name="personalausweis" type="file"
 					size="50" accept="image/*,application/pdf"> </label>
 			</div>
+			<br>
 			<div class="formular-wrapper">
 				<label>Bild oder Scan Ihres Führerscheins (Bild- oder
 					PDF-Datei)</label> <br> <input name="fuehrerschein" type="file"
