@@ -64,6 +64,7 @@ public class Register_car extends HttpServlet {
 		String kennzeichen_3 = XssUtil.sanitize(request.getParameter("kennzeichen_3"));
 		String kennzeichen = kennzeichen_1 + "-" + kennzeichen_2 + "-" + kennzeichen_3;
 
+		String marke = XssUtil.sanitize(request.getParameter("marke"));
 		String modell = XssUtil.sanitize(request.getParameter("modell"));
 		String baujahr = XssUtil.sanitize(request.getParameter("baujahr"));
 		String laufleistung = XssUtil.sanitize(request.getParameter("laufleistung"));
@@ -96,7 +97,7 @@ public class Register_car extends HttpServlet {
 			buffer.flush();
 
 			FahrzeugService fahrzeugService = new FahrzeugService();
-			Fahrzeug fahrzeug = fahrzeugService.createFahrzeug(kennzeichen, modell, baujahr, farbe, laufleistung,
+			Fahrzeug fahrzeug = fahrzeugService.createFahrzeug(marke, kennzeichen, modell, baujahr, farbe, laufleistung,
 					leistung, kraftstoff, sitzplaetze, tagespreis, kilometerpreis, buffer.toByteArray(), eigentuemerID,
 					ausstattung);
 		}

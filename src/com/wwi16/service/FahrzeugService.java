@@ -76,7 +76,7 @@ public class FahrzeugService {
 	 * @param ausstattung the ausstattung
 	 * @return the fahrzeug
 	 */
-	public Fahrzeug createFahrzeug(String kennzeichen, String modell, String baujahr, String farbe, String laufleistung,
+	public Fahrzeug createFahrzeug(String marke, String kennzeichen, String modell, String baujahr, String farbe, String laufleistung,
 			String leistung, String kraftstoff, String sitzplaetze, String tagespreis, String kilometerpreis,
 			byte[] fahrzeugbild, String eigentuemerID, String[] ausstattung) {
 
@@ -87,11 +87,9 @@ public class FahrzeugService {
 		FahrzeugKategorieService kategorieService = new FahrzeugKategorieService();
 		UserService userService = new UserService();
 		KraftstoffService kraftstoffService = new KraftstoffService();
-		// TODO 1 durch id ersetzen
-		System.out.println("Farbe: " + farbe);
+		// TODO 1 bei getFahrzeugKategorieById("1") mittel-/langfristig ersetzen
 		FahrzeugFarbe foundFarbe = farbService.getFahrzeugFarbeById(farbe);
-		
-		FahrzeugHersteller foundHersteller = herstellerService.getHerstellerById("1");
+		FahrzeugHersteller foundHersteller = herstellerService.getHerstellerById(marke);
 		FahrzeugKategorie foundKategorie = kategorieService.getFahrzeugKategorieById("1");
 		User user = userService.getNutzerById(eigentuemerID);
 		Kraftstoff foundKraftstoff = kraftstoffService.getKraftstoffById(kraftstoff);
