@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.wwi16.service.UserService;
+import com.wwi16.util.XssUtil;
 
 
 // TODO: Auto-generated Javadoc
@@ -47,7 +48,7 @@ public class Login extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	        response.setContentType("text/html");
 	        String user = request.getParameter("username");
-	        String pass = request.getParameter("pass");
+	        String pass = XssUtil.sanitize(request.getParameter("pass"));
 	        UserService nutzerService = new UserService();
 	        boolean checkLogin = nutzerService.checkLogin(user, pass);
 	        System.out.println("Login = " + checkLogin);
@@ -59,8 +60,9 @@ public class Login extends HttpServlet {
 	            response.sendRedirect("/carSharing/home");
 				return;
 	        }else{
-	        	System.out.println("Falsches PW von User  " + user);
-	        	//TODO Fehlermeldung anzeigen
+				PrintWriter out = response.getWriter();
+				out.print("Fehler! Falsches PW. Bitte erneut probieren");
+		    	out.flush();
 	        }
 	        	
 	}

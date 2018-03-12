@@ -18,6 +18,7 @@ import com.wwi16.service.BuchungService;
 import com.wwi16.service.FahrzeugService;
 import com.wwi16.service.UserService;
 import com.wwi16.util.DateUtil;
+import com.wwi16.util.SessionUtil;
 import com.wwi16.util.XssUtil;
 
 // TODO: Auto-generated Javadoc
@@ -26,39 +27,42 @@ import com.wwi16.util.XssUtil;
  */
 public class Return_car extends HttpServlet {
 
-
-	/* (non-Javadoc)
-	 * @see javax.servlet.http.HttpServlet#doGet(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see javax.servlet.http.HttpServlet#doGet(javax.servlet.http.
+	 * HttpServletRequest, javax.servlet.http.HttpServletResponse)
 	 */
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/return_car.jsp");
 
-		HttpSession session = request.getSession(false);
 		// Buchungsservice wird angelegt, damit die Funktion sp�ter verwendet
 		// werden kann
-		if (session != null) {
-			BuchungService buchungservice = new BuchungService();
-			String userEmail = (String) session.getAttribute("userEmail");
+		User user = SessionUtil.setSessionEmail(request);
+		if (user != null) {
 
-			// F�r den Willkommenstext wird der User geholt
-			UserService nutzerService = new UserService();
-			User nutzer = nutzerService.getNutzerByMail(userEmail);
-			request.setAttribute("user", nutzer);
+			BuchungService buchungservice = new BuchungService();
 
 			// F�r die Buchung wird die Buchungsid geholt
 			String buchungid = request.getParameter("id");
 			Buchung buchung = buchungservice.getBuchungById(buchungid);
-			if(BuchungStatus.ABGESCHLOSSEN == buchung.getStatus() || buchung == null){
+			if (BuchungStatus.ABGESCHLOSSEN == buchung.getStatus() || buchung == null) {
 				response.sendRedirect("/carSharing/buchungen");
 				return;
 			}
 			request.setAttribute("buchung", buchung);
+		}else{
+			response.sendRedirect("/carSharing/login");
+			return;
 		}
 		dispatcher.forward(request, response);
 	}
 
-	/* (non-Javadoc)
-	 * @see javax.servlet.http.HttpServlet#doPost(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see javax.servlet.http.HttpServlet#doPost(javax.servlet.http.
+	 * HttpServletRequest, javax.servlet.http.HttpServletResponse)
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
@@ -67,7 +71,7 @@ public class Return_car extends HttpServlet {
 		String buchungid = XssUtil.sanitize(request.getParameter("buchungid"));
 		String kilometerstand = XssUtil.sanitize(request.getParameter("kilometerstand"));
 		String rueckgabedatum = XssUtil.sanitize(request.getParameter("rueckgabedatum"));
-		
+
 		PrintWriter out = response.getWriter();
 		if (buchungid != null && kilometerstand != null && rueckgabedatum != null) {
 
@@ -82,14 +86,14 @@ public class Return_car extends HttpServlet {
 			buchung.setStatus(BuchungStatus.ABGESCHLOSSEN);
 			Fahrzeug fahrzeug = buchung.getFahrzeug();
 			fahrzeug.setKm_stand(kilometerstand);
-			
+
 			// Buchung wird gespeichert
 			buchungservice.updateBuchung(buchung);
 			fahrzeugService.updateFahrzeug(fahrzeug);
 			out.print(Boolean.TRUE);
-		}else{
+		} else {
 			out.print(Boolean.FALSE);
-			
+
 		}
 		out.flush();
 	}

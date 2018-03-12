@@ -25,6 +25,7 @@ import com.wwi16.service.FahrzeugHerstellerService;
 import com.wwi16.service.FahrzeugKategorieService;
 import com.wwi16.service.FahrzeugService;
 import com.wwi16.service.UserService;
+import com.wwi16.util.SessionUtil;
 import com.wwi16.util.XssUtil;
 
 @MultipartConfig
@@ -32,34 +33,26 @@ public class Register_car extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/register_car.jsp");
-		
-		//�bergabe aller Fahrzeughersteller
+
+		// �bergabe aller Fahrzeughersteller
 		FahrzeugHerstellerService FahrzeugHerstellerService = new FahrzeugHerstellerService();
 		List<FahrzeugHersteller> hersteller = FahrzeugHerstellerService.getAllHersteller();
-		request.setAttribute("hersteller",hersteller);
+		request.setAttribute("hersteller", hersteller);
 		AusstattungService ausstattungsService = new AusstattungService();
 		List<Ausstattung> ausstattungen = ausstattungsService.getAllAusstattung();
-		request.setAttribute("ausstattungen",ausstattungen);
-		
-		//�bergabe des aktuellen Nutzers
-		HttpSession session = request.getSession(false);
-		if (session != null) {
-			String userEmail = (String) session.getAttribute("userEmail");
+		request.setAttribute("ausstattungen", ausstattungen);
 
-			if(userEmail != null){
-				
-				UserService nutzerService = new UserService();
-				User nutzer = nutzerService.getNutzerByMail(userEmail);
-				request.setAttribute("user",nutzer);
-				
-			} else{
-				response.sendRedirect("/carSharing/login");
-				return;
-				
-			}
+		// �bergabe des aktuellen Nutzers
+		User user = SessionUtil.setSessionEmail(request);
+		if (user == null) {
+
+			response.sendRedirect("/carSharing/login");
+			return;
+
 		}
-		
+
 		dispatcher.forward(request, response);
+
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -80,11 +73,10 @@ public class Register_car extends HttpServlet {
 		String sitzplaetze = XssUtil.sanitize(request.getParameter("sitzplaetze"));
 		String tagespreis = XssUtil.sanitize(request.getParameter("tagesPreisInput"));
 		String kilometerpreis = XssUtil.sanitize(request.getParameter("kilometerPreisInput"));
-		String eigentuemerID =  XssUtil.sanitize(request.getParameter("userId"));	
-		 
+		String eigentuemerID = XssUtil.sanitize(request.getParameter("userId"));
+
 		String[] ausstattung = request.getParameterValues("ausstattung");
-		
-		
+
 		InputStream inputStream = null;
 		Part filePart = request.getPart("fahrzeugbild");
 		if (filePart != null) {
@@ -104,12 +96,12 @@ public class Register_car extends HttpServlet {
 			buffer.flush();
 
 			FahrzeugService fahrzeugService = new FahrzeugService();
-			Fahrzeug fahrzeug = fahrzeugService.createFahrzeug(kennzeichen, modell, baujahr, farbe, laufleistung, leistung,
-					kraftstoff, sitzplaetze, tagespreis, kilometerpreis,buffer.toByteArray(),eigentuemerID, ausstattung);
+			Fahrzeug fahrzeug = fahrzeugService.createFahrzeug(kennzeichen, modell, baujahr, farbe, laufleistung,
+					leistung, kraftstoff, sitzplaetze, tagespreis, kilometerpreis, buffer.toByteArray(), eigentuemerID,
+					ausstattung);
 		}
 
-		
 		response.sendRedirect("/carSharing/cars");
 	}
-	
+
 }
