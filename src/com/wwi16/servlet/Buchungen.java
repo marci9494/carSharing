@@ -25,9 +25,7 @@ import com.wwi16.service.UserService;
  */
 public class Buchungen extends HttpServlet {
 
-	/* (non-Javadoc)
-	 * @see javax.servlet.http.HttpServlet#doGet(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
-	 */
+	
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher dispatcher = null;
 		HttpSession session = request.getSession(false);
@@ -41,6 +39,11 @@ public class Buchungen extends HttpServlet {
 				dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/buchungen.jsp");
 				BuchungService buchungsService = new BuchungService();
 				List<Buchung> buchungen = buchungsService.searchBuchungenByUser(user);
+				
+				//TODO REMOVE
+				System.out.println(buchungen.get(0).getPrice());
+				
+				
 				request.setAttribute("myBuchungen", buchungen);
 				List<Buchung> buchungenForMyCars = buchungsService.searchBuchungenMyCars(user);
 				request.setAttribute("carsBuchungen", buchungenForMyCars);
@@ -57,45 +60,44 @@ public class Buchungen extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
 
-
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
 		response.setContentType("application/json");
 		PrintWriter out = response.getWriter();
 
 		String action = request.getParameter("action");
-		
-		if("buchungFreigeben".equals(action)){
+
+		if ("buchungFreigeben".equals(action)) {
 			String buchungsId = request.getParameter("buchungId");
-			//TODO check if user has buchung... HTML injection
+			// TODO check if user has buchung... HTML injection
 			String userId = request.getParameter("userId");
 			BuchungService buchungsService = new BuchungService();
 			Buchung buchung = buchungsService.getBuchungById(buchungsId);
-			if(buchung != null){
+			if (buchung != null) {
 				buchung.setStatus(BuchungStatus.FREIGEGEBEN);
 				buchungsService.updateBuchung(buchung);
 				out.print(Boolean.TRUE);
 				out.flush();
 			}
-		}else if("buchungAbgeholt".equals(action)){
+		} else if ("buchungAbgeholt".equals(action)) {
 			String buchungsId = request.getParameter("buchungId");
-			//TODO check if user has buchung... HTML injection
+			// TODO check if user has buchung... HTML injection
 			String userId = request.getParameter("userId");
 			BuchungService buchungsService = new BuchungService();
 			Buchung buchung = buchungsService.getBuchungById(buchungsId);
-			if(buchung != null){
+			if (buchung != null) {
 				buchung.setStatus(BuchungStatus.ABGEHOLT);
 				buchungsService.updateBuchung(buchung);
 				out.print(Boolean.TRUE);
 				out.flush();
 			}
-		}else if("buchungStornieren".equals(action)){
+		} else if ("buchungStornieren".equals(action)) {
 			String buchungsId = request.getParameter("buchungId");
-			//TODO check if user has buchung... HTML injection
+			// TODO check if user has buchung... HTML injection
 			String userId = request.getParameter("userId");
 			BuchungService buchungsService = new BuchungService();
 			Buchung buchung = buchungsService.getBuchungById(buchungsId);
-			if(buchung != null){
+			if (buchung != null) {
 				buchung.setStatus(BuchungStatus.STORNIERT);
 				buchungsService.updateBuchung(buchung);
 				out.print(Boolean.TRUE);

@@ -118,7 +118,7 @@ td, th {
 								value="${buchung.endDatum }" /></td>
 						<td>${buchung.fahrzeug.hersteller.name}-
 							${buchung.fahrzeug.modell}</td>
-						<td>Befüll mich</td>
+						<td>${buchung.price} €</td>
 						<td>${buchung.status}-</td>
 						<c:if test="${ buchung.status == 'ANGEFRAGT'}">
 							<td><button onclick="buchungFreigeben('${buchung.id }')">Freigeben</button></td>
