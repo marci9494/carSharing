@@ -104,6 +104,9 @@ public class Home extends HttpServlet {
 			String startDate = request.getParameter("startDate");
 			String endDate = request.getParameter("endDate");
 			String plz = request.getParameter("plz");
+			String filterType = request.getParameter("filterType");
+			String filterId = request.getParameter("filterId");
+			
 			List<Distance> carDistanceList = getFahrzeugeForPlz(request, plz, Double.valueOf(distance), startDate,
 					endDate);
 

@@ -12,30 +12,36 @@
 	<div class="banner-wrapper">
 		<img class="banner" alt="Banner" src="/carSharing/html/img/header.jpg">
 	</div>
-	
+
 	<div id="header-content">
 		<h1 id="header-content-text">Herzlich Willkommen</h1>
 	</div>
 	<div class="content-wrapper">
-	<div id=hallo>
-	<!--Prüfung ob User eingeloggt ist-->
+		<div id=hallo>
+			<!--Prüfung ob User eingeloggt ist-->
 			<!--Wenn ja: Begrüßung und Logout Option-->
 			<!--Wenn nein: nur Begrüßung-->
-		<c:choose>
-			<c:when test="${ user!=null}">
-				<div class="logout">
-					Herzlich Willkommen ${user.vorname} ${user.nachname} <a href="/carSharing/logout">(Logout)</a>
-				</div>
-				<input type="hidden" class="userEmail" value="${userEmail}" />
-			</c:when>
-			<c:otherwise>
+			<c:choose>
+				<c:when test="${ user!=null}">
+					<div class="logout">
+						Herzlich Willkommen ${user.vorname} ${user.nachname} <a
+							href="/carSharing/logout">(Logout)</a>
+					</div>
+					<input type="hidden" class="userEmail" value="${userEmail}" />
+				</c:when>
+				<c:otherwise>
         			Herzlich Willkommen
     			</c:otherwise>
-		</c:choose>
-	</div>
-	<br>
-		<p>Autos privat, sicher und schnell zur Miete anzubieten und unterschiedlichen Menschen mit unterschiedlichsten Autos eine Plattform für die Vermietung zu bieten, das ist schon seit 2018 unser Ziel.</p>
-		<br><br><br>
+			</c:choose>
+		</div>
+		<br>
+		<p>Autos privat, sicher und schnell zur Miete anzubieten und
+			unterschiedlichen Menschen mit unterschiedlichsten Autos eine
+			Plattform für die Vermietung zu bieten, das ist schon seit 2018 unser
+			Ziel.</p>
+		<br>
+		<br>
+		<br>
 		<div class="search-overlay">
 			Jetzt Autos in der Nähe finden<br> <input type="text"
 				class="plzInput" /> <select class="distanceSelect">
@@ -51,21 +57,21 @@
 				<div class="fahrzeugfilter fahrzeugkategorie">
 					<b>Kategorie</b><br>
 					<c:forEach items="${kategories}" var="kategorie">
-						<a onclick="searchCar('kategorie','${kategorie.id }')">${kategorie.name }</a>
+						<a onclick="filterCar('kategorie','${kategorie.id }')">${kategorie.name }</a>
 						</br>
 					</c:forEach>
 				</div>
 				<div class="fahrzeugfilter fahrzeugfarbe">
 					<b>Farbe</b><br>
 					<c:forEach items="${farben}" var="farbe">
-						<a>${farbe.name }</a>
+						<a onclick="filterCar('farbe','${farbe.id }')">${farbe.name }</a>
 						<br>
 					</c:forEach>
 				</div>
 				<div class="fahrzeugfilter fahrzeugausstattung">
 					<b>Ausstattung</b><br>
 					<c:forEach items="${ausstattungen}" var="ausstattung">
-						<a>${ausstattung.name }</a>
+						<a onclick="filterCar('ausstattung','${ausstattung.id }')">${ausstattung.name }</a>
 						<br>
 					</c:forEach>
 				</div>
@@ -104,46 +110,85 @@
 <script src="/carSharing/html/js/home.js"></script>
 
 <script>
+	var filters = [];
+	
+	
+	function filterCar(art,id){
+		var added = false;
+		for (i = 0; i < filters.length; i++) { 
+			if(filters[i].art == art){
+				var filter = new Object();
+				filters[i].id.push(id);
+				added = true;
+			}
+		}
+		
+		if(filters.length == 0 || !added){
+			var filter = new Object();
+			filter.art = art;
+			filter.id = [];
+			filter.id.push(id);
+			filters.push(filter);
+		}
+	}
+
 	function searchCar(filterType, filterId) {
-		console.log("SearchCar!!")
+		jQuery('.foundCars').empty();
 		var plz = jQuery('.plzInput').val();
 		var distance = jQuery('.distanceSelect').val();
 		var startDate = jQuery('.startDate').val();
 		var endDate = jQuery('.endDate').val();
+		if (startDate && endDate && plz) {
 
-		jQuery.post("home", {
-			action : "searchCar",
-			plz : plz,
-			distance : distance,
-			startDate : startDate,
-			endDate : endDate,
-			filterType : filterType,
-			filterId : filterId
-		}, function(data, status) {
-			for (var i = 0; i < data.length; i++) {
-				for (var r = 0; r < data[i].fahrzeug.length; r++) {
-					var carWrapper = jQuery('#dummyCarWrapper').clone();
-					carWrapper.removeAttr('id');
-					carWrapper.find('.modellBezeichnung').text(
-							data[i].fahrzeug[r].modell);
-					carWrapper.find('.standort').text(data[i].ort);
-					carWrapper.find('.entfernung').text(data[i].distance);
-					carWrapper.find('.carImg').attr(
-							'src',
-							'data:image/png;base64,'
-									+ data[i].fahrzeug[r].fahrzeugBildString);
-					carWrapper.find('.carId').val(data[i].fahrzeug[r].id);
-					carWrapper.show();
-					jQuery('.foundCars').append(carWrapper);
+			jQuery
+					.post(
+							"home",
+							{
+								action : "searchCar",
+								plz : plz,
+								distance : distance,
+								startDate : startDate,
+								endDate : endDate,
+								filterType : filterType,
+								filterId : filterId
+							},
+							function(data, status) {
+								for (var i = 0; i < data.length; i++) {
+									for (var r = 0; r < data[i].fahrzeug.length; r++) {
+										var carWrapper = jQuery(
+												'#dummyCarWrapper').clone();
+										carWrapper.removeAttr('id');
+										carWrapper
+												.find('.modellBezeichnung')
+												.text(
+														data[i].fahrzeug[r].modell);
+										carWrapper.find('.standort').text(
+												data[i].ort);
+										carWrapper.find('.entfernung').text(
+												data[i].distance);
+										carWrapper
+												.find('.carImg')
+												.attr(
+														'src',
+														'data:image/png;base64,'
+																+ data[i].fahrzeug[r].fahrzeugBildString);
+										carWrapper.find('.carId').val(
+												data[i].fahrzeug[r].id);
+										carWrapper.show();
+										jQuery('.foundCars').append(carWrapper);
 
-					carWrapper.find('')
+										carWrapper.find('')
 
-				}
-			}
-			jQuery('.filters').show();
-			jQuery('.foundCars').append(jQuery('<div>').css('clear', 'both'));
+									}
+								}
+								jQuery('.filters').show();
+								jQuery('.foundCars').append(
+										jQuery('<div>').css('clear', 'both'));
 
-		});
+							});
+		} else {
+			alert("Bitte PLZ,Startdatum und Enddatum eingeben");
+		}
 	}
 
 	function rentCar(button) {
@@ -168,7 +213,7 @@
 				});
 				window.location = "/carSharing/buchungen"
 			}
-		}else{
+		} else {
 			alert("Bitte melden Sie sich an");
 			window.location = "/carSharing/login"
 		}

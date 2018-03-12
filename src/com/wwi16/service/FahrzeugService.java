@@ -90,6 +90,7 @@ public class FahrzeugService {
 		// TODO 1 durch id ersetzen
 		System.out.println("Farbe: " + farbe);
 		FahrzeugFarbe foundFarbe = farbService.getFahrzeugFarbeById(farbe);
+		
 		FahrzeugHersteller foundHersteller = herstellerService.getHerstellerById("1");
 		FahrzeugKategorie foundKategorie = kategorieService.getFahrzeugKategorieById("1");
 		User user = userService.getNutzerById(eigentuemerID);
