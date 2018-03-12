@@ -16,12 +16,12 @@
 	</div>
 
 	<div id="header-content">
-			<h1 id="header-content-text">Registrierung</h1>
-		</div>
+		<h1 id="header-content-text">Registrierung</h1>
+	</div>
 
 	<div class="content-wrapper">
 
-<%-- 		<div id=hallo>
+		<%-- 		<div id=hallo>
 		<c:choose>
 			<c:when test="${ user!=null}">
 				<div class="logout">
@@ -51,8 +51,8 @@
 						maxlength="30" required></li>
 
 					<li class="formular_li"><label for="passwort">Passwort
-							bestätigen</label> <br> <input type="password" name="passwort"
-						id="confirm_passwort"
+							bestätigen</label> <br> <input type="password"
+						name="confirm_passwort" id="confirm_passwort"
 						placeholder="Bitte bestätigen Sie Ihr Passwort" size="30"
 						maxlength="30" required></li>
 				</ul>
@@ -80,7 +80,7 @@
 						placeholder="Ihr Nachname" size="30" maxlength="30"></li>
 				</ul>
 			</div>
-			<br> 
+			<br>
 			<div class="formular-wrapper">
 				<ul class="formular_ul">
 					<li class="formular_li"><label class="strass" for="strasse">Straße</label>
@@ -102,7 +102,7 @@
 						placeholder="Ihr Wohnort" size="30"></li>
 				</ul>
 			</div>
-			<br><br>
+			<br> <br>
 			<div class="formular-wrapper">
 				<label for="land">Land</label> <br> <input type="text"
 					name="land" id="land" value="Deutschland" size="30">
@@ -138,11 +138,11 @@
 					</li>
 				</ul>
 			</div>
-			
-			<br><br>
+
+			<br> <br>
 
 			<div class="formular-wrapper">
-				<input type="submit" value="Registrieren"/>
+				<input type="submit" value="Registrieren" />
 			</div>
 
 		</form>
