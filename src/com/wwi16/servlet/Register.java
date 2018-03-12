@@ -35,13 +35,13 @@ public class Register extends HttpServlet{
 		// TODO Auto-generated method stub
 		
 		
-		//TODO noch nicht alle parameter übergeben
 		String vorname = XssUtil.sanitize(request.getParameter("vorname"));
 		String nachname = XssUtil.sanitize(request.getParameter("nachname"));
 		String strasse = XssUtil.sanitize(request.getParameter("strasse"));
 		String plz = XssUtil.sanitize(request.getParameter("postleitzahl"));
 		String ort = XssUtil.sanitize(request.getParameter("stadt"));
-		String email = XssUtil.sanitize(request.getParameter("email"));
+		//Dont sanitize email
+		String email = request.getParameter("email");
 		String kartennummer = XssUtil.sanitize(request.getParameter("kartennummer"));
 		String valid = XssUtil.sanitize(request.getParameter("valid"));
 		String karteninhaber = XssUtil.sanitize(request.getParameter("karteninhaber"));
@@ -68,8 +68,12 @@ public class Register extends HttpServlet{
             buffer.flush();
 
             UserService nutzerService = new UserService();
-            User nutzer = nutzerService.createNutzer(vorname, nachname, strasse, plz, ort, email, passwort, buffer.toByteArray(), kartennummer, valid, karteninhaber);
-            PrintWriter out = response.getWriter();
+            User nutzerByMail = nutzerService.getNutzerByMail(email);
+            User nutzer = null;
+            if(nutzerByMail == null){
+            	nutzer = nutzerService.createNutzer(vorname, nachname, strasse, plz, ort, email, passwort, buffer.toByteArray(), kartennummer, valid, karteninhaber);
+            }
+            
        
 		
 		if(nutzer != null){
@@ -77,10 +81,11 @@ public class Register extends HttpServlet{
 			HttpSession session=request.getSession();  
             session.setAttribute("userEmail",email);  
             
-            response.sendRedirect("/carSharing/login");
+            response.sendRedirect("/carSharing/home");
 			return;
 		}else{
 			//TODO fehlerbehandlung
+			PrintWriter out = response.getWriter();
 			out.print("Fehler! Bitte erneut probieren");
 	    	out.flush();
 		}

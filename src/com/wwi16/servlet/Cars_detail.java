@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.wwi16.model.BuchungStatus;
@@ -21,6 +20,7 @@ import com.wwi16.model.VermietZeitraum;
 import com.wwi16.service.BuchungService;
 import com.wwi16.service.FahrzeugService;
 import com.wwi16.service.UserService;
+import com.wwi16.util.SessionUtil;
 import com.wwi16.util.XssUtil;
 
 // TODO: Auto-generated Javadoc
@@ -29,7 +29,7 @@ import com.wwi16.util.XssUtil;
  */
 
 public class Cars_detail extends HttpServlet {
-	
+
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 112333L;
 
@@ -46,40 +46,34 @@ public class Cars_detail extends HttpServlet {
 	/**
 	 * Do get.
 	 *
-	 * @param request the request
-	 * @param response the response
-	 * @throws ServletException the servlet exception
-	 * @throws IOException Signals that an I/O exception has occurred.
+	 * @param request
+	 *            the request
+	 * @param response
+	 *            the response
+	 * @throws ServletException
+	 *             the servlet exception
+	 * @throws IOException
+	 *             Signals that an I/O exception has occurred.
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/cars_detail.jsp");
 
-		HttpSession session = request.getSession(false);
-		if (session != null) {
-			String userEmail = (String) session.getAttribute("userEmail");
+		User user = SessionUtil.setSessionEmail(request);
+		if (user != null) {
 
-			if (userEmail != null) {
+			FahrzeugService fahrzeugService = new FahrzeugService();
+			String carId = (String) request.getParameter("id");
+			// TODO Check if user is owner of fahrzeug
+			Fahrzeug fahrzeug = fahrzeugService.getFahrzeugById(carId);
 
-				UserService nutzerService = new UserService();
-				User nutzer = nutzerService.getNutzerByMail(userEmail);
-				request.setAttribute("nutzer", nutzer);
+			request.setAttribute("fahrzeug", fahrzeug);
 
-				FahrzeugService fahrzeugService = new FahrzeugService();
-				String carId = (String) request.getParameter("id");
-				//TODO Check if user is owner of fahrzeug
-				Fahrzeug fahrzeug = fahrzeugService.getFahrzeugById(carId);
-				System.out.println(fahrzeug.getVermietZeitraeume().size());
-				
-				
-				request.setAttribute("fahrzeug", fahrzeug);
+		} else {
+			response.sendRedirect("/carSharing/login");
+			return;
 
-			} else {
-				response.sendRedirect("/carSharing/login");
-				return;
-
-			}
 		}
 
 		dispatcher.forward(request, response);
@@ -89,17 +83,20 @@ public class Cars_detail extends HttpServlet {
 	/**
 	 * Do post.
 	 *
-	 * @param request the request
-	 * @param response the response
-	 * @throws ServletException the servlet exception
-	 * @throws IOException Signals that an I/O exception has occurred.
+	 * @param request
+	 *            the request
+	 * @param response
+	 *            the response
+	 * @throws ServletException
+	 *             the servlet exception
+	 * @throws IOException
+	 *             Signals that an I/O exception has occurred.
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		String action = request.getParameter("action");
-		
 
 		if (action.equals("saveVermietzeitraum")) {
 
@@ -109,30 +106,30 @@ public class Cars_detail extends HttpServlet {
 			List<VermietZeitraum> vermietzeitraeume = gson.fromJson(vermietZeitraeumeString,
 					new TypeToken<List<VermietZeitraum>>() {
 					}.getType());
-			
+
 			FahrzeugService fahrzeugService = new FahrzeugService();
 			fahrzeugService.addVermietungsZeitraeumeToFahrzeug(vermietzeitraeume, carId);
-			
-		}else if ("update".equals(action)){
-						
+
+		} else if ("update".equals(action)) {
+
 			String tagespreis = XssUtil.sanitize(request.getParameter("tagespreis"));
 			String kilometerpreis = XssUtil.sanitize(request.getParameter("kilometerpreis"));
-			
+
 			String carId = request.getParameter("carId");
-			System.out.println("ID ist "+ carId);
-			
+			System.out.println("ID ist " + carId);
+
 			FahrzeugService fahrzeugService = new FahrzeugService();
 			Fahrzeug fahrzeug = fahrzeugService.getFahrzeugById(carId);
-			
+
 			fahrzeug.setTagespreis(tagespreis);
 			fahrzeug.setKilometerpreis(kilometerpreis);
-			
+
 			fahrzeugService.updateFahrzeug(fahrzeug);
-			
-            response.sendRedirect("/carSharing/cars_detail?id=" + carId);
+
+			response.sendRedirect("/carSharing/cars_detail?id=" + carId);
 			return;
-			
-		}else if("delete".equals(action)){
+
+		} else if ("delete".equals(action)) {
 			String id = request.getParameter("id");
 			FahrzeugService fahrzeugService = new FahrzeugService();
 			fahrzeugService.deleteVermietzeitraum(id);
