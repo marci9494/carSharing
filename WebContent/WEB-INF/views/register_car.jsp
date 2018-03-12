@@ -142,7 +142,7 @@
 			</div>
 
 			<div class="formular-wrapper">
-				<h2>Fotos</h2>
+				<h2>Foto</h2>
 			</div>
 
 			<div class="formular-wrapper">
@@ -150,16 +150,6 @@
 					Attraktivität Ihrer Anzeige zu erhöhen</label> <br> <input
 					name="fahrzeugbild" type="file" size="50" accept="image/*">
 				</label>
-			</div>
-
-			<div class="formular-wrapper">
-				<h2>Fahrzeugschein</h2>
-			</div>
-
-			<div class="formular-wrapper">
-				<label>Laden Sie bitte ein Bild Ihres Fahrzeugscheins
-					(Zulassungsbescheinigung Teil I) hoch</label> <br> <input name="datei"
-					type="file" size="50" accept="image/*">
 			</div>
 
 			<div class="formular-wrapper">
@@ -227,7 +217,7 @@
 			
 			<div class="formular-wrapper">
 
-				<button onclick="jQuery('#upload-form').submit()">Weiter</button>
+				<input type="submit" value="Registrieren" />
 			</div>
 			<input type="hidden" name="userId" value="${user.id}" />
 		</form>
