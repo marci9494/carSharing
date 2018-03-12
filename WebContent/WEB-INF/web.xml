@@ -108,6 +108,10 @@
 		<servlet-name>buchungen</servlet-name>
 		<url-pattern>/buchungen</url-pattern>
 	</servlet-mapping>
+		<servlet-mapping>
+		<servlet-name>home</servlet-name>
+		<url-pattern></url-pattern>
+	</servlet-mapping>
 
 	<resource-ref>
 		<description>This is a reference to the global Resource for MySQL database connetion.</description>
