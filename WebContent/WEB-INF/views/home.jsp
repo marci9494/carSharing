@@ -118,7 +118,7 @@
 		for (i = 0; i < filters.length; i++) { 
 			if(filters[i].art == art){
 				var filter = new Object();
-				filters[i].id.push(id);
+				filters[i].ids.push(id);
 				added = true;
 			}
 		}
@@ -126,13 +126,15 @@
 		if(filters.length == 0 || !added){
 			var filter = new Object();
 			filter.art = art;
-			filter.id = [];
-			filter.id.push(id);
+			filter.ids = [];
+			filter.ids.push(id);
 			filters.push(filter);
 		}
+		
+		searchCar();
 	}
 
-	function searchCar(filterType, filterId) {
+	function searchCar() {
 		jQuery('.foundCars').empty();
 		var plz = jQuery('.plzInput').val();
 		var distance = jQuery('.distanceSelect').val();
@@ -149,8 +151,7 @@
 								distance : distance,
 								startDate : startDate,
 								endDate : endDate,
-								filterType : filterType,
-								filterId : filterId
+								filters : JSON.stringify(filters)
 							},
 							function(data, status) {
 								for (var i = 0; i < data.length; i++) {
