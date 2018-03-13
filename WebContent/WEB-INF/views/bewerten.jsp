@@ -10,7 +10,7 @@
 <div class="banner-wrapper">
 	<img class="banner" alt="Banner" src="/carSharing/html/img/header.jpg">
 </div>
-
+<br>
 <div id="header-content">
 	<h1 id="header-content-text">Deine Bewertung</h1>
 </div>
