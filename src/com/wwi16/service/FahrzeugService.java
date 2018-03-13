@@ -151,8 +151,7 @@ public class FahrzeugService {
 		fahrzeug.setModell(modell);
 		fahrzeug.setKm_stand(laufleistung);
 		fahrzeug.setFahrzeugbild(fahrzeugbild);
-		// TODO ersetzen
-		fahrzeug.setPlz("89168");
+		fahrzeug.setPlz(user.getPlz());
 		fahrzeug.setTagespreis(tagespreis);
 		fahrzeug.setBaujahr(baujahr);
 

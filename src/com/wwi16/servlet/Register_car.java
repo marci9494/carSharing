@@ -74,7 +74,7 @@ public class Register_car extends HttpServlet {
 		String sitzplaetze = XssUtil.sanitize(request.getParameter("sitzplaetze"));
 		String tagespreis = XssUtil.sanitize(request.getParameter("tagesPreisInput"));
 		String eigentuemerID = XssUtil.sanitize(request.getParameter("userId"));
-
+		String plz = XssUtil.sanitize(request.getParameter("plz"));
 		String[] ausstattung = request.getParameterValues("ausstattung");
 
 		InputStream inputStream = null;
@@ -98,7 +98,7 @@ public class Register_car extends HttpServlet {
 			FahrzeugService fahrzeugService = new FahrzeugService();
 			Fahrzeug fahrzeug = fahrzeugService.createFahrzeug(marke, kennzeichen, modell, baujahr, farbe, laufleistung,
 					leistung, kraftstoff, sitzplaetze, tagespreis, buffer.toByteArray(), eigentuemerID,
-					ausstattung);
+					ausstattung,plz);
 		}
 
 		response.sendRedirect("/carSharing/cars");
