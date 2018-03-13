@@ -83,7 +83,7 @@ td, th {
 							<c:out value="${buchung.fahrzeug.modell}" /></td>
 						<td><c:out value="${buchung.price}" /> €</td>
 						<td><c:out value="${buchung.status}" /></td>
-						<c:if test="${ buchung.status != 'ABGESCHLOSSEN' && buchung.status != 'STORNIERT' && buchung.status != 'BEWERTET'  }">
+						<c:if test="${ buchung.status != 'ABGESCHLOSSEN' && buchung.status != 'STORNIERT' && buchung.status != 'BEWERTET'  && buchung.status != 'ABGEHOLT'  }">
 							<td><button onclick="buchungStornieren('${buchung.id }')" >Stornieren</button></td>
 						</c:if>
 						<c:if test="${ buchung.status == 'ABGESCHLOSSEN' && buchung.status != 'BEWERTET' }">
