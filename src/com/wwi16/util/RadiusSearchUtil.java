@@ -14,13 +14,16 @@ import com.wwi16.service.LocationService;
  * The Class RadiusSearchUtil.
  */
 public class RadiusSearchUtil {
-	
+
 	/**
 	 * Radius calculation.
 	 *
-	 * @param request the request
-	 * @param plz the plz
-	 * @param distance the distance
+	 * @param request
+	 *            the request
+	 * @param plz
+	 *            the plz
+	 * @param distance
+	 *            the distance
 	 * @return the list
 	 */
 	public List<Distance> radiusCalculation(HttpServletRequest request, String plz, double distance) {
@@ -41,8 +44,10 @@ public class RadiusSearchUtil {
 						+ Math.cos(destination_lat) * Math.cos(origin_lat) * Math.cos(destination_lon - origin_lon))
 						* 6375;
 				if (distanceOrgDest <= distance) {
-					distanceList.add(new Distance(currentLocation.getPlz(), roundTo2Decimals(distanceOrgDest),
-							currentLocation.getOrt()));
+					if (!location.getPlz().equals(currentLocation.getPlz())) {
+						distanceList.add(new Distance(currentLocation.getPlz(), roundTo2Decimals(distanceOrgDest),
+								currentLocation.getOrt()));
+					}
 				}
 			}
 		}
@@ -53,7 +58,8 @@ public class RadiusSearchUtil {
 	/**
 	 * Deg 2 rad.
 	 *
-	 * @param degString the deg string
+	 * @param degString
+	 *            the deg string
 	 * @return the double
 	 */
 	private static double deg2rad(String degString) {
@@ -64,7 +70,8 @@ public class RadiusSearchUtil {
 	/**
 	 * Round to 2 decimals.
 	 *
-	 * @param val the val
+	 * @param val
+	 *            the val
 	 * @return the double
 	 */
 	double roundTo2Decimals(double val) {

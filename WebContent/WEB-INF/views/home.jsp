@@ -42,10 +42,13 @@
 		<br> <br> <br>
 		<div class="search-overlay">
 			Jetzt Autos in der Nähe finden<br> <input type="text"
-				class="plzInput" placeholder="Postleitzahl" maxlength="5" size="10" /> <select class="distanceSelect">
+				class="plzInput" placeholder="Postleitzahl" maxlength="5" size="10" />
+			<select class="distanceSelect">
 				<option value="10">10Km</option>
 				<option value="20">20Km</option>
-			</select> <span style="margin-left:10px;margin-right: 5px;">Von:</span><input class="startDate" type="date" /> <span style="margin-left:10px;margin-right: 5px;">Bis:</span><input
+			</select> <span style="margin-left: 10px; margin-right: 5px;">Von:</span><input
+				class="startDate" type="date" /> <span
+				style="margin-left: 10px; margin-right: 5px;">Bis:</span><input
 				class="endDate" type="date" />
 			<button type="button" onclick="searchCar(null,null)">Suchen</button>
 		</div>
@@ -78,8 +81,7 @@
 							onclick="filterCar('ausstattung','${ausstattung.id }',this)">${ausstattung.name }</a>
 						<br>
 					</c:forEach>
-					<br>
-					<br>
+					<br> <br>
 				</div>
 
 			</div>
@@ -95,11 +97,16 @@
 			</div>
 			<div class="carDetails">
 				<div class="bezeichnung">
-					<span class="herstellerBezeichnung"></span><span
-						class="modellBezeichnung"></span>
+					<span style="margin-left: 10px;" class="herstellerBezeichnung"></span>
+					- <span class="modellBezeichnung"></span>
 				</div>
 				<div class="distanceWrapper">
-					<span class="standort"></span> - <span class="entfernung"></span><span>Km</span>
+					<span style="margin-left: 10px;" class="standort"></span> - <span
+						class="entfernung"></span><span>Km</span>
+				</div>
+				<div>
+					<span style="margin-left: 10px;">Tagespreis: </span><span
+						class="tagesPreis"></span>
 				</div>
 			</div>
 			<div style="float: right; margin-right: 10px;">
@@ -110,29 +117,30 @@
 
 		</div>
 	</div>
+
 </body>
 <jsp:include page="/theme/html/footer.html" />
 
 <script src="/carSharing/html/js/home.js"></script>
-
+<script src="/carSharing/html/js/loadingoverlay.min.js"></script>
+<script src="/carSharing/html/js/loadingoverlay_progress.min.js"></script>
 <script>
 	var filters = [];
 
 	function filterCar(art, id, element) {
 		if (jQuery(element).hasClass('activeFilter')) {
 			jQuery('#' + art + '_' + id).removeClass('activeFilter');
-			
+
 			for (i = 0; i < filters.length; i++) {
-				if(filters[i].art == art){
+				if (filters[i].art == art) {
 					var index = filters[i].ids.indexOf(id);
 					filters[i].ids.splice(index, 1);
 				}
-				if(filters[i].ids.length == 0){
+				if (filters[i].ids.length == 0) {
 					filters.splice(i, 1);
 				}
 			}
-			
-			
+
 		} else {
 			jQuery('#' + art + '_' + id).addClass('activeFilter');
 			var added = false;
@@ -163,6 +171,7 @@
 		var startDate = jQuery('.startDate').val();
 		var endDate = jQuery('.endDate').val();
 		if (startDate && endDate && plz) {
+			jQuery.LoadingOverlay("show");
 
 			jQuery
 					.post(
@@ -182,6 +191,10 @@
 												'#dummyCarWrapper').clone();
 										carWrapper.removeAttr('id');
 										carWrapper
+												.find('.herstellerBezeichnung')
+												.text(
+														data[i].fahrzeug[r].hersteller.name);
+										carWrapper
 												.find('.modellBezeichnung')
 												.text(
 														data[i].fahrzeug[r].modell);
@@ -189,6 +202,9 @@
 												data[i].ort);
 										carWrapper.find('.entfernung').text(
 												data[i].distance);
+										carWrapper.find('.tagesPreis').text(
+												data[i].fahrzeug[r].tagespreis
+														+ '€');
 										carWrapper
 												.find('.carImg')
 												.attr(
@@ -207,6 +223,7 @@
 								jQuery('.filters').show();
 								jQuery('.foundCars').append(
 										jQuery('<div>').css('clear', 'both'));
+								jQuery.LoadingOverlay("hide");
 
 							});
 		} else {
