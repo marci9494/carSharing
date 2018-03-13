@@ -161,7 +161,7 @@
 			carId : carId
 		}, function(data, status) {
 			if (data) {
-				window.location.href = "'/carSharing/cars';";
+				window.location.href = "/carSharing/cars";
 			} else {
 				//POPUP anzeigen, email bereits vergeben
 			}

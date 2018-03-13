@@ -74,7 +74,6 @@ public class Register_car extends HttpServlet {
 		String sitzplaetze = XssUtil.sanitize(request.getParameter("sitzplaetze"));
 		String tagespreis = XssUtil.sanitize(request.getParameter("tagesPreisInput"));
 		String eigentuemerID = XssUtil.sanitize(request.getParameter("userId"));
-
 		String[] ausstattung = request.getParameterValues("ausstattung");
 
 		InputStream inputStream = null;
