@@ -19,7 +19,7 @@
 	<input type="checkbox" id="show-menu">
 	<nav id="nav">
 		<ul>
-			<li><a href="/carSharing/home">Dashboard</a></li>
+			<li><a href="/carSharing/home">Fahrzeug mieten</a></li>
 			<li><a href="/carSharing/buchungen">Meine Buchungen</a></li>
 			<li><a href="/carSharing/cars">Vermieten</a></li>
 			<!-- Wenn User angemeldet ist, wird Profil angezeigt, ansonsten Login -->
