@@ -21,8 +21,10 @@ public class UserService {
 	/**
 	 * Check login.
 	 *
-	 * @param email the email
-	 * @param pw the pw
+	 * @param email
+	 *            the email
+	 * @param pw
+	 *            the pw
 	 * @return true, if successful
 	 */
 	public boolean checkLogin(String email, String pw) {
@@ -61,67 +63,79 @@ public class UserService {
 	/**
 	 * Creates the nutzer.
 	 *
-	 * @param vorname the vorname
-	 * @param nachname the nachname
-	 * @param strasse the strasse
-	 * @param hausnummer the hausnummer
-	 * @param plz the plz
-	 * @param ort the ort
-	 * @param email the email
-	 * @param password the password
-	 * @param personalausweis the personalausweis
-	 * @param kartennummer the kartennummer
-	 * @param valid the valid
-	 * @param karteninhaber the karteninhaber
+	 * @param anrede
+	 *            the anrede
+	 * @param vorname
+	 *            the vorname
+	 * @param nachname
+	 *            the nachname
+	 * @param strasse
+	 *            the strasse
+	 * @param hausnummer
+	 *            the hausnummer
+	 * @param plz
+	 *            the plz
+	 * @param ort
+	 *            the ort
+	 * @param email
+	 *            the email
+	 * @param password
+	 *            the password
+	 * @param personalausweis
+	 *            the personalausweis
+	 * @param kartennummer
+	 *            the kartennummer
+	 * @param valid
+	 *            the valid
+	 * @param karteninhaber
+	 *            the karteninhaber
 	 * @return the user
 	 */
-	public User createNutzer(String anrede, String vorname, String nachname,String strasse, String hausnummer, String plz, String ort, String email, String password,byte[] personalausweis, String kartennummer, String valid, String karteninhaber){
-		 Session session = HibernateUtil.openSession();
-		 
-		 session.beginTransaction();
-		 
-		 User nutzer = new User();
-		 
-		 if (anrede == "0") {
-			 nutzer.setAnrede("Frau");
-		 }
-		 else {
-			 nutzer.setAnrede("Herr");
-		 }
-		 
-		 nutzer.setEmail(email);
-		 nutzer.setNachname(nachname);
-		 nutzer.setOrt(ort);
-		 nutzer.setPlz(plz);
-		 nutzer.setStrasse(strasse);
-		 nutzer.setHausnummer(hausnummer);
-		 nutzer.setVorname(vorname);
-		 nutzer.setPassword(hashPassword(password));
-		 nutzer.setPersonalausweis(personalausweis);
-		 Kreditkarte kreditkarte = new Kreditkarte();
-		 kreditkarte.setUser(nutzer);
-		 kreditkarte.setKartennummer(kartennummer);
-		 kreditkarte.setValid(valid);
-		 kreditkarte.setInhaber(karteninhaber);
-		 
-		 try{
-		 session.save(nutzer);
-		 session.save(kreditkarte);
-		 session.getTransaction().commit();
-	        } catch (Exception e) {
-	     
-	            e.printStackTrace();
-	        } finally {
-	            session.close();
-	        }
-		
+	public User createNutzer(String anrede, String vorname, String nachname, String strasse, String hausnummer,
+			String plz, String ort, String email, String password, byte[] personalausweis, String kartennummer,
+			String valid, String karteninhaber) {
+		Session session = HibernateUtil.openSession();
+
+		session.beginTransaction();
+
+		User nutzer = new User();
+
+		nutzer.setAnrede(anrede);
+
+		nutzer.setEmail(email);
+		nutzer.setNachname(nachname);
+		nutzer.setOrt(ort);
+		nutzer.setPlz(plz);
+		nutzer.setStrasse(strasse);
+		nutzer.setHausnummer(hausnummer);
+		nutzer.setVorname(vorname);
+		nutzer.setPassword(hashPassword(password));
+		nutzer.setPersonalausweis(personalausweis);
+		Kreditkarte kreditkarte = new Kreditkarte();
+		kreditkarte.setUser(nutzer);
+		kreditkarte.setKartennummer(kartennummer);
+		kreditkarte.setValid(valid);
+		kreditkarte.setInhaber(karteninhaber);
+
+		try {
+			session.save(nutzer);
+			session.save(kreditkarte);
+			session.getTransaction().commit();
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+
 		return nutzer;
 	}
 
 	/**
 	 * Gets the nutzer by mail.
 	 *
-	 * @param email the email
+	 * @param email
+	 *            the email
 	 * @return the nutzer by mail
 	 */
 	public User getNutzerByMail(String email) {
@@ -144,11 +158,12 @@ public class UserService {
 		}
 		return nutzer;
 	}
-	
+
 	/**
 	 * Gets the nutzer by id.
 	 *
-	 * @param id the id
+	 * @param id
+	 *            the id
 	 * @return the nutzer by id
 	 */
 	public User getNutzerById(String id) {
@@ -176,7 +191,8 @@ public class UserService {
 	/**
 	 * Hash password.
 	 *
-	 * @param password the password
+	 * @param password
+	 *            the password
 	 * @return the string
 	 */
 	private String hashPassword(String password) {
@@ -201,21 +217,22 @@ public class UserService {
 		}
 		return generatedPassword;
 	}
-	
+
 	/**
 	 * Update user.
 	 *
-	 * @param user the user
+	 * @param user
+	 *            the user
 	 * @return the user
 	 */
-	public User updateUser(User user){
+	public User updateUser(User user) {
 		System.out.println("update!!");
 		Session session = HibernateUtil.openSession();
 		session.beginTransaction();
-    	
+
 		try {
-			 session.update(user);
-			 session.getTransaction().commit();
+			session.update(user);
+			session.getTransaction().commit();
 		} catch (Exception e) {
 
 			e.printStackTrace();
