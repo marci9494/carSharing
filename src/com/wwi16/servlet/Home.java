@@ -108,13 +108,11 @@ public class Home extends HttpServlet {
 			String endDate = request.getParameter("endDate");
 			String plz = request.getParameter("plz");
 			String filterString = request.getParameter("filters");
-			System.out.println(filterString);
 			ObjectMapper mapper = new ObjectMapper();
 			List<FahrzeugFilter> filters = null;
 			if (filterString != null && !filterString.isEmpty() && !"[]".equals(filterString)) {
 				filters = mapper.readValue(filterString, new TypeReference<List<FahrzeugFilter>>() {
 				});
-				System.out.println(filters.size());
 			}
 
 			List<Distance> carDistanceList = getFahrzeugeForPlz(request, plz, Double.valueOf(distance), startDate,

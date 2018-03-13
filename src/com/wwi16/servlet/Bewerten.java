@@ -87,7 +87,6 @@ public class Bewerten extends HttpServlet {
 	 *      response)
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("doPost!!");
 		String zustand = XssUtil.sanitize(request.getParameter("zustand"));
 		String freundlichkeit = XssUtil.sanitize(request.getParameter("freundlichkeit"));
 		String zahlen = XssUtil.sanitize(request.getParameter("zahlen"));

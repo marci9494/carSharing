@@ -115,7 +115,6 @@ public class Cars_detail extends HttpServlet {
 			String tagespreis = XssUtil.sanitize(request.getParameter("tagespreis"));
 
 			String carId = request.getParameter("carId");
-			System.out.println("ID ist " + carId);
 
 			FahrzeugService fahrzeugService = new FahrzeugService();
 			Fahrzeug fahrzeug = fahrzeugService.getFahrzeugById(carId);

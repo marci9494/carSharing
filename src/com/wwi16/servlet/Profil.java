@@ -84,7 +84,6 @@ public class Profil extends HttpServlet {
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String userId = XssUtil.sanitize(request.getParameter("userId"));
-		System.out.println("User id =" + userId);
 		String vorname = XssUtil.sanitize(request.getParameter("vorname"));
 		String nachname = XssUtil.sanitize(request.getParameter("nachname"));
 		String strasse = XssUtil.sanitize(request.getParameter("strasse"));

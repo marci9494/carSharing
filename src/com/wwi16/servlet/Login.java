@@ -51,7 +51,6 @@ public class Login extends HttpServlet {
 	        String pass = XssUtil.sanitize(request.getParameter("pass"));
 	        UserService nutzerService = new UserService();
 	        boolean checkLogin = nutzerService.checkLogin(user, pass);
-	        System.out.println("Login = " + checkLogin);
 	        
 	        if(checkLogin){
 	        	System.out.println("Nutzer " + user + " angemeldet");
