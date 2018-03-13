@@ -62,7 +62,7 @@
 
 		<br> <span class="form-field-label">Tagespreis </span><br> <input
 			type="text" name="tagespreis" id="tagespreis"
-			placeholder="${fahrzeug.tagespreis}" size="5"> <label>€</label>
+			placeholder="${fahrzeug.tagespreis}" value="${fahrzeug.tagespreis}" size="5" required> <label>€</label>
 		<p id="daten">Aktuell: ${fahrzeug.tagespreis}€</p>
 
 

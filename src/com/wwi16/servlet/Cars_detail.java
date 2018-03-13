@@ -120,7 +120,9 @@ public class Cars_detail extends HttpServlet {
 			FahrzeugService fahrzeugService = new FahrzeugService();
 			Fahrzeug fahrzeug = fahrzeugService.getFahrzeugById(carId);
 
-			fahrzeug.setTagespreis(tagespreis);
+			if (tagespreis != null || tagespreis != "") {
+				fahrzeug.setTagespreis(tagespreis);
+			}
 
 			fahrzeugService.updateFahrzeug(fahrzeug);
 
