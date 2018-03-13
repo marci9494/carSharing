@@ -74,7 +74,7 @@
 		<div>
 			<!--User kann Mängel eingeben, die am Auto verursacht wurden-->
 			<h5>Mängel</h5>
-			Hast du während deiner Benutzung Mängel am Auto verursacht? Gib sie hier bitte ein. 
+			Wurden während der Vermietung Mängel am Auto verursacht? Gib sie hier bitte ein. 
 			<br><br>
 			<textarea id="maengel" name="maengel" cols="35" rows="4"></textarea>
 			<br>
