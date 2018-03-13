@@ -45,17 +45,17 @@
 
 
 			<br> <span class="form-field-label">Marke</span> <br>
-			<p>${fahrzeug.hersteller.name}</p>
+			<p><c:out value="${fahrzeug.hersteller.name}" /></p>
 			<input id="marke" type='text' style='display: none' name="marke"
 				value="${fahrzeug.hersteller.name}" /> <br> <span
 				class="form-field-label"> Modell</span> <br>
-			<p>${fahrzeug.modell}</p>
+			<p><c:out value="${fahrzeug.modell}" /></p>
 			<br> <span class="form-field-label">Farbe</span> <br>
-			<p>${fahrzeug.farbe.name}</p>
+			<p><c:out value="${fahrzeug.farbe.name}" /></p>
 			<br> <span class="form-field-label">Sitzplätze</span> <br>
-			<p>${fahrzeug.sitzplaetze}</p>
+			<p><c:out value="${fahrzeug.sitzplaetze}" /></p>
 			<br> <span class="form-field-label">Leistung</span> <br>
-			<p>${fahrzeug.leistung}</p>
+			<p><c:out value="${fahrzeug.leistung}" /></p>
 			<br>
 		</div>
 

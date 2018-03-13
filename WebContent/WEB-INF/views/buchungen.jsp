@@ -117,10 +117,10 @@ td, th {
 								value="${buchung.startDatum }" /></td>
 						<td><fmt:formatDate pattern="dd.MM.yyyy"
 								value="${buchung.endDatum }" /></td>
-						<td>${buchung.fahrzeug.hersteller.name}-
-							${buchung.fahrzeug.modell}</td>
-						<td>${buchung.price} €</td>
-						<td>${buchung.status}</td>
+						<td><c:out value="${buchung.fahrzeug.hersteller.name}" />-
+							<c:out value="${buchung.fahrzeug.modell}" /></td>
+						<td><c:out value="${buchung.price}" /> €</td>
+						<td><c:out value="${buchung.status}" /></td>
 						<c:if test="${ buchung.status == 'ANGEFRAGT'}">
 							<td><button onclick="buchungFreigeben('${buchung.id }')">Freigeben</button></td>
 							<td><button onclick="buchungStornieren('${buchung.id }')">Ablehnen</button></td>
