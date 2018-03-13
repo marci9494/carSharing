@@ -232,6 +232,7 @@ public class Buchung {
 				long millis2 = cal2.getTimeInMillis();
 				long diff = millis2 - millis1;
 				long diffDays = diff / (24 * 60 * 60 * 1000);
+				diffDays= diffDays + 1;
 				if (fahrzeug.getTagespreis() != null) {
 					return Double.valueOf(fahrzeug.getTagespreis()) * diffDays;
 				} else {
