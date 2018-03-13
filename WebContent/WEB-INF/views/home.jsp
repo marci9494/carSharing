@@ -42,10 +42,10 @@
 		<br> <br> <br>
 		<div class="search-overlay">
 			Jetzt Autos in der Nähe finden<br> <input type="text"
-				class="plzInput" placeholder="Postleitzahl" maxlength="5" /> <select class="distanceSelect">
+				class="plzInput" placeholder="Postleitzahl" maxlength="5" size="10" /> <select class="distanceSelect">
 				<option value="10">10Km</option>
 				<option value="20">20Km</option>
-			</select> <span>Von</span><input class="startDate" type="date" /> <span>Bis</span><input
+			</select> <span style="margin-left:10px;margin-right: 5px;">Von:</span><input class="startDate" type="date" /> <span style="margin-left:10px;margin-right: 5px;">Bis:</span><input
 				class="endDate" type="date" />
 			<button type="button" onclick="searchCar(null,null)">Suchen</button>
 		</div>
