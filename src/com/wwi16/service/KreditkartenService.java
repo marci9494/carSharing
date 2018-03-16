@@ -31,7 +31,8 @@ public class KreditkartenService {
         try {
             tx = session.getTransaction();
             tx.begin();
-            Query query = session.createQuery("FROM Kreditkarte WHERE user=" + user.getId() + "");
+            Query query = session.createQuery("FROM Kreditkarte k WHERE k.user=:id");
+            query.setParameter("id",user.getId());
             kreditkarte = (Kreditkarte) query.uniqueResult();
             tx.commit();
         } catch (Exception e) {
@@ -59,7 +60,8 @@ public class KreditkartenService {
         try {
             tx = session.getTransaction();
             tx.begin();
-            Query query = session.createQuery("FROM Kreditkarte WHERE user=" + userID + "");
+            Query query = session.createQuery("FROM Kreditkarte k WHERE k.user=:id");
+            query.setParameter("id",userID);
             kreditkarte = (Kreditkarte) query.uniqueResult();
             tx.commit();
         } catch (Exception e) {
@@ -74,7 +76,6 @@ public class KreditkartenService {
 	}
 	
 	public Kreditkarte updateKreditkarte(Kreditkarte kreditkarte){
-		System.out.println("update!!");
 		Session session = HibernateUtil.openSession();
 		session.beginTransaction();
     	

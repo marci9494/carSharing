@@ -28,23 +28,7 @@ public class UserService {
 	 * @return true, if successful
 	 */
 	public boolean checkLogin(String email, String pw) {
-		Session session = HibernateUtil.openSession();
-		Transaction tx = null;
-		User nutzer = null;
-		try {
-			tx = session.getTransaction();
-			tx.begin();
-			Query query = session.createQuery("from User where email='" + email + "'");
-			nutzer = (User) query.uniqueResult();
-			tx.commit();
-		} catch (Exception e) {
-			if (tx != null) {
-				tx.rollback();
-			}
-			e.printStackTrace();
-		} finally {
-			session.close();
-		}
+		User nutzer = getNutzerByMail(email);
 
 		if (nutzer != null) {
 			String hashPassword = hashPassword(pw);
@@ -145,7 +129,8 @@ public class UserService {
 		try {
 			tx = session.getTransaction();
 			tx.begin();
-			Query query = session.createQuery("from User where email='" + email + "'");
+			Query query = session.createQuery("from User where email=:email");
+			query.setParameter("email", email);
 			nutzer = (User) query.uniqueResult();
 			tx.commit();
 		} catch (Exception e) {
@@ -173,7 +158,8 @@ public class UserService {
 		try {
 			tx = session.getTransaction();
 			tx.begin();
-			Query query = session.createQuery("from User where id='" + id + "'");
+			Query query = session.createQuery("from User where id=:id");
+			query.setParameter("id", id);
 			nutzer = (User) query.uniqueResult();
 			tx.commit();
 		} catch (Exception e) {
@@ -226,7 +212,6 @@ public class UserService {
 	 * @return the user
 	 */
 	public User updateUser(User user) {
-		System.out.println("update!!");
 		Session session = HibernateUtil.openSession();
 		session.beginTransaction();
 

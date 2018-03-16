@@ -31,7 +31,8 @@ public class FahrzeugKategorieService {
 		try {
 			tx = session.getTransaction();
 			tx.begin();
-			Query query = session.createQuery("from FahrzeugKategorie where id='" + publicId + "'");
+			Query query = session.createQuery("from FahrzeugKategorie f where f.id=:id");
+			query.setParameter("id", publicId);
 			kategorie = (FahrzeugKategorie) query.uniqueResult();
 			tx.commit();
 		} catch (Exception e) {

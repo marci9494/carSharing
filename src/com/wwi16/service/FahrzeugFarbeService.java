@@ -30,7 +30,8 @@ public class FahrzeugFarbeService {
         try {
             tx = session.getTransaction();
             tx.begin();
-            Query query = session.createQuery("from FahrzeugFarbe where id='"+publicId+"'");
+            Query query = session.createQuery("from FahrzeugFarbe f where f.id=:id");
+            query.setParameter("id", publicId);
             farbe = (FahrzeugFarbe)query.uniqueResult();
             tx.commit();
         } catch (Exception e) {

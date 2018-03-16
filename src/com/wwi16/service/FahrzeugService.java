@@ -46,7 +46,8 @@ public class FahrzeugService {
 		try {
 			tx = session.getTransaction();
 			tx.begin();
-			Query query = session.createQuery("from Fahrzeug where plz = '" + plz + "'");
+			Query query = session.createQuery("from Fahrzeug f where f.plz = :plz");
+			query.setParameter("plz", plz);
 			fahrzeuge = (List<Fahrzeug>) query.list();
 			tx.commit();
 		} catch (Exception e) {
@@ -185,7 +186,8 @@ public class FahrzeugService {
 		try {
 			tx = session.getTransaction();
 			tx.begin();
-			Query query = session.createQuery("from Fahrzeug where id='" + publicId + "'");
+			Query query = session.createQuery("from Fahrzeug where id=:id");
+			query.setParameter("id", publicId);
 			fahrzeug = (Fahrzeug) query.uniqueResult();
 			tx.commit();
 		} catch (Exception e) {
@@ -214,7 +216,8 @@ public class FahrzeugService {
 		try {
 			tx = session.getTransaction();
 			tx.begin();
-			Query query = session.createQuery("from Fahrzeug where eigentuemer = '" + user.getId() + "'");
+			Query query = session.createQuery("from Fahrzeug f where f.eigentuemer.id = :userId");
+			query.setParameter("userId", user.getId());
 			fahrzeuge = (List<Fahrzeug>) query.list();
 			tx.commit();
 		} catch (Exception e) {
@@ -316,9 +319,11 @@ public class FahrzeugService {
 		try {
 			tx = session.getTransaction();
 			tx.begin();
-			Query query = session.createQuery("from FahrzeugVermietZeitraum where START_DATUM = '"
-					+ vermietZeitraum.getStartDate() + "' and END_DATUM='" + vermietZeitraum.getEndDate() + "'"
-					+ "and fahrzeug='" + fahrzeug.getId() + "'");
+			Query query = session.createQuery("from FahrzeugVermietZeitraum where START_DATUM =:startDate and END_DATUM=:endDate and fahrzeug.id =:fahrzeugId");
+			query.setParameter("startDate", vermietZeitraum.getStartDate());
+			query.setParameter("endDate", vermietZeitraum.getEndDate());
+			query.setParameter("fahrzeugId", fahrzeug.getId());
+			
 			foundVermietZeitraum = (FahrzeugVermietZeitraum) query.uniqueResult();
 			tx.commit();
 		} catch (Exception e) {
@@ -375,7 +380,8 @@ public class FahrzeugService {
 		try {
 			tx = session.getTransaction();
 			tx.begin();
-			Query query = session.createQuery("from FahrzeugVermietZeitraum where id='" + publicId + "'");
+			Query query = session.createQuery("from FahrzeugVermietZeitraum where id=:id");
+			query.setParameter("id",publicId);
 			vermietZeitraum = (FahrzeugVermietZeitraum) query.uniqueResult();
 			tx.commit();
 		} catch (Exception e) {
@@ -412,6 +418,7 @@ public class FahrzeugService {
 					tx.begin();
 					Query query = session.createQuery(
 							"from Fahrzeug where id='" + fahrzeug.getId() + "' and " + art + "='" + id + "'");
+					
 					foundFahrzeug = (Fahrzeug) query.uniqueResult();
 					tx.commit();
 					if (foundFahrzeug != null) {

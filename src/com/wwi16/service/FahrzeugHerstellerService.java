@@ -28,7 +28,7 @@ public class FahrzeugHerstellerService {
         try {
             tx = session.getTransaction();
             tx.begin();
-            Query query = session.createQuery("SELECT name FROM FahrzeugHersteller");
+            Query query = session.createQuery("FROM FahrzeugHersteller");
             hersteller = query.list();
             tx.commit();
         } catch (Exception e) {

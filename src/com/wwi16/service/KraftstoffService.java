@@ -29,7 +29,8 @@ public class KraftstoffService {
         try {
             tx = session.getTransaction();
             tx.begin();
-            Query query = session.createQuery("from Kraftstoff where id='"+publicId+"'");
+            Query query = session.createQuery("from Kraftstoff where id=:id");
+            query.setParameter("id",publicId);
             kraftstoff = (Kraftstoff)query.uniqueResult();
             tx.commit();
         } catch (Exception e) {

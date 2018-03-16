@@ -42,7 +42,8 @@ public class BuchungService {
 		try {
 			tx = session.getTransaction();
 			tx.begin();
-			Query query = session.createQuery("from Buchung where mieter ='"+ user.getId() +"'");
+			Query query = session.createQuery("from Buchung b where b.mieter.id=:id");
+			query.setParameter("id", user.getId());
 			buchungen = (List<Buchung>) query.list();
 			tx.commit();
 		} catch (Exception e) {
@@ -74,7 +75,8 @@ public class BuchungService {
 			for (Fahrzeug fahrzeug : fahrzeugeByUser) {
 				tx = session.getTransaction();
 				tx.begin();
-				Query query = session.createQuery("from Buchung where fahrzeug ='"+ fahrzeug.getId() +"'");
+				Query query = session.createQuery("from Buchung b where b.fahrzeug.id=:fahrzeugId");
+				 query.setParameter("fahrzeugId", fahrzeug.getId());
 				buchungen.addAll((List<Buchung>) query.list());
 				tx.commit();
 			}
@@ -103,7 +105,8 @@ public class BuchungService {
         try {
             tx = session.getTransaction();
             tx.begin();
-            Query query = session.createQuery("from Buchung where id='"+publicId+"'");
+            Query query = session.createQuery("from Buchung where id= :id");
+            query.setParameter("id", publicId);
             buchung = (Buchung)query.uniqueResult();
             tx.commit();
         } catch (Exception e) {

@@ -30,7 +30,8 @@ public class AusstattungService {
         try {
             tx = session.getTransaction();
             tx.begin();
-            Query query = session.createQuery("from Ausstattung where id='"+publicId+"'");
+            Query query = session.createQuery("from Ausstattung where id= :id");
+            query.setParameter("id", publicId);
             ausstattung = (Ausstattung)query.uniqueResult();
             tx.commit();
         } catch (Exception e) {
