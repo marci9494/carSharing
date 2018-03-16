@@ -95,6 +95,7 @@ public class Fahrzeug implements Serializable {
 	private User eigentuemer;
 
 	/** The ausstattung. */
+	@Fetch(FetchMode.SELECT)
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(name = "FAHRZEUG_AUSSTATTUNG", joinColumns = { @JoinColumn(name = "fahrzeug") }, inverseJoinColumns = {
 			@JoinColumn(name = "ausstattung") })
@@ -107,9 +108,8 @@ public class Fahrzeug implements Serializable {
 
 	/** The vermiet zeitraeume. */
 	@Fetch(FetchMode.SELECT)
-	@OneToMany(fetch = FetchType.EAGER)
+	@OneToMany(fetch = FetchType.EAGER,cascade=CascadeType.ALL)
 	@JoinTable(name = "FAHRZEUG_MIETZEITRAUM", joinColumns = @JoinColumn(name = "fahrzeug"), inverseJoinColumns = @JoinColumn(name = "id"))
-	@JsonManagedReference
 	private List<FahrzeugVermietZeitraum> vermietZeitraeume;
 
 	/** The fahrzeug bild string. */

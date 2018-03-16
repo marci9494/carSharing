@@ -134,7 +134,6 @@ public class FahrzeugService {
 			AusstattungService ausstattungService = new AusstattungService();
 			List<Ausstattung> ausstattungsList = new ArrayList<>();
 			for (String ausstattungId : ausstattung) {
-				System.out.println("Ausstattungid = " + ausstattungId);
 				Ausstattung ausstattungById = ausstattungService.getAusstattungById(ausstattungId);
 				ausstattungsList.add(ausstattungById);
 
@@ -239,30 +238,42 @@ public class FahrzeugService {
 	 */
 	public void addVermietungsZeitraeumeToFahrzeug(List<VermietZeitraum> vermietZeitraeume, String carId) {
 		Fahrzeug fahrzeug = getFahrzeugById(carId);
+		
+		List<FahrzeugVermietZeitraum> vorhandeneVermietzeitraeume = fahrzeug.getVermietZeitraeume();
+		List<FahrzeugVermietZeitraum> toSave = new ArrayList<>();
+		toSave.addAll(vorhandeneVermietzeitraeume);
+		
 		for (VermietZeitraum vermietZeitraum : vermietZeitraeume) {
 			if (!checkIfVermietZeitraumExists(vermietZeitraum, fahrzeug)) {
-				Session session = HibernateUtil.openSession();
 				FahrzeugVermietZeitraum vermietZeitraumEntity = new FahrzeugVermietZeitraum();
 				vermietZeitraumEntity.setEndDate(DateUtil.parseDate(vermietZeitraum.getEndDate()));
 				vermietZeitraumEntity.setStartDate(DateUtil.parseDate(vermietZeitraum.getStartDate()));
 				vermietZeitraumEntity.setFahrzeug(fahrzeug);
-
-				try {
-					session.save(vermietZeitraumEntity);
-					if (!session.getTransaction().wasCommitted()) {
-						session.getTransaction().commit();
-					}
-				} catch (Exception e) {
-
-					e.printStackTrace();
-				} finally {
-					session.close();
-				}
+				toSave.add(vermietZeitraumEntity);
+				
 			}
 
 		}
+		saveVermietZeitraum(toSave);
 
 	}
+	
+	public void saveVermietZeitraum(List<FahrzeugVermietZeitraum> toSave){
+		Session session = HibernateUtil.openSession();
+		session.beginTransaction();
+		for (FahrzeugVermietZeitraum fahrzeugVermietZeitraum : toSave) {
+			try {
+				session.save(fahrzeugVermietZeitraum);
+				session.getTransaction().commit();
+			} catch (Exception e) {
+				e.printStackTrace();
+				return;
+			} finally {
+				session.close();
+			}
+		}
+	}
+	
 
 	/**
 	 * Update fahrzeug.
