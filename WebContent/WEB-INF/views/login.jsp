@@ -33,7 +33,7 @@ html
 		<h5>
 			Willkommen <span>zurück!</span>
 		</h5>
-		<form method="post" action="login">
+		<form method="post" action="login" accept-charset="ISO-8859-1">
 			<label class="user">
 				<p>
 					<input type="text" name="username" placeholder="Email"
