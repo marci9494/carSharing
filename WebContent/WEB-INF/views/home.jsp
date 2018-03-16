@@ -11,11 +11,12 @@
 
 	<div class="banner-wrapper">
 		<img class="banner" alt="Banner" src="/carSharing/html/img/header.jpg">
+		<div id="header-content">
+			<h1 id="header-content-text">Herzlich Willkommen</h1>
+		</div>
 	</div>
 
-	<div id="header-content">
-		<h1 id="header-content-text">Herzlich Willkommen</h1>
-	</div>
+
 	<div class="content-wrapper">
 		<div id=hallo>
 			<!--Prüfung ob User eingeloggt ist-->

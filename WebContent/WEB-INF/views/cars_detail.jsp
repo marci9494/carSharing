@@ -12,12 +12,12 @@
 <body>
 	<div class="banner-wrapper">
 		<img class="banner" alt="Banner" src="/carSharing/html/img/header.jpg">
-
+		<div id="header-content">
+			<h1 id="header-content-text">Meine CarNow Fahrzeuge</h1>
+		</div>
 	</div>
 
-	<div id="header-content">
-		<h1 id="header-content-text">Meine CarNow Fahrzeuge</h1>
-	</div>
+
 
 	<div class="content-wrapper">
 		<div id=hallo>
@@ -45,24 +45,35 @@
 
 
 			<br> <span class="form-field-label">Marke</span> <br>
-			<p><c:out value="${fahrzeug.hersteller.name}" /></p>
+			<p>
+				<c:out value="${fahrzeug.hersteller.name}" />
+			</p>
 			<input id="marke" type='text' style='display: none' name="marke"
 				value="${fahrzeug.hersteller.name}" /> <br> <span
 				class="form-field-label"> Modell</span> <br>
-			<p><c:out value="${fahrzeug.modell}" /></p>
+			<p>
+				<c:out value="${fahrzeug.modell}" />
+			</p>
 			<br> <span class="form-field-label">Farbe</span> <br>
-			<p><c:out value="${fahrzeug.farbe.name}" /></p>
+			<p>
+				<c:out value="${fahrzeug.farbe.name}" />
+			</p>
 			<br> <span class="form-field-label">Sitzplätze</span> <br>
-			<p><c:out value="${fahrzeug.sitzplaetze}" /></p>
+			<p>
+				<c:out value="${fahrzeug.sitzplaetze}" />
+			</p>
 			<br> <span class="form-field-label">Leistung</span> <br>
-			<p><c:out value="${fahrzeug.leistung}" /></p>
+			<p>
+				<c:out value="${fahrzeug.leistung}" />
+			</p>
 			<br>
 		</div>
 
 
 		<br> <span class="form-field-label">Tagespreis </span><br> <input
 			type="text" name="tagespreis" id="tagespreis"
-			placeholder="${fahrzeug.tagespreis}" value="${fahrzeug.tagespreis}" size="5" required> <label>€</label>
+			placeholder="${fahrzeug.tagespreis}" value="${fahrzeug.tagespreis}"
+			size="5" required> <label>€</label>
 		<p id="daten">Aktuell: ${fahrzeug.tagespreis}€</p>
 
 
@@ -94,7 +105,7 @@
 					</div>
 				</c:forEach>
 				<c:if test="${empty fahrzeug.vermietZeitraeume}">
-			 				<div class="vermietzeitraum">
+					<div class="vermietzeitraum">
 						<label><input class="startDate" type="date" /></label> - <label>
 							<input class="endDate" type="date" />
 						</label>
@@ -106,8 +117,7 @@
 					</div>
 				</c:if>
 				<button onclick="saveVermietzeitraum('${fahrzeug.id}')">
-					Auto vermieten
-				</button>
+					Auto vermieten</button>
 
 
 			</p>

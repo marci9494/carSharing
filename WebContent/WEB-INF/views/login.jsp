@@ -6,17 +6,29 @@
 	href="/carSharing/html/css/login.css" media="screen" />
 <jsp:include page="/theme/html/header.jsp" />
 <style>
-<jsp:include page ="/html/css/login.css"/>
+<
+jsp
+:include
+ 
+page
+ 
+="/
+html
+/css/login
+.css
+"/
+>
 </style>
 
 <body>
 	<div class="banner-wrapper">
 		<img class="banner" alt="Banner" src="/carSharing/html/img/header.jpg">
+		<div id="header-content">
+			<h1 id="header-content-text">Login</h1>
+		</div>
 	</div>
 
-	<div id="header-content">
-		<h1 id="header-content-text">Login</h1>
-	</div>
+
 	<div class="content-wrapper">
 		<h5>
 			Willkommen <span>zurück!</span>

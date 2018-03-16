@@ -10,8 +10,19 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 
-<style> <jsp:include page ="/html/css/profil.css"/> 
-
+<style>
+<
+jsp
+:include
+ 
+page
+ 
+="/
+html
+/css/profil
+.css
+"/
+>
 </style>
 
 <link rel="shortcut icon" href="/carSharing/theme/img/tablogo.png">
@@ -22,11 +33,12 @@
 <body>
 	<div class="banner-wrapper">
 		<img class="banner" alt="Banner" src="/carSharing/html/img/header.jpg">
+		<div id="header-content">
+			<h1 id="header-content-text">Profil</h1>
+		</div>
 	</div>
 
-	<div id="header-content">
-		<h1 id="header-content-text">Profil</h1>
-	</div>
+
 
 	<div class="content-wrapper">
 		<div id=hallo>
@@ -51,14 +63,15 @@
 			Stell sicher, dass deine Angaben immer auf dem neusten Stand sind,
 			damit deiner Nutzung von carNow nichts im Wege steht. Solltest du
 			Fragen haben, melde dich gern bei uns.</p>
-		<form method="post" action="profil" id="update-form" accept-charset="ISO-8859-1">
+		<form method="post" action="profil" id="update-form"
+			accept-charset="ISO-8859-1">
 			<div id="name-adress" class="name-adress">
 				<h2>Persönliche Daten</h2>
 
 
 				<br> <span class="form-field-label">Anrede</span> <br>
-				<p style='margin-left:25px'>${user.anrede}</p> <br>
-				<span class="form-field-label">Vorname</span> <br>
+				<p style='margin-left: 25px'>${user.anrede}</p>
+				<br> <span class="form-field-label">Vorname</span> <br>
 				<p class="editable" id=daten>${user.vorname}</p>
 				<input id="vorname" class="editableInput" type='text'
 					style='display: none' name="vorname" value="${user.vorname}" /> <br>
@@ -77,13 +90,12 @@
 				<span class="form-field-label">Straße</span> <br>
 				<p class="editable" id=daten>${user.strasse}</p>
 				<input id="strasse" name="strasse" class="editableInput" type='text'
-					style='display: none' value="${user.strasse}" /> <br> 
-					<span class="form-field-label">Hausnummer</span> <br>
+					style='display: none' value="${user.strasse}" /> <br> <span
+					class="form-field-label">Hausnummer</span> <br>
 				<p class="editable" id=daten>${user.hausnummer}</p>
-				<input id="hausnummer" name="hausnummer" class="editableInput" type='text'
-					style='display: none' value="${user.hausnummer}" /> <br>
-					<span
-					class="form-field-label">E-Mail-Adresse</span> <br>
+				<input id="hausnummer" name="hausnummer" class="editableInput"
+					type='text' style='display: none' value="${user.hausnummer}" /> <br>
+				<span class="form-field-label">E-Mail-Adresse</span> <br>
 				<p class="editable" id=daten>${user.email}</p>
 				<input id="emailAdresse" name="email" class="editableInput"
 					type='text' style='display: none' value="${user.email}" /> <br>
@@ -96,26 +108,25 @@
 			<span class="form-field-label">Kartennummer</span> <br>
 			<p class="editable" id=daten>${kreditkarte.kartennummer}</p>
 			<input id="kartennummer" name="kartennummer" class="editableInput"
-					type='text' style='display: none' value="${kreditkarte.kartennummer}"/>
-			<span class="form-field-label">Gültig bis</span> <br>
+				type='text' style='display: none'
+				value="${kreditkarte.kartennummer}" /> <span
+				class="form-field-label">Gültig bis</span> <br>
 			<p class="editable" id=daten>${kreditkarte.valid}</p>
-			<input id="valid" name="valid" class="editableInput"
-					type='text' style='display: none' value="${kreditkarte.valid}"/>
-			<span class="form-field-label">Karteninhaber</span> <br>
+			<input id="valid" name="valid" class="editableInput" type='text'
+				style='display: none' value="${kreditkarte.valid}" /> <span
+				class="form-field-label">Karteninhaber</span> <br>
 			<p class="editable" id=daten>${kreditkarte.inhaber}</p>
 			<input id="karteninhaber" name="karteninhaber" class="editableInput"
-					type='text' style='display: none' value="${kreditkarte.inhaber}"/>
+				type='text' style='display: none' value="${kreditkarte.inhaber}" />
 			<br> <br> <br> <br>
 			<div class="form-group" id="credit_cards">
 				<img src="/carSharing/html/img/visa.jpg" id="visa"> <img
 					src="/carSharing/html/img/mastercard.jpg" id="mastercard"> <img
 					src="/carSharing/html/img/amex.jpg" id="amex">
 			</div>
-			<br> <br> 
-			<input type="hidden" name="userId" value="${user.id}" />
-			
-			<input type="submit" style="display: none;" id="save-button"
-				value="Speichern" />
+			<br> <br> <input type="hidden" name="userId"
+				value="${user.id}" /> <input type="submit" style="display: none;"
+				id="save-button" value="Speichern" />
 		</form>
 		<button onclick="edit()" id="edit-button">Ändern</button>
 

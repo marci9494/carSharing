@@ -9,11 +9,12 @@
 
 <div class="banner-wrapper">
 	<img class="banner" alt="Banner" src="/carSharing/html/img/header.jpg">
+	<div id="header-content">
+		<h1 id="header-content-text">Deine Bewertung</h1>
+	</div>
 </div>
 <br>
-<div id="header-content">
-	<h1 id="header-content-text">Deine Bewertung</h1>
-</div>
+
 
 <body>
 	<div class="content-wrapper">
@@ -88,7 +89,7 @@
 				<label>Sonstiges:</label><br>
 				<textarea name="kommentar" cols="35" rows="4"></textarea>
 			</div>
-			<div style="margin-top:10px;">
+			<div style="margin-top: 10px;">
 				<input type="hidden" name="userId" value="${user.id}" /> <input
 					type="hidden" name="buchungsId" value="${buchung.id}" /> <input
 					style="width: 100px;" type="submit" value="Speichern" />

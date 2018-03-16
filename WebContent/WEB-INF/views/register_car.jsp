@@ -13,15 +13,15 @@
 
 	<div class="banner-wrapper">
 		<img class="banner" alt="Banner" src="/carSharing/html/img/header.jpg">
-
+		<div id="header-content">
+			<h1 id="header-content-text">Fahrzeugregistrierung</h1>
+		</div>
 	</div>
 
-	<div id="header-content">
-		<h1 id="header-content-text">Fahrzeugregistrierung</h1>
-	</div>
+
 	<div class="content-wrapper">
 		<div id=hallo>
-		<!--Prüfung ob User eingeloggt ist-->
+			<!--Prüfung ob User eingeloggt ist-->
 			<!--Wenn ja: Begrüßung und Logout Option-->
 			<!--Wenn nein: nur Begrüßung-->
 			<c:choose>
@@ -54,12 +54,12 @@
 
 			<div class="formular-wrapper">
 				<ul class="formular_ul">
-					<li class="formular_li"><label>Automarke</label> <br> 
-					<select	id="marke" name="marke">
-					<c:set var="count" value="0" scope="page" />
+					<li class="formular_li"><label>Automarke</label> <br> <select
+						id="marke" name="marke">
+							<c:set var="count" value="0" scope="page" />
 							<c:forEach items="${hersteller}" var="item">
 								<option value="${count}">${item}</option>
-								<c:set var="count" value="${count + 1}" scope="page"/>
+								<c:set var="count" value="${count + 1}" scope="page" />
 							</c:forEach>
 					</select></li>
 
@@ -109,39 +109,40 @@
 
 			<div class="formular-wrapper">
 				<ul class="formular_ul">
-					<li class="formular_li">
-					<c:forEach items="${ausstattungen}" var="ausstattung">
-							<label class="container">${ausstattung.name} <input type="checkbox" value="${ausstattung.id}" name="ausstattung"> <span
-							class="checkmark"></span></label>
-					</c:forEach>	
-						</li>	
+					<li class="formular_li"><c:forEach items="${ausstattungen}"
+							var="ausstattung">
+							<label class="container">${ausstattung.name} <input
+								type="checkbox" value="${ausstattung.id}" name="ausstattung">
+								<span class="checkmark"></span></label>
+						</c:forEach></li>
 				</ul>
-				
-					
-					<div style="float:left;">
-						<label>Farbe des Fahrzeugs</label> <br>
-							<select id="farbe" name="farbe">
-								<option value="1">Grau</option>
-								<option value="2">Rot</option>
-								<option value="3">Schwarz</option>
-								<option value="4">Weiß</option>
-								<option value="5">sonstiges</option>
-						
-						</select> <br> <br> <label>Anzahl der Sitzplätze
-								(inklusive Fahrersitz)</label> <br> <select id="sitzplaetze" name="sitzplaetze">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-								<option value="6">6</option>
-								<option value="7">7</option>
-								<option value="8">8</option>
-								<option value="9">9</option>
-	
-						</select>
-					</div>
-					<div style="clear:both"></div>
+
+
+				<div style="float: left;">
+					<label>Farbe des Fahrzeugs</label> <br> <select id="farbe"
+						name="farbe">
+						<option value="1">Grau</option>
+						<option value="2">Rot</option>
+						<option value="3">Schwarz</option>
+						<option value="4">Weiß</option>
+						<option value="5">sonstiges</option>
+
+					</select> <br> <br> <label>Anzahl der Sitzplätze
+						(inklusive Fahrersitz)</label> <br> <select id="sitzplaetze"
+						name="sitzplaetze">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+
+					</select>
+				</div>
+				<div style="clear: both"></div>
 			</div>
 
 			<div class="formular-wrapper">
@@ -166,17 +167,17 @@
 
 			<div class="formular-wrapper">
 
-				<label>Tagespreis</label>
-				<br>
-				<input type="text" name="tagesPreisInput" id="tagesPreisInput" placeholder="5,30" size ="5" required> <label>€</label>
-			
+				<label>Tagespreis</label> <br> <input type="text"
+					name="tagesPreisInput" id="tagesPreisInput" placeholder="5,30"
+					size="5" required> <label>€</label>
+
 			</div>
 			<br>
-					
-			
+
+
 			<div class="formular-wrapper">
 
-				<input type="submit" value="Registrieren"/>
+				<input type="submit" value="Registrieren" />
 			</div>
 			<input type="hidden" name="userId" value="${user.id}" />
 		</form>

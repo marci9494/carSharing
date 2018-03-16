@@ -30,16 +30,17 @@ td, th {
 <body>
 	<div class="banner-wrapper">
 		<img class="banner" alt="Banner" src="/carSharing/html/img/header.jpg">
+		<div id="header-content">
+			<h1 id="header-content-text">Deine Buchungen</h1>
+		</div>
 	</div>
 
-	<div id="header-content">
-		<h1 id="header-content-text">Deine Buchungen</h1>
-	</div>
+
 
 
 	<div class="content-wrapper">
 		<div id=hallo>
-		<!--Prüfung ob User eingeloggt ist-->
+			<!--Prüfung ob User eingeloggt ist-->
 			<!--Wenn ja: Begrüßung und Logout Option-->
 			<!--Wenn nein: nur Begrüßung-->
 			<c:choose>
@@ -55,8 +56,11 @@ td, th {
     			</c:otherwise>
 			</c:choose>
 		</div>
-<p>Hier kannst du deine Mietungen und Vermietungen einsehen, Autos zurückgeben und deine Buchung bewerten. Stelle immer sicher, dass deine Autos im richtigen Status stehen.</p>
-<br><br>
+		<p>Hier kannst du deine Mietungen und Vermietungen einsehen, Autos
+			zurückgeben und deine Buchung bewerten. Stelle immer sicher, dass
+			deine Autos im richtigen Status stehen.</p>
+		<br>
+		<br>
 		<h2>Deine Buchungen</h2>
 		<table>
 			<thead>
@@ -79,14 +83,16 @@ td, th {
 								value="${buchung.startDatum }" /></td>
 						<td><fmt:formatDate pattern="dd.MM.yyyy"
 								value="${buchung.endDatum }" /></td>
-						<td><c:out value="${buchung.fahrzeug.hersteller.name}" />-
-							<c:out value="${buchung.fahrzeug.modell}" /></td>
+						<td><c:out value="${buchung.fahrzeug.hersteller.name}" />- <c:out
+								value="${buchung.fahrzeug.modell}" /></td>
 						<td><c:out value="${buchung.price}" /> €</td>
 						<td><c:out value="${buchung.status}" /></td>
-						<c:if test="${ buchung.status != 'ABGESCHLOSSEN' && buchung.status != 'STORNIERT' && buchung.status != 'BEWERTET'  && buchung.status != 'ABGEHOLT'  }">
-							<td><button onclick="buchungStornieren('${buchung.id }')" >Stornieren</button></td>
+						<c:if
+							test="${ buchung.status != 'ABGESCHLOSSEN' && buchung.status != 'STORNIERT' && buchung.status != 'BEWERTET'  && buchung.status != 'ABGEHOLT'  }">
+							<td><button onclick="buchungStornieren('${buchung.id }')">Stornieren</button></td>
 						</c:if>
-						<c:if test="${ buchung.status == 'ABGESCHLOSSEN' && buchung.status != 'BEWERTET' }">
+						<c:if
+							test="${ buchung.status == 'ABGESCHLOSSEN' && buchung.status != 'BEWERTET' }">
 							<td><a href="/carSharing/bewerten?id=${buchung.id }"><button>Bewerten</button></a></td>
 						</c:if>
 					</tr>
@@ -117,8 +123,8 @@ td, th {
 								value="${buchung.startDatum }" /></td>
 						<td><fmt:formatDate pattern="dd.MM.yyyy"
 								value="${buchung.endDatum }" /></td>
-						<td><c:out value="${buchung.fahrzeug.hersteller.name}" />-
-							<c:out value="${buchung.fahrzeug.modell}" /></td>
+						<td><c:out value="${buchung.fahrzeug.hersteller.name}" />- <c:out
+								value="${buchung.fahrzeug.modell}" /></td>
 						<td><c:out value="${buchung.price}" /> €</td>
 						<td><c:out value="${buchung.status}" /></td>
 						<c:if test="${ buchung.status == 'ANGEFRAGT'}">
@@ -126,10 +132,11 @@ td, th {
 							<td><button onclick="buchungStornieren('${buchung.id }')">Ablehnen</button></td>
 						</c:if>
 						<c:if test="${ buchung.status == 'FREIGEGEBEN'}">
-							<td><button onclick="buchungAbgeholt('${buchung.id }')">Fahrzeug abgeholt</button></td>
+							<td><button onclick="buchungAbgeholt('${buchung.id }')">Fahrzeug
+									abgeholt</button></td>
 						</c:if>
 						<c:if test="${ buchung.status == 'ABGEHOLT'}">
-							<td><a href="/carSharing/return_car?id=${buchung.id }"><button >Fahrzeugrückgabe</button></a></td>
+							<td><a href="/carSharing/return_car?id=${buchung.id }"><button>Fahrzeugrückgabe</button></a></td>
 						</c:if>
 					</tr>
 				</c:forEach>
@@ -174,10 +181,10 @@ td, th {
 				window.location = "/carSharing/login"
 			}
 		}
-		
-		function buchungStornieren(buchungId){
+
+		function buchungStornieren(buchungId) {
 			var abfrage = confirm("Wollen Sie die Buchung wirklich stornieren?");
-			if(abfrage == true){
+			if (abfrage == true) {
 				var userId = jQuery('.userId').val();
 				jQuery.post("buchungen", {
 					action : "buchungStornieren",
@@ -187,7 +194,7 @@ td, th {
 					location.reload();
 				});
 			}
-			
+
 		}
 	</script>
 	</div>
