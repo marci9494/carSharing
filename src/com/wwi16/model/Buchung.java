@@ -222,10 +222,10 @@ public class Buchung {
 
 			cal1.setTime(startDatum);
 			cal2.setTime(endDatum);
-
+			try{
 			if (cal1.get(Calendar.YEAR) == cal2.get(Calendar.YEAR)
 					&& cal1.get(Calendar.DAY_OF_YEAR) == cal2.get(Calendar.DAY_OF_YEAR)) {
-				 return Double.valueOf(fahrzeug.getTagespreis());
+				 return Double.valueOf(fahrzeug.getTagespreis().replace(",", "."));
 			} else {
 
 				long millis1 = cal1.getTimeInMillis();
@@ -234,10 +234,13 @@ public class Buchung {
 				long diffDays = diff / (24 * 60 * 60 * 1000);
 				diffDays= diffDays + 1;
 				if (fahrzeug.getTagespreis() != null) {
-					return Double.valueOf(fahrzeug.getTagespreis()) * diffDays;
+					return Double.valueOf(fahrzeug.getTagespreis().replace(",", ".")) * diffDays;
 				} else {
 					return 0.0;
 				}
+			}
+			}catch (NumberFormatException e) {
+				return 0.0;
 			}
 
 		} else {
