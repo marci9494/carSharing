@@ -11,7 +11,9 @@ html, body {
 	max-width: 1920px;
 	margin: 0 auto;
 }
-
+html{
+	min-width: 1150px;
+}
 header {
 	font-size: 18px;
 }
@@ -323,6 +325,7 @@ header {
 
 header {
 	height: 110px;
+	min-width: 1150px;
 }
 
 nav {
