@@ -11,6 +11,7 @@
 		<property name="hibernate.hbm2ddl.auto">validate</property>
 		<property name="hibernate.max_fetch_depth">3</property>
 		<property name="hibernate.enable_lazy_load_no_trans">true</property>
+		
 
 		<property name="connection.datasource">java:comp/env/jdbc/carSharingDB</property>
 		<mapping class="com.wwi16.model.Fahrzeug" />

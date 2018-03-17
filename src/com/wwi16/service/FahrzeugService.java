@@ -186,8 +186,8 @@ public class FahrzeugService {
 		try {
 			tx = session.getTransaction();
 			tx.begin();
-			Query query = session.createQuery("from Fahrzeug where id=:id");
-			query.setParameter("id", publicId);
+			Query query = session.createQuery("from Fahrzeug f where f.id=:id");
+			query.setParameter("id", Long.valueOf(publicId));
 			fahrzeug = (Fahrzeug) query.uniqueResult();
 			tx.commit();
 		} catch (Exception e) {
