@@ -30,10 +30,12 @@ public class FahrzeugVermietZeitraum {
     private Long id;
 	
 	/** The start date. */
+	@Temporal(TemporalType.DATE)
 	@Column(name = "START_DATUM")
 	private Date startDate;
 	
 	/** The end date. */
+	@Temporal(TemporalType.DATE)
 	@Column(name = "END_DATUM")
 	private Date endDate;
 	

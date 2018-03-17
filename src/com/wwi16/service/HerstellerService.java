@@ -58,7 +58,7 @@ public class HerstellerService {
             tx = session.getTransaction();
             tx.begin();
             Query query = session.createQuery("from FahrzeugHersteller where id=:id");
-            query.setParameter("id",publicId);
+            query.setParameter("id",Long.valueOf(publicId));
             FahrzeugHersteller = (FahrzeugHersteller)query.uniqueResult();
             tx.commit();
         } catch (Exception e) {

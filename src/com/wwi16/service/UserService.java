@@ -159,7 +159,7 @@ public class UserService {
 			tx = session.getTransaction();
 			tx.begin();
 			Query query = session.createQuery("from User where id=:id");
-			query.setParameter("id", id);
+			query.setParameter("id", Long.valueOf(id));
 			nutzer = (User) query.uniqueResult();
 			tx.commit();
 		} catch (Exception e) {

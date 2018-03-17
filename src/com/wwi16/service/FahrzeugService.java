@@ -111,23 +111,18 @@ public class FahrzeugService {
 
 		if (foundFarbe != null) {
 			fahrzeug.setFarbe(foundFarbe);
-			System.out.println(foundFarbe.getName());
 		}
 		if (foundHersteller != null) {
 			fahrzeug.setHersteller(foundHersteller);
-			System.out.println(foundHersteller.getName());
 		}
 		if (foundKategorie != null) {
 			fahrzeug.setKategorie(foundKategorie);
-			System.out.println(foundKategorie.getName());
 		}
 		if (user != null) {
 			fahrzeug.setEigentuemer(user);
-			System.out.println(user.getNachname());
 		}
 		if (kraftstoff != null) {
 			fahrzeug.setKraftstoff(foundKraftstoff);
-			System.out.println(foundKraftstoff.getName());
 		}
 
 		if (ausstattung != null) {
@@ -262,9 +257,9 @@ public class FahrzeugService {
 	}
 	
 	public void saveVermietZeitraum(List<FahrzeugVermietZeitraum> toSave){
-		Session session = HibernateUtil.openSession();
-		session.beginTransaction();
 		for (FahrzeugVermietZeitraum fahrzeugVermietZeitraum : toSave) {
+			Session session = HibernateUtil.openSession();
+			session.beginTransaction();
 			try {
 				session.save(fahrzeugVermietZeitraum);
 				session.getTransaction().commit();
@@ -381,7 +376,7 @@ public class FahrzeugService {
 			tx = session.getTransaction();
 			tx.begin();
 			Query query = session.createQuery("from FahrzeugVermietZeitraum where id=:id");
-			query.setParameter("id",publicId);
+			query.setParameter("id",Long.valueOf(publicId));
 			vermietZeitraum = (FahrzeugVermietZeitraum) query.uniqueResult();
 			tx.commit();
 		} catch (Exception e) {
