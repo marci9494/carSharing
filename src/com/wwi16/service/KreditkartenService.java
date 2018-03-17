@@ -31,7 +31,7 @@ public class KreditkartenService {
         try {
             tx = session.getTransaction();
             tx.begin();
-            Query query = session.createQuery("FROM Kreditkarte k WHERE k.user=:id");
+            Query query = session.createQuery("FROM Kreditkarte k WHERE k.user.id=:id");
             query.setParameter("id",user.getId());
             kreditkarte = (Kreditkarte) query.uniqueResult();
             tx.commit();
