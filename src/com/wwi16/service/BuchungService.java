@@ -106,7 +106,7 @@ public class BuchungService {
             tx = session.getTransaction();
             tx.begin();
             Query query = session.createQuery("from Buchung where id= :id");
-            query.setParameter("id", publicId);
+            query.setParameter("id", Long.valueOf(publicId));
             buchung = (Buchung)query.uniqueResult();
             tx.commit();
         } catch (Exception e) {
