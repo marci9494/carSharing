@@ -6,6 +6,8 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Base64;
+import java.util.Base64.Encoder;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -103,6 +105,7 @@ public class Home extends HttpServlet {
 		String action = request.getParameter("action");
 
 		if ("searchCar".equals(action)) {
+			System.out.println("searchCar!!");
 			String distance = request.getParameter("distance");
 			String startDate = request.getParameter("startDate");
 			String endDate = request.getParameter("endDate");
@@ -117,7 +120,7 @@ public class Home extends HttpServlet {
 
 			List<Distance> carDistanceList = getFahrzeugeForPlz(request, plz, Double.valueOf(distance), startDate,
 					endDate);
-
+			System.out.println(carDistanceList.size());
 			List<Distance> filteredDistanceList = null;
 			if (filters != null) {
 				filteredDistanceList = checkListForFilters(carDistanceList, filters);
@@ -129,6 +132,7 @@ public class Home extends HttpServlet {
 
 				try {
 					String json = mapper.writeValueAsString(setFahrzeugBildString(filteredDistanceList));
+					System.out.println(json);
 					out.print(json);
 					out.flush();
 				} catch (JsonGenerationException e) {
@@ -136,6 +140,8 @@ public class Home extends HttpServlet {
 				} catch (JsonMappingException e) {
 					e.printStackTrace();
 				} catch (IOException e) {
+					e.printStackTrace();
+				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
@@ -330,16 +336,17 @@ public class Home extends HttpServlet {
 	 * @return the list
 	 */
 	private List<Distance> setFahrzeugBildString(List<Distance> distanceList) {
+		System.out.println("setFahrzeugBildString");
 		for (Distance distance : distanceList) {
 			List<Fahrzeug> fahrzeugList = distance.getFahrzeug();
 			for (Fahrzeug fahrzeug : fahrzeugList) {
 				if (fahrzeug.getFahrzeugbild() != null) {
-					fahrzeug.setFahrzeugBildString(new sun.misc.BASE64Encoder().encode(fahrzeug.getFahrzeugbild()));
+					Encoder encoder = Base64.getEncoder();
+					fahrzeug.setFahrzeugBildString(encoder.encodeToString(fahrzeug.getFahrzeugbild()));
 				}
 			}
 
 		}
-
 		return distanceList;
 	}
 

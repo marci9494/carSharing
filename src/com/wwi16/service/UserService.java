@@ -95,14 +95,26 @@ public class UserService {
 		nutzer.setVorname(vorname);
 		nutzer.setPassword(hashPassword(password));
 		nutzer.setPersonalausweis(personalausweis);
+		
+
+		try {
+			session.save(nutzer);
+			session.getTransaction().commit();
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		} finally {
+		}
+		
+
+		session.beginTransaction();
 		Kreditkarte kreditkarte = new Kreditkarte();
 		kreditkarte.setUser(nutzer);
 		kreditkarte.setKartennummer(kartennummer);
 		kreditkarte.setValid(valid);
 		kreditkarte.setInhaber(karteninhaber);
-
+		
 		try {
-			session.save(nutzer);
 			session.save(kreditkarte);
 			session.getTransaction().commit();
 		} catch (Exception e) {

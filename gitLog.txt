@@ -1,0 +1,344 @@
+a7c9ac7 some improvements -- Marcel Ament
+021ab8e worked on differend stuff -- Marcel Ament
+6665eb8 fixed show details of car -- Marcel Ament
+077ee0a fixed kreditkarte for userprofil -- Marcel Ament
+c1c3730 fixed hersteller problem -- Marcel Ament
+e8ecf55 set min-width -- Marcel Ament
+34521e5 problem mit sonderzeichen im PW -- Marcel Ament
+a8c44d3 worked on sql injection -- Marcel Ament
+70abbc0 worked on vermietzeiträume -- Marcel Ament
+8ffcd9a fixed Number format exeption -- Marcel Ament
+73c25cd worked on styling -- Marcel Ament
+6ece77f XSS -- Marcel Ament
+6de1ced Darstellung "bewerten" -- Jonas Ellinger
+a63f4f7 little improvements -- Marcel Ament
+ec5302d added loader to home -- Marcel Ament
+d8904fe Text return car geändert -- hausercor
+cf28d2b fixed pricecalculation -- Marcel Ament
+de9d3ee Richtiges Hochladen der Anrede -- Jonas Ellinger
+e84afed removed sysout -- Marcel Ament
+ea77c9e removed wrong path -- Marcel Ament
+87b3e4f reovced wrong url -- Marcel Ament
+f76b197 styling -- Marcel Ament
+6ccf547 Headerbeschriftung verändert -- hausercor
+ceabf02 Impressum angepasst -- hausercor
+6697f9e worked on cars_details -- Marcel Ament
+132ed30 set plz to car -- Marcel Ament
+9691ce5 Abfangen von Leereingaben cars_details -- Jonas Ellinger
+045dbdb added / to home -- Marcel Ament
+2911014 cross-site-scripting -- Marcel Ament
+f34893f worked on bewerten -- Marcel Ament
+f3ba441 worked on fahrzeug filtern -- Marcel Ament
+d339d1c worked on fahrzeug filter -- Marcel Ament
+07ec34f Formatierung Buchungen verändert -- hausercor
+c074cbf Bewertung zusätzliche Infos anzeigen -- hausercor
+29c06be Bewertung auf Dropdown geändert -- hausercor
+97d0e54 Entfernung Kilometerpreis aus allen Stellen -- Jonas Ellinger
+68d69b7 update24: Entfernung Kilometerpreis aus Tabelle Fahrzeug -- Jonas Ellinger
+69d1f18 Update23 edit -- Jonas Ellinger
+cc03486 worked on filter cars -- Marcel Ament
+317c622 PLZ Verbesserung Home -- Jonas Ellinger
+8dd9329 Hochladen der Anrede + Anzeige unter Profil -- Jonas Ellinger
+2a2b938 Hausnummer Anzeige unter Profil -- Jonas Ellinger
+b6e5297 clean Code -- Jonas Ellinger
+ec01cde Hochladen der Hausnummer bei Register -- Jonas Ellinger
+045fe5c Update23: Add Hausnummer zu User-Tabelle -- Jonas Ellinger
+c4af2a7 worked on fahrzeug filtern -- Marcel Ament
+d833b36 worked on filter car -- Marcel Ament
+5fd5ac6 Entfernung Javascript-Referenz -- Jonas Ellinger
+1156958 clean Code -- Jonas Ellinger
+6e6e18d Hochladen des ausgewählten Herstellers -- Jonas Ellinger
+0571f72 Änderung der Kreditkarte unter Profil -- Jonas Ellinger
+88399ed little improvements -- Marcel Ament
+a8d0ed5 worked on umlautproblem -- Marcel Ament
+4b8b2b3 drive eta weg -- cetine
+9094114 Submit-Button Hoover -- Jonas Ellinger
+6bf4f44 worked on css -- Marcel Ament
+eaf7f95 Passwort Confirm -- Jonas Ellinger
+1d7392a created SessionUtil -- Marcel Ament
+3d784a8 Angleichung Button Submit -- Jonas Ellinger
+92f7ba3 improvements for register user -- Marcel Ament
+aad3400 worked on register -- Marcel Ament
+d383d10 Register: Behebung Abstand Problem -- Jonas Ellinger
+721dba2 sanatize html inputs -- Marcel Ament
+2ff8550 worked on bewerten -- Marcel Ament
+c00149c removed fahrzeugschein upload -- Marcel Ament
+ddc8f8c worked on price for buchungen -- Marcel Ament
+a2f3881 worked on price for buchung -- Marcel Ament
+715a24e little improvements -- Marcel Ament
+6f29bd6 worked on bewerten -- Marcel Ament
+f240b2c generated javadoc -- Marcel Ament
+4267ca6 cleanup code -- Marcel Ament
+043a995 worked on location. User Database instead of textFile -- Marcel Ament
+57f0ecd worked on vermietzeiträume -- Marcel Ament
+9905c03 removed old stuff -- Marcel Ament
+7242d4e update vermietungszeitraum icons -- cetine
+7185ecf first steps to use database for location search and not text file -- Marcel Ament
+b41abd6 worked on cars_details -- Marcel Ament
+32d4767 some improvements -- Marcel Ament
+f1d3bf3 revredet wrong merge -- Marcel Ament
+21a38fd little improvements -- Marcel Ament
+97e4da1 worked on carsDetails -- Marcel Ament
+f54ebaf SQL Update korrigiert -- hausercor
+f968f8f Logout Link angepasst -- hausercor
+e1ffdf5 Cars_Details Verbesserungen und Reduzierungen II -- Jonas Ellinger
+da3d67c Cars_Details Verbesserungen und Reduzierungen -- Jonas Ellinger
+45a3114 removed class files -- Marcel Ament
+db4338f worked on git ignore -- Marcel Ament
+cd363de worked on git ignore -- Marcel Ament
+64c9385 removed float left -- Marcel Ament
+6898d5c worked on register car -- Marcel Ament
+2bd225d Transfer Ausstattungsauswahl in DB II -- Jonas Ellinger
+2100cde Transer Ausstattungsauswahl in DB -- Jonas Ellinger
+1ee5d27 Update21: Hinzufügen der Ausstattung in DB II -- Jonas Ellinger
+3d16411 Update21: Hinzufügen der Ausstattung in DB -- Jonas Ellinger
+a6e8b7b little improvements -- Marcel Ament
+5e02aa9 worked on registerCar -- Marcel Ament
+a693d30 worked on updateFahrzeug -- Marcel Ament
+4188940 worked on vermietzeitraeume -- Marcel Ament
+cc2e389 worked on meine buchungen -- Marcel Ament
+90002eb Polen hat provoziert -- cetine
+1479b46 bewerten -- hausercor
+b6a1728 bewerten -- hausercor
+d6b0ca8 bewerten -- hausercor
+3c429a2 Bewerten -- hausercor
+b77a67e update final jan -- cetine
+d4bb01a Cars_Detail Icons hinzugefügt -- cetine
+d7e52cd p geändert -- hausercor
+576fa32 bewerten.css -- hausercor
+7462994 rückgabe -- hausercor
+3392a84 Km Stand und Rückgabe in return hinzugefügt -- hausercor
+16fe59c final -- janphilipphils
+402b3c0 worked on buchung status -- Marcel Ament
+e4f4f15 renting out entfernt -- hausercor
+c984b85 Willkommen endlich fertig -- hausercor
+aa0b2be Fehler SQL behoben -- hausercor
+6d1994c Willkommen -- hausercor
+67d6e1f Register_Car IV -- Jonas Ellinger
+ca8c4ca Update19: EIntragung von Kraftstoffen in DB II -- Jonas Ellinger
+31e7459 Update19: EIntragung von Kraftstoffen in DB -- Jonas Ellinger
+a193406 Register_Car III -- Jonas Ellinger
+fa33459 Update18: Eintragung von FahrzeugFarben -- Jonas Ellinger
+67e9abe Update17 -- Jonas Ellinger
+5896ebf Update17 -- Jonas Ellinger
+794e499 Entfernung von Attribut Vermieter aus User -- Jonas Ellinger
+92dce4b Register_Car II -- Jonas Ellinger
+6d5030e Register_Car I -- Jonas Ellinger
+b40a058 neues willkommen -- hausercor
+6bd4dc0 worked on buchungfreigebn -- Marcel Ament
+30cf1b0 worked on buchungen -- Marcel Ament
+bfe34d4 display vorname and nachname on home -- Marcel Ament
+b7c40c2 created status in buchung -- Marcel Ament
+d9b5752 Rechtschreibfehler -- hausercor
+f3f28b1 Home Text hinzugefügt -- hausercor
+eb1d24c Mieten -> Meine Buchungen -- hausercor
+3090fc4 Upload des Fahrzeugs: Unvollständig -- Jonas Ellinger
+97ba5ec update logo -- cetine
+7c0ae2c Kommentare jetzt richtig -- hausercor
+0e0df58 Überschuss aus CSS entfernt -- hausercor
+e024e5d Kommentieren -- hausercor
+78de1ba Kommentare hinzugefügt -- hausercor
+588c39b worked on fahrzeugmieten -- Marcel Ament
+0ccc652 removed bug in searchCar -- Marcel Ament
+3046ede worked on searchFahrzeug -- Marcel Ament
+611fc19 use jackson instead of gson -- Marcel Ament
+cd217c8 worked on vermietzeiträume -- Marcel Ament
+1a0a226 Anzeige der Kreditkarte unter Profil II -- Jonas Ellinger
+82c929c Anzeige der Kreditkarte unter Profil -- Jonas Ellinger
+7db3ff3 Register_Car: Upload des Eigentümers -- Jonas Ellinger
+2915d22 Revert "Revert "JSTL FahrzeugHersteller Register_Car"" -- Jonas Ellinger
+dd5db4a Revert "JSTL FahrzeugHersteller Register_Car" -- Jonas Ellinger
+e401432 JSTL FahrzeugHersteller Register_Car -- Jonas Ellinger
+63d270d Update14: Umstellung Basispreis > Tagespreis -- Jonas Ellinger
+da3f9be Basispreis > Tagespreis -- Jonas Ellinger
+d6ac45e saved vermietungszeitraeume in db -- Marcel Ament
+42c035e worked on vermietzeiträume -- Marcel Ament
+731360f worked again on envers wrong merge -- Marcel Ament
+e891227 fixed wrong merge from enver -- Marcel Ament
+ad2e586 worked on vermietzeitraum -- Marcel Ament
+05d0a10 bitte nicht schimpfen sry boy -- cetine
+d5d0fac worked on vermietzeitraeume -- Marcel Ament
+334bfb1 Modifikationen: KreditkartenUpload -- Jonas Ellinger
+b492c97 Update13: KreditkartenID AutoIncrement -- Jonas Ellinger
+6e1f292 format car-details -- Marcel Ament
+922b597 Link bei Login zu Register (2) -- Jonas Ellinger
+5571b39 Link bei Login zu Register -- Jonas Ellinger
+b222753 created updateUser -- Marcel Ament
+8fc4157 worked on vermietzeitraum -- Marcel Ament
+08b9a47 update daten profil schrott -- cetine
+82c7823 worked on kreditkarte -- Marcel Ament
+a470a96 worked on kreditkarten -- Marcel Ament
+e53acb4 added kreditkarte to hibernate -- Marcel Ament
+d4d8357 Kreditkarte bei Registrierung -- Jonas Ellinger
+e2b75f5 Update10: Karteninhaber -- Jonas Ellinger
+6766e31 Update10: Tabelle Kreditkarte -- Jonas Ellinger
+6ac7159 worked on home -- Marcel Ament
+4e6b497 displayed picture from database -- Marcel Ament
+326da3b added picture to car -- Marcel Ament
+9d62bce worked on save image -- Marcel Ament
+593464f worked on logout, buchungen and home -- Marcel Ament
+0f8f78b worked on buchungen -- Marcel Ament
+eafbc21 worked on update buchung -- Marcel Ament
+f6695ff Return_car_input -- hausercor
+4ec4df0 some litte improvements -- Marcel Ament
+f299baf update scroll vermieten -- cetine
+498f4b1 Profil angepasst, Update cars und cars_details wie besprochen -- cetine
+12e6142 Textfeldeingabe -> Datenbank Versuch 1 -- hausercor
+e0bf083 Löschung Überschuss -- hausercor
+b9edded Update Gruppentreffen -- cetine
+d3e6480 änderung datenbankzugriff -- hausercor
+56d7fd4 Zusatz HerstellerService -- Jonas Ellinger
+50de961 added ausstattung to fahrzeug -- Marcel Ament
+f69822f worked on buchungen -- Marcel Ament
+1b7f07a Content-Wrapper.. -- janphilipphils
+5449a2e little improvements for databasemodel -- Marcel Ament
+270d760 worked on buchungen -- Marcel Ament
+e7fb7dd Buchungen_final -- janphilipphils
+82c524f bewerten_final -- janphilipphils
+fca918a worked on createdfahrzeug -- Marcel Ament
+cd299ef sterne_bewerten -- janphilipphils
+e1102a5 sterne_bewerten -- janphilipphils
+03ed6f6 sterne_bewerten -- janphilipphils
+0948680 Sterne_bewerten -- janphilipphils
+9155214 Banner_beschriftung_final -- janphilipphils
+898bd77 Banner_beschriftung_bewerten -- janphilipphils
+70451fc Banner_bewerten -- janphilipphils
+79c8026 worked on addFahrzeug -- Marcel Ament
+b157788 little improvements for hersteller service -- Marcel Ament
+610cfbc Abrufen der Hersteller aus DB - Anfang -- Jonas Ellinger
+9e3f241 Anbindung register_car an DB - Teil 2 -- Jonas Ellinger
+cab2df6 Konsolidierung Änderungen an FahrzeugService -- Jonas Ellinger
+a07c9cf update6.sql -- Jonas Ellinger
+cafe84d Verbindung Register_Car mit DB -- Jonas Ellinger
+7666aae removed console.log -- Marcel Ament
+ff76c93 worked on cars -- Marcel Ament
+88d675f worked on return car -- Marcel Ament
+5ef2cb2 Version X -- janphilipphils
+b9dc137 Nix wichtiges -- hausercor
+65bc3bf Anpassung h5 -- hausercor
+4973202 update logout in main.css -- cetine
+b777bc1 content-wrapper -- hausercor
+1f908ed css hallo geändert -- hausercor
+41007e6 HTML Implementierung Preis Fahrzeug -- Jonas Ellinger
+028756c Bitte in phpmyadmin ausführen -- Jonas Ellinger
+eb7f3e1 Fehlerkorrektur des Willkommen-Claims -- Jonas Ellinger
+5879038 CSS Verbesserungen und Implementierungen -- Jonas Ellinger
+5f7f0ed     jo -- cetine
+8717188 Logout eingebunden -- hausercor
+a837632 lasst mein css in ruhe. danke -- cetine
+c475d84 CSS der Begrüßung -- hausercor
+0c571a2 improvemnts for login -- Marcel Ament
+022dbae Banner-Integration in main.cc -- Jonas Ellinger
+a2ab07f Register, RegisterCar CSS Verbesserungen -- Jonas Ellinger
+8bc62b7 header in jsp geändert -- hausercor
+9bd8a7e added button to css -- Marcel Ament
+a8242b2 HILFE -- hausercor
+9835933 verzweifelter versuch von hide and show -- hausercor
+1dc8c5b removed useless css -- Marcel Ament
+376b00e Verbesserung -- hausercor
+2ff869a Register, Register_Car Ergänzungen und Verbesserungen -- Jonas Ellinger
+69bca50 Merging -- Jonas Ellinger
+ff13dbd Register & RegisterCar CSS Modifikationen -- Jonas Ellinger
+45aa99d update cars und cars_detail -- cetine
+fc8f792 update jquery -- cetine
+462cfaa jquery daten ändern hinzugefügt -- cetine
+e697beb Logout eingebunden -- hausercor
+a3c47c8 Profil Css und Links in header angepasst -- hausercor
+b8ed3eb Merging -- Jonas Ellinger
+36a7372 Return car zusammengekürzt -- hausercor
+0f8d2b0 someimprovements -- Marcel Ament
+2120cb2 cleanup code -- Marcel Ament
+969cad0 Registrierung -- Jonas Ellinger
+e0f65e3 buchungenversionx -- janphilipphils
+1f7d700 sterne richtig -- janphilipphils
+8aa828f Buchungen -- janphilipphils
+514750f hallo -- janphilipphils
+18c7e7b created buchungen -- Marcel Ament
+0607768 bewertung version1 -- janphilipphils
+6b880fe removed encoding problem -- Marcel Ament
+3c15238 update impressum -- cetine
+79f898c impressum added -- cetine
+04fbd27 worked on home and theme -- Marcel Ament
+7203a55 Mobile Sicht angepasst -- hausercor
+3523e41 Verbesserungen CSS HTML -- Jonas Ellinger
+45c7a79 worked on home and theme -- Marcel Ament
+3b9f3a1 minor improvements for home -- Marcel Ament
+49194b0 worked on theme and home.jsp -- Marcel Ament
+25fcb7b favicon -- cetine
+cc3813a Fahrzeugregistrierung -- Jonas Ellinger
+568330f Registrierung Nutzer -- Jonas Ellinger
+8ec581a Registrierung Fahrzeug - Start -- Jonas Ellinger
+cf8b38e worked on home -- Marcel Ament
+5bb4f10 worked on radius search -- Marcel Ament
+9028b72 added plz to fahrzeug -- Marcel Ament
+247085a created radiusSearchUtil for radius search -- Marcel Ament
+762b6f8 plz umgebungssuche hinzugefügt -- Marcel Ament
+1705d70 Button angepasst -- hausercor
+e497517 main.css in home eingebunden -- cetine
+78c2b9a update profil und cars seite bzgl. mobil (home auch a weng) -- cetine
+7e4a896 update meine-fahrzeuge (/cars) seite -- cetine
+a762942 update -- cetine
+42de9dd cars Seite erstellt -- cetine
+4a37da8 Login angepasst -- hausercor
+a2b6367 improvements in profil -- Marcel Ament
+e2bb6d1 worked on login and register -- Marcel Ament
+5254150 Profil verbessert & Kreditkarteninfo erzeugt -- cetine
+84d3f24 improved login -- Marcel Ament
+67412c6 neuepngs -- cetine
+b3409a5 pngs -- cetine
+dc8c780 Versuch Mobile Ansicht zu verbessern -- hausercor
+ad1079a Login -- hausercor
+0eff1df created method getNutzer -- Marcel Ament
+6010de4 added createNutzer and checkLogin -- Marcel Ament
+16f7c1c Login -- hausercor
+9b32e49 created Nutzer methods -- Marcel Ament
+ff0a945 added sql update and first ajax call for search cars -- Marcel Ament
+159ce3f Confirm-Passwort -- Jonas Ellinger
+e1ca615 Anpassung der Überschriften -- hausercor
+54fd8b0 Fertigstellung Benutzer-Registrierung HTML -- Jonas Ellinger
+bc21bda u.a. neuer button -- cetine
+57a7481 Anpassung der Überschrift -- hausercor
+5f3b4a5 Anpassung der Seiten renting und return -- hausercor
+5be9c2a Css zusammengekürzt -- hausercor
+6634be2 Neuer header -- cetine
+805b1cc removed compiling error -- Marcel Ament
+e92a331 added fahrzeug -- Marcel Ament
+290173b Css getrennt -- hausercor
+bee1108 added gson -- Marcel Ament
+15096e3 renamed return to return_car -- Marcel Ament
+98c4da5 added update1.sql for fahrzeug -- Marcel Ament
+07bc920 css.profil erstellt -- cetine
+df188ac added ajax example in home -- Marcel Ament
+69db031 Angleichung und Umbenennug -- hausercor
+7022e15 removed res-auth -- janphilipphils
+ecd743f some improvements -- Marcel Ament
+df5800d Beginn "Fahrzeugregistrierung" -- Jonas Ellinger
+5a57658 Profil.jsp verbessert -- cetine
+fe6c4be added bewerten -- janphilipphils
+2610708 added jndi pool -- Marcel Ament
+0c9c16d Verbesserung von Return und Renting_out -- hausercor
+dd0261e Registrierung Nutzer -- Jonas Ellinger
+9770cf4 head hinzugefügt -- cetine
+f79462e renting_out view -- hausercor
+ae60dfd Nutzer-Registrierung -- Jonas Ellinger
+e41c4df Erster Entwurf Profil -- cetine
+0155d1e Renting_out -- hausercor
+5b3aad0 some theme improvements -- Marcel Ament
+2036ade removed wrong merge -- Marcel Ament
+7739329 profile.jsp hinzugefügt -- cetine
+2eb1eec changed git ignore -- cetine
+1f521c0 removed files -- Marcel Ament
+e41d994 removed some files -- Marcel Ament
+ffce18a removed classpath -- Marcel Ament
+4e2f462 firstcommit -- cetine
+8c75d65 test -- Marcel Ament
+ea1771d added classpath to git ignore -- Jonas Ellinger
+6dfb368 test git ignore -- Jonas Ellinger
+c13dcaf added new page register -- Marcel Ament
+b9d4136 added Login page -- Marcel Ament
+3ccc756 added theme to projekt -- Marcel Ament
+9c034a6 first steps for hibernate -- Marcel Ament
+d68f4aa small changed -- Marcel Ament
+537a9a5 Initial commit -- Marcel Ament
+4e2a1a5 war -- Marcel Ament
+f4585d4 initial commit -- Marcel Ament
